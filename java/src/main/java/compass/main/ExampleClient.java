@@ -57,7 +57,7 @@ public class ExampleClient {
             client.insert(evt);
         } catch (Exception e) {
             System.err.println(e.getMessage());
-            System.exit(-1);
+            System.exit(1);
         }
         System.out.println("Success!");
     }
