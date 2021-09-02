@@ -3,7 +3,7 @@
 - There are two types of api, straight http (see curl directory) and a grpc based api.
 - Minimal examples of grpc api usage are available in several languages
 - Grpc api does not yet support streaming, but may in the future
-- The api key provided in the examples is a real key that undergoes all the validation logic but does not write anything to our databases
+- The api key provided in the examples is a real key that undergoes all the validation logic but does not write anything to our databases (this is useful for testing, but please use the api key given to you by us!)
 
 Below shows information about specific fields within the compass api
 
