@@ -9,6 +9,11 @@ buildscript {
 
 plugins {
     id "java"
+    id "application"
+}
+
+application {
+    mainClassName = "compass.main.ExampleClient"
 }
 
 group 'compass.iot'

@@ -59,7 +59,7 @@ public class ExampleClient {
             System.err.println(e.getMessage());
             System.exit(1);
         }
-        System.out.println("Success!");
+        System.out.println("Successfully pushed event via GRPC API!");
     }
 }
 
