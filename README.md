@@ -122,6 +122,8 @@ Acceleration is measured in gforce
 so if the vehicle is decelerating at 9.8m/s^2 (newtons) in the x axis,
 the input to this api should be Acceleration { 1, 0, 0 }
 
+![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -138,6 +140,8 @@ the input to this api should be Acceleration { 1, 0, 0 }
 
 ### Gyro
 Rotational data
+
+&lt;i&gt;See acceleration diagram for more details&lt;/i&gt;
 
 
 | Field | Type | Label | Description |
@@ -179,7 +183,7 @@ Rotational data
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| vehicle_id | [string](#string) |  | Unique identifier for the vehicle. |
+| vehicle_id | [string](#string) |  | Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field |
 | timestamp | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | Timestamp that event occured |
 | transport_type | [TransportType](#compass.harvest.v1alpha1.TransportType) |  |  |
 | vehicle_type | [VehicleType](#compass.harvest.v1alpha1.VehicleType) |  |  |
@@ -382,6 +386,8 @@ Acceleration is measured in gforce
 so if the vehicle is decelerating at 9.8m/s^2 (newtons) in the x axis,
 the input to this api should be Acceleration { 1, 0, 0 }
 
+![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -398,6 +404,8 @@ the input to this api should be Acceleration { 1, 0, 0 }
 
 ### Gyro
 Rotational data
+
+&lt;i&gt;See acceleration diagram for more details&lt;/i&gt;
 
 
 | Field | Type | Label | Description |
@@ -439,7 +447,7 @@ Rotational data
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| vehicle_id | [string](#string) |  | Unique identifier for the vehicle. |
+| vehicle_id | [string](#string) |  | Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field |
 | timestamp | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | Timestamp that event occured |
 | transport_type | [TransportType](#compass.harvest.v1alpha1.TransportType) |  |  |
 | vehicle_type | [VehicleType](#compass.harvest.v1alpha1.VehicleType) |  |  |
@@ -642,6 +650,8 @@ Acceleration is measured in gforce
 so if the vehicle is decelerating at 9.8m/s^2 (newtons) in the x axis,
 the input to this api should be Acceleration { 1, 0, 0 }
 
+![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -658,6 +668,8 @@ the input to this api should be Acceleration { 1, 0, 0 }
 
 ### Gyro
 Rotational data
+
+&lt;i&gt;See acceleration diagram for more details&lt;/i&gt;
 
 
 | Field | Type | Label | Description |
@@ -699,7 +711,7 @@ Rotational data
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| vehicle_id | [string](#string) |  | Unique identifier for the vehicle. |
+| vehicle_id | [string](#string) |  | Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field |
 | timestamp | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | Timestamp that event occured |
 | transport_type | [TransportType](#compass.harvest.v1alpha1.TransportType) |  |  |
 | vehicle_type | [VehicleType](#compass.harvest.v1alpha1.VehicleType) |  |  |

@@ -1187,6 +1187,7 @@ public final class PositionEventOuterClass {
    * Acceleration is measured in gforce
    * so if the vehicle is decelerating at 9.8m/s^2 (newtons) in the x axis,
    * the input to this api should be Acceleration { 1, 0, 0 }
+   * ![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
    * </pre>
    *
    * Protobuf type {@code compass.harvest.v1alpha1.Acceleration}
@@ -1514,6 +1515,7 @@ public final class PositionEventOuterClass {
      * Acceleration is measured in gforce
      * so if the vehicle is decelerating at 9.8m/s^2 (newtons) in the x axis,
      * the input to this api should be Acceleration { 1, 0, 0 }
+     * ![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
      * </pre>
      *
      * Protobuf type {@code compass.harvest.v1alpha1.Acceleration}
@@ -1881,6 +1883,7 @@ public final class PositionEventOuterClass {
    * <pre>
    **
    * Rotational data
+   * &lt;i&gt;See acceleration diagram for more details&lt;/i&gt;
    * </pre>
    *
    * Protobuf type {@code compass.harvest.v1alpha1.Gyro}
@@ -2194,6 +2197,7 @@ public final class PositionEventOuterClass {
      * <pre>
      **
      * Rotational data
+     * &lt;i&gt;See acceleration diagram for more details&lt;/i&gt;
      * </pre>
      *
      * Protobuf type {@code compass.harvest.v1alpha1.Gyro}
@@ -2505,7 +2509,7 @@ public final class PositionEventOuterClass {
 
     /**
      * <pre>
-     * Unique identifier for the vehicle.
+     * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
      * </pre>
      *
      * <code>string vehicle_id = 1;</code>
@@ -2514,7 +2518,7 @@ public final class PositionEventOuterClass {
     java.lang.String getVehicleId();
     /**
      * <pre>
-     * Unique identifier for the vehicle.
+     * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
      * </pre>
      *
      * <code>string vehicle_id = 1;</code>
@@ -2886,7 +2890,7 @@ public final class PositionEventOuterClass {
     private volatile java.lang.Object vehicleId_;
     /**
      * <pre>
-     * Unique identifier for the vehicle.
+     * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
      * </pre>
      *
      * <code>string vehicle_id = 1;</code>
@@ -2907,7 +2911,7 @@ public final class PositionEventOuterClass {
     }
     /**
      * <pre>
-     * Unique identifier for the vehicle.
+     * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
      * </pre>
      *
      * <code>string vehicle_id = 1;</code>
@@ -3758,7 +3762,7 @@ public final class PositionEventOuterClass {
       private java.lang.Object vehicleId_ = "";
       /**
        * <pre>
-       * Unique identifier for the vehicle.
+       * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
        * </pre>
        *
        * <code>string vehicle_id = 1;</code>
@@ -3778,7 +3782,7 @@ public final class PositionEventOuterClass {
       }
       /**
        * <pre>
-       * Unique identifier for the vehicle.
+       * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
        * </pre>
        *
        * <code>string vehicle_id = 1;</code>
@@ -3799,7 +3803,7 @@ public final class PositionEventOuterClass {
       }
       /**
        * <pre>
-       * Unique identifier for the vehicle.
+       * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
        * </pre>
        *
        * <code>string vehicle_id = 1;</code>
@@ -3818,7 +3822,7 @@ public final class PositionEventOuterClass {
       }
       /**
        * <pre>
-       * Unique identifier for the vehicle.
+       * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
        * </pre>
        *
        * <code>string vehicle_id = 1;</code>
@@ -3832,7 +3836,7 @@ public final class PositionEventOuterClass {
       }
       /**
        * <pre>
-       * Unique identifier for the vehicle.
+       * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
        * </pre>
        *
        * <code>string vehicle_id = 1;</code>
