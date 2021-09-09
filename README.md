@@ -276,76 +276,31 @@ See acceleration diagram for more details
 
 ## Table of Contents
 
-- [compass/harvest/v1alpha1/ingest.proto](#compass/harvest/v1alpha1/ingest.proto)
-    - [BatchInsertRequest](#compass.harvest.v1alpha1.BatchInsertRequest)
-    - [BatchInsertResponse](#compass.harvest.v1alpha1.BatchInsertResponse)
-    - [InsertError](#compass.harvest.v1alpha1.InsertError)
+- [compass/iam/permission.proto](#compass/iam/permission.proto)
+    - [Permission](#compass.iam.Permission)
   
-    - [IngestService](#compass.harvest.v1alpha1.IngestService)
-  
-- [compass/harvest/v1alpha1/position_event.proto](#compass/harvest/v1alpha1/position_event.proto)
-    - [Acceleration](#compass.harvest.v1alpha1.Acceleration)
-    - [Gyro](#compass.harvest.v1alpha1.Gyro)
-    - [Position](#compass.harvest.v1alpha1.Position)
-    - [PositionEvent](#compass.harvest.v1alpha1.PositionEvent)
-    - [PositionEvent.LabelsEntry](#compass.harvest.v1alpha1.PositionEvent.LabelsEntry)
-  
-    - [TransportType](#compass.harvest.v1alpha1.TransportType)
-    - [VehicleType](#compass.harvest.v1alpha1.VehicleType)
+    - [File-level Extensions](#compass/iam/permission.proto-extensions)
   
 - [Scalar Value Types](#scalar-value-types)
 
 
 
-<a name="compass/harvest/v1alpha1/ingest.proto"></a>
+<a name="compass/iam/permission.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## compass/harvest/v1alpha1/ingest.proto
+## compass/iam/permission.proto
 
 
 
-<a name="compass.harvest.v1alpha1.BatchInsertRequest"></a>
+<a name="compass.iam.Permission"></a>
 
-### BatchInsertRequest
-Batch request for sending multiple events in a single call
-please don&#39;t go crazy on the message size !
+### Permission
+
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| events | [PositionEvent](#compass.harvest.v1alpha1.PositionEvent) | repeated |  |
-
-
-
-
-
-
-<a name="compass.harvest.v1alpha1.BatchInsertResponse"></a>
-
-### BatchInsertResponse
-List of errors ordered according to the BatchInsertRequest
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| errors | [InsertError](#compass.harvest.v1alpha1.InsertError) | repeated |  |
-
-
-
-
-
-
-<a name="compass.harvest.v1alpha1.InsertError"></a>
-
-### InsertError
-e.g. if BatchInsertRequest.events[2] contains an error
-BatchInsertResponse.errors.index = 2 should contain the relevant message
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| index | [int32](#int32) |  |  |
-| error | [google.rpc.Status](#google.rpc.Status) |  |  |
+| name | [string](#string) |  | &lt;service&gt;.&lt;resource&gt;.&lt;verb&gt; (For example: compass.users.list) |
 
 
 
@@ -355,159 +310,13 @@ BatchInsertResponse.errors.index = 2 should contain the relevant message
 
  
 
- 
 
+<a name="compass/iam/permission.proto-extensions"></a>
 
-<a name="compass.harvest.v1alpha1.IngestService"></a>
-
-### IngestService
-
-
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| Insert | [PositionEvent](#compass.harvest.v1alpha1.PositionEvent) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
-| BatchInsert | [BatchInsertRequest](#compass.harvest.v1alpha1.BatchInsertRequest) | [BatchInsertResponse](#compass.harvest.v1alpha1.BatchInsertResponse) |  |
-
- 
-
-
-
-<a name="compass/harvest/v1alpha1/position_event.proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## compass/harvest/v1alpha1/position_event.proto
-
-
-
-<a name="compass.harvest.v1alpha1.Acceleration"></a>
-
-### Acceleration
-Acceleration is measured in gforce
-so if the vehicle is decelerating at 9.8m/s^2 (newtons) in the x axis,
-the input to this api should be Acceleration { 1, 0, 0 }
-
-![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| x | [double](#double) |  | acceleration / braking |
-| y | [double](#double) |  | side to side / turning force |
-| z | [double](#double) |  | vertical up / down force |
-
-
-
-
-
-
-<a name="compass.harvest.v1alpha1.Gyro"></a>
-
-### Gyro
-Rotational data
-
-See acceleration diagram for more details
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| roll | [double](#double) |  |  |
-| pitch | [double](#double) |  |  |
-| yaw | [double](#double) |  |  |
-
-
-
-
-
-
-<a name="compass.harvest.v1alpha1.Position"></a>
-
-### Position
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| latlng | [compass.type.geo.LatLng](#compass.type.geo.LatLng) |  | lat and lng of the vehicle position |
-| speed | [double](#double) |  | speed of vehicle in km/h |
-| bearing | [double](#double) |  | [optional] bearing of vehicle in degrees [0, 360) |
-
-
-
-
-
-
-<a name="compass.harvest.v1alpha1.PositionEvent"></a>
-
-### PositionEvent
-- Either VehicleID or TripID MUST be present.
-- Ideally both, followed by just VehicleID, followed by just TripID.
-- Position, VehicleType and TransportType are required
-- Any extra metadata can be added in &#39;labels&#39; and will be greatly appreciated!
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| vehicle_id | [string](#string) |  | Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field |
-| timestamp | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | Timestamp that event occured |
-| transport_type | [TransportType](#compass.harvest.v1alpha1.TransportType) |  |  |
-| vehicle_type | [VehicleType](#compass.harvest.v1alpha1.VehicleType) |  |  |
-| position | [Position](#compass.harvest.v1alpha1.Position) |  |  |
-| acceleration | [Acceleration](#compass.harvest.v1alpha1.Acceleration) |  |  |
-| gyro | [Gyro](#compass.harvest.v1alpha1.Gyro) |  |  |
-| trip_id | [string](#string) |  | Id linking points of the same trip |
-| labels | [PositionEvent.LabelsEntry](#compass.harvest.v1alpha1.PositionEvent.LabelsEntry) | repeated | extra metadata not suppported by our api that may be useful :) |
-
-
-
-
-
-
-<a name="compass.harvest.v1alpha1.PositionEvent.LabelsEntry"></a>
-
-### PositionEvent.LabelsEntry
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| key | [string](#string) |  |  |
-| value | [string](#string) |  |  |
-
-
-
-
-
- 
-
-
-<a name="compass.harvest.v1alpha1.TransportType"></a>
-
-### TransportType
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| TRANSPORT_TYPE_UNSPECIFIED | 0 |  |
-| PRIVATE | 1 | Anything not public |
-| PUBLIC | 2 | Vehicle operated by public services |
-
-
-
-<a name="compass.harvest.v1alpha1.VehicleType"></a>
-
-### VehicleType
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| VEHICLE_TYPE_UNSPECIFIED | 0 |  |
-| BUS | 1 |  |
-| CAR | 2 |  |
-| VAN | 3 |  |
-| TRUCK | 4 |  |
-
-
- 
+### File-level Extensions
+| Extension | Type | Base | Number | Description |
+| --------- | ---- | ---- | ------ | ----------- |
+| permission | Permission | .google.protobuf.MethodOptions | 50000 |  |
 
  
 
@@ -540,236 +349,73 @@ See acceleration diagram for more details
 
 ## Table of Contents
 
-- [compass/harvest/v1alpha1/ingest.proto](#compass/harvest/v1alpha1/ingest.proto)
-    - [BatchInsertRequest](#compass.harvest.v1alpha1.BatchInsertRequest)
-    - [BatchInsertResponse](#compass.harvest.v1alpha1.BatchInsertResponse)
-    - [InsertError](#compass.harvest.v1alpha1.InsertError)
-  
-    - [IngestService](#compass.harvest.v1alpha1.IngestService)
-  
-- [compass/harvest/v1alpha1/position_event.proto](#compass/harvest/v1alpha1/position_event.proto)
-    - [Acceleration](#compass.harvest.v1alpha1.Acceleration)
-    - [Gyro](#compass.harvest.v1alpha1.Gyro)
-    - [Position](#compass.harvest.v1alpha1.Position)
-    - [PositionEvent](#compass.harvest.v1alpha1.PositionEvent)
-    - [PositionEvent.LabelsEntry](#compass.harvest.v1alpha1.PositionEvent.LabelsEntry)
-  
-    - [TransportType](#compass.harvest.v1alpha1.TransportType)
-    - [VehicleType](#compass.harvest.v1alpha1.VehicleType)
+- [compass/type/geo/geo.proto](#compass/type/geo/geo.proto)
+    - [BoundingBox](#compass.type.geo.BoundingBox)
+    - [LatLng](#compass.type.geo.LatLng)
+    - [Path](#compass.type.geo.Path)
   
 - [Scalar Value Types](#scalar-value-types)
 
 
 
-<a name="compass/harvest/v1alpha1/ingest.proto"></a>
+<a name="compass/type/geo/geo.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## compass/harvest/v1alpha1/ingest.proto
+## compass/type/geo/geo.proto
 
 
 
-<a name="compass.harvest.v1alpha1.BatchInsertRequest"></a>
+<a name="compass.type.geo.BoundingBox"></a>
 
-### BatchInsertRequest
-Batch request for sending multiple events in a single call
-please don&#39;t go crazy on the message size !
+### BoundingBox
+
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| events | [PositionEvent](#compass.harvest.v1alpha1.PositionEvent) | repeated |  |
+| north_eastern | [LatLng](#compass.type.geo.LatLng) |  |  |
+| south_western | [LatLng](#compass.type.geo.LatLng) |  |  |
 
 
 
 
 
 
-<a name="compass.harvest.v1alpha1.BatchInsertResponse"></a>
+<a name="compass.type.geo.LatLng"></a>
 
-### BatchInsertResponse
-List of errors ordered according to the BatchInsertRequest
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| errors | [InsertError](#compass.harvest.v1alpha1.InsertError) | repeated |  |
-
-
-
-
-
-
-<a name="compass.harvest.v1alpha1.InsertError"></a>
-
-### InsertError
-e.g. if BatchInsertRequest.events[2] contains an error
-BatchInsertResponse.errors.index = 2 should contain the relevant message
+### LatLng
+An object representing a latitude/longitude pair. This is expressed as a pair
+of doubles representing degrees latitude and degrees longitude. Unless
+specified otherwise, this must conform to the
+&lt;a href=&#34;http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf&#34;&gt;WGS84
+standard&lt;/a&gt;. Values must be within normalized ranges.
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| index | [int32](#int32) |  |  |
-| error | [google.rpc.Status](#google.rpc.Status) |  |  |
+| latitude | [double](#double) |  | The latitude in degrees. It must be in the range [-90.0, &#43;90.0]. |
+| longitude | [double](#double) |  | The longitude in degrees. It must be in the range [-180.0, &#43;180.0]. |
+
+
+
+
+
+
+<a name="compass.type.geo.Path"></a>
+
+### Path
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| points | [LatLng](#compass.type.geo.LatLng) | repeated |  |
 
 
 
 
 
  
-
- 
-
- 
-
-
-<a name="compass.harvest.v1alpha1.IngestService"></a>
-
-### IngestService
-
-
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| Insert | [PositionEvent](#compass.harvest.v1alpha1.PositionEvent) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
-| BatchInsert | [BatchInsertRequest](#compass.harvest.v1alpha1.BatchInsertRequest) | [BatchInsertResponse](#compass.harvest.v1alpha1.BatchInsertResponse) |  |
-
- 
-
-
-
-<a name="compass/harvest/v1alpha1/position_event.proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## compass/harvest/v1alpha1/position_event.proto
-
-
-
-<a name="compass.harvest.v1alpha1.Acceleration"></a>
-
-### Acceleration
-Acceleration is measured in gforce
-so if the vehicle is decelerating at 9.8m/s^2 (newtons) in the x axis,
-the input to this api should be Acceleration { 1, 0, 0 }
-
-![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| x | [double](#double) |  | acceleration / braking |
-| y | [double](#double) |  | side to side / turning force |
-| z | [double](#double) |  | vertical up / down force |
-
-
-
-
-
-
-<a name="compass.harvest.v1alpha1.Gyro"></a>
-
-### Gyro
-Rotational data
-
-See acceleration diagram for more details
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| roll | [double](#double) |  |  |
-| pitch | [double](#double) |  |  |
-| yaw | [double](#double) |  |  |
-
-
-
-
-
-
-<a name="compass.harvest.v1alpha1.Position"></a>
-
-### Position
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| latlng | [compass.type.geo.LatLng](#compass.type.geo.LatLng) |  | lat and lng of the vehicle position |
-| speed | [double](#double) |  | speed of vehicle in km/h |
-| bearing | [double](#double) |  | [optional] bearing of vehicle in degrees [0, 360) |
-
-
-
-
-
-
-<a name="compass.harvest.v1alpha1.PositionEvent"></a>
-
-### PositionEvent
-- Either VehicleID or TripID MUST be present.
-- Ideally both, followed by just VehicleID, followed by just TripID.
-- Position, VehicleType and TransportType are required
-- Any extra metadata can be added in &#39;labels&#39; and will be greatly appreciated!
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| vehicle_id | [string](#string) |  | Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field |
-| timestamp | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | Timestamp that event occured |
-| transport_type | [TransportType](#compass.harvest.v1alpha1.TransportType) |  |  |
-| vehicle_type | [VehicleType](#compass.harvest.v1alpha1.VehicleType) |  |  |
-| position | [Position](#compass.harvest.v1alpha1.Position) |  |  |
-| acceleration | [Acceleration](#compass.harvest.v1alpha1.Acceleration) |  |  |
-| gyro | [Gyro](#compass.harvest.v1alpha1.Gyro) |  |  |
-| trip_id | [string](#string) |  | Id linking points of the same trip |
-| labels | [PositionEvent.LabelsEntry](#compass.harvest.v1alpha1.PositionEvent.LabelsEntry) | repeated | extra metadata not suppported by our api that may be useful :) |
-
-
-
-
-
-
-<a name="compass.harvest.v1alpha1.PositionEvent.LabelsEntry"></a>
-
-### PositionEvent.LabelsEntry
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| key | [string](#string) |  |  |
-| value | [string](#string) |  |  |
-
-
-
-
-
- 
-
-
-<a name="compass.harvest.v1alpha1.TransportType"></a>
-
-### TransportType
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| TRANSPORT_TYPE_UNSPECIFIED | 0 |  |
-| PRIVATE | 1 | Anything not public |
-| PUBLIC | 2 | Vehicle operated by public services |
-
-
-
-<a name="compass.harvest.v1alpha1.VehicleType"></a>
-
-### VehicleType
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| VEHICLE_TYPE_UNSPECIFIED | 0 |  |
-| BUS | 1 |  |
-| CAR | 2 |  |
-| VAN | 3 |  |
-| TRUCK | 4 |  |
-
 
  
 
