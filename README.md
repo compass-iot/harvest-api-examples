@@ -141,7 +141,7 @@ the input to this api should be Acceleration { 1, 0, 0 }
 ### Gyro
 Rotational data
 
-&lt;i&gt;See acceleration diagram for more details&lt;/i&gt;
+See acceleration diagram for more details
 
 
 | Field | Type | Label | Description |
@@ -405,7 +405,7 @@ the input to this api should be Acceleration { 1, 0, 0 }
 ### Gyro
 Rotational data
 
-&lt;i&gt;See acceleration diagram for more details&lt;/i&gt;
+See acceleration diagram for more details
 
 
 | Field | Type | Label | Description |
@@ -669,7 +669,7 @@ the input to this api should be Acceleration { 1, 0, 0 }
 ### Gyro
 Rotational data
 
-&lt;i&gt;See acceleration diagram for more details&lt;/i&gt;
+See acceleration diagram for more details
 
 
 | Field | Type | Label | Description |

@@ -1883,7 +1883,7 @@ public final class PositionEventOuterClass {
    * <pre>
    **
    * Rotational data
-   * &lt;i&gt;See acceleration diagram for more details&lt;/i&gt;
+   * See acceleration diagram for more details
    * </pre>
    *
    * Protobuf type {@code compass.harvest.v1alpha1.Gyro}
@@ -2197,7 +2197,7 @@ public final class PositionEventOuterClass {
      * <pre>
      **
      * Rotational data
-     * &lt;i&gt;See acceleration diagram for more details&lt;/i&gt;
+     * See acceleration diagram for more details
      * </pre>
      *
      * Protobuf type {@code compass.harvest.v1alpha1.Gyro}
