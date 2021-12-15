@@ -1185,8 +1185,12 @@ public final class PositionEventOuterClass {
    * <pre>
    **
    * Acceleration is measured in gforce
-   * so if the vehicle is decelerating at 9.8m/s^2 (newtons) in the x axis,
+   * so if the vehicle is accelerating at 9.8m/s^2 (newtons) in the x axis,
    * the input to this api should be Acceleration { 1, 0, 0 }
+   * if it is decelerating at 1m/s^2, the input to this api should be { -0.102, 0, 0 } (0.102 ~= 1/9.8)
+   * if this is confusing, don't worry to hard about getting it correct, we can apply provider specific unit conversions post ingestion, just be consistent and let us know
+   * Note that the vertical axis in the diagram is the z axis, not the y axis
+   * Also note the + and - signs in the diagram which direction should be positive and negative within each axis
    * ![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
    * </pre>
    *
@@ -1513,8 +1517,12 @@ public final class PositionEventOuterClass {
      * <pre>
      **
      * Acceleration is measured in gforce
-     * so if the vehicle is decelerating at 9.8m/s^2 (newtons) in the x axis,
+     * so if the vehicle is accelerating at 9.8m/s^2 (newtons) in the x axis,
      * the input to this api should be Acceleration { 1, 0, 0 }
+     * if it is decelerating at 1m/s^2, the input to this api should be { -0.102, 0, 0 } (0.102 ~= 1/9.8)
+     * if this is confusing, don't worry to hard about getting it correct, we can apply provider specific unit conversions post ingestion, just be consistent and let us know
+     * Note that the vertical axis in the diagram is the z axis, not the y axis
+     * Also note the + and - signs in the diagram which direction should be positive and negative within each axis
      * ![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
      * </pre>
      *
@@ -1882,7 +1890,8 @@ public final class PositionEventOuterClass {
   /**
    * <pre>
    **
-   * Rotational data
+   * Rotational data is measured in degrees per second
+   * A positive value for roll, pitch or yaw is defined in the anti-clockwise direction when facing the positive direction of it's axis
    * See acceleration diagram for more details
    * </pre>
    *
@@ -2196,7 +2205,8 @@ public final class PositionEventOuterClass {
     /**
      * <pre>
      **
-     * Rotational data
+     * Rotational data is measured in degrees per second
+     * A positive value for roll, pitch or yaw is defined in the anti-clockwise direction when facing the positive direction of it's axis
      * See acceleration diagram for more details
      * </pre>
      *
