@@ -518,10 +518,10 @@ public final class PositionEventOuterClass {
       if (latlng_ != null) {
         output.writeMessage(1, getLatlng());
       }
-      if (speed_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(speed_) != 0) {
         output.writeDouble(2, speed_);
       }
-      if (bearing_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(bearing_) != 0) {
         output.writeDouble(3, bearing_);
       }
       unknownFields.writeTo(output);
@@ -537,11 +537,11 @@ public final class PositionEventOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getLatlng());
       }
-      if (speed_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(speed_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, speed_);
       }
-      if (bearing_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(bearing_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, bearing_);
       }
@@ -1344,13 +1344,13 @@ public final class PositionEventOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (x_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(x_) != 0) {
         output.writeDouble(1, x_);
       }
-      if (y_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(y_) != 0) {
         output.writeDouble(2, y_);
       }
-      if (z_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(z_) != 0) {
         output.writeDouble(3, z_);
       }
       unknownFields.writeTo(output);
@@ -1362,15 +1362,15 @@ public final class PositionEventOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (x_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(x_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(1, x_);
       }
-      if (y_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(y_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, y_);
       }
-      if (z_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(z_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, z_);
       }
@@ -2033,13 +2033,13 @@ public final class PositionEventOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (roll_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(roll_) != 0) {
         output.writeDouble(1, roll_);
       }
-      if (pitch_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(pitch_) != 0) {
         output.writeDouble(2, pitch_);
       }
-      if (yaw_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(yaw_) != 0) {
         output.writeDouble(3, yaw_);
       }
       unknownFields.writeTo(output);
@@ -2051,15 +2051,15 @@ public final class PositionEventOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (roll_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(roll_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(1, roll_);
       }
-      if (pitch_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(pitch_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, pitch_);
       }
-      if (yaw_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(yaw_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, yaw_);
       }
@@ -3179,7 +3179,7 @@ public final class PositionEventOuterClass {
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetLabels().getMap().containsKey(key);
     }
     /**
@@ -3214,7 +3214,7 @@ public final class PositionEventOuterClass {
     public java.lang.String getLabelsOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -3230,7 +3230,7 @@ public final class PositionEventOuterClass {
 
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
       if (!map.containsKey(key)) {
@@ -3253,7 +3253,7 @@ public final class PositionEventOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getVehicleIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vehicleId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vehicleId_);
       }
       if (timestamp_ != null) {
@@ -3280,7 +3280,7 @@ public final class PositionEventOuterClass {
       if (gyro_ != null) {
         output.writeMessage(8, getGyro());
       }
-      if (!getTripIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tripId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, tripId_);
       }
       unknownFields.writeTo(output);
@@ -3292,7 +3292,7 @@ public final class PositionEventOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getVehicleIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vehicleId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vehicleId_);
       }
       if (timestamp_ != null) {
@@ -3329,7 +3329,7 @@ public final class PositionEventOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getGyro());
       }
-      if (!getTripIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tripId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, tripId_);
       }
       size += unknownFields.getSerializedSize();
@@ -4618,7 +4618,7 @@ public final class PositionEventOuterClass {
       @java.lang.Override
       public boolean containsLabels(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetLabels().getMap().containsKey(key);
       }
       /**
@@ -4653,7 +4653,7 @@ public final class PositionEventOuterClass {
       public java.lang.String getLabelsOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetLabels().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -4669,7 +4669,7 @@ public final class PositionEventOuterClass {
 
       public java.lang.String getLabelsOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetLabels().getMap();
         if (!map.containsKey(key)) {
@@ -4693,7 +4693,7 @@ public final class PositionEventOuterClass {
 
       public Builder removeLabels(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableLabels().getMutableMap()
             .remove(key);
         return this;
@@ -4716,8 +4716,11 @@ public final class PositionEventOuterClass {
       public Builder putLabels(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableLabels().getMutableMap()
             .put(key, value);
         return this;
