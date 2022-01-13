@@ -11,7 +11,7 @@ namespace Client
 {
     class ExampleClient
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             
         String url = "https://harvest.grpc.apis.compassiot.cloud:443";
@@ -29,21 +29,17 @@ namespace Client
             Acceleration =  new Acceleration {X = 1, Y = 2, Z = 3}, 
             Position = new Position{Latlng = new LatLng{Latitude = 45, Longitude = 90}},
             Gyro = new Gyro{Roll = -1, Pitch = -2, Yaw = -3},
-            Timestamp = Timestamp.FromDateTime(DateTime.UtcNow)};
-            
-
-        
-        try
+            Timestamp = Timestamp.FromDateTime(DateTime.UtcNow)};    
+        try 
         {
             client.Insert(evt, headers);
-            client.Insert(evt2, headers);
         }
         catch (Exception e)
         {
             Console.Write(e.Message);
             return 0;
         }
-            Console.Write("\nSuccessfully pushed event via GRPC API!");
+            Console.Write("\nSuccessfully pushed event via GRPC API!\n");
             return 0;
         }
     }
