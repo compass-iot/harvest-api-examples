@@ -1,8 +1,6 @@
-﻿using Google;
-using Grpc;
+﻿
 using Compass.Harvest.V1Alpha1;
 using Compass.Type.Geo;
-using Compass.Iam;
 using Grpc.Net.Client;
 using Google.Protobuf.WellKnownTypes;
 
@@ -40,7 +38,7 @@ namespace Client
             return 0;
         }
             Console.Write("\nSuccessfully pushed event via GRPC API!\n");
-            return 0;
+            return 1;
         }
     }
 }
