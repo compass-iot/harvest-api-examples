@@ -1,0 +1,3 @@
+[submodule "streaming/go/harvest-go"]
+	path = streaming/go/harvest-go
+	url = https://github.com/compass-iot/harvest-go.git
