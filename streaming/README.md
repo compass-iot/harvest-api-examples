@@ -126,8 +126,8 @@ if this is confusing, don&#39;t worry to hard about getting it correct, we can a
 Note that the vertical axis in the diagram is the z axis, not the y axis
 Also note the &#43; and - signs in the diagram which direction should be positive and negative within each axis
 
-![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
-
+<!-- ![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
+ -->
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
