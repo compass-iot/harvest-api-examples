@@ -13,7 +13,8 @@ curl --location --request POST 'https://harvest.apis.compassiot.cloud/v1alpha1/i
          "latitude":45,
          "longitude":90
       },
-      "speed":60
+      "speed":60,
+      "bearing": 359
    },
    "acceleration":{
       "x":1,
