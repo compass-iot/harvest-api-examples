@@ -112,6 +112,8 @@ public final class Geo {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -632,6 +634,610 @@ public final class Geo {
 
   }
 
+  public interface LatLng32OrBuilder extends
+      // @@protoc_insertion_point(interface_extends:compass.type.geo.LatLng32)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The latitude in degrees. It must be in the range [-90.0, +90.0].
+     * </pre>
+     *
+     * <code>float latitude = 1;</code>
+     * @return The latitude.
+     */
+    float getLatitude();
+
+    /**
+     * <pre>
+     * The longitude in degrees. It must be in the range [-180.0, +180.0].
+     * </pre>
+     *
+     * <code>float longitude = 2;</code>
+     * @return The longitude.
+     */
+    float getLongitude();
+  }
+  /**
+   * Protobuf type {@code compass.type.geo.LatLng32}
+   */
+  public static final class LatLng32 extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:compass.type.geo.LatLng32)
+      LatLng32OrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LatLng32.newBuilder() to construct.
+    private LatLng32(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LatLng32() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LatLng32();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LatLng32(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 13: {
+
+              latitude_ = input.readFloat();
+              break;
+            }
+            case 21: {
+
+              longitude_ = input.readFloat();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return compass.type.geo.Geo.internal_static_compass_type_geo_LatLng32_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return compass.type.geo.Geo.internal_static_compass_type_geo_LatLng32_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              compass.type.geo.Geo.LatLng32.class, compass.type.geo.Geo.LatLng32.Builder.class);
+    }
+
+    public static final int LATITUDE_FIELD_NUMBER = 1;
+    private float latitude_;
+    /**
+     * <pre>
+     * The latitude in degrees. It must be in the range [-90.0, +90.0].
+     * </pre>
+     *
+     * <code>float latitude = 1;</code>
+     * @return The latitude.
+     */
+    @java.lang.Override
+    public float getLatitude() {
+      return latitude_;
+    }
+
+    public static final int LONGITUDE_FIELD_NUMBER = 2;
+    private float longitude_;
+    /**
+     * <pre>
+     * The longitude in degrees. It must be in the range [-180.0, +180.0].
+     * </pre>
+     *
+     * <code>float longitude = 2;</code>
+     * @return The longitude.
+     */
+    @java.lang.Override
+    public float getLongitude() {
+      return longitude_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (java.lang.Float.floatToRawIntBits(latitude_) != 0) {
+        output.writeFloat(1, latitude_);
+      }
+      if (java.lang.Float.floatToRawIntBits(longitude_) != 0) {
+        output.writeFloat(2, longitude_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (java.lang.Float.floatToRawIntBits(latitude_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(1, latitude_);
+      }
+      if (java.lang.Float.floatToRawIntBits(longitude_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(2, longitude_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof compass.type.geo.Geo.LatLng32)) {
+        return super.equals(obj);
+      }
+      compass.type.geo.Geo.LatLng32 other = (compass.type.geo.Geo.LatLng32) obj;
+
+      if (java.lang.Float.floatToIntBits(getLatitude())
+          != java.lang.Float.floatToIntBits(
+              other.getLatitude())) return false;
+      if (java.lang.Float.floatToIntBits(getLongitude())
+          != java.lang.Float.floatToIntBits(
+              other.getLongitude())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + LATITUDE_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getLatitude());
+      hash = (37 * hash) + LONGITUDE_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getLongitude());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static compass.type.geo.Geo.LatLng32 parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.type.geo.Geo.LatLng32 parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.type.geo.Geo.LatLng32 parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.type.geo.Geo.LatLng32 parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.type.geo.Geo.LatLng32 parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.type.geo.Geo.LatLng32 parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.type.geo.Geo.LatLng32 parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.type.geo.Geo.LatLng32 parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.type.geo.Geo.LatLng32 parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static compass.type.geo.Geo.LatLng32 parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.type.geo.Geo.LatLng32 parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.type.geo.Geo.LatLng32 parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(compass.type.geo.Geo.LatLng32 prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code compass.type.geo.LatLng32}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:compass.type.geo.LatLng32)
+        compass.type.geo.Geo.LatLng32OrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return compass.type.geo.Geo.internal_static_compass_type_geo_LatLng32_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return compass.type.geo.Geo.internal_static_compass_type_geo_LatLng32_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                compass.type.geo.Geo.LatLng32.class, compass.type.geo.Geo.LatLng32.Builder.class);
+      }
+
+      // Construct using compass.type.geo.Geo.LatLng32.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        latitude_ = 0F;
+
+        longitude_ = 0F;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return compass.type.geo.Geo.internal_static_compass_type_geo_LatLng32_descriptor;
+      }
+
+      @java.lang.Override
+      public compass.type.geo.Geo.LatLng32 getDefaultInstanceForType() {
+        return compass.type.geo.Geo.LatLng32.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public compass.type.geo.Geo.LatLng32 build() {
+        compass.type.geo.Geo.LatLng32 result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public compass.type.geo.Geo.LatLng32 buildPartial() {
+        compass.type.geo.Geo.LatLng32 result = new compass.type.geo.Geo.LatLng32(this);
+        result.latitude_ = latitude_;
+        result.longitude_ = longitude_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof compass.type.geo.Geo.LatLng32) {
+          return mergeFrom((compass.type.geo.Geo.LatLng32)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(compass.type.geo.Geo.LatLng32 other) {
+        if (other == compass.type.geo.Geo.LatLng32.getDefaultInstance()) return this;
+        if (other.getLatitude() != 0F) {
+          setLatitude(other.getLatitude());
+        }
+        if (other.getLongitude() != 0F) {
+          setLongitude(other.getLongitude());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        compass.type.geo.Geo.LatLng32 parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (compass.type.geo.Geo.LatLng32) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private float latitude_ ;
+      /**
+       * <pre>
+       * The latitude in degrees. It must be in the range [-90.0, +90.0].
+       * </pre>
+       *
+       * <code>float latitude = 1;</code>
+       * @return The latitude.
+       */
+      @java.lang.Override
+      public float getLatitude() {
+        return latitude_;
+      }
+      /**
+       * <pre>
+       * The latitude in degrees. It must be in the range [-90.0, +90.0].
+       * </pre>
+       *
+       * <code>float latitude = 1;</code>
+       * @param value The latitude to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLatitude(float value) {
+        
+        latitude_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The latitude in degrees. It must be in the range [-90.0, +90.0].
+       * </pre>
+       *
+       * <code>float latitude = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLatitude() {
+        
+        latitude_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float longitude_ ;
+      /**
+       * <pre>
+       * The longitude in degrees. It must be in the range [-180.0, +180.0].
+       * </pre>
+       *
+       * <code>float longitude = 2;</code>
+       * @return The longitude.
+       */
+      @java.lang.Override
+      public float getLongitude() {
+        return longitude_;
+      }
+      /**
+       * <pre>
+       * The longitude in degrees. It must be in the range [-180.0, +180.0].
+       * </pre>
+       *
+       * <code>float longitude = 2;</code>
+       * @param value The longitude to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLongitude(float value) {
+        
+        longitude_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The longitude in degrees. It must be in the range [-180.0, +180.0].
+       * </pre>
+       *
+       * <code>float longitude = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLongitude() {
+        
+        longitude_ = 0F;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:compass.type.geo.LatLng32)
+    }
+
+    // @@protoc_insertion_point(class_scope:compass.type.geo.LatLng32)
+    private static final compass.type.geo.Geo.LatLng32 DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new compass.type.geo.Geo.LatLng32();
+    }
+
+    public static compass.type.geo.Geo.LatLng32 getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LatLng32>
+        PARSER = new com.google.protobuf.AbstractParser<LatLng32>() {
+      @java.lang.Override
+      public LatLng32 parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LatLng32(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LatLng32> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LatLng32> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public compass.type.geo.Geo.LatLng32 getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface BoundingBoxOrBuilder extends
       // @@protoc_insertion_point(interface_extends:compass.type.geo.BoundingBox)
       com.google.protobuf.MessageOrBuilder {
@@ -748,6 +1354,8 @@ public final class Geo {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -1551,6 +2159,8 @@ public final class Geo {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -2249,11 +2859,811 @@ public final class Geo {
 
   }
 
+  public interface RegionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:compass.type.geo.Region)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+     */
+    java.util.List<compass.type.geo.Geo.LatLng32> 
+        getPointsList();
+    /**
+     * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+     */
+    compass.type.geo.Geo.LatLng32 getPoints(int index);
+    /**
+     * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+     */
+    int getPointsCount();
+    /**
+     * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+     */
+    java.util.List<? extends compass.type.geo.Geo.LatLng32OrBuilder> 
+        getPointsOrBuilderList();
+    /**
+     * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+     */
+    compass.type.geo.Geo.LatLng32OrBuilder getPointsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code compass.type.geo.Region}
+   */
+  public static final class Region extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:compass.type.geo.Region)
+      RegionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Region.newBuilder() to construct.
+    private Region(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Region() {
+      points_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Region();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Region(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                points_ = new java.util.ArrayList<compass.type.geo.Geo.LatLng32>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              points_.add(
+                  input.readMessage(compass.type.geo.Geo.LatLng32.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          points_ = java.util.Collections.unmodifiableList(points_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return compass.type.geo.Geo.internal_static_compass_type_geo_Region_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return compass.type.geo.Geo.internal_static_compass_type_geo_Region_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              compass.type.geo.Geo.Region.class, compass.type.geo.Geo.Region.Builder.class);
+    }
+
+    public static final int POINTS_FIELD_NUMBER = 1;
+    private java.util.List<compass.type.geo.Geo.LatLng32> points_;
+    /**
+     * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<compass.type.geo.Geo.LatLng32> getPointsList() {
+      return points_;
+    }
+    /**
+     * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends compass.type.geo.Geo.LatLng32OrBuilder> 
+        getPointsOrBuilderList() {
+      return points_;
+    }
+    /**
+     * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+     */
+    @java.lang.Override
+    public int getPointsCount() {
+      return points_.size();
+    }
+    /**
+     * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+     */
+    @java.lang.Override
+    public compass.type.geo.Geo.LatLng32 getPoints(int index) {
+      return points_.get(index);
+    }
+    /**
+     * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+     */
+    @java.lang.Override
+    public compass.type.geo.Geo.LatLng32OrBuilder getPointsOrBuilder(
+        int index) {
+      return points_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < points_.size(); i++) {
+        output.writeMessage(1, points_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < points_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, points_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof compass.type.geo.Geo.Region)) {
+        return super.equals(obj);
+      }
+      compass.type.geo.Geo.Region other = (compass.type.geo.Geo.Region) obj;
+
+      if (!getPointsList()
+          .equals(other.getPointsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getPointsCount() > 0) {
+        hash = (37 * hash) + POINTS_FIELD_NUMBER;
+        hash = (53 * hash) + getPointsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static compass.type.geo.Geo.Region parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.type.geo.Geo.Region parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.type.geo.Geo.Region parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.type.geo.Geo.Region parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.type.geo.Geo.Region parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.type.geo.Geo.Region parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.type.geo.Geo.Region parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.type.geo.Geo.Region parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.type.geo.Geo.Region parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static compass.type.geo.Geo.Region parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.type.geo.Geo.Region parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.type.geo.Geo.Region parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(compass.type.geo.Geo.Region prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code compass.type.geo.Region}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:compass.type.geo.Region)
+        compass.type.geo.Geo.RegionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return compass.type.geo.Geo.internal_static_compass_type_geo_Region_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return compass.type.geo.Geo.internal_static_compass_type_geo_Region_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                compass.type.geo.Geo.Region.class, compass.type.geo.Geo.Region.Builder.class);
+      }
+
+      // Construct using compass.type.geo.Geo.Region.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getPointsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (pointsBuilder_ == null) {
+          points_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          pointsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return compass.type.geo.Geo.internal_static_compass_type_geo_Region_descriptor;
+      }
+
+      @java.lang.Override
+      public compass.type.geo.Geo.Region getDefaultInstanceForType() {
+        return compass.type.geo.Geo.Region.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public compass.type.geo.Geo.Region build() {
+        compass.type.geo.Geo.Region result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public compass.type.geo.Geo.Region buildPartial() {
+        compass.type.geo.Geo.Region result = new compass.type.geo.Geo.Region(this);
+        int from_bitField0_ = bitField0_;
+        if (pointsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            points_ = java.util.Collections.unmodifiableList(points_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.points_ = points_;
+        } else {
+          result.points_ = pointsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof compass.type.geo.Geo.Region) {
+          return mergeFrom((compass.type.geo.Geo.Region)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(compass.type.geo.Geo.Region other) {
+        if (other == compass.type.geo.Geo.Region.getDefaultInstance()) return this;
+        if (pointsBuilder_ == null) {
+          if (!other.points_.isEmpty()) {
+            if (points_.isEmpty()) {
+              points_ = other.points_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensurePointsIsMutable();
+              points_.addAll(other.points_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.points_.isEmpty()) {
+            if (pointsBuilder_.isEmpty()) {
+              pointsBuilder_.dispose();
+              pointsBuilder_ = null;
+              points_ = other.points_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              pointsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPointsFieldBuilder() : null;
+            } else {
+              pointsBuilder_.addAllMessages(other.points_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        compass.type.geo.Geo.Region parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (compass.type.geo.Geo.Region) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<compass.type.geo.Geo.LatLng32> points_ =
+        java.util.Collections.emptyList();
+      private void ensurePointsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          points_ = new java.util.ArrayList<compass.type.geo.Geo.LatLng32>(points_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          compass.type.geo.Geo.LatLng32, compass.type.geo.Geo.LatLng32.Builder, compass.type.geo.Geo.LatLng32OrBuilder> pointsBuilder_;
+
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public java.util.List<compass.type.geo.Geo.LatLng32> getPointsList() {
+        if (pointsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(points_);
+        } else {
+          return pointsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public int getPointsCount() {
+        if (pointsBuilder_ == null) {
+          return points_.size();
+        } else {
+          return pointsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public compass.type.geo.Geo.LatLng32 getPoints(int index) {
+        if (pointsBuilder_ == null) {
+          return points_.get(index);
+        } else {
+          return pointsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public Builder setPoints(
+          int index, compass.type.geo.Geo.LatLng32 value) {
+        if (pointsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePointsIsMutable();
+          points_.set(index, value);
+          onChanged();
+        } else {
+          pointsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public Builder setPoints(
+          int index, compass.type.geo.Geo.LatLng32.Builder builderForValue) {
+        if (pointsBuilder_ == null) {
+          ensurePointsIsMutable();
+          points_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          pointsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public Builder addPoints(compass.type.geo.Geo.LatLng32 value) {
+        if (pointsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePointsIsMutable();
+          points_.add(value);
+          onChanged();
+        } else {
+          pointsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public Builder addPoints(
+          int index, compass.type.geo.Geo.LatLng32 value) {
+        if (pointsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePointsIsMutable();
+          points_.add(index, value);
+          onChanged();
+        } else {
+          pointsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public Builder addPoints(
+          compass.type.geo.Geo.LatLng32.Builder builderForValue) {
+        if (pointsBuilder_ == null) {
+          ensurePointsIsMutable();
+          points_.add(builderForValue.build());
+          onChanged();
+        } else {
+          pointsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public Builder addPoints(
+          int index, compass.type.geo.Geo.LatLng32.Builder builderForValue) {
+        if (pointsBuilder_ == null) {
+          ensurePointsIsMutable();
+          points_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          pointsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public Builder addAllPoints(
+          java.lang.Iterable<? extends compass.type.geo.Geo.LatLng32> values) {
+        if (pointsBuilder_ == null) {
+          ensurePointsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, points_);
+          onChanged();
+        } else {
+          pointsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public Builder clearPoints() {
+        if (pointsBuilder_ == null) {
+          points_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          pointsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public Builder removePoints(int index) {
+        if (pointsBuilder_ == null) {
+          ensurePointsIsMutable();
+          points_.remove(index);
+          onChanged();
+        } else {
+          pointsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public compass.type.geo.Geo.LatLng32.Builder getPointsBuilder(
+          int index) {
+        return getPointsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public compass.type.geo.Geo.LatLng32OrBuilder getPointsOrBuilder(
+          int index) {
+        if (pointsBuilder_ == null) {
+          return points_.get(index);  } else {
+          return pointsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public java.util.List<? extends compass.type.geo.Geo.LatLng32OrBuilder> 
+           getPointsOrBuilderList() {
+        if (pointsBuilder_ != null) {
+          return pointsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(points_);
+        }
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public compass.type.geo.Geo.LatLng32.Builder addPointsBuilder() {
+        return getPointsFieldBuilder().addBuilder(
+            compass.type.geo.Geo.LatLng32.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public compass.type.geo.Geo.LatLng32.Builder addPointsBuilder(
+          int index) {
+        return getPointsFieldBuilder().addBuilder(
+            index, compass.type.geo.Geo.LatLng32.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
+       */
+      public java.util.List<compass.type.geo.Geo.LatLng32.Builder> 
+           getPointsBuilderList() {
+        return getPointsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          compass.type.geo.Geo.LatLng32, compass.type.geo.Geo.LatLng32.Builder, compass.type.geo.Geo.LatLng32OrBuilder> 
+          getPointsFieldBuilder() {
+        if (pointsBuilder_ == null) {
+          pointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              compass.type.geo.Geo.LatLng32, compass.type.geo.Geo.LatLng32.Builder, compass.type.geo.Geo.LatLng32OrBuilder>(
+                  points_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          points_ = null;
+        }
+        return pointsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:compass.type.geo.Region)
+    }
+
+    // @@protoc_insertion_point(class_scope:compass.type.geo.Region)
+    private static final compass.type.geo.Geo.Region DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new compass.type.geo.Geo.Region();
+    }
+
+    public static compass.type.geo.Geo.Region getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Region>
+        PARSER = new com.google.protobuf.AbstractParser<Region>() {
+      @java.lang.Override
+      public Region parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Region(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Region> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Region> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public compass.type.geo.Geo.Region getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_compass_type_geo_LatLng_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_compass_type_geo_LatLng_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_type_geo_LatLng32_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_type_geo_LatLng32_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_compass_type_geo_BoundingBox_descriptor;
   private static final 
@@ -2264,6 +3674,11 @@ public final class Geo {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_compass_type_geo_Path_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_type_geo_Region_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_type_geo_Region_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2275,13 +3690,15 @@ public final class Geo {
     java.lang.String[] descriptorData = {
       "\n\032compass/type/geo/geo.proto\022\020compass.ty" +
       "pe.geo\"-\n\006LatLng\022\020\n\010latitude\030\001 \001(\001\022\021\n\tlo" +
-      "ngitude\030\002 \001(\001\"o\n\013BoundingBox\022/\n\rnorth_ea" +
-      "stern\030\001 \001(\0132\030.compass.type.geo.LatLng\022/\n" +
-      "\rsouth_western\030\002 \001(\0132\030.compass.type.geo." +
-      "LatLng\"0\n\004Path\022(\n\006points\030\001 \003(\0132\030.compass" +
-      ".type.geo.LatLngB<Z:v2.compass.iot/genpr" +
-      "oto/compassapis/compass/type/geo;geopbb\006" +
-      "proto3"
+      "ngitude\030\002 \001(\001\"/\n\010LatLng32\022\020\n\010latitude\030\001 " +
+      "\001(\002\022\021\n\tlongitude\030\002 \001(\002\"o\n\013BoundingBox\022/\n" +
+      "\rnorth_eastern\030\001 \001(\0132\030.compass.type.geo." +
+      "LatLng\022/\n\rsouth_western\030\002 \001(\0132\030.compass." +
+      "type.geo.LatLng\"0\n\004Path\022(\n\006points\030\001 \003(\0132" +
+      "\030.compass.type.geo.LatLng\"4\n\006Region\022*\n\006p" +
+      "oints\030\001 \003(\0132\032.compass.type.geo.LatLng32B" +
+      "<Z:v2.compass.iot/genproto/compassapis/c" +
+      "ompass/type/geo;geopbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2293,17 +3710,29 @@ public final class Geo {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_compass_type_geo_LatLng_descriptor,
         new java.lang.String[] { "Latitude", "Longitude", });
-    internal_static_compass_type_geo_BoundingBox_descriptor =
+    internal_static_compass_type_geo_LatLng32_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_compass_type_geo_LatLng32_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_type_geo_LatLng32_descriptor,
+        new java.lang.String[] { "Latitude", "Longitude", });
+    internal_static_compass_type_geo_BoundingBox_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_compass_type_geo_BoundingBox_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_compass_type_geo_BoundingBox_descriptor,
         new java.lang.String[] { "NorthEastern", "SouthWestern", });
     internal_static_compass_type_geo_Path_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_compass_type_geo_Path_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_compass_type_geo_Path_descriptor,
+        new java.lang.String[] { "Points", });
+    internal_static_compass_type_geo_Region_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_compass_type_geo_Region_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_type_geo_Region_descriptor,
         new java.lang.String[] { "Points", });
   }
 

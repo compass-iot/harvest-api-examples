@@ -126,8 +126,8 @@ if this is confusing, don&#39;t worry to hard about getting it correct, we can a
 Note that the vertical axis in the diagram is the z axis, not the y axis
 Also note the &#43; and - signs in the diagram which direction should be positive and negative within each axis
 
-<!-- ![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
- -->
+![alt text](https://storage.googleapis.com/compass-public-docs/static/acc_gyro.png)
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -286,6 +286,9 @@ See acceleration diagram for more details
   
     - [File-level Extensions](#compass/iam/permission.proto-extensions)
   
+- [compass/iam/token.proto](#compass/iam/token.proto)
+    - [Token](#compass.iam.Token)
+  
 - [Scalar Value Types](#scalar-value-types)
 
 
@@ -329,6 +332,43 @@ See acceleration diagram for more details
 
 
 
+<a name="compass/iam/token.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## compass/iam/token.proto
+
+
+
+<a name="compass.iam.Token"></a>
+
+### Token
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  | if user_id is null, token is a workspace token and email should be null |
+| workspace_id | [int64](#int64) |  |  |
+| email | [string](#string) |  |  |
+| workspace | [string](#string) |  |  |
+| admin | [bool](#bool) |  |  |
+| geofence | [compass.type.geo.Region](#compass.type.geo.Region) |  |  |
+| home | [compass.type.geo.LatLng32](#compass.type.geo.LatLng32) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
 ## Scalar Value Types
 
 | .proto Type | Notes | C++ | Java | Python | Go | C# | PHP | Ruby |
@@ -357,7 +397,9 @@ See acceleration diagram for more details
 - [compass/type/geo/geo.proto](#compass/type/geo/geo.proto)
     - [BoundingBox](#compass.type.geo.BoundingBox)
     - [LatLng](#compass.type.geo.LatLng)
+    - [LatLng32](#compass.type.geo.LatLng32)
     - [Path](#compass.type.geo.Path)
+    - [Region](#compass.type.geo.Region)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -406,6 +448,22 @@ standard&lt;/a&gt;. Values must be within normalized ranges.
 
 
 
+<a name="compass.type.geo.LatLng32"></a>
+
+### LatLng32
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| latitude | [float](#float) |  | The latitude in degrees. It must be in the range [-90.0, &#43;90.0]. |
+| longitude | [float](#float) |  | The longitude in degrees. It must be in the range [-180.0, &#43;180.0]. |
+
+
+
+
+
+
 <a name="compass.type.geo.Path"></a>
 
 ### Path
@@ -415,6 +473,21 @@ standard&lt;/a&gt;. Values must be within normalized ranges.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | points | [LatLng](#compass.type.geo.LatLng) | repeated |  |
+
+
+
+
+
+
+<a name="compass.type.geo.Region"></a>
+
+### Region
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| points | [LatLng32](#compass.type.geo.LatLng32) | repeated |  |
 
 
 
