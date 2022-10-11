@@ -24,22 +24,13 @@ public final class PositionEventOuterClass {
      */
     TRANSPORT_TYPE_UNSPECIFIED(0),
     /**
-     * <pre>
-     * Anything not public
-     * </pre>
-     *
      * <code>PRIVATE = 1;</code>
      */
     PRIVATE(1),
     /**
-     * <pre>
-     * Vehicle operated by public services
-     * </pre>
-     *
      * <code>PUBLIC = 2;</code>
      */
     PUBLIC(2),
-    UNRECOGNIZED(-1),
     ;
 
     /**
@@ -47,28 +38,16 @@ public final class PositionEventOuterClass {
      */
     public static final int TRANSPORT_TYPE_UNSPECIFIED_VALUE = 0;
     /**
-     * <pre>
-     * Anything not public
-     * </pre>
-     *
      * <code>PRIVATE = 1;</code>
      */
     public static final int PRIVATE_VALUE = 1;
     /**
-     * <pre>
-     * Vehicle operated by public services
-     * </pre>
-     *
      * <code>PUBLIC = 2;</code>
      */
     public static final int PUBLIC_VALUE = 2;
 
 
     public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
       return value;
     }
 
@@ -109,10 +88,6 @@ public final class PositionEventOuterClass {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -131,9 +106,6 @@ public final class PositionEventOuterClass {
       if (desc.getType() != getDescriptor()) {
         throw new java.lang.IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
       }
       return VALUES[desc.getIndex()];
     }
@@ -172,7 +144,6 @@ public final class PositionEventOuterClass {
      * <code>TRUCK = 4;</code>
      */
     TRUCK(4),
-    UNRECOGNIZED(-1),
     ;
 
     /**
@@ -198,10 +169,6 @@ public final class PositionEventOuterClass {
 
 
     public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
       return value;
     }
 
@@ -244,10 +211,6 @@ public final class PositionEventOuterClass {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -266,9 +229,6 @@ public final class PositionEventOuterClass {
       if (desc.getType() != getDescriptor()) {
         throw new java.lang.IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
       }
       return VALUES[desc.getIndex()];
     }
@@ -291,7 +251,7 @@ public final class PositionEventOuterClass {
      * lat and lng of the vehicle position
      * </pre>
      *
-     * <code>.compass.type.geo.LatLng latlng = 1;</code>
+     * <code>required .compass.type.geo.LatLng latlng = 1;</code>
      * @return Whether the latlng field is set.
      */
     boolean hasLatlng();
@@ -300,7 +260,7 @@ public final class PositionEventOuterClass {
      * lat and lng of the vehicle position
      * </pre>
      *
-     * <code>.compass.type.geo.LatLng latlng = 1;</code>
+     * <code>required .compass.type.geo.LatLng latlng = 1;</code>
      * @return The latlng.
      */
     compass.type.geo.Geo.LatLng getLatlng();
@@ -309,7 +269,7 @@ public final class PositionEventOuterClass {
      * lat and lng of the vehicle position
      * </pre>
      *
-     * <code>.compass.type.geo.LatLng latlng = 1;</code>
+     * <code>required .compass.type.geo.LatLng latlng = 1;</code>
      */
     compass.type.geo.Geo.LatLngOrBuilder getLatlngOrBuilder();
 
@@ -318,7 +278,16 @@ public final class PositionEventOuterClass {
      * speed of vehicle in km/h
      * </pre>
      *
-     * <code>double speed = 2;</code>
+     * <code>optional double speed = 2;</code>
+     * @return Whether the speed field is set.
+     */
+    boolean hasSpeed();
+    /**
+     * <pre>
+     * speed of vehicle in km/h
+     * </pre>
+     *
+     * <code>optional double speed = 2;</code>
      * @return The speed.
      */
     double getSpeed();
@@ -328,7 +297,16 @@ public final class PositionEventOuterClass {
      * [optional] bearing of vehicle in degrees [0, 360)
      * </pre>
      *
-     * <code>double bearing = 3;</code>
+     * <code>optional double bearing = 3;</code>
+     * @return Whether the bearing field is set.
+     */
+    boolean hasBearing();
+    /**
+     * <pre>
+     * [optional] bearing of vehicle in degrees [0, 360)
+     * </pre>
+     *
+     * <code>optional double bearing = 3;</code>
      * @return The bearing.
      */
     double getBearing();
@@ -360,68 +338,6 @@ public final class PositionEventOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Position(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              compass.type.geo.Geo.LatLng.Builder subBuilder = null;
-              if (latlng_ != null) {
-                subBuilder = latlng_.toBuilder();
-              }
-              latlng_ = input.readMessage(compass.type.geo.Geo.LatLng.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(latlng_);
-                latlng_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 17: {
-
-              speed_ = input.readDouble();
-              break;
-            }
-            case 25: {
-
-              bearing_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_Position_descriptor;
@@ -435,6 +351,7 @@ public final class PositionEventOuterClass {
               compass.harvest.v1alpha1.PositionEventOuterClass.Position.class, compass.harvest.v1alpha1.PositionEventOuterClass.Position.Builder.class);
     }
 
+    private int bitField0_;
     public static final int LATLNG_FIELD_NUMBER = 1;
     private compass.type.geo.Geo.LatLng latlng_;
     /**
@@ -442,19 +359,19 @@ public final class PositionEventOuterClass {
      * lat and lng of the vehicle position
      * </pre>
      *
-     * <code>.compass.type.geo.LatLng latlng = 1;</code>
+     * <code>required .compass.type.geo.LatLng latlng = 1;</code>
      * @return Whether the latlng field is set.
      */
     @java.lang.Override
     public boolean hasLatlng() {
-      return latlng_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
      * lat and lng of the vehicle position
      * </pre>
      *
-     * <code>.compass.type.geo.LatLng latlng = 1;</code>
+     * <code>required .compass.type.geo.LatLng latlng = 1;</code>
      * @return The latlng.
      */
     @java.lang.Override
@@ -466,11 +383,11 @@ public final class PositionEventOuterClass {
      * lat and lng of the vehicle position
      * </pre>
      *
-     * <code>.compass.type.geo.LatLng latlng = 1;</code>
+     * <code>required .compass.type.geo.LatLng latlng = 1;</code>
      */
     @java.lang.Override
     public compass.type.geo.Geo.LatLngOrBuilder getLatlngOrBuilder() {
-      return getLatlng();
+      return latlng_ == null ? compass.type.geo.Geo.LatLng.getDefaultInstance() : latlng_;
     }
 
     public static final int SPEED_FIELD_NUMBER = 2;
@@ -480,7 +397,19 @@ public final class PositionEventOuterClass {
      * speed of vehicle in km/h
      * </pre>
      *
-     * <code>double speed = 2;</code>
+     * <code>optional double speed = 2;</code>
+     * @return Whether the speed field is set.
+     */
+    @java.lang.Override
+    public boolean hasSpeed() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * speed of vehicle in km/h
+     * </pre>
+     *
+     * <code>optional double speed = 2;</code>
      * @return The speed.
      */
     @java.lang.Override
@@ -495,7 +424,19 @@ public final class PositionEventOuterClass {
      * [optional] bearing of vehicle in degrees [0, 360)
      * </pre>
      *
-     * <code>double bearing = 3;</code>
+     * <code>optional double bearing = 3;</code>
+     * @return Whether the bearing field is set.
+     */
+    @java.lang.Override
+    public boolean hasBearing() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * [optional] bearing of vehicle in degrees [0, 360)
+     * </pre>
+     *
+     * <code>optional double bearing = 3;</code>
      * @return The bearing.
      */
     @java.lang.Override
@@ -510,6 +451,10 @@ public final class PositionEventOuterClass {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasLatlng()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -517,16 +462,16 @@ public final class PositionEventOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (latlng_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(1, getLatlng());
       }
-      if (java.lang.Double.doubleToRawLongBits(speed_) != 0) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeDouble(2, speed_);
       }
-      if (java.lang.Double.doubleToRawLongBits(bearing_) != 0) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeDouble(3, bearing_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -535,19 +480,19 @@ public final class PositionEventOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (latlng_ != null) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getLatlng());
       }
-      if (java.lang.Double.doubleToRawLongBits(speed_) != 0) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, speed_);
       }
-      if (java.lang.Double.doubleToRawLongBits(bearing_) != 0) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, bearing_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -567,13 +512,19 @@ public final class PositionEventOuterClass {
         if (!getLatlng()
             .equals(other.getLatlng())) return false;
       }
-      if (java.lang.Double.doubleToLongBits(getSpeed())
-          != java.lang.Double.doubleToLongBits(
-              other.getSpeed())) return false;
-      if (java.lang.Double.doubleToLongBits(getBearing())
-          != java.lang.Double.doubleToLongBits(
-              other.getBearing())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (hasSpeed() != other.hasSpeed()) return false;
+      if (hasSpeed()) {
+        if (java.lang.Double.doubleToLongBits(getSpeed())
+            != java.lang.Double.doubleToLongBits(
+                other.getSpeed())) return false;
+      }
+      if (hasBearing() != other.hasBearing()) return false;
+      if (hasBearing()) {
+        if (java.lang.Double.doubleToLongBits(getBearing())
+            != java.lang.Double.doubleToLongBits(
+                other.getBearing())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -588,13 +539,17 @@ public final class PositionEventOuterClass {
         hash = (37 * hash) + LATLNG_FIELD_NUMBER;
         hash = (53 * hash) + getLatlng().hashCode();
       }
-      hash = (37 * hash) + SPEED_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getSpeed()));
-      hash = (37 * hash) + BEARING_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getBearing()));
-      hash = (29 * hash) + unknownFields.hashCode();
+      if (hasSpeed()) {
+        hash = (37 * hash) + SPEED_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getSpeed()));
+      }
+      if (hasBearing()) {
+        hash = (37 * hash) + BEARING_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getBearing()));
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -722,6 +677,7 @@ public final class PositionEventOuterClass {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getLatlngFieldBuilder();
         }
       }
       @java.lang.Override
@@ -730,13 +686,13 @@ public final class PositionEventOuterClass {
         if (latlngBuilder_ == null) {
           latlng_ = null;
         } else {
-          latlng_ = null;
-          latlngBuilder_ = null;
+          latlngBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         speed_ = 0D;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         bearing_ = 0D;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -763,13 +719,25 @@ public final class PositionEventOuterClass {
       @java.lang.Override
       public compass.harvest.v1alpha1.PositionEventOuterClass.Position buildPartial() {
         compass.harvest.v1alpha1.PositionEventOuterClass.Position result = new compass.harvest.v1alpha1.PositionEventOuterClass.Position(this);
-        if (latlngBuilder_ == null) {
-          result.latlng_ = latlng_;
-        } else {
-          result.latlng_ = latlngBuilder_.build();
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          if (latlngBuilder_ == null) {
+            result.latlng_ = latlng_;
+          } else {
+            result.latlng_ = latlngBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000001;
         }
-        result.speed_ = speed_;
-        result.bearing_ = bearing_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.speed_ = speed_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.bearing_ = bearing_;
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -821,19 +789,22 @@ public final class PositionEventOuterClass {
         if (other.hasLatlng()) {
           mergeLatlng(other.getLatlng());
         }
-        if (other.getSpeed() != 0D) {
+        if (other.hasSpeed()) {
           setSpeed(other.getSpeed());
         }
-        if (other.getBearing() != 0D) {
+        if (other.hasBearing()) {
           setBearing(other.getBearing());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasLatlng()) {
+          return false;
+        }
         return true;
       }
 
@@ -842,19 +813,50 @@ public final class PositionEventOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.harvest.v1alpha1.PositionEventOuterClass.Position parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getLatlngFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 17: {
+                speed_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              case 25: {
+                bearing_ = input.readDouble();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 25
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.harvest.v1alpha1.PositionEventOuterClass.Position) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private compass.type.geo.Geo.LatLng latlng_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -864,18 +866,18 @@ public final class PositionEventOuterClass {
        * lat and lng of the vehicle position
        * </pre>
        *
-       * <code>.compass.type.geo.LatLng latlng = 1;</code>
+       * <code>required .compass.type.geo.LatLng latlng = 1;</code>
        * @return Whether the latlng field is set.
        */
       public boolean hasLatlng() {
-        return latlngBuilder_ != null || latlng_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
        * lat and lng of the vehicle position
        * </pre>
        *
-       * <code>.compass.type.geo.LatLng latlng = 1;</code>
+       * <code>required .compass.type.geo.LatLng latlng = 1;</code>
        * @return The latlng.
        */
       public compass.type.geo.Geo.LatLng getLatlng() {
@@ -890,7 +892,7 @@ public final class PositionEventOuterClass {
        * lat and lng of the vehicle position
        * </pre>
        *
-       * <code>.compass.type.geo.LatLng latlng = 1;</code>
+       * <code>required .compass.type.geo.LatLng latlng = 1;</code>
        */
       public Builder setLatlng(compass.type.geo.Geo.LatLng value) {
         if (latlngBuilder_ == null) {
@@ -902,7 +904,7 @@ public final class PositionEventOuterClass {
         } else {
           latlngBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -910,7 +912,7 @@ public final class PositionEventOuterClass {
        * lat and lng of the vehicle position
        * </pre>
        *
-       * <code>.compass.type.geo.LatLng latlng = 1;</code>
+       * <code>required .compass.type.geo.LatLng latlng = 1;</code>
        */
       public Builder setLatlng(
           compass.type.geo.Geo.LatLng.Builder builderForValue) {
@@ -920,7 +922,7 @@ public final class PositionEventOuterClass {
         } else {
           latlngBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -928,11 +930,13 @@ public final class PositionEventOuterClass {
        * lat and lng of the vehicle position
        * </pre>
        *
-       * <code>.compass.type.geo.LatLng latlng = 1;</code>
+       * <code>required .compass.type.geo.LatLng latlng = 1;</code>
        */
       public Builder mergeLatlng(compass.type.geo.Geo.LatLng value) {
         if (latlngBuilder_ == null) {
-          if (latlng_ != null) {
+          if (((bitField0_ & 0x00000001) != 0) &&
+              latlng_ != null &&
+              latlng_ != compass.type.geo.Geo.LatLng.getDefaultInstance()) {
             latlng_ =
               compass.type.geo.Geo.LatLng.newBuilder(latlng_).mergeFrom(value).buildPartial();
           } else {
@@ -942,7 +946,7 @@ public final class PositionEventOuterClass {
         } else {
           latlngBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -950,17 +954,16 @@ public final class PositionEventOuterClass {
        * lat and lng of the vehicle position
        * </pre>
        *
-       * <code>.compass.type.geo.LatLng latlng = 1;</code>
+       * <code>required .compass.type.geo.LatLng latlng = 1;</code>
        */
       public Builder clearLatlng() {
         if (latlngBuilder_ == null) {
           latlng_ = null;
           onChanged();
         } else {
-          latlng_ = null;
-          latlngBuilder_ = null;
+          latlngBuilder_.clear();
         }
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
       /**
@@ -968,10 +971,10 @@ public final class PositionEventOuterClass {
        * lat and lng of the vehicle position
        * </pre>
        *
-       * <code>.compass.type.geo.LatLng latlng = 1;</code>
+       * <code>required .compass.type.geo.LatLng latlng = 1;</code>
        */
       public compass.type.geo.Geo.LatLng.Builder getLatlngBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getLatlngFieldBuilder().getBuilder();
       }
@@ -980,7 +983,7 @@ public final class PositionEventOuterClass {
        * lat and lng of the vehicle position
        * </pre>
        *
-       * <code>.compass.type.geo.LatLng latlng = 1;</code>
+       * <code>required .compass.type.geo.LatLng latlng = 1;</code>
        */
       public compass.type.geo.Geo.LatLngOrBuilder getLatlngOrBuilder() {
         if (latlngBuilder_ != null) {
@@ -995,7 +998,7 @@ public final class PositionEventOuterClass {
        * lat and lng of the vehicle position
        * </pre>
        *
-       * <code>.compass.type.geo.LatLng latlng = 1;</code>
+       * <code>required .compass.type.geo.LatLng latlng = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           compass.type.geo.Geo.LatLng, compass.type.geo.Geo.LatLng.Builder, compass.type.geo.Geo.LatLngOrBuilder> 
@@ -1017,7 +1020,19 @@ public final class PositionEventOuterClass {
        * speed of vehicle in km/h
        * </pre>
        *
-       * <code>double speed = 2;</code>
+       * <code>optional double speed = 2;</code>
+       * @return Whether the speed field is set.
+       */
+      @java.lang.Override
+      public boolean hasSpeed() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * speed of vehicle in km/h
+       * </pre>
+       *
+       * <code>optional double speed = 2;</code>
        * @return The speed.
        */
       @java.lang.Override
@@ -1029,12 +1044,12 @@ public final class PositionEventOuterClass {
        * speed of vehicle in km/h
        * </pre>
        *
-       * <code>double speed = 2;</code>
+       * <code>optional double speed = 2;</code>
        * @param value The speed to set.
        * @return This builder for chaining.
        */
       public Builder setSpeed(double value) {
-        
+        bitField0_ |= 0x00000002;
         speed_ = value;
         onChanged();
         return this;
@@ -1044,11 +1059,11 @@ public final class PositionEventOuterClass {
        * speed of vehicle in km/h
        * </pre>
        *
-       * <code>double speed = 2;</code>
+       * <code>optional double speed = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearSpeed() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         speed_ = 0D;
         onChanged();
         return this;
@@ -1060,7 +1075,19 @@ public final class PositionEventOuterClass {
        * [optional] bearing of vehicle in degrees [0, 360)
        * </pre>
        *
-       * <code>double bearing = 3;</code>
+       * <code>optional double bearing = 3;</code>
+       * @return Whether the bearing field is set.
+       */
+      @java.lang.Override
+      public boolean hasBearing() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <pre>
+       * [optional] bearing of vehicle in degrees [0, 360)
+       * </pre>
+       *
+       * <code>optional double bearing = 3;</code>
        * @return The bearing.
        */
       @java.lang.Override
@@ -1072,12 +1099,12 @@ public final class PositionEventOuterClass {
        * [optional] bearing of vehicle in degrees [0, 360)
        * </pre>
        *
-       * <code>double bearing = 3;</code>
+       * <code>optional double bearing = 3;</code>
        * @param value The bearing to set.
        * @return This builder for chaining.
        */
       public Builder setBearing(double value) {
-        
+        bitField0_ |= 0x00000004;
         bearing_ = value;
         onChanged();
         return this;
@@ -1087,11 +1114,11 @@ public final class PositionEventOuterClass {
        * [optional] bearing of vehicle in degrees [0, 360)
        * </pre>
        *
-       * <code>double bearing = 3;</code>
+       * <code>optional double bearing = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearBearing() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         bearing_ = 0D;
         onChanged();
         return this;
@@ -1122,14 +1149,25 @@ public final class PositionEventOuterClass {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Position>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Position>
         PARSER = new com.google.protobuf.AbstractParser<Position>() {
       @java.lang.Override
       public Position parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Position(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1158,7 +1196,16 @@ public final class PositionEventOuterClass {
      * acceleration / braking
      * </pre>
      *
-     * <code>double x = 1;</code>
+     * <code>optional double x = 1;</code>
+     * @return Whether the x field is set.
+     */
+    boolean hasX();
+    /**
+     * <pre>
+     * acceleration / braking
+     * </pre>
+     *
+     * <code>optional double x = 1;</code>
      * @return The x.
      */
     double getX();
@@ -1168,7 +1215,16 @@ public final class PositionEventOuterClass {
      * side to side / turning force
      * </pre>
      *
-     * <code>double y = 2;</code>
+     * <code>optional double y = 2;</code>
+     * @return Whether the y field is set.
+     */
+    boolean hasY();
+    /**
+     * <pre>
+     * side to side / turning force
+     * </pre>
+     *
+     * <code>optional double y = 2;</code>
      * @return The y.
      */
     double getY();
@@ -1178,7 +1234,16 @@ public final class PositionEventOuterClass {
      * vertical up / down force
      * </pre>
      *
-     * <code>double z = 3;</code>
+     * <code>optional double z = 3;</code>
+     * @return Whether the z field is set.
+     */
+    boolean hasZ();
+    /**
+     * <pre>
+     * vertical up / down force
+     * </pre>
+     *
+     * <code>optional double z = 3;</code>
      * @return The z.
      */
     double getZ();
@@ -1222,60 +1287,6 @@ public final class PositionEventOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Acceleration(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              x_ = input.readDouble();
-              break;
-            }
-            case 17: {
-
-              y_ = input.readDouble();
-              break;
-            }
-            case 25: {
-
-              z_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_Acceleration_descriptor;
@@ -1289,6 +1300,7 @@ public final class PositionEventOuterClass {
               compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.class, compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.Builder.class);
     }
 
+    private int bitField0_;
     public static final int X_FIELD_NUMBER = 1;
     private double x_;
     /**
@@ -1296,7 +1308,19 @@ public final class PositionEventOuterClass {
      * acceleration / braking
      * </pre>
      *
-     * <code>double x = 1;</code>
+     * <code>optional double x = 1;</code>
+     * @return Whether the x field is set.
+     */
+    @java.lang.Override
+    public boolean hasX() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * acceleration / braking
+     * </pre>
+     *
+     * <code>optional double x = 1;</code>
      * @return The x.
      */
     @java.lang.Override
@@ -1311,7 +1335,19 @@ public final class PositionEventOuterClass {
      * side to side / turning force
      * </pre>
      *
-     * <code>double y = 2;</code>
+     * <code>optional double y = 2;</code>
+     * @return Whether the y field is set.
+     */
+    @java.lang.Override
+    public boolean hasY() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * side to side / turning force
+     * </pre>
+     *
+     * <code>optional double y = 2;</code>
      * @return The y.
      */
     @java.lang.Override
@@ -1326,7 +1362,19 @@ public final class PositionEventOuterClass {
      * vertical up / down force
      * </pre>
      *
-     * <code>double z = 3;</code>
+     * <code>optional double z = 3;</code>
+     * @return Whether the z field is set.
+     */
+    @java.lang.Override
+    public boolean hasZ() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * vertical up / down force
+     * </pre>
+     *
+     * <code>optional double z = 3;</code>
      * @return The z.
      */
     @java.lang.Override
@@ -1348,16 +1396,16 @@ public final class PositionEventOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (java.lang.Double.doubleToRawLongBits(x_) != 0) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeDouble(1, x_);
       }
-      if (java.lang.Double.doubleToRawLongBits(y_) != 0) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeDouble(2, y_);
       }
-      if (java.lang.Double.doubleToRawLongBits(z_) != 0) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeDouble(3, z_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1366,19 +1414,19 @@ public final class PositionEventOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (java.lang.Double.doubleToRawLongBits(x_) != 0) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(1, x_);
       }
-      if (java.lang.Double.doubleToRawLongBits(y_) != 0) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, y_);
       }
-      if (java.lang.Double.doubleToRawLongBits(z_) != 0) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, z_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1393,16 +1441,25 @@ public final class PositionEventOuterClass {
       }
       compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration other = (compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration) obj;
 
-      if (java.lang.Double.doubleToLongBits(getX())
-          != java.lang.Double.doubleToLongBits(
-              other.getX())) return false;
-      if (java.lang.Double.doubleToLongBits(getY())
-          != java.lang.Double.doubleToLongBits(
-              other.getY())) return false;
-      if (java.lang.Double.doubleToLongBits(getZ())
-          != java.lang.Double.doubleToLongBits(
-              other.getZ())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (hasX() != other.hasX()) return false;
+      if (hasX()) {
+        if (java.lang.Double.doubleToLongBits(getX())
+            != java.lang.Double.doubleToLongBits(
+                other.getX())) return false;
+      }
+      if (hasY() != other.hasY()) return false;
+      if (hasY()) {
+        if (java.lang.Double.doubleToLongBits(getY())
+            != java.lang.Double.doubleToLongBits(
+                other.getY())) return false;
+      }
+      if (hasZ() != other.hasZ()) return false;
+      if (hasZ()) {
+        if (java.lang.Double.doubleToLongBits(getZ())
+            != java.lang.Double.doubleToLongBits(
+                other.getZ())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1413,16 +1470,22 @@ public final class PositionEventOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + X_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getX()));
-      hash = (37 * hash) + Y_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getY()));
-      hash = (37 * hash) + Z_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getZ()));
-      hash = (29 * hash) + unknownFields.hashCode();
+      if (hasX()) {
+        hash = (37 * hash) + X_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getX()));
+      }
+      if (hasY()) {
+        hash = (37 * hash) + Y_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getY()));
+      }
+      if (hasZ()) {
+        hash = (37 * hash) + Z_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getZ()));
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1551,28 +1614,23 @@ public final class PositionEventOuterClass {
 
       // Construct using compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
         x_ = 0D;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         y_ = 0D;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         z_ = 0D;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -1599,9 +1657,21 @@ public final class PositionEventOuterClass {
       @java.lang.Override
       public compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration buildPartial() {
         compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration result = new compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration(this);
-        result.x_ = x_;
-        result.y_ = y_;
-        result.z_ = z_;
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.x_ = x_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.y_ = y_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.z_ = z_;
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1650,16 +1720,16 @@ public final class PositionEventOuterClass {
 
       public Builder mergeFrom(compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration other) {
         if (other == compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.getDefaultInstance()) return this;
-        if (other.getX() != 0D) {
+        if (other.hasX()) {
           setX(other.getX());
         }
-        if (other.getY() != 0D) {
+        if (other.hasY()) {
           setY(other.getY());
         }
-        if (other.getZ() != 0D) {
+        if (other.hasZ()) {
           setZ(other.getZ());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1674,19 +1744,48 @@ public final class PositionEventOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                x_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 17: {
+                y_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              case 25: {
+                z_ = input.readDouble();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 25
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double x_ ;
       /**
@@ -1694,7 +1793,19 @@ public final class PositionEventOuterClass {
        * acceleration / braking
        * </pre>
        *
-       * <code>double x = 1;</code>
+       * <code>optional double x = 1;</code>
+       * @return Whether the x field is set.
+       */
+      @java.lang.Override
+      public boolean hasX() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * acceleration / braking
+       * </pre>
+       *
+       * <code>optional double x = 1;</code>
        * @return The x.
        */
       @java.lang.Override
@@ -1706,12 +1817,12 @@ public final class PositionEventOuterClass {
        * acceleration / braking
        * </pre>
        *
-       * <code>double x = 1;</code>
+       * <code>optional double x = 1;</code>
        * @param value The x to set.
        * @return This builder for chaining.
        */
       public Builder setX(double value) {
-        
+        bitField0_ |= 0x00000001;
         x_ = value;
         onChanged();
         return this;
@@ -1721,11 +1832,11 @@ public final class PositionEventOuterClass {
        * acceleration / braking
        * </pre>
        *
-       * <code>double x = 1;</code>
+       * <code>optional double x = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearX() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         x_ = 0D;
         onChanged();
         return this;
@@ -1737,7 +1848,19 @@ public final class PositionEventOuterClass {
        * side to side / turning force
        * </pre>
        *
-       * <code>double y = 2;</code>
+       * <code>optional double y = 2;</code>
+       * @return Whether the y field is set.
+       */
+      @java.lang.Override
+      public boolean hasY() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * side to side / turning force
+       * </pre>
+       *
+       * <code>optional double y = 2;</code>
        * @return The y.
        */
       @java.lang.Override
@@ -1749,12 +1872,12 @@ public final class PositionEventOuterClass {
        * side to side / turning force
        * </pre>
        *
-       * <code>double y = 2;</code>
+       * <code>optional double y = 2;</code>
        * @param value The y to set.
        * @return This builder for chaining.
        */
       public Builder setY(double value) {
-        
+        bitField0_ |= 0x00000002;
         y_ = value;
         onChanged();
         return this;
@@ -1764,11 +1887,11 @@ public final class PositionEventOuterClass {
        * side to side / turning force
        * </pre>
        *
-       * <code>double y = 2;</code>
+       * <code>optional double y = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearY() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         y_ = 0D;
         onChanged();
         return this;
@@ -1780,7 +1903,19 @@ public final class PositionEventOuterClass {
        * vertical up / down force
        * </pre>
        *
-       * <code>double z = 3;</code>
+       * <code>optional double z = 3;</code>
+       * @return Whether the z field is set.
+       */
+      @java.lang.Override
+      public boolean hasZ() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <pre>
+       * vertical up / down force
+       * </pre>
+       *
+       * <code>optional double z = 3;</code>
        * @return The z.
        */
       @java.lang.Override
@@ -1792,12 +1927,12 @@ public final class PositionEventOuterClass {
        * vertical up / down force
        * </pre>
        *
-       * <code>double z = 3;</code>
+       * <code>optional double z = 3;</code>
        * @param value The z to set.
        * @return This builder for chaining.
        */
       public Builder setZ(double value) {
-        
+        bitField0_ |= 0x00000004;
         z_ = value;
         onChanged();
         return this;
@@ -1807,11 +1942,11 @@ public final class PositionEventOuterClass {
        * vertical up / down force
        * </pre>
        *
-       * <code>double z = 3;</code>
+       * <code>optional double z = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearZ() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         z_ = 0D;
         onChanged();
         return this;
@@ -1842,14 +1977,25 @@ public final class PositionEventOuterClass {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Acceleration>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Acceleration>
         PARSER = new com.google.protobuf.AbstractParser<Acceleration>() {
       @java.lang.Override
       public Acceleration parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Acceleration(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1874,19 +2020,34 @@ public final class PositionEventOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>double roll = 1;</code>
+     * <code>required double roll = 1;</code>
+     * @return Whether the roll field is set.
+     */
+    boolean hasRoll();
+    /**
+     * <code>required double roll = 1;</code>
      * @return The roll.
      */
     double getRoll();
 
     /**
-     * <code>double pitch = 2;</code>
+     * <code>required double pitch = 2;</code>
+     * @return Whether the pitch field is set.
+     */
+    boolean hasPitch();
+    /**
+     * <code>required double pitch = 2;</code>
      * @return The pitch.
      */
     double getPitch();
 
     /**
-     * <code>double yaw = 3;</code>
+     * <code>required double yaw = 3;</code>
+     * @return Whether the yaw field is set.
+     */
+    boolean hasYaw();
+    /**
+     * <code>required double yaw = 3;</code>
      * @return The yaw.
      */
     double getYaw();
@@ -1925,60 +2086,6 @@ public final class PositionEventOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Gyro(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              roll_ = input.readDouble();
-              break;
-            }
-            case 17: {
-
-              pitch_ = input.readDouble();
-              break;
-            }
-            case 25: {
-
-              yaw_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_Gyro_descriptor;
@@ -1992,10 +2099,19 @@ public final class PositionEventOuterClass {
               compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.class, compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.Builder.class);
     }
 
+    private int bitField0_;
     public static final int ROLL_FIELD_NUMBER = 1;
     private double roll_;
     /**
-     * <code>double roll = 1;</code>
+     * <code>required double roll = 1;</code>
+     * @return Whether the roll field is set.
+     */
+    @java.lang.Override
+    public boolean hasRoll() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required double roll = 1;</code>
      * @return The roll.
      */
     @java.lang.Override
@@ -2006,7 +2122,15 @@ public final class PositionEventOuterClass {
     public static final int PITCH_FIELD_NUMBER = 2;
     private double pitch_;
     /**
-     * <code>double pitch = 2;</code>
+     * <code>required double pitch = 2;</code>
+     * @return Whether the pitch field is set.
+     */
+    @java.lang.Override
+    public boolean hasPitch() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required double pitch = 2;</code>
      * @return The pitch.
      */
     @java.lang.Override
@@ -2017,7 +2141,15 @@ public final class PositionEventOuterClass {
     public static final int YAW_FIELD_NUMBER = 3;
     private double yaw_;
     /**
-     * <code>double yaw = 3;</code>
+     * <code>required double yaw = 3;</code>
+     * @return Whether the yaw field is set.
+     */
+    @java.lang.Override
+    public boolean hasYaw() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>required double yaw = 3;</code>
      * @return The yaw.
      */
     @java.lang.Override
@@ -2032,6 +2164,18 @@ public final class PositionEventOuterClass {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasRoll()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPitch()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasYaw()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -2039,16 +2183,16 @@ public final class PositionEventOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (java.lang.Double.doubleToRawLongBits(roll_) != 0) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeDouble(1, roll_);
       }
-      if (java.lang.Double.doubleToRawLongBits(pitch_) != 0) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeDouble(2, pitch_);
       }
-      if (java.lang.Double.doubleToRawLongBits(yaw_) != 0) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeDouble(3, yaw_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2057,19 +2201,19 @@ public final class PositionEventOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (java.lang.Double.doubleToRawLongBits(roll_) != 0) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(1, roll_);
       }
-      if (java.lang.Double.doubleToRawLongBits(pitch_) != 0) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, pitch_);
       }
-      if (java.lang.Double.doubleToRawLongBits(yaw_) != 0) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, yaw_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2084,16 +2228,25 @@ public final class PositionEventOuterClass {
       }
       compass.harvest.v1alpha1.PositionEventOuterClass.Gyro other = (compass.harvest.v1alpha1.PositionEventOuterClass.Gyro) obj;
 
-      if (java.lang.Double.doubleToLongBits(getRoll())
-          != java.lang.Double.doubleToLongBits(
-              other.getRoll())) return false;
-      if (java.lang.Double.doubleToLongBits(getPitch())
-          != java.lang.Double.doubleToLongBits(
-              other.getPitch())) return false;
-      if (java.lang.Double.doubleToLongBits(getYaw())
-          != java.lang.Double.doubleToLongBits(
-              other.getYaw())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (hasRoll() != other.hasRoll()) return false;
+      if (hasRoll()) {
+        if (java.lang.Double.doubleToLongBits(getRoll())
+            != java.lang.Double.doubleToLongBits(
+                other.getRoll())) return false;
+      }
+      if (hasPitch() != other.hasPitch()) return false;
+      if (hasPitch()) {
+        if (java.lang.Double.doubleToLongBits(getPitch())
+            != java.lang.Double.doubleToLongBits(
+                other.getPitch())) return false;
+      }
+      if (hasYaw() != other.hasYaw()) return false;
+      if (hasYaw()) {
+        if (java.lang.Double.doubleToLongBits(getYaw())
+            != java.lang.Double.doubleToLongBits(
+                other.getYaw())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2104,16 +2257,22 @@ public final class PositionEventOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ROLL_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getRoll()));
-      hash = (37 * hash) + PITCH_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getPitch()));
-      hash = (37 * hash) + YAW_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getYaw()));
-      hash = (29 * hash) + unknownFields.hashCode();
+      if (hasRoll()) {
+        hash = (37 * hash) + ROLL_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getRoll()));
+      }
+      if (hasPitch()) {
+        hash = (37 * hash) + PITCH_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getPitch()));
+      }
+      if (hasYaw()) {
+        hash = (37 * hash) + YAW_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getYaw()));
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2237,28 +2396,23 @@ public final class PositionEventOuterClass {
 
       // Construct using compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
         roll_ = 0D;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         pitch_ = 0D;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         yaw_ = 0D;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -2285,9 +2439,21 @@ public final class PositionEventOuterClass {
       @java.lang.Override
       public compass.harvest.v1alpha1.PositionEventOuterClass.Gyro buildPartial() {
         compass.harvest.v1alpha1.PositionEventOuterClass.Gyro result = new compass.harvest.v1alpha1.PositionEventOuterClass.Gyro(this);
-        result.roll_ = roll_;
-        result.pitch_ = pitch_;
-        result.yaw_ = yaw_;
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.roll_ = roll_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.pitch_ = pitch_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.yaw_ = yaw_;
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2336,22 +2502,31 @@ public final class PositionEventOuterClass {
 
       public Builder mergeFrom(compass.harvest.v1alpha1.PositionEventOuterClass.Gyro other) {
         if (other == compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.getDefaultInstance()) return this;
-        if (other.getRoll() != 0D) {
+        if (other.hasRoll()) {
           setRoll(other.getRoll());
         }
-        if (other.getPitch() != 0D) {
+        if (other.hasPitch()) {
           setPitch(other.getPitch());
         }
-        if (other.getYaw() != 0D) {
+        if (other.hasYaw()) {
           setYaw(other.getYaw());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasRoll()) {
+          return false;
+        }
+        if (!hasPitch()) {
+          return false;
+        }
+        if (!hasYaw()) {
+          return false;
+        }
         return true;
       }
 
@@ -2360,23 +2535,60 @@ public final class PositionEventOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.harvest.v1alpha1.PositionEventOuterClass.Gyro parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                roll_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 17: {
+                pitch_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              case 25: {
+                yaw_ = input.readDouble();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 25
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.harvest.v1alpha1.PositionEventOuterClass.Gyro) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double roll_ ;
       /**
-       * <code>double roll = 1;</code>
+       * <code>required double roll = 1;</code>
+       * @return Whether the roll field is set.
+       */
+      @java.lang.Override
+      public boolean hasRoll() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required double roll = 1;</code>
        * @return The roll.
        */
       @java.lang.Override
@@ -2384,22 +2596,22 @@ public final class PositionEventOuterClass {
         return roll_;
       }
       /**
-       * <code>double roll = 1;</code>
+       * <code>required double roll = 1;</code>
        * @param value The roll to set.
        * @return This builder for chaining.
        */
       public Builder setRoll(double value) {
-        
+        bitField0_ |= 0x00000001;
         roll_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>double roll = 1;</code>
+       * <code>required double roll = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearRoll() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         roll_ = 0D;
         onChanged();
         return this;
@@ -2407,7 +2619,15 @@ public final class PositionEventOuterClass {
 
       private double pitch_ ;
       /**
-       * <code>double pitch = 2;</code>
+       * <code>required double pitch = 2;</code>
+       * @return Whether the pitch field is set.
+       */
+      @java.lang.Override
+      public boolean hasPitch() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required double pitch = 2;</code>
        * @return The pitch.
        */
       @java.lang.Override
@@ -2415,22 +2635,22 @@ public final class PositionEventOuterClass {
         return pitch_;
       }
       /**
-       * <code>double pitch = 2;</code>
+       * <code>required double pitch = 2;</code>
        * @param value The pitch to set.
        * @return This builder for chaining.
        */
       public Builder setPitch(double value) {
-        
+        bitField0_ |= 0x00000002;
         pitch_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>double pitch = 2;</code>
+       * <code>required double pitch = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearPitch() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         pitch_ = 0D;
         onChanged();
         return this;
@@ -2438,7 +2658,15 @@ public final class PositionEventOuterClass {
 
       private double yaw_ ;
       /**
-       * <code>double yaw = 3;</code>
+       * <code>required double yaw = 3;</code>
+       * @return Whether the yaw field is set.
+       */
+      @java.lang.Override
+      public boolean hasYaw() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>required double yaw = 3;</code>
        * @return The yaw.
        */
       @java.lang.Override
@@ -2446,22 +2674,22 @@ public final class PositionEventOuterClass {
         return yaw_;
       }
       /**
-       * <code>double yaw = 3;</code>
+       * <code>required double yaw = 3;</code>
        * @param value The yaw to set.
        * @return This builder for chaining.
        */
       public Builder setYaw(double value) {
-        
+        bitField0_ |= 0x00000004;
         yaw_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>double yaw = 3;</code>
+       * <code>required double yaw = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearYaw() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         yaw_ = 0D;
         onChanged();
         return this;
@@ -2492,14 +2720,25 @@ public final class PositionEventOuterClass {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Gyro>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Gyro>
         PARSER = new com.google.protobuf.AbstractParser<Gyro>() {
       @java.lang.Override
       public Gyro parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Gyro(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2524,116 +2763,101 @@ public final class PositionEventOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <pre>
-     * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
-     * </pre>
-     *
-     * <code>string vehicle_id = 1;</code>
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    boolean hasVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
      * @return The vehicleId.
      */
     java.lang.String getVehicleId();
     /**
-     * <pre>
-     * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
-     * </pre>
-     *
-     * <code>string vehicle_id = 1;</code>
+     * <code>required string vehicle_id = 1;</code>
      * @return The bytes for vehicleId.
      */
     com.google.protobuf.ByteString
         getVehicleIdBytes();
 
     /**
-     * <pre>
-     * Timestamp that event occured
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+     * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
      * @return Whether the timestamp field is set.
      */
     boolean hasTimestamp();
     /**
-     * <pre>
-     * Timestamp that event occured
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+     * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
      * @return The timestamp.
      */
     com.google.protobuf.Timestamp getTimestamp();
     /**
-     * <pre>
-     * Timestamp that event occured
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+     * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
      */
     com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder();
 
     /**
-     * <code>.compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
-     * @return The enum numeric value on the wire for transportType.
+     * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+     * @return Whether the transportType field is set.
      */
-    int getTransportTypeValue();
+    boolean hasTransportType();
     /**
-     * <code>.compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+     * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
      * @return The transportType.
      */
     compass.harvest.v1alpha1.PositionEventOuterClass.TransportType getTransportType();
 
     /**
-     * <code>.compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
-     * @return The enum numeric value on the wire for vehicleType.
+     * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+     * @return Whether the vehicleType field is set.
      */
-    int getVehicleTypeValue();
+    boolean hasVehicleType();
     /**
-     * <code>.compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+     * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
      * @return The vehicleType.
      */
     compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType getVehicleType();
 
     /**
-     * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+     * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
      * @return Whether the position field is set.
      */
     boolean hasPosition();
     /**
-     * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+     * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
      * @return The position.
      */
     compass.harvest.v1alpha1.PositionEventOuterClass.Position getPosition();
     /**
-     * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+     * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
      */
     compass.harvest.v1alpha1.PositionEventOuterClass.PositionOrBuilder getPositionOrBuilder();
 
     /**
-     * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+     * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
      * @return Whether the acceleration field is set.
      */
     boolean hasAcceleration();
     /**
-     * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+     * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
      * @return The acceleration.
      */
     compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration getAcceleration();
     /**
-     * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+     * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
      */
     compass.harvest.v1alpha1.PositionEventOuterClass.AccelerationOrBuilder getAccelerationOrBuilder();
 
     /**
-     * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+     * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
      * @return Whether the gyro field is set.
      */
     boolean hasGyro();
     /**
-     * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+     * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
      * @return The gyro.
      */
     compass.harvest.v1alpha1.PositionEventOuterClass.Gyro getGyro();
     /**
-     * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+     * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
      */
     compass.harvest.v1alpha1.PositionEventOuterClass.GyroOrBuilder getGyroOrBuilder();
 
@@ -2642,7 +2866,16 @@ public final class PositionEventOuterClass {
      * Id linking points of the same trip
      * </pre>
      *
-     * <code>string trip_id = 9;</code>
+     * <code>optional string trip_id = 9;</code>
+     * @return Whether the tripId field is set.
+     */
+    boolean hasTripId();
+    /**
+     * <pre>
+     * Id linking points of the same trip
+     * </pre>
+     *
+     * <code>optional string trip_id = 9;</code>
      * @return The tripId.
      */
     java.lang.String getTripId();
@@ -2651,11 +2884,28 @@ public final class PositionEventOuterClass {
      * Id linking points of the same trip
      * </pre>
      *
-     * <code>string trip_id = 9;</code>
+     * <code>optional string trip_id = 9;</code>
      * @return The bytes for tripId.
      */
     com.google.protobuf.ByteString
         getTripIdBytes();
+
+    /**
+     * <code>optional string provider = 10;</code>
+     * @return Whether the provider field is set.
+     */
+    boolean hasProvider();
+    /**
+     * <code>optional string provider = 10;</code>
+     * @return The provider.
+     */
+    java.lang.String getProvider();
+    /**
+     * <code>optional string provider = 10;</code>
+     * @return The bytes for provider.
+     */
+    com.google.protobuf.ByteString
+        getProviderBytes();
 
     /**
      * <pre>
@@ -2738,6 +2988,7 @@ java.lang.String defaultValue);
       transportType_ = 0;
       vehicleType_ = 0;
       tripId_ = "";
+      provider_ = "";
     }
 
     @java.lang.Override
@@ -2751,135 +3002,6 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private PositionEvent(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              vehicleId_ = s;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (timestamp_ != null) {
-                subBuilder = timestamp_.toBuilder();
-              }
-              timestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(timestamp_);
-                timestamp_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              transportType_ = rawValue;
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              vehicleType_ = rawValue;
-              break;
-            }
-            case 42: {
-              compass.harvest.v1alpha1.PositionEventOuterClass.Position.Builder subBuilder = null;
-              if (position_ != null) {
-                subBuilder = position_.toBuilder();
-              }
-              position_ = input.readMessage(compass.harvest.v1alpha1.PositionEventOuterClass.Position.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(position_);
-                position_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                labels_ = com.google.protobuf.MapField.newMapField(
-                    LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              labels__ = input.readMessage(
-                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              labels_.getMutableMap().put(
-                  labels__.getKey(), labels__.getValue());
-              break;
-            }
-            case 58: {
-              compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.Builder subBuilder = null;
-              if (acceleration_ != null) {
-                subBuilder = acceleration_.toBuilder();
-              }
-              acceleration_ = input.readMessage(compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(acceleration_);
-                acceleration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 66: {
-              compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.Builder subBuilder = null;
-              if (gyro_ != null) {
-                subBuilder = gyro_.toBuilder();
-              }
-              gyro_ = input.readMessage(compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(gyro_);
-                gyro_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              tripId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -2906,14 +3028,19 @@ java.lang.String defaultValue);
               compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent.class, compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent.Builder.class);
     }
 
+    private int bitField0_;
     public static final int VEHICLE_ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object vehicleId_;
     /**
-     * <pre>
-     * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
-     * </pre>
-     *
-     * <code>string vehicle_id = 1;</code>
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    @java.lang.Override
+    public boolean hasVehicleId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
      * @return The vehicleId.
      */
     @java.lang.Override
@@ -2925,16 +3052,14 @@ java.lang.String defaultValue);
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        vehicleId_ = s;
+        if (bs.isValidUtf8()) {
+          vehicleId_ = s;
+        }
         return s;
       }
     }
     /**
-     * <pre>
-     * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
-     * </pre>
-     *
-     * <code>string vehicle_id = 1;</code>
+     * <code>required string vehicle_id = 1;</code>
      * @return The bytes for vehicleId.
      */
     @java.lang.Override
@@ -2955,23 +3080,15 @@ java.lang.String defaultValue);
     public static final int TIMESTAMP_FIELD_NUMBER = 2;
     private com.google.protobuf.Timestamp timestamp_;
     /**
-     * <pre>
-     * Timestamp that event occured
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+     * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
      * @return Whether the timestamp field is set.
      */
     @java.lang.Override
     public boolean hasTimestamp() {
-      return timestamp_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <pre>
-     * Timestamp that event occured
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+     * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
      * @return The timestamp.
      */
     @java.lang.Override
@@ -2979,67 +3096,63 @@ java.lang.String defaultValue);
       return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
     }
     /**
-     * <pre>
-     * Timestamp that event occured
-     * </pre>
-     *
-     * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+     * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
-      return getTimestamp();
+      return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
     }
 
     public static final int TRANSPORT_TYPE_FIELD_NUMBER = 3;
     private int transportType_;
     /**
-     * <code>.compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
-     * @return The enum numeric value on the wire for transportType.
+     * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+     * @return Whether the transportType field is set.
      */
-    @java.lang.Override public int getTransportTypeValue() {
-      return transportType_;
+    @java.lang.Override public boolean hasTransportType() {
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>.compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+     * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
      * @return The transportType.
      */
     @java.lang.Override public compass.harvest.v1alpha1.PositionEventOuterClass.TransportType getTransportType() {
       @SuppressWarnings("deprecation")
       compass.harvest.v1alpha1.PositionEventOuterClass.TransportType result = compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.valueOf(transportType_);
-      return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.UNRECOGNIZED : result;
+      return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.TRANSPORT_TYPE_UNSPECIFIED : result;
     }
 
     public static final int VEHICLE_TYPE_FIELD_NUMBER = 4;
     private int vehicleType_;
     /**
-     * <code>.compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
-     * @return The enum numeric value on the wire for vehicleType.
+     * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+     * @return Whether the vehicleType field is set.
      */
-    @java.lang.Override public int getVehicleTypeValue() {
-      return vehicleType_;
+    @java.lang.Override public boolean hasVehicleType() {
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>.compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+     * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
      * @return The vehicleType.
      */
     @java.lang.Override public compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType getVehicleType() {
       @SuppressWarnings("deprecation")
       compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType result = compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.valueOf(vehicleType_);
-      return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.UNRECOGNIZED : result;
+      return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.VEHICLE_TYPE_UNSPECIFIED : result;
     }
 
     public static final int POSITION_FIELD_NUMBER = 5;
     private compass.harvest.v1alpha1.PositionEventOuterClass.Position position_;
     /**
-     * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+     * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
      * @return Whether the position field is set.
      */
     @java.lang.Override
     public boolean hasPosition() {
-      return position_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+     * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
      * @return The position.
      */
     @java.lang.Override
@@ -3047,25 +3160,25 @@ java.lang.String defaultValue);
       return position_ == null ? compass.harvest.v1alpha1.PositionEventOuterClass.Position.getDefaultInstance() : position_;
     }
     /**
-     * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+     * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
      */
     @java.lang.Override
     public compass.harvest.v1alpha1.PositionEventOuterClass.PositionOrBuilder getPositionOrBuilder() {
-      return getPosition();
+      return position_ == null ? compass.harvest.v1alpha1.PositionEventOuterClass.Position.getDefaultInstance() : position_;
     }
 
     public static final int ACCELERATION_FIELD_NUMBER = 7;
     private compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration acceleration_;
     /**
-     * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+     * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
      * @return Whether the acceleration field is set.
      */
     @java.lang.Override
     public boolean hasAcceleration() {
-      return acceleration_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
-     * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+     * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
      * @return The acceleration.
      */
     @java.lang.Override
@@ -3073,25 +3186,25 @@ java.lang.String defaultValue);
       return acceleration_ == null ? compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.getDefaultInstance() : acceleration_;
     }
     /**
-     * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+     * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
      */
     @java.lang.Override
     public compass.harvest.v1alpha1.PositionEventOuterClass.AccelerationOrBuilder getAccelerationOrBuilder() {
-      return getAcceleration();
+      return acceleration_ == null ? compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.getDefaultInstance() : acceleration_;
     }
 
     public static final int GYRO_FIELD_NUMBER = 8;
     private compass.harvest.v1alpha1.PositionEventOuterClass.Gyro gyro_;
     /**
-     * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+     * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
      * @return Whether the gyro field is set.
      */
     @java.lang.Override
     public boolean hasGyro() {
-      return gyro_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
-     * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+     * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
      * @return The gyro.
      */
     @java.lang.Override
@@ -3099,11 +3212,11 @@ java.lang.String defaultValue);
       return gyro_ == null ? compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.getDefaultInstance() : gyro_;
     }
     /**
-     * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+     * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
      */
     @java.lang.Override
     public compass.harvest.v1alpha1.PositionEventOuterClass.GyroOrBuilder getGyroOrBuilder() {
-      return getGyro();
+      return gyro_ == null ? compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.getDefaultInstance() : gyro_;
     }
 
     public static final int TRIP_ID_FIELD_NUMBER = 9;
@@ -3113,7 +3226,19 @@ java.lang.String defaultValue);
      * Id linking points of the same trip
      * </pre>
      *
-     * <code>string trip_id = 9;</code>
+     * <code>optional string trip_id = 9;</code>
+     * @return Whether the tripId field is set.
+     */
+    @java.lang.Override
+    public boolean hasTripId() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <pre>
+     * Id linking points of the same trip
+     * </pre>
+     *
+     * <code>optional string trip_id = 9;</code>
      * @return The tripId.
      */
     @java.lang.Override
@@ -3125,7 +3250,9 @@ java.lang.String defaultValue);
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        tripId_ = s;
+        if (bs.isValidUtf8()) {
+          tripId_ = s;
+        }
         return s;
       }
     }
@@ -3134,7 +3261,7 @@ java.lang.String defaultValue);
      * Id linking points of the same trip
      * </pre>
      *
-     * <code>string trip_id = 9;</code>
+     * <code>optional string trip_id = 9;</code>
      * @return The bytes for tripId.
      */
     @java.lang.Override
@@ -3146,6 +3273,54 @@ java.lang.String defaultValue);
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         tripId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PROVIDER_FIELD_NUMBER = 10;
+    private volatile java.lang.Object provider_;
+    /**
+     * <code>optional string provider = 10;</code>
+     * @return Whether the provider field is set.
+     */
+    @java.lang.Override
+    public boolean hasProvider() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <code>optional string provider = 10;</code>
+     * @return The provider.
+     */
+    @java.lang.Override
+    public java.lang.String getProvider() {
+      java.lang.Object ref = provider_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          provider_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string provider = 10;</code>
+     * @return The bytes for provider.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getProviderBytes() {
+      java.lang.Object ref = provider_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        provider_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -3256,6 +3431,28 @@ java.lang.String defaultValue);
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasVehicleId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTimestamp()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPosition()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getPosition().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (hasGyro()) {
+        if (!getGyro().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -3263,19 +3460,19 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vehicleId_)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vehicleId_);
       }
-      if (timestamp_ != null) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(2, getTimestamp());
       }
-      if (transportType_ != compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.TRANSPORT_TYPE_UNSPECIFIED.getNumber()) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeEnum(3, transportType_);
       }
-      if (vehicleType_ != compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.VEHICLE_TYPE_UNSPECIFIED.getNumber()) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeEnum(4, vehicleType_);
       }
-      if (position_ != null) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeMessage(5, getPosition());
       }
       com.google.protobuf.GeneratedMessageV3
@@ -3284,16 +3481,19 @@ java.lang.String defaultValue);
           internalGetLabels(),
           LabelsDefaultEntryHolder.defaultEntry,
           6);
-      if (acceleration_ != null) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         output.writeMessage(7, getAcceleration());
       }
-      if (gyro_ != null) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         output.writeMessage(8, getGyro());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tripId_)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, tripId_);
       }
-      unknownFields.writeTo(output);
+      if (((bitField0_ & 0x00000100) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, provider_);
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3302,22 +3502,22 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vehicleId_)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vehicleId_);
       }
-      if (timestamp_ != null) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getTimestamp());
       }
-      if (transportType_ != compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.TRANSPORT_TYPE_UNSPECIFIED.getNumber()) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, transportType_);
       }
-      if (vehicleType_ != compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.VEHICLE_TYPE_UNSPECIFIED.getNumber()) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, vehicleType_);
       }
-      if (position_ != null) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getPosition());
       }
@@ -3331,18 +3531,21 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(6, labels__);
       }
-      if (acceleration_ != null) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getAcceleration());
       }
-      if (gyro_ != null) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getGyro());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tripId_)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, tripId_);
       }
-      size += unknownFields.getSerializedSize();
+      if (((bitField0_ & 0x00000100) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, provider_);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3357,15 +3560,24 @@ java.lang.String defaultValue);
       }
       compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent other = (compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent) obj;
 
-      if (!getVehicleId()
-          .equals(other.getVehicleId())) return false;
+      if (hasVehicleId() != other.hasVehicleId()) return false;
+      if (hasVehicleId()) {
+        if (!getVehicleId()
+            .equals(other.getVehicleId())) return false;
+      }
       if (hasTimestamp() != other.hasTimestamp()) return false;
       if (hasTimestamp()) {
         if (!getTimestamp()
             .equals(other.getTimestamp())) return false;
       }
-      if (transportType_ != other.transportType_) return false;
-      if (vehicleType_ != other.vehicleType_) return false;
+      if (hasTransportType() != other.hasTransportType()) return false;
+      if (hasTransportType()) {
+        if (transportType_ != other.transportType_) return false;
+      }
+      if (hasVehicleType() != other.hasVehicleType()) return false;
+      if (hasVehicleType()) {
+        if (vehicleType_ != other.vehicleType_) return false;
+      }
       if (hasPosition() != other.hasPosition()) return false;
       if (hasPosition()) {
         if (!getPosition()
@@ -3381,11 +3593,19 @@ java.lang.String defaultValue);
         if (!getGyro()
             .equals(other.getGyro())) return false;
       }
-      if (!getTripId()
-          .equals(other.getTripId())) return false;
+      if (hasTripId() != other.hasTripId()) return false;
+      if (hasTripId()) {
+        if (!getTripId()
+            .equals(other.getTripId())) return false;
+      }
+      if (hasProvider() != other.hasProvider()) return false;
+      if (hasProvider()) {
+        if (!getProvider()
+            .equals(other.getProvider())) return false;
+      }
       if (!internalGetLabels().equals(
           other.internalGetLabels())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3396,16 +3616,22 @@ java.lang.String defaultValue);
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + VEHICLE_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getVehicleId().hashCode();
+      if (hasVehicleId()) {
+        hash = (37 * hash) + VEHICLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getVehicleId().hashCode();
+      }
       if (hasTimestamp()) {
         hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
         hash = (53 * hash) + getTimestamp().hashCode();
       }
-      hash = (37 * hash) + TRANSPORT_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + transportType_;
-      hash = (37 * hash) + VEHICLE_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + vehicleType_;
+      if (hasTransportType()) {
+        hash = (37 * hash) + TRANSPORT_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + transportType_;
+      }
+      if (hasVehicleType()) {
+        hash = (37 * hash) + VEHICLE_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + vehicleType_;
+      }
       if (hasPosition()) {
         hash = (37 * hash) + POSITION_FIELD_NUMBER;
         hash = (53 * hash) + getPosition().hashCode();
@@ -3418,13 +3644,19 @@ java.lang.String defaultValue);
         hash = (37 * hash) + GYRO_FIELD_NUMBER;
         hash = (53 * hash) + getGyro().hashCode();
       }
-      hash = (37 * hash) + TRIP_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getTripId().hashCode();
+      if (hasTripId()) {
+        hash = (37 * hash) + TRIP_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getTripId().hashCode();
+      }
+      if (hasProvider()) {
+        hash = (37 * hash) + PROVIDER_FIELD_NUMBER;
+        hash = (53 * hash) + getProvider().hashCode();
+      }
       if (!internalGetLabels().getMap().isEmpty()) {
         hash = (37 * hash) + LABELS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetLabels().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3582,43 +3814,49 @@ java.lang.String defaultValue);
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getTimestampFieldBuilder();
+          getPositionFieldBuilder();
+          getAccelerationFieldBuilder();
+          getGyroFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
         vehicleId_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (timestampBuilder_ == null) {
           timestamp_ = null;
         } else {
-          timestamp_ = null;
-          timestampBuilder_ = null;
+          timestampBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         transportType_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         vehicleType_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         if (positionBuilder_ == null) {
           position_ = null;
         } else {
-          position_ = null;
-          positionBuilder_ = null;
+          positionBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000010);
         if (accelerationBuilder_ == null) {
           acceleration_ = null;
         } else {
-          acceleration_ = null;
-          accelerationBuilder_ = null;
+          accelerationBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000020);
         if (gyroBuilder_ == null) {
           gyro_ = null;
         } else {
-          gyro_ = null;
-          gyroBuilder_ = null;
+          gyroBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000040);
         tripId_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000080);
+        provider_ = "";
+        bitField0_ = (bitField0_ & ~0x00000100);
         internalGetMutableLabels().clear();
         return this;
       }
@@ -3647,32 +3885,62 @@ java.lang.String defaultValue);
       public compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent buildPartial() {
         compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent result = new compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.vehicleId_ = vehicleId_;
-        if (timestampBuilder_ == null) {
-          result.timestamp_ = timestamp_;
-        } else {
-          result.timestamp_ = timestampBuilder_.build();
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          if (timestampBuilder_ == null) {
+            result.timestamp_ = timestamp_;
+          } else {
+            result.timestamp_ = timestampBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          to_bitField0_ |= 0x00000004;
         }
         result.transportType_ = transportType_;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.vehicleType_ = vehicleType_;
-        if (positionBuilder_ == null) {
-          result.position_ = position_;
-        } else {
-          result.position_ = positionBuilder_.build();
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          if (positionBuilder_ == null) {
+            result.position_ = position_;
+          } else {
+            result.position_ = positionBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000010;
         }
-        if (accelerationBuilder_ == null) {
-          result.acceleration_ = acceleration_;
-        } else {
-          result.acceleration_ = accelerationBuilder_.build();
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          if (accelerationBuilder_ == null) {
+            result.acceleration_ = acceleration_;
+          } else {
+            result.acceleration_ = accelerationBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000020;
         }
-        if (gyroBuilder_ == null) {
-          result.gyro_ = gyro_;
-        } else {
-          result.gyro_ = gyroBuilder_.build();
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          if (gyroBuilder_ == null) {
+            result.gyro_ = gyro_;
+          } else {
+            result.gyro_ = gyroBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          to_bitField0_ |= 0x00000080;
         }
         result.tripId_ = tripId_;
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.provider_ = provider_;
         result.labels_ = internalGetLabels();
         result.labels_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -3721,18 +3989,19 @@ java.lang.String defaultValue);
 
       public Builder mergeFrom(compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent other) {
         if (other == compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent.getDefaultInstance()) return this;
-        if (!other.getVehicleId().isEmpty()) {
+        if (other.hasVehicleId()) {
+          bitField0_ |= 0x00000001;
           vehicleId_ = other.vehicleId_;
           onChanged();
         }
         if (other.hasTimestamp()) {
           mergeTimestamp(other.getTimestamp());
         }
-        if (other.transportType_ != 0) {
-          setTransportTypeValue(other.getTransportTypeValue());
+        if (other.hasTransportType()) {
+          setTransportType(other.getTransportType());
         }
-        if (other.vehicleType_ != 0) {
-          setVehicleTypeValue(other.getVehicleTypeValue());
+        if (other.hasVehicleType()) {
+          setVehicleType(other.getVehicleType());
         }
         if (other.hasPosition()) {
           mergePosition(other.getPosition());
@@ -3743,19 +4012,42 @@ java.lang.String defaultValue);
         if (other.hasGyro()) {
           mergeGyro(other.getGyro());
         }
-        if (!other.getTripId().isEmpty()) {
+        if (other.hasTripId()) {
+          bitField0_ |= 0x00000080;
           tripId_ = other.tripId_;
+          onChanged();
+        }
+        if (other.hasProvider()) {
+          bitField0_ |= 0x00000100;
+          provider_ = other.provider_;
           onChanged();
         }
         internalGetMutableLabels().mergeFrom(
             other.internalGetLabels());
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasVehicleId()) {
+          return false;
+        }
+        if (!hasTimestamp()) {
+          return false;
+        }
+        if (!hasPosition()) {
+          return false;
+        }
+        if (!getPosition().isInitialized()) {
+          return false;
+        }
+        if (hasGyro()) {
+          if (!getGyro().isInitialized()) {
+            return false;
+          }
+        }
         return true;
       }
 
@@ -3764,28 +4056,119 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                vehicleId_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getTimestampFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                int tmpRaw = input.readEnum();
+                compass.harvest.v1alpha1.PositionEventOuterClass.TransportType tmpValue =
+                    compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(3, tmpRaw);
+                } else {
+                  transportType_ = tmpRaw;
+                  bitField0_ |= 0x00000004;
+                }
+                break;
+              } // case 24
+              case 32: {
+                int tmpRaw = input.readEnum();
+                compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType tmpValue =
+                    compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(4, tmpRaw);
+                } else {
+                  vehicleType_ = tmpRaw;
+                  bitField0_ |= 0x00000008;
+                }
+                break;
+              } // case 32
+              case 42: {
+                input.readMessage(
+                    getPositionFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                labels__ = input.readMessage(
+                    LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableLabels().getMutableMap().put(
+                    labels__.getKey(), labels__.getValue());
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    getAccelerationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 58
+              case 66: {
+                input.readMessage(
+                    getGyroFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 66
+              case 74: {
+                tripId_ = input.readBytes();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 74
+              case 82: {
+                provider_ = input.readBytes();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 82
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
 
       private java.lang.Object vehicleId_ = "";
       /**
-       * <pre>
-       * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
-       * </pre>
-       *
-       * <code>string vehicle_id = 1;</code>
+       * <code>required string vehicle_id = 1;</code>
+       * @return Whether the vehicleId field is set.
+       */
+      public boolean hasVehicleId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
        * @return The vehicleId.
        */
       public java.lang.String getVehicleId() {
@@ -3794,18 +4177,16 @@ java.lang.String defaultValue);
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          vehicleId_ = s;
+          if (bs.isValidUtf8()) {
+            vehicleId_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <pre>
-       * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
-       * </pre>
-       *
-       * <code>string vehicle_id = 1;</code>
+       * <code>required string vehicle_id = 1;</code>
        * @return The bytes for vehicleId.
        */
       public com.google.protobuf.ByteString
@@ -3822,11 +4203,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <pre>
-       * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
-       * </pre>
-       *
-       * <code>string vehicle_id = 1;</code>
+       * <code>required string vehicle_id = 1;</code>
        * @param value The vehicleId to set.
        * @return This builder for chaining.
        */
@@ -3835,31 +4212,23 @@ java.lang.String defaultValue);
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000001;
         vehicleId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
-       * </pre>
-       *
-       * <code>string vehicle_id = 1;</code>
+       * <code>required string vehicle_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearVehicleId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         vehicleId_ = getDefaultInstance().getVehicleId();
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       * Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field
-       * </pre>
-       *
-       * <code>string vehicle_id = 1;</code>
+       * <code>required string vehicle_id = 1;</code>
        * @param value The bytes for vehicleId to set.
        * @return This builder for chaining.
        */
@@ -3868,8 +4237,7 @@ java.lang.String defaultValue);
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000001;
         vehicleId_ = value;
         onChanged();
         return this;
@@ -3879,22 +4247,14 @@ java.lang.String defaultValue);
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampBuilder_;
       /**
-       * <pre>
-       * Timestamp that event occured
-       * </pre>
-       *
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+       * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
        * @return Whether the timestamp field is set.
        */
       public boolean hasTimestamp() {
-        return timestampBuilder_ != null || timestamp_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <pre>
-       * Timestamp that event occured
-       * </pre>
-       *
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+       * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
        * @return The timestamp.
        */
       public com.google.protobuf.Timestamp getTimestamp() {
@@ -3905,11 +4265,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <pre>
-       * Timestamp that event occured
-       * </pre>
-       *
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+       * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
        */
       public Builder setTimestamp(com.google.protobuf.Timestamp value) {
         if (timestampBuilder_ == null) {
@@ -3921,15 +4277,11 @@ java.lang.String defaultValue);
         } else {
           timestampBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <pre>
-       * Timestamp that event occured
-       * </pre>
-       *
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+       * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
        */
       public Builder setTimestamp(
           com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -3939,19 +4291,17 @@ java.lang.String defaultValue);
         } else {
           timestampBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <pre>
-       * Timestamp that event occured
-       * </pre>
-       *
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+       * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
        */
       public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
         if (timestampBuilder_ == null) {
-          if (timestamp_ != null) {
+          if (((bitField0_ & 0x00000002) != 0) &&
+              timestamp_ != null &&
+              timestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
             timestamp_ =
               com.google.protobuf.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
           } else {
@@ -3961,45 +4311,32 @@ java.lang.String defaultValue);
         } else {
           timestampBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <pre>
-       * Timestamp that event occured
-       * </pre>
-       *
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+       * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
        */
       public Builder clearTimestamp() {
         if (timestampBuilder_ == null) {
           timestamp_ = null;
           onChanged();
         } else {
-          timestamp_ = null;
-          timestampBuilder_ = null;
+          timestampBuilder_.clear();
         }
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
-       * <pre>
-       * Timestamp that event occured
-       * </pre>
-       *
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+       * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
        */
       public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getTimestampFieldBuilder().getBuilder();
       }
       /**
-       * <pre>
-       * Timestamp that event occured
-       * </pre>
-       *
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+       * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
        */
       public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
         if (timestampBuilder_ != null) {
@@ -4010,11 +4347,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <pre>
-       * Timestamp that event occured
-       * </pre>
-       *
-       * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+       * <code>required .google.protobuf.Timestamp timestamp = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -4032,35 +4365,24 @@ java.lang.String defaultValue);
 
       private int transportType_ = 0;
       /**
-       * <code>.compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
-       * @return The enum numeric value on the wire for transportType.
+       * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+       * @return Whether the transportType field is set.
        */
-      @java.lang.Override public int getTransportTypeValue() {
-        return transportType_;
+      @java.lang.Override public boolean hasTransportType() {
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>.compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
-       * @param value The enum numeric value on the wire for transportType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTransportTypeValue(int value) {
-        
-        transportType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+       * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
        * @return The transportType.
        */
       @java.lang.Override
       public compass.harvest.v1alpha1.PositionEventOuterClass.TransportType getTransportType() {
         @SuppressWarnings("deprecation")
         compass.harvest.v1alpha1.PositionEventOuterClass.TransportType result = compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.valueOf(transportType_);
-        return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.UNRECOGNIZED : result;
+        return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.TRANSPORT_TYPE_UNSPECIFIED : result;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+       * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
        * @param value The transportType to set.
        * @return This builder for chaining.
        */
@@ -4068,17 +4390,17 @@ java.lang.String defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         transportType_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+       * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearTransportType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         transportType_ = 0;
         onChanged();
         return this;
@@ -4086,35 +4408,24 @@ java.lang.String defaultValue);
 
       private int vehicleType_ = 0;
       /**
-       * <code>.compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
-       * @return The enum numeric value on the wire for vehicleType.
+       * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+       * @return Whether the vehicleType field is set.
        */
-      @java.lang.Override public int getVehicleTypeValue() {
-        return vehicleType_;
+      @java.lang.Override public boolean hasVehicleType() {
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
-       * <code>.compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
-       * @param value The enum numeric value on the wire for vehicleType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setVehicleTypeValue(int value) {
-        
-        vehicleType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+       * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
        * @return The vehicleType.
        */
       @java.lang.Override
       public compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType getVehicleType() {
         @SuppressWarnings("deprecation")
         compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType result = compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.valueOf(vehicleType_);
-        return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.UNRECOGNIZED : result;
+        return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.VEHICLE_TYPE_UNSPECIFIED : result;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+       * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
        * @param value The vehicleType to set.
        * @return This builder for chaining.
        */
@@ -4122,17 +4433,17 @@ java.lang.String defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         vehicleType_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+       * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearVehicleType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         vehicleType_ = 0;
         onChanged();
         return this;
@@ -4142,14 +4453,14 @@ java.lang.String defaultValue);
       private com.google.protobuf.SingleFieldBuilderV3<
           compass.harvest.v1alpha1.PositionEventOuterClass.Position, compass.harvest.v1alpha1.PositionEventOuterClass.Position.Builder, compass.harvest.v1alpha1.PositionEventOuterClass.PositionOrBuilder> positionBuilder_;
       /**
-       * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+       * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
        * @return Whether the position field is set.
        */
       public boolean hasPosition() {
-        return positionBuilder_ != null || position_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+       * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
        * @return The position.
        */
       public compass.harvest.v1alpha1.PositionEventOuterClass.Position getPosition() {
@@ -4160,7 +4471,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+       * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
        */
       public Builder setPosition(compass.harvest.v1alpha1.PositionEventOuterClass.Position value) {
         if (positionBuilder_ == null) {
@@ -4172,11 +4483,11 @@ java.lang.String defaultValue);
         } else {
           positionBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+       * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
        */
       public Builder setPosition(
           compass.harvest.v1alpha1.PositionEventOuterClass.Position.Builder builderForValue) {
@@ -4186,15 +4497,17 @@ java.lang.String defaultValue);
         } else {
           positionBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+       * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
        */
       public Builder mergePosition(compass.harvest.v1alpha1.PositionEventOuterClass.Position value) {
         if (positionBuilder_ == null) {
-          if (position_ != null) {
+          if (((bitField0_ & 0x00000010) != 0) &&
+              position_ != null &&
+              position_ != compass.harvest.v1alpha1.PositionEventOuterClass.Position.getDefaultInstance()) {
             position_ =
               compass.harvest.v1alpha1.PositionEventOuterClass.Position.newBuilder(position_).mergeFrom(value).buildPartial();
           } else {
@@ -4204,33 +4517,32 @@ java.lang.String defaultValue);
         } else {
           positionBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+       * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
        */
       public Builder clearPosition() {
         if (positionBuilder_ == null) {
           position_ = null;
           onChanged();
         } else {
-          position_ = null;
-          positionBuilder_ = null;
+          positionBuilder_.clear();
         }
-
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+       * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
        */
       public compass.harvest.v1alpha1.PositionEventOuterClass.Position.Builder getPositionBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getPositionFieldBuilder().getBuilder();
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+       * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
        */
       public compass.harvest.v1alpha1.PositionEventOuterClass.PositionOrBuilder getPositionOrBuilder() {
         if (positionBuilder_ != null) {
@@ -4241,7 +4553,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Position position = 5;</code>
+       * <code>required .compass.harvest.v1alpha1.Position position = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           compass.harvest.v1alpha1.PositionEventOuterClass.Position, compass.harvest.v1alpha1.PositionEventOuterClass.Position.Builder, compass.harvest.v1alpha1.PositionEventOuterClass.PositionOrBuilder> 
@@ -4261,14 +4573,14 @@ java.lang.String defaultValue);
       private com.google.protobuf.SingleFieldBuilderV3<
           compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration, compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.Builder, compass.harvest.v1alpha1.PositionEventOuterClass.AccelerationOrBuilder> accelerationBuilder_;
       /**
-       * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+       * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
        * @return Whether the acceleration field is set.
        */
       public boolean hasAcceleration() {
-        return accelerationBuilder_ != null || acceleration_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+       * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
        * @return The acceleration.
        */
       public compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration getAcceleration() {
@@ -4279,7 +4591,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+       * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
        */
       public Builder setAcceleration(compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration value) {
         if (accelerationBuilder_ == null) {
@@ -4291,11 +4603,11 @@ java.lang.String defaultValue);
         } else {
           accelerationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+       * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
        */
       public Builder setAcceleration(
           compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.Builder builderForValue) {
@@ -4305,15 +4617,17 @@ java.lang.String defaultValue);
         } else {
           accelerationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+       * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
        */
       public Builder mergeAcceleration(compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration value) {
         if (accelerationBuilder_ == null) {
-          if (acceleration_ != null) {
+          if (((bitField0_ & 0x00000020) != 0) &&
+              acceleration_ != null &&
+              acceleration_ != compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.getDefaultInstance()) {
             acceleration_ =
               compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.newBuilder(acceleration_).mergeFrom(value).buildPartial();
           } else {
@@ -4323,33 +4637,32 @@ java.lang.String defaultValue);
         } else {
           accelerationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+       * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
        */
       public Builder clearAcceleration() {
         if (accelerationBuilder_ == null) {
           acceleration_ = null;
           onChanged();
         } else {
-          acceleration_ = null;
-          accelerationBuilder_ = null;
+          accelerationBuilder_.clear();
         }
-
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+       * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
        */
       public compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.Builder getAccelerationBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getAccelerationFieldBuilder().getBuilder();
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+       * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
        */
       public compass.harvest.v1alpha1.PositionEventOuterClass.AccelerationOrBuilder getAccelerationOrBuilder() {
         if (accelerationBuilder_ != null) {
@@ -4360,7 +4673,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
+       * <code>optional .compass.harvest.v1alpha1.Acceleration acceleration = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration, compass.harvest.v1alpha1.PositionEventOuterClass.Acceleration.Builder, compass.harvest.v1alpha1.PositionEventOuterClass.AccelerationOrBuilder> 
@@ -4380,14 +4693,14 @@ java.lang.String defaultValue);
       private com.google.protobuf.SingleFieldBuilderV3<
           compass.harvest.v1alpha1.PositionEventOuterClass.Gyro, compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.Builder, compass.harvest.v1alpha1.PositionEventOuterClass.GyroOrBuilder> gyroBuilder_;
       /**
-       * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+       * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
        * @return Whether the gyro field is set.
        */
       public boolean hasGyro() {
-        return gyroBuilder_ != null || gyro_ != null;
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+       * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
        * @return The gyro.
        */
       public compass.harvest.v1alpha1.PositionEventOuterClass.Gyro getGyro() {
@@ -4398,7 +4711,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+       * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
        */
       public Builder setGyro(compass.harvest.v1alpha1.PositionEventOuterClass.Gyro value) {
         if (gyroBuilder_ == null) {
@@ -4410,11 +4723,11 @@ java.lang.String defaultValue);
         } else {
           gyroBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+       * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
        */
       public Builder setGyro(
           compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.Builder builderForValue) {
@@ -4424,15 +4737,17 @@ java.lang.String defaultValue);
         } else {
           gyroBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+       * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
        */
       public Builder mergeGyro(compass.harvest.v1alpha1.PositionEventOuterClass.Gyro value) {
         if (gyroBuilder_ == null) {
-          if (gyro_ != null) {
+          if (((bitField0_ & 0x00000040) != 0) &&
+              gyro_ != null &&
+              gyro_ != compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.getDefaultInstance()) {
             gyro_ =
               compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.newBuilder(gyro_).mergeFrom(value).buildPartial();
           } else {
@@ -4442,33 +4757,32 @@ java.lang.String defaultValue);
         } else {
           gyroBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+       * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
        */
       public Builder clearGyro() {
         if (gyroBuilder_ == null) {
           gyro_ = null;
           onChanged();
         } else {
-          gyro_ = null;
-          gyroBuilder_ = null;
+          gyroBuilder_.clear();
         }
-
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+       * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
        */
       public compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.Builder getGyroBuilder() {
-        
+        bitField0_ |= 0x00000040;
         onChanged();
         return getGyroFieldBuilder().getBuilder();
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+       * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
        */
       public compass.harvest.v1alpha1.PositionEventOuterClass.GyroOrBuilder getGyroOrBuilder() {
         if (gyroBuilder_ != null) {
@@ -4479,7 +4793,7 @@ java.lang.String defaultValue);
         }
       }
       /**
-       * <code>.compass.harvest.v1alpha1.Gyro gyro = 8;</code>
+       * <code>optional .compass.harvest.v1alpha1.Gyro gyro = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           compass.harvest.v1alpha1.PositionEventOuterClass.Gyro, compass.harvest.v1alpha1.PositionEventOuterClass.Gyro.Builder, compass.harvest.v1alpha1.PositionEventOuterClass.GyroOrBuilder> 
@@ -4501,7 +4815,18 @@ java.lang.String defaultValue);
        * Id linking points of the same trip
        * </pre>
        *
-       * <code>string trip_id = 9;</code>
+       * <code>optional string trip_id = 9;</code>
+       * @return Whether the tripId field is set.
+       */
+      public boolean hasTripId() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <pre>
+       * Id linking points of the same trip
+       * </pre>
+       *
+       * <code>optional string trip_id = 9;</code>
        * @return The tripId.
        */
       public java.lang.String getTripId() {
@@ -4510,7 +4835,9 @@ java.lang.String defaultValue);
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          tripId_ = s;
+          if (bs.isValidUtf8()) {
+            tripId_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -4521,7 +4848,7 @@ java.lang.String defaultValue);
        * Id linking points of the same trip
        * </pre>
        *
-       * <code>string trip_id = 9;</code>
+       * <code>optional string trip_id = 9;</code>
        * @return The bytes for tripId.
        */
       public com.google.protobuf.ByteString
@@ -4542,7 +4869,7 @@ java.lang.String defaultValue);
        * Id linking points of the same trip
        * </pre>
        *
-       * <code>string trip_id = 9;</code>
+       * <code>optional string trip_id = 9;</code>
        * @param value The tripId to set.
        * @return This builder for chaining.
        */
@@ -4551,7 +4878,7 @@ java.lang.String defaultValue);
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000080;
         tripId_ = value;
         onChanged();
         return this;
@@ -4561,11 +4888,11 @@ java.lang.String defaultValue);
        * Id linking points of the same trip
        * </pre>
        *
-       * <code>string trip_id = 9;</code>
+       * <code>optional string trip_id = 9;</code>
        * @return This builder for chaining.
        */
       public Builder clearTripId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000080);
         tripId_ = getDefaultInstance().getTripId();
         onChanged();
         return this;
@@ -4575,7 +4902,7 @@ java.lang.String defaultValue);
        * Id linking points of the same trip
        * </pre>
        *
-       * <code>string trip_id = 9;</code>
+       * <code>optional string trip_id = 9;</code>
        * @param value The bytes for tripId to set.
        * @return This builder for chaining.
        */
@@ -4584,9 +4911,92 @@ java.lang.String defaultValue);
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000080;
         tripId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object provider_ = "";
+      /**
+       * <code>optional string provider = 10;</code>
+       * @return Whether the provider field is set.
+       */
+      public boolean hasProvider() {
+        return ((bitField0_ & 0x00000100) != 0);
+      }
+      /**
+       * <code>optional string provider = 10;</code>
+       * @return The provider.
+       */
+      public java.lang.String getProvider() {
+        java.lang.Object ref = provider_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            provider_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string provider = 10;</code>
+       * @return The bytes for provider.
+       */
+      public com.google.protobuf.ByteString
+          getProviderBytes() {
+        java.lang.Object ref = provider_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          provider_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string provider = 10;</code>
+       * @param value The provider to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProvider(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        provider_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string provider = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProvider() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        provider_ = getDefaultInstance().getProvider();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string provider = 10;</code>
+       * @param value The bytes for provider to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProviderBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        provider_ = value;
         onChanged();
         return this;
       }
@@ -4775,14 +5185,25 @@ java.lang.String defaultValue);
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<PositionEvent>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PositionEvent>
         PARSER = new com.google.protobuf.AbstractParser<PositionEvent>() {
       @java.lang.Override
       public PositionEvent parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PositionEvent(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4797,6 +5218,10293 @@ java.lang.String defaultValue);
 
     @java.lang.Override
     public compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PartialEventLatLngOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:compass.harvest.v1alpha1.PartialEventLatLng)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    boolean hasVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    java.lang.String getVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    com.google.protobuf.ByteString
+        getVehicleIdBytes();
+
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    boolean hasRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    java.lang.String getRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    com.google.protobuf.ByteString
+        getRegionBytes();
+
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+
+    /**
+     * <code>required double longitude = 4;</code>
+     * @return Whether the longitude field is set.
+     */
+    boolean hasLongitude();
+    /**
+     * <code>required double longitude = 4;</code>
+     * @return The longitude.
+     */
+    double getLongitude();
+
+    /**
+     * <code>required double latitude = 5;</code>
+     * @return Whether the latitude field is set.
+     */
+    boolean hasLatitude();
+    /**
+     * <code>required double latitude = 5;</code>
+     * @return The latitude.
+     */
+    double getLatitude();
+  }
+  /**
+   * Protobuf type {@code compass.harvest.v1alpha1.PartialEventLatLng}
+   */
+  public static final class PartialEventLatLng extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:compass.harvest.v1alpha1.PartialEventLatLng)
+      PartialEventLatLngOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PartialEventLatLng.newBuilder() to construct.
+    private PartialEventLatLng(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PartialEventLatLng() {
+      vehicleId_ = "";
+      region_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PartialEventLatLng();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventLatLng_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventLatLng_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VEHICLE_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object vehicleId_;
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    @java.lang.Override
+    public boolean hasVehicleId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    @java.lang.Override
+    public java.lang.String getVehicleId() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          vehicleId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVehicleIdBytes() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vehicleId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object region_;
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    @java.lang.Override
+    public boolean hasRegion() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    @java.lang.Override
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          region_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 3;
+    private long timestamp_;
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int LONGITUDE_FIELD_NUMBER = 4;
+    private double longitude_;
+    /**
+     * <code>required double longitude = 4;</code>
+     * @return Whether the longitude field is set.
+     */
+    @java.lang.Override
+    public boolean hasLongitude() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>required double longitude = 4;</code>
+     * @return The longitude.
+     */
+    @java.lang.Override
+    public double getLongitude() {
+      return longitude_;
+    }
+
+    public static final int LATITUDE_FIELD_NUMBER = 5;
+    private double latitude_;
+    /**
+     * <code>required double latitude = 5;</code>
+     * @return Whether the latitude field is set.
+     */
+    @java.lang.Override
+    public boolean hasLatitude() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>required double latitude = 5;</code>
+     * @return The latitude.
+     */
+    @java.lang.Override
+    public double getLatitude() {
+      return latitude_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasVehicleId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRegion()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTimestamp()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasLongitude()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasLatitude()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeInt64(3, timestamp_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeDouble(4, longitude_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeDouble(5, latitude_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, timestamp_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, longitude_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(5, latitude_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng)) {
+        return super.equals(obj);
+      }
+      compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng other = (compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng) obj;
+
+      if (hasVehicleId() != other.hasVehicleId()) return false;
+      if (hasVehicleId()) {
+        if (!getVehicleId()
+            .equals(other.getVehicleId())) return false;
+      }
+      if (hasRegion() != other.hasRegion()) return false;
+      if (hasRegion()) {
+        if (!getRegion()
+            .equals(other.getRegion())) return false;
+      }
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (hasLongitude() != other.hasLongitude()) return false;
+      if (hasLongitude()) {
+        if (java.lang.Double.doubleToLongBits(getLongitude())
+            != java.lang.Double.doubleToLongBits(
+                other.getLongitude())) return false;
+      }
+      if (hasLatitude() != other.hasLatitude()) return false;
+      if (hasLatitude()) {
+        if (java.lang.Double.doubleToLongBits(getLatitude())
+            != java.lang.Double.doubleToLongBits(
+                other.getLatitude())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasVehicleId()) {
+        hash = (37 * hash) + VEHICLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getVehicleId().hashCode();
+      }
+      if (hasRegion()) {
+        hash = (37 * hash) + REGION_FIELD_NUMBER;
+        hash = (53 * hash) + getRegion().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (hasLongitude()) {
+        hash = (37 * hash) + LONGITUDE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getLongitude()));
+      }
+      if (hasLatitude()) {
+        hash = (37 * hash) + LATITUDE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getLatitude()));
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code compass.harvest.v1alpha1.PartialEventLatLng}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:compass.harvest.v1alpha1.PartialEventLatLng)
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLngOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventLatLng_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventLatLng_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng.Builder.class);
+      }
+
+      // Construct using compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        vehicleId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        region_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        longitude_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        latitude_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventLatLng_descriptor;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng getDefaultInstanceForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng build() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng buildPartial() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng result = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.vehicleId_ = vehicleId_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.region_ = region_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.longitude_ = longitude_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.latitude_ = latitude_;
+          to_bitField0_ |= 0x00000010;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng) {
+          return mergeFrom((compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng other) {
+        if (other == compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng.getDefaultInstance()) return this;
+        if (other.hasVehicleId()) {
+          bitField0_ |= 0x00000001;
+          vehicleId_ = other.vehicleId_;
+          onChanged();
+        }
+        if (other.hasRegion()) {
+          bitField0_ |= 0x00000002;
+          region_ = other.region_;
+          onChanged();
+        }
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (other.hasLongitude()) {
+          setLongitude(other.getLongitude());
+        }
+        if (other.hasLatitude()) {
+          setLatitude(other.getLatitude());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasVehicleId()) {
+          return false;
+        }
+        if (!hasRegion()) {
+          return false;
+        }
+        if (!hasTimestamp()) {
+          return false;
+        }
+        if (!hasLongitude()) {
+          return false;
+        }
+        if (!hasLatitude()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                vehicleId_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                region_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                timestamp_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 33: {
+                longitude_ = input.readDouble();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 33
+              case 41: {
+                latitude_ = input.readDouble();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 41
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object vehicleId_ = "";
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return Whether the vehicleId field is set.
+       */
+      public boolean hasVehicleId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The vehicleId.
+       */
+      public java.lang.String getVehicleId() {
+        java.lang.Object ref = vehicleId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            vehicleId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The bytes for vehicleId.
+       */
+      public com.google.protobuf.ByteString
+          getVehicleIdBytes() {
+        java.lang.Object ref = vehicleId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          vehicleId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVehicleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        vehicleId_ = getDefaultInstance().getVehicleId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The bytes for vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object region_ = "";
+      /**
+       * <code>required string region = 2;</code>
+       * @return Whether the region field is set.
+       */
+      public boolean hasRegion() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The region.
+       */
+      public java.lang.String getRegion() {
+        java.lang.Object ref = region_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            region_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The bytes for region.
+       */
+      public com.google.protobuf.ByteString
+          getRegionBytes() {
+        java.lang.Object ref = region_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          region_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegion() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        region_ = getDefaultInstance().getRegion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The bytes for region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return Whether the timestamp field is set.
+       */
+      @java.lang.Override
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000004;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private double longitude_ ;
+      /**
+       * <code>required double longitude = 4;</code>
+       * @return Whether the longitude field is set.
+       */
+      @java.lang.Override
+      public boolean hasLongitude() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>required double longitude = 4;</code>
+       * @return The longitude.
+       */
+      @java.lang.Override
+      public double getLongitude() {
+        return longitude_;
+      }
+      /**
+       * <code>required double longitude = 4;</code>
+       * @param value The longitude to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLongitude(double value) {
+        bitField0_ |= 0x00000008;
+        longitude_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required double longitude = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLongitude() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        longitude_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double latitude_ ;
+      /**
+       * <code>required double latitude = 5;</code>
+       * @return Whether the latitude field is set.
+       */
+      @java.lang.Override
+      public boolean hasLatitude() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>required double latitude = 5;</code>
+       * @return The latitude.
+       */
+      @java.lang.Override
+      public double getLatitude() {
+        return latitude_;
+      }
+      /**
+       * <code>required double latitude = 5;</code>
+       * @param value The latitude to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLatitude(double value) {
+        bitField0_ |= 0x00000010;
+        latitude_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required double latitude = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLatitude() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        latitude_ = 0D;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:compass.harvest.v1alpha1.PartialEventLatLng)
+    }
+
+    // @@protoc_insertion_point(class_scope:compass.harvest.v1alpha1.PartialEventLatLng)
+    private static final compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng();
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PartialEventLatLng>
+        PARSER = new com.google.protobuf.AbstractParser<PartialEventLatLng>() {
+      @java.lang.Override
+      public PartialEventLatLng parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PartialEventLatLng> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PartialEventLatLng> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventLatLng getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PartialEventAccelerationOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:compass.harvest.v1alpha1.PartialEventAcceleration)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    boolean hasVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    java.lang.String getVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    com.google.protobuf.ByteString
+        getVehicleIdBytes();
+
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    boolean hasRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    java.lang.String getRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    com.google.protobuf.ByteString
+        getRegionBytes();
+
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+
+    /**
+     * <code>optional double x = 4;</code>
+     * @return Whether the x field is set.
+     */
+    boolean hasX();
+    /**
+     * <code>optional double x = 4;</code>
+     * @return The x.
+     */
+    double getX();
+
+    /**
+     * <code>optional double y = 5;</code>
+     * @return Whether the y field is set.
+     */
+    boolean hasY();
+    /**
+     * <code>optional double y = 5;</code>
+     * @return The y.
+     */
+    double getY();
+
+    /**
+     * <code>optional double z = 6;</code>
+     * @return Whether the z field is set.
+     */
+    boolean hasZ();
+    /**
+     * <code>optional double z = 6;</code>
+     * @return The z.
+     */
+    double getZ();
+  }
+  /**
+   * Protobuf type {@code compass.harvest.v1alpha1.PartialEventAcceleration}
+   */
+  public static final class PartialEventAcceleration extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:compass.harvest.v1alpha1.PartialEventAcceleration)
+      PartialEventAccelerationOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PartialEventAcceleration.newBuilder() to construct.
+    private PartialEventAcceleration(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PartialEventAcceleration() {
+      vehicleId_ = "";
+      region_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PartialEventAcceleration();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventAcceleration_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventAcceleration_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VEHICLE_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object vehicleId_;
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    @java.lang.Override
+    public boolean hasVehicleId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    @java.lang.Override
+    public java.lang.String getVehicleId() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          vehicleId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVehicleIdBytes() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vehicleId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object region_;
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    @java.lang.Override
+    public boolean hasRegion() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    @java.lang.Override
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          region_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 3;
+    private long timestamp_;
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int X_FIELD_NUMBER = 4;
+    private double x_;
+    /**
+     * <code>optional double x = 4;</code>
+     * @return Whether the x field is set.
+     */
+    @java.lang.Override
+    public boolean hasX() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional double x = 4;</code>
+     * @return The x.
+     */
+    @java.lang.Override
+    public double getX() {
+      return x_;
+    }
+
+    public static final int Y_FIELD_NUMBER = 5;
+    private double y_;
+    /**
+     * <code>optional double y = 5;</code>
+     * @return Whether the y field is set.
+     */
+    @java.lang.Override
+    public boolean hasY() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional double y = 5;</code>
+     * @return The y.
+     */
+    @java.lang.Override
+    public double getY() {
+      return y_;
+    }
+
+    public static final int Z_FIELD_NUMBER = 6;
+    private double z_;
+    /**
+     * <code>optional double z = 6;</code>
+     * @return Whether the z field is set.
+     */
+    @java.lang.Override
+    public boolean hasZ() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional double z = 6;</code>
+     * @return The z.
+     */
+    @java.lang.Override
+    public double getZ() {
+      return z_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasVehicleId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRegion()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTimestamp()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeInt64(3, timestamp_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeDouble(4, x_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeDouble(5, y_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeDouble(6, z_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, timestamp_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, x_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(5, y_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(6, z_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration)) {
+        return super.equals(obj);
+      }
+      compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration other = (compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration) obj;
+
+      if (hasVehicleId() != other.hasVehicleId()) return false;
+      if (hasVehicleId()) {
+        if (!getVehicleId()
+            .equals(other.getVehicleId())) return false;
+      }
+      if (hasRegion() != other.hasRegion()) return false;
+      if (hasRegion()) {
+        if (!getRegion()
+            .equals(other.getRegion())) return false;
+      }
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (hasX() != other.hasX()) return false;
+      if (hasX()) {
+        if (java.lang.Double.doubleToLongBits(getX())
+            != java.lang.Double.doubleToLongBits(
+                other.getX())) return false;
+      }
+      if (hasY() != other.hasY()) return false;
+      if (hasY()) {
+        if (java.lang.Double.doubleToLongBits(getY())
+            != java.lang.Double.doubleToLongBits(
+                other.getY())) return false;
+      }
+      if (hasZ() != other.hasZ()) return false;
+      if (hasZ()) {
+        if (java.lang.Double.doubleToLongBits(getZ())
+            != java.lang.Double.doubleToLongBits(
+                other.getZ())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasVehicleId()) {
+        hash = (37 * hash) + VEHICLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getVehicleId().hashCode();
+      }
+      if (hasRegion()) {
+        hash = (37 * hash) + REGION_FIELD_NUMBER;
+        hash = (53 * hash) + getRegion().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (hasX()) {
+        hash = (37 * hash) + X_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getX()));
+      }
+      if (hasY()) {
+        hash = (37 * hash) + Y_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getY()));
+      }
+      if (hasZ()) {
+        hash = (37 * hash) + Z_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getZ()));
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code compass.harvest.v1alpha1.PartialEventAcceleration}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:compass.harvest.v1alpha1.PartialEventAcceleration)
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAccelerationOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventAcceleration_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventAcceleration_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration.Builder.class);
+      }
+
+      // Construct using compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        vehicleId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        region_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        x_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        y_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        z_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventAcceleration_descriptor;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration getDefaultInstanceForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration build() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration buildPartial() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration result = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.vehicleId_ = vehicleId_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.region_ = region_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.x_ = x_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.y_ = y_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.z_ = z_;
+          to_bitField0_ |= 0x00000020;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration) {
+          return mergeFrom((compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration other) {
+        if (other == compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration.getDefaultInstance()) return this;
+        if (other.hasVehicleId()) {
+          bitField0_ |= 0x00000001;
+          vehicleId_ = other.vehicleId_;
+          onChanged();
+        }
+        if (other.hasRegion()) {
+          bitField0_ |= 0x00000002;
+          region_ = other.region_;
+          onChanged();
+        }
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (other.hasX()) {
+          setX(other.getX());
+        }
+        if (other.hasY()) {
+          setY(other.getY());
+        }
+        if (other.hasZ()) {
+          setZ(other.getZ());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasVehicleId()) {
+          return false;
+        }
+        if (!hasRegion()) {
+          return false;
+        }
+        if (!hasTimestamp()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                vehicleId_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                region_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                timestamp_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 33: {
+                x_ = input.readDouble();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 33
+              case 41: {
+                y_ = input.readDouble();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 41
+              case 49: {
+                z_ = input.readDouble();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 49
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object vehicleId_ = "";
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return Whether the vehicleId field is set.
+       */
+      public boolean hasVehicleId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The vehicleId.
+       */
+      public java.lang.String getVehicleId() {
+        java.lang.Object ref = vehicleId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            vehicleId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The bytes for vehicleId.
+       */
+      public com.google.protobuf.ByteString
+          getVehicleIdBytes() {
+        java.lang.Object ref = vehicleId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          vehicleId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVehicleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        vehicleId_ = getDefaultInstance().getVehicleId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The bytes for vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object region_ = "";
+      /**
+       * <code>required string region = 2;</code>
+       * @return Whether the region field is set.
+       */
+      public boolean hasRegion() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The region.
+       */
+      public java.lang.String getRegion() {
+        java.lang.Object ref = region_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            region_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The bytes for region.
+       */
+      public com.google.protobuf.ByteString
+          getRegionBytes() {
+        java.lang.Object ref = region_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          region_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegion() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        region_ = getDefaultInstance().getRegion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The bytes for region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return Whether the timestamp field is set.
+       */
+      @java.lang.Override
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000004;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private double x_ ;
+      /**
+       * <code>optional double x = 4;</code>
+       * @return Whether the x field is set.
+       */
+      @java.lang.Override
+      public boolean hasX() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional double x = 4;</code>
+       * @return The x.
+       */
+      @java.lang.Override
+      public double getX() {
+        return x_;
+      }
+      /**
+       * <code>optional double x = 4;</code>
+       * @param value The x to set.
+       * @return This builder for chaining.
+       */
+      public Builder setX(double value) {
+        bitField0_ |= 0x00000008;
+        x_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double x = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearX() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        x_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double y_ ;
+      /**
+       * <code>optional double y = 5;</code>
+       * @return Whether the y field is set.
+       */
+      @java.lang.Override
+      public boolean hasY() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional double y = 5;</code>
+       * @return The y.
+       */
+      @java.lang.Override
+      public double getY() {
+        return y_;
+      }
+      /**
+       * <code>optional double y = 5;</code>
+       * @param value The y to set.
+       * @return This builder for chaining.
+       */
+      public Builder setY(double value) {
+        bitField0_ |= 0x00000010;
+        y_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double y = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearY() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        y_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double z_ ;
+      /**
+       * <code>optional double z = 6;</code>
+       * @return Whether the z field is set.
+       */
+      @java.lang.Override
+      public boolean hasZ() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>optional double z = 6;</code>
+       * @return The z.
+       */
+      @java.lang.Override
+      public double getZ() {
+        return z_;
+      }
+      /**
+       * <code>optional double z = 6;</code>
+       * @param value The z to set.
+       * @return This builder for chaining.
+       */
+      public Builder setZ(double value) {
+        bitField0_ |= 0x00000020;
+        z_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double z = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearZ() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        z_ = 0D;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:compass.harvest.v1alpha1.PartialEventAcceleration)
+    }
+
+    // @@protoc_insertion_point(class_scope:compass.harvest.v1alpha1.PartialEventAcceleration)
+    private static final compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration();
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PartialEventAcceleration>
+        PARSER = new com.google.protobuf.AbstractParser<PartialEventAcceleration>() {
+      @java.lang.Override
+      public PartialEventAcceleration parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PartialEventAcceleration> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PartialEventAcceleration> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventAcceleration getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PartialEventGyroOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:compass.harvest.v1alpha1.PartialEventGyro)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    boolean hasVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    java.lang.String getVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    com.google.protobuf.ByteString
+        getVehicleIdBytes();
+
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    boolean hasRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    java.lang.String getRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    com.google.protobuf.ByteString
+        getRegionBytes();
+
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+
+    /**
+     * <code>required double roll = 4;</code>
+     * @return Whether the roll field is set.
+     */
+    boolean hasRoll();
+    /**
+     * <code>required double roll = 4;</code>
+     * @return The roll.
+     */
+    double getRoll();
+
+    /**
+     * <code>required double pitch = 5;</code>
+     * @return Whether the pitch field is set.
+     */
+    boolean hasPitch();
+    /**
+     * <code>required double pitch = 5;</code>
+     * @return The pitch.
+     */
+    double getPitch();
+
+    /**
+     * <code>required double yaw = 6;</code>
+     * @return Whether the yaw field is set.
+     */
+    boolean hasYaw();
+    /**
+     * <code>required double yaw = 6;</code>
+     * @return The yaw.
+     */
+    double getYaw();
+  }
+  /**
+   * Protobuf type {@code compass.harvest.v1alpha1.PartialEventGyro}
+   */
+  public static final class PartialEventGyro extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:compass.harvest.v1alpha1.PartialEventGyro)
+      PartialEventGyroOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PartialEventGyro.newBuilder() to construct.
+    private PartialEventGyro(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PartialEventGyro() {
+      vehicleId_ = "";
+      region_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PartialEventGyro();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventGyro_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventGyro_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VEHICLE_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object vehicleId_;
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    @java.lang.Override
+    public boolean hasVehicleId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    @java.lang.Override
+    public java.lang.String getVehicleId() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          vehicleId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVehicleIdBytes() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vehicleId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object region_;
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    @java.lang.Override
+    public boolean hasRegion() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    @java.lang.Override
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          region_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 3;
+    private long timestamp_;
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int ROLL_FIELD_NUMBER = 4;
+    private double roll_;
+    /**
+     * <code>required double roll = 4;</code>
+     * @return Whether the roll field is set.
+     */
+    @java.lang.Override
+    public boolean hasRoll() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>required double roll = 4;</code>
+     * @return The roll.
+     */
+    @java.lang.Override
+    public double getRoll() {
+      return roll_;
+    }
+
+    public static final int PITCH_FIELD_NUMBER = 5;
+    private double pitch_;
+    /**
+     * <code>required double pitch = 5;</code>
+     * @return Whether the pitch field is set.
+     */
+    @java.lang.Override
+    public boolean hasPitch() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>required double pitch = 5;</code>
+     * @return The pitch.
+     */
+    @java.lang.Override
+    public double getPitch() {
+      return pitch_;
+    }
+
+    public static final int YAW_FIELD_NUMBER = 6;
+    private double yaw_;
+    /**
+     * <code>required double yaw = 6;</code>
+     * @return Whether the yaw field is set.
+     */
+    @java.lang.Override
+    public boolean hasYaw() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>required double yaw = 6;</code>
+     * @return The yaw.
+     */
+    @java.lang.Override
+    public double getYaw() {
+      return yaw_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasVehicleId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRegion()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTimestamp()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRoll()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPitch()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasYaw()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeInt64(3, timestamp_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeDouble(4, roll_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeDouble(5, pitch_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeDouble(6, yaw_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, timestamp_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, roll_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(5, pitch_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(6, yaw_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro)) {
+        return super.equals(obj);
+      }
+      compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro other = (compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro) obj;
+
+      if (hasVehicleId() != other.hasVehicleId()) return false;
+      if (hasVehicleId()) {
+        if (!getVehicleId()
+            .equals(other.getVehicleId())) return false;
+      }
+      if (hasRegion() != other.hasRegion()) return false;
+      if (hasRegion()) {
+        if (!getRegion()
+            .equals(other.getRegion())) return false;
+      }
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (hasRoll() != other.hasRoll()) return false;
+      if (hasRoll()) {
+        if (java.lang.Double.doubleToLongBits(getRoll())
+            != java.lang.Double.doubleToLongBits(
+                other.getRoll())) return false;
+      }
+      if (hasPitch() != other.hasPitch()) return false;
+      if (hasPitch()) {
+        if (java.lang.Double.doubleToLongBits(getPitch())
+            != java.lang.Double.doubleToLongBits(
+                other.getPitch())) return false;
+      }
+      if (hasYaw() != other.hasYaw()) return false;
+      if (hasYaw()) {
+        if (java.lang.Double.doubleToLongBits(getYaw())
+            != java.lang.Double.doubleToLongBits(
+                other.getYaw())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasVehicleId()) {
+        hash = (37 * hash) + VEHICLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getVehicleId().hashCode();
+      }
+      if (hasRegion()) {
+        hash = (37 * hash) + REGION_FIELD_NUMBER;
+        hash = (53 * hash) + getRegion().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (hasRoll()) {
+        hash = (37 * hash) + ROLL_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getRoll()));
+      }
+      if (hasPitch()) {
+        hash = (37 * hash) + PITCH_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getPitch()));
+      }
+      if (hasYaw()) {
+        hash = (37 * hash) + YAW_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getYaw()));
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code compass.harvest.v1alpha1.PartialEventGyro}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:compass.harvest.v1alpha1.PartialEventGyro)
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyroOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventGyro_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventGyro_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro.Builder.class);
+      }
+
+      // Construct using compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        vehicleId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        region_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        roll_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        pitch_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        yaw_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventGyro_descriptor;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro getDefaultInstanceForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro build() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro buildPartial() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro result = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.vehicleId_ = vehicleId_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.region_ = region_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.roll_ = roll_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.pitch_ = pitch_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.yaw_ = yaw_;
+          to_bitField0_ |= 0x00000020;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro) {
+          return mergeFrom((compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro other) {
+        if (other == compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro.getDefaultInstance()) return this;
+        if (other.hasVehicleId()) {
+          bitField0_ |= 0x00000001;
+          vehicleId_ = other.vehicleId_;
+          onChanged();
+        }
+        if (other.hasRegion()) {
+          bitField0_ |= 0x00000002;
+          region_ = other.region_;
+          onChanged();
+        }
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (other.hasRoll()) {
+          setRoll(other.getRoll());
+        }
+        if (other.hasPitch()) {
+          setPitch(other.getPitch());
+        }
+        if (other.hasYaw()) {
+          setYaw(other.getYaw());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasVehicleId()) {
+          return false;
+        }
+        if (!hasRegion()) {
+          return false;
+        }
+        if (!hasTimestamp()) {
+          return false;
+        }
+        if (!hasRoll()) {
+          return false;
+        }
+        if (!hasPitch()) {
+          return false;
+        }
+        if (!hasYaw()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                vehicleId_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                region_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                timestamp_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 33: {
+                roll_ = input.readDouble();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 33
+              case 41: {
+                pitch_ = input.readDouble();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 41
+              case 49: {
+                yaw_ = input.readDouble();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 49
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object vehicleId_ = "";
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return Whether the vehicleId field is set.
+       */
+      public boolean hasVehicleId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The vehicleId.
+       */
+      public java.lang.String getVehicleId() {
+        java.lang.Object ref = vehicleId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            vehicleId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The bytes for vehicleId.
+       */
+      public com.google.protobuf.ByteString
+          getVehicleIdBytes() {
+        java.lang.Object ref = vehicleId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          vehicleId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVehicleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        vehicleId_ = getDefaultInstance().getVehicleId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The bytes for vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object region_ = "";
+      /**
+       * <code>required string region = 2;</code>
+       * @return Whether the region field is set.
+       */
+      public boolean hasRegion() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The region.
+       */
+      public java.lang.String getRegion() {
+        java.lang.Object ref = region_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            region_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The bytes for region.
+       */
+      public com.google.protobuf.ByteString
+          getRegionBytes() {
+        java.lang.Object ref = region_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          region_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegion() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        region_ = getDefaultInstance().getRegion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The bytes for region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return Whether the timestamp field is set.
+       */
+      @java.lang.Override
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000004;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private double roll_ ;
+      /**
+       * <code>required double roll = 4;</code>
+       * @return Whether the roll field is set.
+       */
+      @java.lang.Override
+      public boolean hasRoll() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>required double roll = 4;</code>
+       * @return The roll.
+       */
+      @java.lang.Override
+      public double getRoll() {
+        return roll_;
+      }
+      /**
+       * <code>required double roll = 4;</code>
+       * @param value The roll to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoll(double value) {
+        bitField0_ |= 0x00000008;
+        roll_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required double roll = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRoll() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        roll_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double pitch_ ;
+      /**
+       * <code>required double pitch = 5;</code>
+       * @return Whether the pitch field is set.
+       */
+      @java.lang.Override
+      public boolean hasPitch() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>required double pitch = 5;</code>
+       * @return The pitch.
+       */
+      @java.lang.Override
+      public double getPitch() {
+        return pitch_;
+      }
+      /**
+       * <code>required double pitch = 5;</code>
+       * @param value The pitch to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPitch(double value) {
+        bitField0_ |= 0x00000010;
+        pitch_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required double pitch = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPitch() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        pitch_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double yaw_ ;
+      /**
+       * <code>required double yaw = 6;</code>
+       * @return Whether the yaw field is set.
+       */
+      @java.lang.Override
+      public boolean hasYaw() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>required double yaw = 6;</code>
+       * @return The yaw.
+       */
+      @java.lang.Override
+      public double getYaw() {
+        return yaw_;
+      }
+      /**
+       * <code>required double yaw = 6;</code>
+       * @param value The yaw to set.
+       * @return This builder for chaining.
+       */
+      public Builder setYaw(double value) {
+        bitField0_ |= 0x00000020;
+        yaw_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required double yaw = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearYaw() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        yaw_ = 0D;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:compass.harvest.v1alpha1.PartialEventGyro)
+    }
+
+    // @@protoc_insertion_point(class_scope:compass.harvest.v1alpha1.PartialEventGyro)
+    private static final compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro();
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PartialEventGyro>
+        PARSER = new com.google.protobuf.AbstractParser<PartialEventGyro>() {
+      @java.lang.Override
+      public PartialEventGyro parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PartialEventGyro> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PartialEventGyro> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventGyro getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PartialEventOdoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:compass.harvest.v1alpha1.PartialEventOdo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    boolean hasVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    java.lang.String getVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    com.google.protobuf.ByteString
+        getVehicleIdBytes();
+
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    boolean hasRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    java.lang.String getRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    com.google.protobuf.ByteString
+        getRegionBytes();
+
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+
+    /**
+     * <code>required double odo = 4;</code>
+     * @return Whether the odo field is set.
+     */
+    boolean hasOdo();
+    /**
+     * <code>required double odo = 4;</code>
+     * @return The odo.
+     */
+    double getOdo();
+  }
+  /**
+   * Protobuf type {@code compass.harvest.v1alpha1.PartialEventOdo}
+   */
+  public static final class PartialEventOdo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:compass.harvest.v1alpha1.PartialEventOdo)
+      PartialEventOdoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PartialEventOdo.newBuilder() to construct.
+    private PartialEventOdo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PartialEventOdo() {
+      vehicleId_ = "";
+      region_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PartialEventOdo();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventOdo_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventOdo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VEHICLE_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object vehicleId_;
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    @java.lang.Override
+    public boolean hasVehicleId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    @java.lang.Override
+    public java.lang.String getVehicleId() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          vehicleId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVehicleIdBytes() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vehicleId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object region_;
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    @java.lang.Override
+    public boolean hasRegion() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    @java.lang.Override
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          region_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 3;
+    private long timestamp_;
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int ODO_FIELD_NUMBER = 4;
+    private double odo_;
+    /**
+     * <code>required double odo = 4;</code>
+     * @return Whether the odo field is set.
+     */
+    @java.lang.Override
+    public boolean hasOdo() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>required double odo = 4;</code>
+     * @return The odo.
+     */
+    @java.lang.Override
+    public double getOdo() {
+      return odo_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasVehicleId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRegion()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTimestamp()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasOdo()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeInt64(3, timestamp_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeDouble(4, odo_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, timestamp_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, odo_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo)) {
+        return super.equals(obj);
+      }
+      compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo other = (compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo) obj;
+
+      if (hasVehicleId() != other.hasVehicleId()) return false;
+      if (hasVehicleId()) {
+        if (!getVehicleId()
+            .equals(other.getVehicleId())) return false;
+      }
+      if (hasRegion() != other.hasRegion()) return false;
+      if (hasRegion()) {
+        if (!getRegion()
+            .equals(other.getRegion())) return false;
+      }
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (hasOdo() != other.hasOdo()) return false;
+      if (hasOdo()) {
+        if (java.lang.Double.doubleToLongBits(getOdo())
+            != java.lang.Double.doubleToLongBits(
+                other.getOdo())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasVehicleId()) {
+        hash = (37 * hash) + VEHICLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getVehicleId().hashCode();
+      }
+      if (hasRegion()) {
+        hash = (37 * hash) + REGION_FIELD_NUMBER;
+        hash = (53 * hash) + getRegion().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (hasOdo()) {
+        hash = (37 * hash) + ODO_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getOdo()));
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code compass.harvest.v1alpha1.PartialEventOdo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:compass.harvest.v1alpha1.PartialEventOdo)
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventOdo_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventOdo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo.Builder.class);
+      }
+
+      // Construct using compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        vehicleId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        region_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        odo_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventOdo_descriptor;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo getDefaultInstanceForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo build() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo buildPartial() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo result = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.vehicleId_ = vehicleId_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.region_ = region_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.odo_ = odo_;
+          to_bitField0_ |= 0x00000008;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo) {
+          return mergeFrom((compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo other) {
+        if (other == compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo.getDefaultInstance()) return this;
+        if (other.hasVehicleId()) {
+          bitField0_ |= 0x00000001;
+          vehicleId_ = other.vehicleId_;
+          onChanged();
+        }
+        if (other.hasRegion()) {
+          bitField0_ |= 0x00000002;
+          region_ = other.region_;
+          onChanged();
+        }
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (other.hasOdo()) {
+          setOdo(other.getOdo());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasVehicleId()) {
+          return false;
+        }
+        if (!hasRegion()) {
+          return false;
+        }
+        if (!hasTimestamp()) {
+          return false;
+        }
+        if (!hasOdo()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                vehicleId_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                region_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                timestamp_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 33: {
+                odo_ = input.readDouble();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 33
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object vehicleId_ = "";
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return Whether the vehicleId field is set.
+       */
+      public boolean hasVehicleId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The vehicleId.
+       */
+      public java.lang.String getVehicleId() {
+        java.lang.Object ref = vehicleId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            vehicleId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The bytes for vehicleId.
+       */
+      public com.google.protobuf.ByteString
+          getVehicleIdBytes() {
+        java.lang.Object ref = vehicleId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          vehicleId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVehicleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        vehicleId_ = getDefaultInstance().getVehicleId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The bytes for vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object region_ = "";
+      /**
+       * <code>required string region = 2;</code>
+       * @return Whether the region field is set.
+       */
+      public boolean hasRegion() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The region.
+       */
+      public java.lang.String getRegion() {
+        java.lang.Object ref = region_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            region_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The bytes for region.
+       */
+      public com.google.protobuf.ByteString
+          getRegionBytes() {
+        java.lang.Object ref = region_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          region_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegion() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        region_ = getDefaultInstance().getRegion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The bytes for region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return Whether the timestamp field is set.
+       */
+      @java.lang.Override
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000004;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private double odo_ ;
+      /**
+       * <code>required double odo = 4;</code>
+       * @return Whether the odo field is set.
+       */
+      @java.lang.Override
+      public boolean hasOdo() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>required double odo = 4;</code>
+       * @return The odo.
+       */
+      @java.lang.Override
+      public double getOdo() {
+        return odo_;
+      }
+      /**
+       * <code>required double odo = 4;</code>
+       * @param value The odo to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOdo(double value) {
+        bitField0_ |= 0x00000008;
+        odo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required double odo = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOdo() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        odo_ = 0D;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:compass.harvest.v1alpha1.PartialEventOdo)
+    }
+
+    // @@protoc_insertion_point(class_scope:compass.harvest.v1alpha1.PartialEventOdo)
+    private static final compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo();
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PartialEventOdo>
+        PARSER = new com.google.protobuf.AbstractParser<PartialEventOdo>() {
+      @java.lang.Override
+      public PartialEventOdo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PartialEventOdo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PartialEventOdo> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventOdo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PartialEventFuelOrChargeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:compass.harvest.v1alpha1.PartialEventFuelOrCharge)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    boolean hasVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    java.lang.String getVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    com.google.protobuf.ByteString
+        getVehicleIdBytes();
+
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    boolean hasRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    java.lang.String getRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    com.google.protobuf.ByteString
+        getRegionBytes();
+
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+
+    /**
+     * <code>required double fuel_or_charge = 4;</code>
+     * @return Whether the fuelOrCharge field is set.
+     */
+    boolean hasFuelOrCharge();
+    /**
+     * <code>required double fuel_or_charge = 4;</code>
+     * @return The fuelOrCharge.
+     */
+    double getFuelOrCharge();
+  }
+  /**
+   * Protobuf type {@code compass.harvest.v1alpha1.PartialEventFuelOrCharge}
+   */
+  public static final class PartialEventFuelOrCharge extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:compass.harvest.v1alpha1.PartialEventFuelOrCharge)
+      PartialEventFuelOrChargeOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PartialEventFuelOrCharge.newBuilder() to construct.
+    private PartialEventFuelOrCharge(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PartialEventFuelOrCharge() {
+      vehicleId_ = "";
+      region_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PartialEventFuelOrCharge();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventFuelOrCharge_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventFuelOrCharge_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VEHICLE_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object vehicleId_;
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    @java.lang.Override
+    public boolean hasVehicleId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    @java.lang.Override
+    public java.lang.String getVehicleId() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          vehicleId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVehicleIdBytes() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vehicleId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object region_;
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    @java.lang.Override
+    public boolean hasRegion() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    @java.lang.Override
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          region_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 3;
+    private long timestamp_;
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int FUEL_OR_CHARGE_FIELD_NUMBER = 4;
+    private double fuelOrCharge_;
+    /**
+     * <code>required double fuel_or_charge = 4;</code>
+     * @return Whether the fuelOrCharge field is set.
+     */
+    @java.lang.Override
+    public boolean hasFuelOrCharge() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>required double fuel_or_charge = 4;</code>
+     * @return The fuelOrCharge.
+     */
+    @java.lang.Override
+    public double getFuelOrCharge() {
+      return fuelOrCharge_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasVehicleId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRegion()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTimestamp()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasFuelOrCharge()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeInt64(3, timestamp_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeDouble(4, fuelOrCharge_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, timestamp_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, fuelOrCharge_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge)) {
+        return super.equals(obj);
+      }
+      compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge other = (compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge) obj;
+
+      if (hasVehicleId() != other.hasVehicleId()) return false;
+      if (hasVehicleId()) {
+        if (!getVehicleId()
+            .equals(other.getVehicleId())) return false;
+      }
+      if (hasRegion() != other.hasRegion()) return false;
+      if (hasRegion()) {
+        if (!getRegion()
+            .equals(other.getRegion())) return false;
+      }
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (hasFuelOrCharge() != other.hasFuelOrCharge()) return false;
+      if (hasFuelOrCharge()) {
+        if (java.lang.Double.doubleToLongBits(getFuelOrCharge())
+            != java.lang.Double.doubleToLongBits(
+                other.getFuelOrCharge())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasVehicleId()) {
+        hash = (37 * hash) + VEHICLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getVehicleId().hashCode();
+      }
+      if (hasRegion()) {
+        hash = (37 * hash) + REGION_FIELD_NUMBER;
+        hash = (53 * hash) + getRegion().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (hasFuelOrCharge()) {
+        hash = (37 * hash) + FUEL_OR_CHARGE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getFuelOrCharge()));
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code compass.harvest.v1alpha1.PartialEventFuelOrCharge}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:compass.harvest.v1alpha1.PartialEventFuelOrCharge)
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrChargeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventFuelOrCharge_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventFuelOrCharge_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge.Builder.class);
+      }
+
+      // Construct using compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        vehicleId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        region_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        fuelOrCharge_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventFuelOrCharge_descriptor;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge getDefaultInstanceForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge build() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge buildPartial() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge result = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.vehicleId_ = vehicleId_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.region_ = region_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.fuelOrCharge_ = fuelOrCharge_;
+          to_bitField0_ |= 0x00000008;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge) {
+          return mergeFrom((compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge other) {
+        if (other == compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge.getDefaultInstance()) return this;
+        if (other.hasVehicleId()) {
+          bitField0_ |= 0x00000001;
+          vehicleId_ = other.vehicleId_;
+          onChanged();
+        }
+        if (other.hasRegion()) {
+          bitField0_ |= 0x00000002;
+          region_ = other.region_;
+          onChanged();
+        }
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (other.hasFuelOrCharge()) {
+          setFuelOrCharge(other.getFuelOrCharge());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasVehicleId()) {
+          return false;
+        }
+        if (!hasRegion()) {
+          return false;
+        }
+        if (!hasTimestamp()) {
+          return false;
+        }
+        if (!hasFuelOrCharge()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                vehicleId_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                region_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                timestamp_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 33: {
+                fuelOrCharge_ = input.readDouble();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 33
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object vehicleId_ = "";
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return Whether the vehicleId field is set.
+       */
+      public boolean hasVehicleId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The vehicleId.
+       */
+      public java.lang.String getVehicleId() {
+        java.lang.Object ref = vehicleId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            vehicleId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The bytes for vehicleId.
+       */
+      public com.google.protobuf.ByteString
+          getVehicleIdBytes() {
+        java.lang.Object ref = vehicleId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          vehicleId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVehicleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        vehicleId_ = getDefaultInstance().getVehicleId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The bytes for vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object region_ = "";
+      /**
+       * <code>required string region = 2;</code>
+       * @return Whether the region field is set.
+       */
+      public boolean hasRegion() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The region.
+       */
+      public java.lang.String getRegion() {
+        java.lang.Object ref = region_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            region_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The bytes for region.
+       */
+      public com.google.protobuf.ByteString
+          getRegionBytes() {
+        java.lang.Object ref = region_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          region_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegion() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        region_ = getDefaultInstance().getRegion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The bytes for region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return Whether the timestamp field is set.
+       */
+      @java.lang.Override
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000004;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private double fuelOrCharge_ ;
+      /**
+       * <code>required double fuel_or_charge = 4;</code>
+       * @return Whether the fuelOrCharge field is set.
+       */
+      @java.lang.Override
+      public boolean hasFuelOrCharge() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>required double fuel_or_charge = 4;</code>
+       * @return The fuelOrCharge.
+       */
+      @java.lang.Override
+      public double getFuelOrCharge() {
+        return fuelOrCharge_;
+      }
+      /**
+       * <code>required double fuel_or_charge = 4;</code>
+       * @param value The fuelOrCharge to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFuelOrCharge(double value) {
+        bitField0_ |= 0x00000008;
+        fuelOrCharge_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required double fuel_or_charge = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFuelOrCharge() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        fuelOrCharge_ = 0D;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:compass.harvest.v1alpha1.PartialEventFuelOrCharge)
+    }
+
+    // @@protoc_insertion_point(class_scope:compass.harvest.v1alpha1.PartialEventFuelOrCharge)
+    private static final compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge();
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PartialEventFuelOrCharge>
+        PARSER = new com.google.protobuf.AbstractParser<PartialEventFuelOrCharge>() {
+      @java.lang.Override
+      public PartialEventFuelOrCharge parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PartialEventFuelOrCharge> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PartialEventFuelOrCharge> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventFuelOrCharge getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PartialEventMetadataKVOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:compass.harvest.v1alpha1.PartialEventMetadataKV)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    boolean hasVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    java.lang.String getVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    com.google.protobuf.ByteString
+        getVehicleIdBytes();
+
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    boolean hasRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    java.lang.String getRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    com.google.protobuf.ByteString
+        getRegionBytes();
+
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+
+    /* nullable */
+java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code compass.harvest.v1alpha1.PartialEventMetadataKV}
+   */
+  public static final class PartialEventMetadataKV extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:compass.harvest.v1alpha1.PartialEventMetadataKV)
+      PartialEventMetadataKVOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PartialEventMetadataKV.newBuilder() to construct.
+    private PartialEventMetadataKV(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PartialEventMetadataKV() {
+      vehicleId_ = "";
+      region_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PartialEventMetadataKV();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 4:
+          return internalGetLabels();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VEHICLE_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object vehicleId_;
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    @java.lang.Override
+    public boolean hasVehicleId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    @java.lang.Override
+    public java.lang.String getVehicleId() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          vehicleId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVehicleIdBytes() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vehicleId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object region_;
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    @java.lang.Override
+    public boolean hasRegion() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    @java.lang.Override
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          region_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 3;
+    private long timestamp_;
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int LABELS_FIELD_NUMBER = 4;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 4;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasVehicleId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRegion()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTimestamp()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeInt64(3, timestamp_);
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          4);
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, timestamp_);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(4, labels__);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV)) {
+        return super.equals(obj);
+      }
+      compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV other = (compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV) obj;
+
+      if (hasVehicleId() != other.hasVehicleId()) return false;
+      if (hasVehicleId()) {
+        if (!getVehicleId()
+            .equals(other.getVehicleId())) return false;
+      }
+      if (hasRegion() != other.hasRegion()) return false;
+      if (hasRegion()) {
+        if (!getRegion()
+            .equals(other.getRegion())) return false;
+      }
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (!internalGetLabels().equals(
+          other.internalGetLabels())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasVehicleId()) {
+        hash = (37 * hash) + VEHICLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getVehicleId().hashCode();
+      }
+      if (hasRegion()) {
+        hash = (37 * hash) + REGION_FIELD_NUMBER;
+        hash = (53 * hash) + getRegion().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code compass.harvest.v1alpha1.PartialEventMetadataKV}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:compass.harvest.v1alpha1.PartialEventMetadataKV)
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKVOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 4:
+            return internalGetLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 4:
+            return internalGetMutableLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV.Builder.class);
+      }
+
+      // Construct using compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        vehicleId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        region_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        internalGetMutableLabels().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_descriptor;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV getDefaultInstanceForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV build() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV buildPartial() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV result = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.vehicleId_ = vehicleId_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.region_ = region_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000004;
+        }
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV) {
+          return mergeFrom((compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV other) {
+        if (other == compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV.getDefaultInstance()) return this;
+        if (other.hasVehicleId()) {
+          bitField0_ |= 0x00000001;
+          vehicleId_ = other.vehicleId_;
+          onChanged();
+        }
+        if (other.hasRegion()) {
+          bitField0_ |= 0x00000002;
+          region_ = other.region_;
+          onChanged();
+        }
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasVehicleId()) {
+          return false;
+        }
+        if (!hasRegion()) {
+          return false;
+        }
+        if (!hasTimestamp()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                vehicleId_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                region_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                timestamp_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                labels__ = input.readMessage(
+                    LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableLabels().getMutableMap().put(
+                    labels__.getKey(), labels__.getValue());
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object vehicleId_ = "";
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return Whether the vehicleId field is set.
+       */
+      public boolean hasVehicleId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The vehicleId.
+       */
+      public java.lang.String getVehicleId() {
+        java.lang.Object ref = vehicleId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            vehicleId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The bytes for vehicleId.
+       */
+      public com.google.protobuf.ByteString
+          getVehicleIdBytes() {
+        java.lang.Object ref = vehicleId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          vehicleId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVehicleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        vehicleId_ = getDefaultInstance().getVehicleId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The bytes for vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object region_ = "";
+      /**
+       * <code>required string region = 2;</code>
+       * @return Whether the region field is set.
+       */
+      public boolean hasRegion() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The region.
+       */
+      public java.lang.String getRegion() {
+        java.lang.Object ref = region_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            region_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The bytes for region.
+       */
+      public com.google.protobuf.ByteString
+          getRegionBytes() {
+        java.lang.Object ref = region_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          region_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegion() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        region_ = getDefaultInstance().getRegion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The bytes for region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return Whether the timestamp field is set.
+       */
+      @java.lang.Override
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000004;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 4;</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:compass.harvest.v1alpha1.PartialEventMetadataKV)
+    }
+
+    // @@protoc_insertion_point(class_scope:compass.harvest.v1alpha1.PartialEventMetadataKV)
+    private static final compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV();
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PartialEventMetadataKV>
+        PARSER = new com.google.protobuf.AbstractParser<PartialEventMetadataKV>() {
+      @java.lang.Override
+      public PartialEventMetadataKV parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PartialEventMetadataKV> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PartialEventMetadataKV> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataKV getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PartialEventMetadataJSONOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:compass.harvest.v1alpha1.PartialEventMetadataJSON)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    boolean hasVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    java.lang.String getVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    com.google.protobuf.ByteString
+        getVehicleIdBytes();
+
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    boolean hasRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    java.lang.String getRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    com.google.protobuf.ByteString
+        getRegionBytes();
+
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+
+    /**
+     * <code>required string json_metadata = 4;</code>
+     * @return Whether the jsonMetadata field is set.
+     */
+    boolean hasJsonMetadata();
+    /**
+     * <code>required string json_metadata = 4;</code>
+     * @return The jsonMetadata.
+     */
+    java.lang.String getJsonMetadata();
+    /**
+     * <code>required string json_metadata = 4;</code>
+     * @return The bytes for jsonMetadata.
+     */
+    com.google.protobuf.ByteString
+        getJsonMetadataBytes();
+  }
+  /**
+   * Protobuf type {@code compass.harvest.v1alpha1.PartialEventMetadataJSON}
+   */
+  public static final class PartialEventMetadataJSON extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:compass.harvest.v1alpha1.PartialEventMetadataJSON)
+      PartialEventMetadataJSONOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PartialEventMetadataJSON.newBuilder() to construct.
+    private PartialEventMetadataJSON(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PartialEventMetadataJSON() {
+      vehicleId_ = "";
+      region_ = "";
+      jsonMetadata_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PartialEventMetadataJSON();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventMetadataJSON_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventMetadataJSON_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VEHICLE_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object vehicleId_;
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    @java.lang.Override
+    public boolean hasVehicleId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    @java.lang.Override
+    public java.lang.String getVehicleId() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          vehicleId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVehicleIdBytes() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vehicleId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object region_;
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    @java.lang.Override
+    public boolean hasRegion() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    @java.lang.Override
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          region_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 3;
+    private long timestamp_;
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return Whether the timestamp field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>required int64 timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int JSON_METADATA_FIELD_NUMBER = 4;
+    private volatile java.lang.Object jsonMetadata_;
+    /**
+     * <code>required string json_metadata = 4;</code>
+     * @return Whether the jsonMetadata field is set.
+     */
+    @java.lang.Override
+    public boolean hasJsonMetadata() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>required string json_metadata = 4;</code>
+     * @return The jsonMetadata.
+     */
+    @java.lang.Override
+    public java.lang.String getJsonMetadata() {
+      java.lang.Object ref = jsonMetadata_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          jsonMetadata_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string json_metadata = 4;</code>
+     * @return The bytes for jsonMetadata.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getJsonMetadataBytes() {
+      java.lang.Object ref = jsonMetadata_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        jsonMetadata_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasVehicleId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRegion()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTimestamp()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasJsonMetadata()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeInt64(3, timestamp_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, jsonMetadata_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, timestamp_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, jsonMetadata_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON)) {
+        return super.equals(obj);
+      }
+      compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON other = (compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON) obj;
+
+      if (hasVehicleId() != other.hasVehicleId()) return false;
+      if (hasVehicleId()) {
+        if (!getVehicleId()
+            .equals(other.getVehicleId())) return false;
+      }
+      if (hasRegion() != other.hasRegion()) return false;
+      if (hasRegion()) {
+        if (!getRegion()
+            .equals(other.getRegion())) return false;
+      }
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (hasJsonMetadata() != other.hasJsonMetadata()) return false;
+      if (hasJsonMetadata()) {
+        if (!getJsonMetadata()
+            .equals(other.getJsonMetadata())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasVehicleId()) {
+        hash = (37 * hash) + VEHICLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getVehicleId().hashCode();
+      }
+      if (hasRegion()) {
+        hash = (37 * hash) + REGION_FIELD_NUMBER;
+        hash = (53 * hash) + getRegion().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (hasJsonMetadata()) {
+        hash = (37 * hash) + JSON_METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getJsonMetadata().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code compass.harvest.v1alpha1.PartialEventMetadataJSON}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:compass.harvest.v1alpha1.PartialEventMetadataJSON)
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSONOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventMetadataJSON_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventMetadataJSON_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON.Builder.class);
+      }
+
+      // Construct using compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        vehicleId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        region_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        jsonMetadata_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialEventMetadataJSON_descriptor;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON getDefaultInstanceForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON build() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON buildPartial() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON result = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.vehicleId_ = vehicleId_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.region_ = region_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.jsonMetadata_ = jsonMetadata_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON) {
+          return mergeFrom((compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON other) {
+        if (other == compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON.getDefaultInstance()) return this;
+        if (other.hasVehicleId()) {
+          bitField0_ |= 0x00000001;
+          vehicleId_ = other.vehicleId_;
+          onChanged();
+        }
+        if (other.hasRegion()) {
+          bitField0_ |= 0x00000002;
+          region_ = other.region_;
+          onChanged();
+        }
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (other.hasJsonMetadata()) {
+          bitField0_ |= 0x00000008;
+          jsonMetadata_ = other.jsonMetadata_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasVehicleId()) {
+          return false;
+        }
+        if (!hasRegion()) {
+          return false;
+        }
+        if (!hasTimestamp()) {
+          return false;
+        }
+        if (!hasJsonMetadata()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                vehicleId_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                region_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                timestamp_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                jsonMetadata_ = input.readBytes();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object vehicleId_ = "";
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return Whether the vehicleId field is set.
+       */
+      public boolean hasVehicleId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The vehicleId.
+       */
+      public java.lang.String getVehicleId() {
+        java.lang.Object ref = vehicleId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            vehicleId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The bytes for vehicleId.
+       */
+      public com.google.protobuf.ByteString
+          getVehicleIdBytes() {
+        java.lang.Object ref = vehicleId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          vehicleId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVehicleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        vehicleId_ = getDefaultInstance().getVehicleId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The bytes for vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object region_ = "";
+      /**
+       * <code>required string region = 2;</code>
+       * @return Whether the region field is set.
+       */
+      public boolean hasRegion() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The region.
+       */
+      public java.lang.String getRegion() {
+        java.lang.Object ref = region_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            region_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The bytes for region.
+       */
+      public com.google.protobuf.ByteString
+          getRegionBytes() {
+        java.lang.Object ref = region_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          region_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegion() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        region_ = getDefaultInstance().getRegion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The bytes for region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return Whether the timestamp field is set.
+       */
+      @java.lang.Override
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000004;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 timestamp = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object jsonMetadata_ = "";
+      /**
+       * <code>required string json_metadata = 4;</code>
+       * @return Whether the jsonMetadata field is set.
+       */
+      public boolean hasJsonMetadata() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>required string json_metadata = 4;</code>
+       * @return The jsonMetadata.
+       */
+      public java.lang.String getJsonMetadata() {
+        java.lang.Object ref = jsonMetadata_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            jsonMetadata_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string json_metadata = 4;</code>
+       * @return The bytes for jsonMetadata.
+       */
+      public com.google.protobuf.ByteString
+          getJsonMetadataBytes() {
+        java.lang.Object ref = jsonMetadata_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          jsonMetadata_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string json_metadata = 4;</code>
+       * @param value The jsonMetadata to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJsonMetadata(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        jsonMetadata_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string json_metadata = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearJsonMetadata() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        jsonMetadata_ = getDefaultInstance().getJsonMetadata();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string json_metadata = 4;</code>
+       * @param value The bytes for jsonMetadata to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJsonMetadataBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        jsonMetadata_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:compass.harvest.v1alpha1.PartialEventMetadataJSON)
+    }
+
+    // @@protoc_insertion_point(class_scope:compass.harvest.v1alpha1.PartialEventMetadataJSON)
+    private static final compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON();
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PartialEventMetadataJSON>
+        PARSER = new com.google.protobuf.AbstractParser<PartialEventMetadataJSON>() {
+      @java.lang.Override
+      public PartialEventMetadataJSON parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PartialEventMetadataJSON> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PartialEventMetadataJSON> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public compass.harvest.v1alpha1.PositionEventOuterClass.PartialEventMetadataJSON getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PartialVehicleMetadataKVOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:compass.harvest.v1alpha1.PartialVehicleMetadataKV)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    boolean hasVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    java.lang.String getVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    com.google.protobuf.ByteString
+        getVehicleIdBytes();
+
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    boolean hasRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    java.lang.String getRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    com.google.protobuf.ByteString
+        getRegionBytes();
+
+    /**
+     * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+     * @return Whether the transportType field is set.
+     */
+    boolean hasTransportType();
+    /**
+     * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+     * @return The transportType.
+     */
+    compass.harvest.v1alpha1.PositionEventOuterClass.TransportType getTransportType();
+
+    /**
+     * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+     * @return Whether the vehicleType field is set.
+     */
+    boolean hasVehicleType();
+    /**
+     * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+     * @return The vehicleType.
+     */
+    compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType getVehicleType();
+
+    /**
+     * <code>map&lt;string, string&gt; labels = 5;</code>
+     */
+    int getLabelsCount();
+    /**
+     * <code>map&lt;string, string&gt; labels = 5;</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <code>map&lt;string, string&gt; labels = 5;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <code>map&lt;string, string&gt; labels = 5;</code>
+     */
+
+    /* nullable */
+java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; labels = 5;</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code compass.harvest.v1alpha1.PartialVehicleMetadataKV}
+   */
+  public static final class PartialVehicleMetadataKV extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:compass.harvest.v1alpha1.PartialVehicleMetadataKV)
+      PartialVehicleMetadataKVOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PartialVehicleMetadataKV.newBuilder() to construct.
+    private PartialVehicleMetadataKV(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PartialVehicleMetadataKV() {
+      vehicleId_ = "";
+      region_ = "";
+      transportType_ = 0;
+      vehicleType_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PartialVehicleMetadataKV();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 5:
+          return internalGetLabels();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VEHICLE_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object vehicleId_;
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    @java.lang.Override
+    public boolean hasVehicleId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    @java.lang.Override
+    public java.lang.String getVehicleId() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          vehicleId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVehicleIdBytes() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vehicleId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object region_;
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    @java.lang.Override
+    public boolean hasRegion() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    @java.lang.Override
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          region_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TRANSPORT_TYPE_FIELD_NUMBER = 3;
+    private int transportType_;
+    /**
+     * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+     * @return Whether the transportType field is set.
+     */
+    @java.lang.Override public boolean hasTransportType() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+     * @return The transportType.
+     */
+    @java.lang.Override public compass.harvest.v1alpha1.PositionEventOuterClass.TransportType getTransportType() {
+      @SuppressWarnings("deprecation")
+      compass.harvest.v1alpha1.PositionEventOuterClass.TransportType result = compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.valueOf(transportType_);
+      return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.TRANSPORT_TYPE_UNSPECIFIED : result;
+    }
+
+    public static final int VEHICLE_TYPE_FIELD_NUMBER = 4;
+    private int vehicleType_;
+    /**
+     * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+     * @return Whether the vehicleType field is set.
+     */
+    @java.lang.Override public boolean hasVehicleType() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+     * @return The vehicleType.
+     */
+    @java.lang.Override public compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType getVehicleType() {
+      @SuppressWarnings("deprecation")
+      compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType result = compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.valueOf(vehicleType_);
+      return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.VEHICLE_TYPE_UNSPECIFIED : result;
+    }
+
+    public static final int LABELS_FIELD_NUMBER = 5;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 5;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 5;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 5;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; labels = 5;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasVehicleId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRegion()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeEnum(3, transportType_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeEnum(4, vehicleType_);
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          5);
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, transportType_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, vehicleType_);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(5, labels__);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV)) {
+        return super.equals(obj);
+      }
+      compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV other = (compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV) obj;
+
+      if (hasVehicleId() != other.hasVehicleId()) return false;
+      if (hasVehicleId()) {
+        if (!getVehicleId()
+            .equals(other.getVehicleId())) return false;
+      }
+      if (hasRegion() != other.hasRegion()) return false;
+      if (hasRegion()) {
+        if (!getRegion()
+            .equals(other.getRegion())) return false;
+      }
+      if (hasTransportType() != other.hasTransportType()) return false;
+      if (hasTransportType()) {
+        if (transportType_ != other.transportType_) return false;
+      }
+      if (hasVehicleType() != other.hasVehicleType()) return false;
+      if (hasVehicleType()) {
+        if (vehicleType_ != other.vehicleType_) return false;
+      }
+      if (!internalGetLabels().equals(
+          other.internalGetLabels())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasVehicleId()) {
+        hash = (37 * hash) + VEHICLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getVehicleId().hashCode();
+      }
+      if (hasRegion()) {
+        hash = (37 * hash) + REGION_FIELD_NUMBER;
+        hash = (53 * hash) + getRegion().hashCode();
+      }
+      if (hasTransportType()) {
+        hash = (37 * hash) + TRANSPORT_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + transportType_;
+      }
+      if (hasVehicleType()) {
+        hash = (37 * hash) + VEHICLE_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + vehicleType_;
+      }
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code compass.harvest.v1alpha1.PartialVehicleMetadataKV}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:compass.harvest.v1alpha1.PartialVehicleMetadataKV)
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKVOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 5:
+            return internalGetLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 5:
+            return internalGetMutableLabels();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV.Builder.class);
+      }
+
+      // Construct using compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        vehicleId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        region_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        transportType_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        vehicleType_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        internalGetMutableLabels().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_descriptor;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV getDefaultInstanceForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV build() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV buildPartial() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV result = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.vehicleId_ = vehicleId_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.region_ = region_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.transportType_ = transportType_;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.vehicleType_ = vehicleType_;
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV) {
+          return mergeFrom((compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV other) {
+        if (other == compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV.getDefaultInstance()) return this;
+        if (other.hasVehicleId()) {
+          bitField0_ |= 0x00000001;
+          vehicleId_ = other.vehicleId_;
+          onChanged();
+        }
+        if (other.hasRegion()) {
+          bitField0_ |= 0x00000002;
+          region_ = other.region_;
+          onChanged();
+        }
+        if (other.hasTransportType()) {
+          setTransportType(other.getTransportType());
+        }
+        if (other.hasVehicleType()) {
+          setVehicleType(other.getVehicleType());
+        }
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasVehicleId()) {
+          return false;
+        }
+        if (!hasRegion()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                vehicleId_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                region_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                int tmpRaw = input.readEnum();
+                compass.harvest.v1alpha1.PositionEventOuterClass.TransportType tmpValue =
+                    compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(3, tmpRaw);
+                } else {
+                  transportType_ = tmpRaw;
+                  bitField0_ |= 0x00000004;
+                }
+                break;
+              } // case 24
+              case 32: {
+                int tmpRaw = input.readEnum();
+                compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType tmpValue =
+                    compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(4, tmpRaw);
+                } else {
+                  vehicleType_ = tmpRaw;
+                  bitField0_ |= 0x00000008;
+                }
+                break;
+              } // case 32
+              case 42: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                labels__ = input.readMessage(
+                    LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableLabels().getMutableMap().put(
+                    labels__.getKey(), labels__.getValue());
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object vehicleId_ = "";
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return Whether the vehicleId field is set.
+       */
+      public boolean hasVehicleId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The vehicleId.
+       */
+      public java.lang.String getVehicleId() {
+        java.lang.Object ref = vehicleId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            vehicleId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The bytes for vehicleId.
+       */
+      public com.google.protobuf.ByteString
+          getVehicleIdBytes() {
+        java.lang.Object ref = vehicleId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          vehicleId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVehicleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        vehicleId_ = getDefaultInstance().getVehicleId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The bytes for vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object region_ = "";
+      /**
+       * <code>required string region = 2;</code>
+       * @return Whether the region field is set.
+       */
+      public boolean hasRegion() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The region.
+       */
+      public java.lang.String getRegion() {
+        java.lang.Object ref = region_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            region_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The bytes for region.
+       */
+      public com.google.protobuf.ByteString
+          getRegionBytes() {
+        java.lang.Object ref = region_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          region_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegion() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        region_ = getDefaultInstance().getRegion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The bytes for region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int transportType_ = 0;
+      /**
+       * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+       * @return Whether the transportType field is set.
+       */
+      @java.lang.Override public boolean hasTransportType() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+       * @return The transportType.
+       */
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.TransportType getTransportType() {
+        @SuppressWarnings("deprecation")
+        compass.harvest.v1alpha1.PositionEventOuterClass.TransportType result = compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.valueOf(transportType_);
+        return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.TRANSPORT_TYPE_UNSPECIFIED : result;
+      }
+      /**
+       * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+       * @param value The transportType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTransportType(compass.harvest.v1alpha1.PositionEventOuterClass.TransportType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        transportType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTransportType() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        transportType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int vehicleType_ = 0;
+      /**
+       * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+       * @return Whether the vehicleType field is set.
+       */
+      @java.lang.Override public boolean hasVehicleType() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+       * @return The vehicleType.
+       */
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType getVehicleType() {
+        @SuppressWarnings("deprecation")
+        compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType result = compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.valueOf(vehicleType_);
+        return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.VEHICLE_TYPE_UNSPECIFIED : result;
+      }
+      /**
+       * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+       * @param value The vehicleType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleType(compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        vehicleType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVehicleType() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        vehicleType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 5;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 5;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 5;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 5;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 5;</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 5;</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; labels = 5;</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:compass.harvest.v1alpha1.PartialVehicleMetadataKV)
+    }
+
+    // @@protoc_insertion_point(class_scope:compass.harvest.v1alpha1.PartialVehicleMetadataKV)
+    private static final compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV();
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PartialVehicleMetadataKV>
+        PARSER = new com.google.protobuf.AbstractParser<PartialVehicleMetadataKV>() {
+      @java.lang.Override
+      public PartialVehicleMetadataKV parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PartialVehicleMetadataKV> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PartialVehicleMetadataKV> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataKV getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PartialVehicleMetadataJSONOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:compass.harvest.v1alpha1.PartialVehicleMetadataJSON)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    boolean hasVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    java.lang.String getVehicleId();
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    com.google.protobuf.ByteString
+        getVehicleIdBytes();
+
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    boolean hasRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    java.lang.String getRegion();
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    com.google.protobuf.ByteString
+        getRegionBytes();
+
+    /**
+     * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+     * @return Whether the transportType field is set.
+     */
+    boolean hasTransportType();
+    /**
+     * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+     * @return The transportType.
+     */
+    compass.harvest.v1alpha1.PositionEventOuterClass.TransportType getTransportType();
+
+    /**
+     * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+     * @return Whether the vehicleType field is set.
+     */
+    boolean hasVehicleType();
+    /**
+     * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+     * @return The vehicleType.
+     */
+    compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType getVehicleType();
+
+    /**
+     * <code>required string json_metadata = 5;</code>
+     * @return Whether the jsonMetadata field is set.
+     */
+    boolean hasJsonMetadata();
+    /**
+     * <code>required string json_metadata = 5;</code>
+     * @return The jsonMetadata.
+     */
+    java.lang.String getJsonMetadata();
+    /**
+     * <code>required string json_metadata = 5;</code>
+     * @return The bytes for jsonMetadata.
+     */
+    com.google.protobuf.ByteString
+        getJsonMetadataBytes();
+  }
+  /**
+   * Protobuf type {@code compass.harvest.v1alpha1.PartialVehicleMetadataJSON}
+   */
+  public static final class PartialVehicleMetadataJSON extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:compass.harvest.v1alpha1.PartialVehicleMetadataJSON)
+      PartialVehicleMetadataJSONOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PartialVehicleMetadataJSON.newBuilder() to construct.
+    private PartialVehicleMetadataJSON(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PartialVehicleMetadataJSON() {
+      vehicleId_ = "";
+      region_ = "";
+      transportType_ = 0;
+      vehicleType_ = 0;
+      jsonMetadata_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PartialVehicleMetadataJSON();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataJSON_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataJSON_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VEHICLE_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object vehicleId_;
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return Whether the vehicleId field is set.
+     */
+    @java.lang.Override
+    public boolean hasVehicleId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The vehicleId.
+     */
+    @java.lang.Override
+    public java.lang.String getVehicleId() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          vehicleId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string vehicle_id = 1;</code>
+     * @return The bytes for vehicleId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVehicleIdBytes() {
+      java.lang.Object ref = vehicleId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vehicleId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object region_;
+    /**
+     * <code>required string region = 2;</code>
+     * @return Whether the region field is set.
+     */
+    @java.lang.Override
+    public boolean hasRegion() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The region.
+     */
+    @java.lang.Override
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          region_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string region = 2;</code>
+     * @return The bytes for region.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TRANSPORT_TYPE_FIELD_NUMBER = 3;
+    private int transportType_;
+    /**
+     * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+     * @return Whether the transportType field is set.
+     */
+    @java.lang.Override public boolean hasTransportType() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+     * @return The transportType.
+     */
+    @java.lang.Override public compass.harvest.v1alpha1.PositionEventOuterClass.TransportType getTransportType() {
+      @SuppressWarnings("deprecation")
+      compass.harvest.v1alpha1.PositionEventOuterClass.TransportType result = compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.valueOf(transportType_);
+      return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.TRANSPORT_TYPE_UNSPECIFIED : result;
+    }
+
+    public static final int VEHICLE_TYPE_FIELD_NUMBER = 4;
+    private int vehicleType_;
+    /**
+     * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+     * @return Whether the vehicleType field is set.
+     */
+    @java.lang.Override public boolean hasVehicleType() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+     * @return The vehicleType.
+     */
+    @java.lang.Override public compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType getVehicleType() {
+      @SuppressWarnings("deprecation")
+      compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType result = compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.valueOf(vehicleType_);
+      return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.VEHICLE_TYPE_UNSPECIFIED : result;
+    }
+
+    public static final int JSON_METADATA_FIELD_NUMBER = 5;
+    private volatile java.lang.Object jsonMetadata_;
+    /**
+     * <code>required string json_metadata = 5;</code>
+     * @return Whether the jsonMetadata field is set.
+     */
+    @java.lang.Override
+    public boolean hasJsonMetadata() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>required string json_metadata = 5;</code>
+     * @return The jsonMetadata.
+     */
+    @java.lang.Override
+    public java.lang.String getJsonMetadata() {
+      java.lang.Object ref = jsonMetadata_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          jsonMetadata_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string json_metadata = 5;</code>
+     * @return The bytes for jsonMetadata.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getJsonMetadataBytes() {
+      java.lang.Object ref = jsonMetadata_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        jsonMetadata_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasVehicleId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRegion()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasJsonMetadata()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeEnum(3, transportType_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeEnum(4, vehicleType_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, jsonMetadata_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, vehicleId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, region_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, transportType_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, vehicleType_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, jsonMetadata_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON)) {
+        return super.equals(obj);
+      }
+      compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON other = (compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON) obj;
+
+      if (hasVehicleId() != other.hasVehicleId()) return false;
+      if (hasVehicleId()) {
+        if (!getVehicleId()
+            .equals(other.getVehicleId())) return false;
+      }
+      if (hasRegion() != other.hasRegion()) return false;
+      if (hasRegion()) {
+        if (!getRegion()
+            .equals(other.getRegion())) return false;
+      }
+      if (hasTransportType() != other.hasTransportType()) return false;
+      if (hasTransportType()) {
+        if (transportType_ != other.transportType_) return false;
+      }
+      if (hasVehicleType() != other.hasVehicleType()) return false;
+      if (hasVehicleType()) {
+        if (vehicleType_ != other.vehicleType_) return false;
+      }
+      if (hasJsonMetadata() != other.hasJsonMetadata()) return false;
+      if (hasJsonMetadata()) {
+        if (!getJsonMetadata()
+            .equals(other.getJsonMetadata())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasVehicleId()) {
+        hash = (37 * hash) + VEHICLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getVehicleId().hashCode();
+      }
+      if (hasRegion()) {
+        hash = (37 * hash) + REGION_FIELD_NUMBER;
+        hash = (53 * hash) + getRegion().hashCode();
+      }
+      if (hasTransportType()) {
+        hash = (37 * hash) + TRANSPORT_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + transportType_;
+      }
+      if (hasVehicleType()) {
+        hash = (37 * hash) + VEHICLE_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + vehicleType_;
+      }
+      if (hasJsonMetadata()) {
+        hash = (37 * hash) + JSON_METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getJsonMetadata().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code compass.harvest.v1alpha1.PartialVehicleMetadataJSON}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:compass.harvest.v1alpha1.PartialVehicleMetadataJSON)
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSONOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataJSON_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataJSON_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON.class, compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON.Builder.class);
+      }
+
+      // Construct using compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        vehicleId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        region_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        transportType_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        vehicleType_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        jsonMetadata_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataJSON_descriptor;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON getDefaultInstanceForType() {
+        return compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON build() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON buildPartial() {
+        compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON result = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.vehicleId_ = vehicleId_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.region_ = region_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.transportType_ = transportType_;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.vehicleType_ = vehicleType_;
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.jsonMetadata_ = jsonMetadata_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON) {
+          return mergeFrom((compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON other) {
+        if (other == compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON.getDefaultInstance()) return this;
+        if (other.hasVehicleId()) {
+          bitField0_ |= 0x00000001;
+          vehicleId_ = other.vehicleId_;
+          onChanged();
+        }
+        if (other.hasRegion()) {
+          bitField0_ |= 0x00000002;
+          region_ = other.region_;
+          onChanged();
+        }
+        if (other.hasTransportType()) {
+          setTransportType(other.getTransportType());
+        }
+        if (other.hasVehicleType()) {
+          setVehicleType(other.getVehicleType());
+        }
+        if (other.hasJsonMetadata()) {
+          bitField0_ |= 0x00000010;
+          jsonMetadata_ = other.jsonMetadata_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasVehicleId()) {
+          return false;
+        }
+        if (!hasRegion()) {
+          return false;
+        }
+        if (!hasJsonMetadata()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                vehicleId_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                region_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                int tmpRaw = input.readEnum();
+                compass.harvest.v1alpha1.PositionEventOuterClass.TransportType tmpValue =
+                    compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(3, tmpRaw);
+                } else {
+                  transportType_ = tmpRaw;
+                  bitField0_ |= 0x00000004;
+                }
+                break;
+              } // case 24
+              case 32: {
+                int tmpRaw = input.readEnum();
+                compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType tmpValue =
+                    compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(4, tmpRaw);
+                } else {
+                  vehicleType_ = tmpRaw;
+                  bitField0_ |= 0x00000008;
+                }
+                break;
+              } // case 32
+              case 42: {
+                jsonMetadata_ = input.readBytes();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object vehicleId_ = "";
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return Whether the vehicleId field is set.
+       */
+      public boolean hasVehicleId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The vehicleId.
+       */
+      public java.lang.String getVehicleId() {
+        java.lang.Object ref = vehicleId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            vehicleId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return The bytes for vehicleId.
+       */
+      public com.google.protobuf.ByteString
+          getVehicleIdBytes() {
+        java.lang.Object ref = vehicleId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          vehicleId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVehicleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        vehicleId_ = getDefaultInstance().getVehicleId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string vehicle_id = 1;</code>
+       * @param value The bytes for vehicleId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        vehicleId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object region_ = "";
+      /**
+       * <code>required string region = 2;</code>
+       * @return Whether the region field is set.
+       */
+      public boolean hasRegion() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The region.
+       */
+      public java.lang.String getRegion() {
+        java.lang.Object ref = region_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            region_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return The bytes for region.
+       */
+      public com.google.protobuf.ByteString
+          getRegionBytes() {
+        java.lang.Object ref = region_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          region_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegion() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        region_ = getDefaultInstance().getRegion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string region = 2;</code>
+       * @param value The bytes for region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        region_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int transportType_ = 0;
+      /**
+       * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+       * @return Whether the transportType field is set.
+       */
+      @java.lang.Override public boolean hasTransportType() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+       * @return The transportType.
+       */
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.TransportType getTransportType() {
+        @SuppressWarnings("deprecation")
+        compass.harvest.v1alpha1.PositionEventOuterClass.TransportType result = compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.valueOf(transportType_);
+        return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.TransportType.TRANSPORT_TYPE_UNSPECIFIED : result;
+      }
+      /**
+       * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+       * @param value The transportType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTransportType(compass.harvest.v1alpha1.PositionEventOuterClass.TransportType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        transportType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .compass.harvest.v1alpha1.TransportType transport_type = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTransportType() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        transportType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int vehicleType_ = 0;
+      /**
+       * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+       * @return Whether the vehicleType field is set.
+       */
+      @java.lang.Override public boolean hasVehicleType() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+       * @return The vehicleType.
+       */
+      @java.lang.Override
+      public compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType getVehicleType() {
+        @SuppressWarnings("deprecation")
+        compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType result = compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.valueOf(vehicleType_);
+        return result == null ? compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType.VEHICLE_TYPE_UNSPECIFIED : result;
+      }
+      /**
+       * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+       * @param value The vehicleType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVehicleType(compass.harvest.v1alpha1.PositionEventOuterClass.VehicleType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        vehicleType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .compass.harvest.v1alpha1.VehicleType vehicle_type = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVehicleType() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        vehicleType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object jsonMetadata_ = "";
+      /**
+       * <code>required string json_metadata = 5;</code>
+       * @return Whether the jsonMetadata field is set.
+       */
+      public boolean hasJsonMetadata() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>required string json_metadata = 5;</code>
+       * @return The jsonMetadata.
+       */
+      public java.lang.String getJsonMetadata() {
+        java.lang.Object ref = jsonMetadata_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            jsonMetadata_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string json_metadata = 5;</code>
+       * @return The bytes for jsonMetadata.
+       */
+      public com.google.protobuf.ByteString
+          getJsonMetadataBytes() {
+        java.lang.Object ref = jsonMetadata_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          jsonMetadata_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string json_metadata = 5;</code>
+       * @param value The jsonMetadata to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJsonMetadata(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        jsonMetadata_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string json_metadata = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearJsonMetadata() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        jsonMetadata_ = getDefaultInstance().getJsonMetadata();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string json_metadata = 5;</code>
+       * @param value The bytes for jsonMetadata to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJsonMetadataBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        jsonMetadata_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:compass.harvest.v1alpha1.PartialVehicleMetadataJSON)
+    }
+
+    // @@protoc_insertion_point(class_scope:compass.harvest.v1alpha1.PartialVehicleMetadataJSON)
+    private static final compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON();
+    }
+
+    public static compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PartialVehicleMetadataJSON>
+        PARSER = new com.google.protobuf.AbstractParser<PartialVehicleMetadataJSON>() {
+      @java.lang.Override
+      public PartialVehicleMetadataJSON parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PartialVehicleMetadataJSON> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PartialVehicleMetadataJSON> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public compass.harvest.v1alpha1.PositionEventOuterClass.PartialVehicleMetadataJSON getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4827,6 +15535,61 @@ java.lang.String defaultValue);
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_compass_harvest_v1alpha1_PositionEvent_LabelsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_harvest_v1alpha1_PartialEventLatLng_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_harvest_v1alpha1_PartialEventLatLng_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_harvest_v1alpha1_PartialEventAcceleration_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_harvest_v1alpha1_PartialEventAcceleration_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_harvest_v1alpha1_PartialEventGyro_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_harvest_v1alpha1_PartialEventGyro_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_harvest_v1alpha1_PartialEventOdo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_harvest_v1alpha1_PartialEventOdo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_harvest_v1alpha1_PartialEventFuelOrCharge_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_harvest_v1alpha1_PartialEventFuelOrCharge_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_LabelsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_harvest_v1alpha1_PartialEventMetadataJSON_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_harvest_v1alpha1_PartialEventMetadataJSON_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_LabelsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataJSON_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataJSON_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4839,30 +15602,65 @@ java.lang.String defaultValue);
       "\n-compass/harvest/v1alpha1/position_even" +
       "t.proto\022\030compass.harvest.v1alpha1\032\037googl" +
       "e/protobuf/timestamp.proto\032\032compass/type" +
-      "/geo/geo.proto\"T\n\010Position\022(\n\006latlng\030\001 \001" +
+      "/geo/geo.proto\"T\n\010Position\022(\n\006latlng\030\001 \002" +
       "(\0132\030.compass.type.geo.LatLng\022\r\n\005speed\030\002 " +
       "\001(\001\022\017\n\007bearing\030\003 \001(\001\"/\n\014Acceleration\022\t\n\001" +
       "x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\"0\n\004Gyro\022\014\n" +
-      "\004roll\030\001 \001(\001\022\r\n\005pitch\030\002 \001(\001\022\013\n\003yaw\030\003 \001(\001\"" +
-      "\367\003\n\rPositionEvent\022\022\n\nvehicle_id\030\001 \001(\t\022-\n" +
-      "\ttimestamp\030\002 \001(\0132\032.google.protobuf.Times" +
+      "\004roll\030\001 \002(\001\022\r\n\005pitch\030\002 \002(\001\022\013\n\003yaw\030\003 \002(\001\"" +
+      "\211\004\n\rPositionEvent\022\022\n\nvehicle_id\030\001 \002(\t\022-\n" +
+      "\ttimestamp\030\002 \002(\0132\032.google.protobuf.Times" +
       "tamp\022?\n\016transport_type\030\003 \001(\0162\'.compass.h" +
       "arvest.v1alpha1.TransportType\022;\n\014vehicle" +
       "_type\030\004 \001(\0162%.compass.harvest.v1alpha1.V" +
-      "ehicleType\0224\n\010position\030\005 \001(\0132\".compass.h" +
+      "ehicleType\0224\n\010position\030\005 \002(\0132\".compass.h" +
       "arvest.v1alpha1.Position\022<\n\014acceleration" +
       "\030\007 \001(\0132&.compass.harvest.v1alpha1.Accele" +
       "ration\022,\n\004gyro\030\010 \001(\0132\036.compass.harvest.v" +
-      "1alpha1.Gyro\022\017\n\007trip_id\030\t \001(\t\022C\n\006labels\030" +
-      "\006 \003(\01323.compass.harvest.v1alpha1.Positio" +
-      "nEvent.LabelsEntry\032-\n\013LabelsEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001*H\n\rTransportTy" +
-      "pe\022\036\n\032TRANSPORT_TYPE_UNSPECIFIED\020\000\022\013\n\007PR" +
-      "IVATE\020\001\022\n\n\006PUBLIC\020\002*Q\n\013VehicleType\022\034\n\030VE" +
-      "HICLE_TYPE_UNSPECIFIED\020\000\022\007\n\003BUS\020\001\022\007\n\003CAR" +
-      "\020\002\022\007\n\003VAN\020\003\022\t\n\005TRUCK\020\004BHZFv2.compass.iot" +
-      "/genproto/compassapis/compass/harvest/v1" +
-      "alpha1;harvestpbb\006proto3"
+      "1alpha1.Gyro\022\017\n\007trip_id\030\t \001(\t\022\020\n\010provide" +
+      "r\030\n \001(\t\022C\n\006labels\030\006 \003(\01323.compass.harves" +
+      "t.v1alpha1.PositionEvent.LabelsEntry\032-\n\013" +
+      "LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
+      "\0028\001\"p\n\022PartialEventLatLng\022\022\n\nvehicle_id\030" +
+      "\001 \002(\t\022\016\n\006region\030\002 \002(\t\022\021\n\ttimestamp\030\003 \002(\003" +
+      "\022\021\n\tlongitude\030\004 \002(\001\022\020\n\010latitude\030\005 \002(\001\"r\n" +
+      "\030PartialEventAcceleration\022\022\n\nvehicle_id\030" +
+      "\001 \002(\t\022\016\n\006region\030\002 \002(\t\022\021\n\ttimestamp\030\003 \002(\003" +
+      "\022\t\n\001x\030\004 \001(\001\022\t\n\001y\030\005 \001(\001\022\t\n\001z\030\006 \001(\001\"s\n\020Par" +
+      "tialEventGyro\022\022\n\nvehicle_id\030\001 \002(\t\022\016\n\006reg" +
+      "ion\030\002 \002(\t\022\021\n\ttimestamp\030\003 \002(\003\022\014\n\004roll\030\004 \002" +
+      "(\001\022\r\n\005pitch\030\005 \002(\001\022\013\n\003yaw\030\006 \002(\001\"U\n\017Partia" +
+      "lEventOdo\022\022\n\nvehicle_id\030\001 \002(\t\022\016\n\006region\030" +
+      "\002 \002(\t\022\021\n\ttimestamp\030\003 \002(\003\022\013\n\003odo\030\004 \002(\001\"i\n" +
+      "\030PartialEventFuelOrCharge\022\022\n\nvehicle_id\030" +
+      "\001 \002(\t\022\016\n\006region\030\002 \002(\t\022\021\n\ttimestamp\030\003 \002(\003" +
+      "\022\026\n\016fuel_or_charge\030\004 \002(\001\"\314\001\n\026PartialEven" +
+      "tMetadataKV\022\022\n\nvehicle_id\030\001 \002(\t\022\016\n\006regio" +
+      "n\030\002 \002(\t\022\021\n\ttimestamp\030\003 \002(\003\022L\n\006labels\030\004 \003" +
+      "(\0132<.compass.harvest.v1alpha1.PartialEve" +
+      "ntMetadataKV.LabelsEntry\032-\n\013LabelsEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"h\n\030Parti" +
+      "alEventMetadataJSON\022\022\n\nvehicle_id\030\001 \002(\t\022" +
+      "\016\n\006region\030\002 \002(\t\022\021\n\ttimestamp\030\003 \002(\003\022\025\n\rjs" +
+      "on_metadata\030\004 \002(\t\"\273\002\n\030PartialVehicleMeta" +
+      "dataKV\022\022\n\nvehicle_id\030\001 \002(\t\022\016\n\006region\030\002 \002" +
+      "(\t\022?\n\016transport_type\030\003 \001(\0162\'.compass.har" +
+      "vest.v1alpha1.TransportType\022;\n\014vehicle_t" +
+      "ype\030\004 \001(\0162%.compass.harvest.v1alpha1.Veh" +
+      "icleType\022N\n\006labels\030\005 \003(\0132>.compass.harve" +
+      "st.v1alpha1.PartialVehicleMetadataKV.Lab" +
+      "elsEntry\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
+      "value\030\002 \001(\t:\0028\001\"\325\001\n\032PartialVehicleMetada" +
+      "taJSON\022\022\n\nvehicle_id\030\001 \002(\t\022\016\n\006region\030\002 \002" +
+      "(\t\022?\n\016transport_type\030\003 \001(\0162\'.compass.har" +
+      "vest.v1alpha1.TransportType\022;\n\014vehicle_t" +
+      "ype\030\004 \001(\0162%.compass.harvest.v1alpha1.Veh" +
+      "icleType\022\025\n\rjson_metadata\030\005 \002(\t*H\n\rTrans" +
+      "portType\022\036\n\032TRANSPORT_TYPE_UNSPECIFIED\020\000" +
+      "\022\013\n\007PRIVATE\020\001\022\n\n\006PUBLIC\020\002*Q\n\013VehicleType" +
+      "\022\034\n\030VEHICLE_TYPE_UNSPECIFIED\020\000\022\007\n\003BUS\020\001\022" +
+      "\007\n\003CAR\020\002\022\007\n\003VAN\020\003\022\t\n\005TRUCK\020\004BHZFv2.compa" +
+      "ss.iot/genproto/compassapis/compass/harv" +
+      "est/v1alpha1;harvestpb"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4893,13 +15691,79 @@ java.lang.String defaultValue);
     internal_static_compass_harvest_v1alpha1_PositionEvent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_compass_harvest_v1alpha1_PositionEvent_descriptor,
-        new java.lang.String[] { "VehicleId", "Timestamp", "TransportType", "VehicleType", "Position", "Acceleration", "Gyro", "TripId", "Labels", });
+        new java.lang.String[] { "VehicleId", "Timestamp", "TransportType", "VehicleType", "Position", "Acceleration", "Gyro", "TripId", "Provider", "Labels", });
     internal_static_compass_harvest_v1alpha1_PositionEvent_LabelsEntry_descriptor =
       internal_static_compass_harvest_v1alpha1_PositionEvent_descriptor.getNestedTypes().get(0);
     internal_static_compass_harvest_v1alpha1_PositionEvent_LabelsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_compass_harvest_v1alpha1_PositionEvent_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    internal_static_compass_harvest_v1alpha1_PartialEventLatLng_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_compass_harvest_v1alpha1_PartialEventLatLng_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_harvest_v1alpha1_PartialEventLatLng_descriptor,
+        new java.lang.String[] { "VehicleId", "Region", "Timestamp", "Longitude", "Latitude", });
+    internal_static_compass_harvest_v1alpha1_PartialEventAcceleration_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_compass_harvest_v1alpha1_PartialEventAcceleration_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_harvest_v1alpha1_PartialEventAcceleration_descriptor,
+        new java.lang.String[] { "VehicleId", "Region", "Timestamp", "X", "Y", "Z", });
+    internal_static_compass_harvest_v1alpha1_PartialEventGyro_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_compass_harvest_v1alpha1_PartialEventGyro_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_harvest_v1alpha1_PartialEventGyro_descriptor,
+        new java.lang.String[] { "VehicleId", "Region", "Timestamp", "Roll", "Pitch", "Yaw", });
+    internal_static_compass_harvest_v1alpha1_PartialEventOdo_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_compass_harvest_v1alpha1_PartialEventOdo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_harvest_v1alpha1_PartialEventOdo_descriptor,
+        new java.lang.String[] { "VehicleId", "Region", "Timestamp", "Odo", });
+    internal_static_compass_harvest_v1alpha1_PartialEventFuelOrCharge_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_compass_harvest_v1alpha1_PartialEventFuelOrCharge_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_harvest_v1alpha1_PartialEventFuelOrCharge_descriptor,
+        new java.lang.String[] { "VehicleId", "Region", "Timestamp", "FuelOrCharge", });
+    internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_descriptor,
+        new java.lang.String[] { "VehicleId", "Region", "Timestamp", "Labels", });
+    internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_LabelsEntry_descriptor =
+      internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_descriptor.getNestedTypes().get(0);
+    internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_harvest_v1alpha1_PartialEventMetadataKV_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_compass_harvest_v1alpha1_PartialEventMetadataJSON_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_compass_harvest_v1alpha1_PartialEventMetadataJSON_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_harvest_v1alpha1_PartialEventMetadataJSON_descriptor,
+        new java.lang.String[] { "VehicleId", "Region", "Timestamp", "JsonMetadata", });
+    internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_descriptor,
+        new java.lang.String[] { "VehicleId", "Region", "TransportType", "VehicleType", "Labels", });
+    internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_LabelsEntry_descriptor =
+      internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_descriptor.getNestedTypes().get(0);
+    internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataKV_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataJSON_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataJSON_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_compass_harvest_v1alpha1_PartialVehicleMetadataJSON_descriptor,
+        new java.lang.String[] { "VehicleId", "Region", "TransportType", "VehicleType", "JsonMetadata", });
     com.google.protobuf.TimestampProto.getDescriptor();
     compass.type.geo.Geo.getDescriptor();
   }
