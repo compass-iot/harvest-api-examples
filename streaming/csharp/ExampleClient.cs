@@ -12,7 +12,7 @@ namespace Client
         static int Main(string[] args)
         {
 
-        String url = "https://harvest.grpc.apis.compassiot.cloud:443";
+        String url = "https://harvest-grpc.compassiot.cloud:443";
         String apiKey = "apikey bc8760b6f6f12b8ada9fdfd4503e847f";
         GrpcChannel channel = GrpcChannel.ForAddress(url);
         IngestService.IngestServiceClient client = new Compass.Harvest.V1Alpha1.IngestService.IngestServiceClient(channel);
