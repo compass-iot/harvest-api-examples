@@ -76,58 +76,6 @@ public final class Ingest {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BatchInsertRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                events_ = new java.util.ArrayList<compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              events_.add(
-                  input.readMessage(compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          events_ = java.util.Collections.unmodifiableList(events_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return compass.harvest.v1alpha1.Ingest.internal_static_compass_harvest_v1alpha1_BatchInsertRequest_descriptor;
@@ -188,6 +136,12 @@ public final class Ingest {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      for (int i = 0; i < getEventsCount(); i++) {
+        if (!getEvents(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -198,7 +152,7 @@ public final class Ingest {
       for (int i = 0; i < events_.size(); i++) {
         output.writeMessage(1, events_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -211,7 +165,7 @@ public final class Ingest {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, events_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -228,7 +182,7 @@ public final class Ingest {
 
       if (!getEventsList()
           .equals(other.getEventsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -243,7 +197,7 @@ public final class Ingest {
         hash = (37 * hash) + EVENTS_FIELD_NUMBER;
         hash = (53 * hash) + getEventsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -366,29 +320,24 @@ public final class Ingest {
 
       // Construct using compass.harvest.v1alpha1.Ingest.BatchInsertRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getEventsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          events_ = null;
           eventsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -499,13 +448,18 @@ public final class Ingest {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
 
       @java.lang.Override
       public final boolean isInitialized() {
+        for (int i = 0; i < getEventsCount(); i++) {
+          if (!getEvents(i).isInitialized()) {
+            return false;
+          }
+        }
         return true;
       }
 
@@ -514,17 +468,43 @@ public final class Ingest {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.harvest.v1alpha1.Ingest.BatchInsertRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent m =
+                    input.readMessage(
+                        compass.harvest.v1alpha1.PositionEventOuterClass.PositionEvent.PARSER,
+                        extensionRegistry);
+                if (eventsBuilder_ == null) {
+                  ensureEventsIsMutable();
+                  events_.add(m);
+                } else {
+                  eventsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.harvest.v1alpha1.Ingest.BatchInsertRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -801,7 +781,18 @@ public final class Ingest {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BatchInsertRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -882,58 +873,6 @@ public final class Ingest {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BatchInsertResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                errors_ = new java.util.ArrayList<compass.harvest.v1alpha1.Ingest.InsertError>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              errors_.add(
-                  input.readMessage(compass.harvest.v1alpha1.Ingest.InsertError.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          errors_ = java.util.Collections.unmodifiableList(errors_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return compass.harvest.v1alpha1.Ingest.internal_static_compass_harvest_v1alpha1_BatchInsertResponse_descriptor;
@@ -1004,7 +943,7 @@ public final class Ingest {
       for (int i = 0; i < errors_.size(); i++) {
         output.writeMessage(1, errors_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1017,7 +956,7 @@ public final class Ingest {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, errors_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1034,7 +973,7 @@ public final class Ingest {
 
       if (!getErrorsList()
           .equals(other.getErrorsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1049,7 +988,7 @@ public final class Ingest {
         hash = (37 * hash) + ERRORS_FIELD_NUMBER;
         hash = (53 * hash) + getErrorsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1171,29 +1110,24 @@ public final class Ingest {
 
       // Construct using compass.harvest.v1alpha1.Ingest.BatchInsertResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getErrorsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
         if (errorsBuilder_ == null) {
           errors_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          errors_ = null;
           errorsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1304,7 +1238,7 @@ public final class Ingest {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1319,17 +1253,43 @@ public final class Ingest {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.harvest.v1alpha1.Ingest.BatchInsertResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                compass.harvest.v1alpha1.Ingest.InsertError m =
+                    input.readMessage(
+                        compass.harvest.v1alpha1.Ingest.InsertError.parser(),
+                        extensionRegistry);
+                if (errorsBuilder_ == null) {
+                  ensureErrorsIsMutable();
+                  errors_.add(m);
+                } else {
+                  errorsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.harvest.v1alpha1.Ingest.BatchInsertResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1606,7 +1566,18 @@ public final class Ingest {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BatchInsertResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1683,63 +1654,6 @@ public final class Ingest {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private InsertError(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              index_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              com.google.rpc.Status.Builder subBuilder = null;
-              if (error_ != null) {
-                subBuilder = error_.toBuilder();
-              }
-              error_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(error_);
-                error_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return compass.harvest.v1alpha1.Ingest.internal_static_compass_harvest_v1alpha1_InsertError_descriptor;
@@ -1810,7 +1724,7 @@ public final class Ingest {
       if (error_ != null) {
         output.writeMessage(2, getError());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1827,7 +1741,7 @@ public final class Ingest {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getError());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1849,7 +1763,7 @@ public final class Ingest {
         if (!getError()
             .equals(other.getError())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1866,7 +1780,7 @@ public final class Ingest {
         hash = (37 * hash) + ERROR_FIELD_NUMBER;
         hash = (53 * hash) + getError().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1988,18 +1902,13 @@ public final class Ingest {
 
       // Construct using compass.harvest.v1alpha1.Ingest.InsertError.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -2098,7 +2007,7 @@ public final class Ingest {
         if (other.hasError()) {
           mergeError(other.getError());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2113,17 +2022,42 @@ public final class Ingest {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.harvest.v1alpha1.Ingest.InsertError parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                index_ = input.readInt32();
+
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    getErrorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.harvest.v1alpha1.Ingest.InsertError) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
@@ -2309,7 +2243,18 @@ public final class Ingest {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new InsertError(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2364,17 +2309,57 @@ public final class Ingest {
       "Response\0225\n\006errors\030\001 \003(\0132%.compass.harve" +
       "st.v1alpha1.InsertError\"?\n\013InsertError\022\r" +
       "\n\005index\030\001 \001(\005\022!\n\005error\030\002 \001(\0132\022.google.rp" +
-      "c.Status2\300\002\n\rIngestService\022\202\001\n\006Insert\022\'." +
+      "c.Status2\204\017\n\rIngestService\022\202\001\n\006Insert\022\'." +
       "compass.harvest.v1alpha1.PositionEvent\032\026" +
       ".google.protobuf.Empty\"7\202\265\030\030\n\026compass.ha" +
       "rvest.insert\202\323\344\223\002\025\"\020/v1alpha1/ingest:\001*\022" +
-      "\251\001\n\013BatchInsert\022,.compass.harvest.v1alph" +
-      "a1.BatchInsertRequest\032-.compass.harvest." +
-      "v1alpha1.BatchInsertResponse\"=\202\265\030\030\n\026comp" +
-      "ass.harvest.insert\202\323\344\223\002\033\"\026/v1alpha1/inge" +
-      "st:batch:\001*BHZFv2.compass.iot/genproto/c" +
-      "ompassapis/compass/harvest/v1alpha1;harv" +
-      "estpbb\006proto3"
+      "\242\001\n\023InsertPartialLatLng\022,.compass.harves" +
+      "t.v1alpha1.PartialEventLatLng\032\026.google.p" +
+      "rotobuf.Empty\"E\202\265\030\030\n\026compass.harvest.ins" +
+      "ert\202\323\344\223\002#\"\036/v1alpha1/partialingest/latln" +
+      "g:\001*\022\271\001\n\036InsertPartialEventAcceleration\022" +
+      "2.compass.harvest.v1alpha1.PartialEventA" +
+      "cceleration\032\026.google.protobuf.Empty\"K\202\265\030" +
+      "\030\n\026compass.harvest.insert\202\323\344\223\002)\"$/v1alph" +
+      "a1/partialingest/acceleration:\001*\022\241\001\n\026Ins" +
+      "ertPartialEventGyro\022*.compass.harvest.v1" +
+      "alpha1.PartialEventGyro\032\026.google.protobu" +
+      "f.Empty\"C\202\265\030\030\n\026compass.harvest.insert\202\323\344" +
+      "\223\002!\"\034/v1alpha1/partialingest/gyro:\001*\022\236\001\n" +
+      "\025InsertPartialEventOdo\022).compass.harvest" +
+      ".v1alpha1.PartialEventOdo\032\026.google.proto" +
+      "buf.Empty\"B\202\265\030\030\n\026compass.harvest.insert\202" +
+      "\323\344\223\002 \"\033/v1alpha1/partialingest/odo:\001*\022\273\001" +
+      "\n\036InsertPartialEventFuelOrCharge\0222.compa" +
+      "ss.harvest.v1alpha1.PartialEventFuelOrCh" +
+      "arge\032\026.google.protobuf.Empty\"M\202\265\030\030\n\026comp" +
+      "ass.harvest.insert\202\323\344\223\002+\"&/v1alpha1/part" +
+      "ialingest/fuel_or_charge:\001*\022\263\001\n\034InsertPa" +
+      "rtialEventMetadataKV\0220.compass.harvest.v" +
+      "1alpha1.PartialEventMetadataKV\032\026.google." +
+      "protobuf.Empty\"I\202\265\030\030\n\026compass.harvest.in" +
+      "sert\202\323\344\223\002\'\"\"/v1alpha1/partialingest/meta" +
+      "datakv:\001*\022\271\001\n\036InsertPartialEventMetadata" +
+      "JSON\0222.compass.harvest.v1alpha1.PartialE" +
+      "ventMetadataJSON\032\026.google.protobuf.Empty" +
+      "\"K\202\265\030\030\n\026compass.harvest.insert\202\323\344\223\002)\"$/v" +
+      "1alpha1/partialingest/metadatajson:\001*\022\261\001" +
+      "\n\036InsertPartialVehicleMetadataKV\0222.compa" +
+      "ss.harvest.v1alpha1.PartialVehicleMetada" +
+      "taKV\032\026.google.protobuf.Empty\"C\202\265\030\030\n\026comp" +
+      "ass.harvest.insert\202\323\344\223\002!\"\034/v1alpha1/vehi" +
+      "cle/metadatakv:\001*\022\267\001\n InsertPartialVehic" +
+      "leMetadataJSON\0224.compass.harvest.v1alpha" +
+      "1.PartialVehicleMetadataJSON\032\026.google.pr" +
+      "otobuf.Empty\"E\202\265\030\030\n\026compass.harvest.inse" +
+      "rt\202\323\344\223\002#\"\036/v1alpha1/vehicle/metadatajson" +
+      ":\001*\022\251\001\n\013BatchInsert\022,.compass.harvest.v1" +
+      "alpha1.BatchInsertRequest\032-.compass.harv" +
+      "est.v1alpha1.BatchInsertResponse\"=\202\265\030\030\n\026" +
+      "compass.harvest.insert\202\323\344\223\002\033\"\026/v1alpha1/" +
+      "ingest:batch:\001*BHZFv2.compass.iot/genpro" +
+      "to/compassapis/compass/harvest/v1alpha1;" +
+      "harvestpbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
