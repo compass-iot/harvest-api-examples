@@ -110,6 +110,31 @@ public final class TokenOuterClass {
      * <code>.compass.type.geo.LatLng32 home = 7;</code>
      */
     compass.type.geo.Geo.LatLng32OrBuilder getHomeOrBuilder();
+
+    /**
+     * <code>repeated string vins = 8;</code>
+     * @return A list containing the vins.
+     */
+    java.util.List<java.lang.String>
+        getVinsList();
+    /**
+     * <code>repeated string vins = 8;</code>
+     * @return The count of vins.
+     */
+    int getVinsCount();
+    /**
+     * <code>repeated string vins = 8;</code>
+     * @param index The index of the element to return.
+     * @return The vins at the given index.
+     */
+    java.lang.String getVins(int index);
+    /**
+     * <code>repeated string vins = 8;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the vins at the given index.
+     */
+    com.google.protobuf.ByteString
+        getVinsBytes(int index);
   }
   /**
    * Protobuf type {@code compass.iam.Token}
@@ -126,6 +151,7 @@ public final class TokenOuterClass {
     private Token() {
       email_ = "";
       workspace_ = "";
+      vins_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -139,106 +165,6 @@ public final class TokenOuterClass {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Token(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Int64Value.Builder subBuilder = null;
-              if (userId_ != null) {
-                subBuilder = userId_.toBuilder();
-              }
-              userId_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(userId_);
-                userId_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-
-              workspaceId_ = input.readInt64();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              email_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              workspace_ = s;
-              break;
-            }
-            case 40: {
-
-              admin_ = input.readBool();
-              break;
-            }
-            case 50: {
-              compass.type.geo.Geo.Region.Builder subBuilder = null;
-              if (geofence_ != null) {
-                subBuilder = geofence_.toBuilder();
-              }
-              geofence_ = input.readMessage(compass.type.geo.Geo.Region.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(geofence_);
-                geofence_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 58: {
-              compass.type.geo.Geo.LatLng32.Builder subBuilder = null;
-              if (home_ != null) {
-                subBuilder = home_.toBuilder();
-              }
-              home_ = input.readMessage(compass.type.geo.Geo.LatLng32.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(home_);
-                home_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -288,11 +214,11 @@ public final class TokenOuterClass {
      */
     @java.lang.Override
     public com.google.protobuf.Int64ValueOrBuilder getUserIdOrBuilder() {
-      return getUserId();
+      return userId_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : userId_;
     }
 
     public static final int WORKSPACE_ID_FIELD_NUMBER = 2;
-    private long workspaceId_;
+    private long workspaceId_ = 0L;
     /**
      * <code>int64 workspace_id = 2;</code>
      * @return The workspaceId.
@@ -303,7 +229,8 @@ public final class TokenOuterClass {
     }
 
     public static final int EMAIL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object email_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object email_ = "";
     /**
      * <code>string email = 3;</code>
      * @return The email.
@@ -341,7 +268,8 @@ public final class TokenOuterClass {
     }
 
     public static final int WORKSPACE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object workspace_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object workspace_ = "";
     /**
      * <code>string workspace = 4;</code>
      * @return The workspace.
@@ -379,7 +307,7 @@ public final class TokenOuterClass {
     }
 
     public static final int ADMIN_FIELD_NUMBER = 5;
-    private boolean admin_;
+    private boolean admin_ = false;
     /**
      * <code>bool admin = 5;</code>
      * @return The admin.
@@ -412,7 +340,7 @@ public final class TokenOuterClass {
      */
     @java.lang.Override
     public compass.type.geo.Geo.RegionOrBuilder getGeofenceOrBuilder() {
-      return getGeofence();
+      return geofence_ == null ? compass.type.geo.Geo.Region.getDefaultInstance() : geofence_;
     }
 
     public static final int HOME_FIELD_NUMBER = 7;
@@ -438,7 +366,43 @@ public final class TokenOuterClass {
      */
     @java.lang.Override
     public compass.type.geo.Geo.LatLng32OrBuilder getHomeOrBuilder() {
-      return getHome();
+      return home_ == null ? compass.type.geo.Geo.LatLng32.getDefaultInstance() : home_;
+    }
+
+    public static final int VINS_FIELD_NUMBER = 8;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringList vins_;
+    /**
+     * <code>repeated string vins = 8;</code>
+     * @return A list containing the vins.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getVinsList() {
+      return vins_;
+    }
+    /**
+     * <code>repeated string vins = 8;</code>
+     * @return The count of vins.
+     */
+    public int getVinsCount() {
+      return vins_.size();
+    }
+    /**
+     * <code>repeated string vins = 8;</code>
+     * @param index The index of the element to return.
+     * @return The vins at the given index.
+     */
+    public java.lang.String getVins(int index) {
+      return vins_.get(index);
+    }
+    /**
+     * <code>repeated string vins = 8;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the vins at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getVinsBytes(int index) {
+      return vins_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -476,7 +440,10 @@ public final class TokenOuterClass {
       if (home_ != null) {
         output.writeMessage(7, getHome());
       }
-      unknownFields.writeTo(output);
+      for (int i = 0; i < vins_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, vins_.getRaw(i));
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -511,7 +478,15 @@ public final class TokenOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getHome());
       }
-      size += unknownFields.getSerializedSize();
+      {
+        int dataSize = 0;
+        for (int i = 0; i < vins_.size(); i++) {
+          dataSize += computeStringSizeNoTag(vins_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getVinsList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -549,7 +524,9 @@ public final class TokenOuterClass {
         if (!getHome()
             .equals(other.getHome())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getVinsList()
+          .equals(other.getVinsList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -582,7 +559,11 @@ public final class TokenOuterClass {
         hash = (37 * hash) + HOME_FIELD_NUMBER;
         hash = (53 * hash) + getHome().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      if (getVinsCount() > 0) {
+        hash = (37 * hash) + VINS_FIELD_NUMBER;
+        hash = (53 * hash) + getVinsList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -699,48 +680,39 @@ public final class TokenOuterClass {
 
       // Construct using compass.iam.TokenOuterClass.Token.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (userIdBuilder_ == null) {
-          userId_ = null;
-        } else {
-          userId_ = null;
+        bitField0_ = 0;
+        userId_ = null;
+        if (userIdBuilder_ != null) {
+          userIdBuilder_.dispose();
           userIdBuilder_ = null;
         }
         workspaceId_ = 0L;
-
         email_ = "";
-
         workspace_ = "";
-
         admin_ = false;
-
-        if (geofenceBuilder_ == null) {
-          geofence_ = null;
-        } else {
-          geofence_ = null;
+        geofence_ = null;
+        if (geofenceBuilder_ != null) {
+          geofenceBuilder_.dispose();
           geofenceBuilder_ = null;
         }
-        if (homeBuilder_ == null) {
-          home_ = null;
-        } else {
-          home_ = null;
+        home_ = null;
+        if (homeBuilder_ != null) {
+          homeBuilder_.dispose();
           homeBuilder_ = null;
         }
+        vins_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -767,27 +739,49 @@ public final class TokenOuterClass {
       @java.lang.Override
       public compass.iam.TokenOuterClass.Token buildPartial() {
         compass.iam.TokenOuterClass.Token result = new compass.iam.TokenOuterClass.Token(this);
-        if (userIdBuilder_ == null) {
-          result.userId_ = userId_;
-        } else {
-          result.userId_ = userIdBuilder_.build();
-        }
-        result.workspaceId_ = workspaceId_;
-        result.email_ = email_;
-        result.workspace_ = workspace_;
-        result.admin_ = admin_;
-        if (geofenceBuilder_ == null) {
-          result.geofence_ = geofence_;
-        } else {
-          result.geofence_ = geofenceBuilder_.build();
-        }
-        if (homeBuilder_ == null) {
-          result.home_ = home_;
-        } else {
-          result.home_ = homeBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(compass.iam.TokenOuterClass.Token result) {
+        if (((bitField0_ & 0x00000080) != 0)) {
+          vins_ = vins_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.vins_ = vins_;
+      }
+
+      private void buildPartial0(compass.iam.TokenOuterClass.Token result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.userId_ = userIdBuilder_ == null
+              ? userId_
+              : userIdBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.workspaceId_ = workspaceId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.email_ = email_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.workspace_ = workspace_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.admin_ = admin_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.geofence_ = geofenceBuilder_ == null
+              ? geofence_
+              : geofenceBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.home_ = homeBuilder_ == null
+              ? home_
+              : homeBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -842,10 +836,12 @@ public final class TokenOuterClass {
         }
         if (!other.getEmail().isEmpty()) {
           email_ = other.email_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getWorkspace().isEmpty()) {
           workspace_ = other.workspace_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.getAdmin() != false) {
@@ -857,7 +853,17 @@ public final class TokenOuterClass {
         if (other.hasHome()) {
           mergeHome(other.getHome());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        if (!other.vins_.isEmpty()) {
+          if (vins_.isEmpty()) {
+            vins_ = other.vins_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensureVinsIsMutable();
+            vins_.addAll(other.vins_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -872,19 +878,80 @@ public final class TokenOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.iam.TokenOuterClass.Token parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getUserIdFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                workspaceId_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                email_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                workspace_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                admin_ = input.readBool();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 50: {
+                input.readMessage(
+                    getGeofenceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    getHomeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureVinsIsMutable();
+                vins_.add(s);
+                break;
+              } // case 66
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.iam.TokenOuterClass.Token) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Int64Value userId_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -898,7 +965,7 @@ public final class TokenOuterClass {
        * @return Whether the userId field is set.
        */
       public boolean hasUserId() {
-        return userIdBuilder_ != null || userId_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -928,11 +995,11 @@ public final class TokenOuterClass {
             throw new NullPointerException();
           }
           userId_ = value;
-          onChanged();
         } else {
           userIdBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -946,11 +1013,11 @@ public final class TokenOuterClass {
           com.google.protobuf.Int64Value.Builder builderForValue) {
         if (userIdBuilder_ == null) {
           userId_ = builderForValue.build();
-          onChanged();
         } else {
           userIdBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -962,17 +1029,18 @@ public final class TokenOuterClass {
        */
       public Builder mergeUserId(com.google.protobuf.Int64Value value) {
         if (userIdBuilder_ == null) {
-          if (userId_ != null) {
-            userId_ =
-              com.google.protobuf.Int64Value.newBuilder(userId_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            userId_ != null &&
+            userId_ != com.google.protobuf.Int64Value.getDefaultInstance()) {
+            getUserIdBuilder().mergeFrom(value);
           } else {
             userId_ = value;
           }
-          onChanged();
         } else {
           userIdBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -983,14 +1051,13 @@ public final class TokenOuterClass {
        * <code>.google.protobuf.Int64Value user_id = 1;</code>
        */
       public Builder clearUserId() {
-        if (userIdBuilder_ == null) {
-          userId_ = null;
-          onChanged();
-        } else {
-          userId_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userId_ = null;
+        if (userIdBuilder_ != null) {
+          userIdBuilder_.dispose();
           userIdBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1001,7 +1068,7 @@ public final class TokenOuterClass {
        * <code>.google.protobuf.Int64Value user_id = 1;</code>
        */
       public com.google.protobuf.Int64Value.Builder getUserIdBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getUserIdFieldBuilder().getBuilder();
       }
@@ -1058,6 +1125,7 @@ public final class TokenOuterClass {
       public Builder setWorkspaceId(long value) {
         
         workspaceId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1066,7 +1134,7 @@ public final class TokenOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearWorkspaceId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         workspaceId_ = 0L;
         onChanged();
         return this;
@@ -1113,11 +1181,9 @@ public final class TokenOuterClass {
        */
       public Builder setEmail(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         email_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1126,8 +1192,8 @@ public final class TokenOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEmail() {
-        
         email_ = getDefaultInstance().getEmail();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1138,12 +1204,10 @@ public final class TokenOuterClass {
        */
       public Builder setEmailBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         email_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1189,11 +1253,9 @@ public final class TokenOuterClass {
        */
       public Builder setWorkspace(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         workspace_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1202,8 +1264,8 @@ public final class TokenOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearWorkspace() {
-        
         workspace_ = getDefaultInstance().getWorkspace();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1214,12 +1276,10 @@ public final class TokenOuterClass {
        */
       public Builder setWorkspaceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         workspace_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1241,6 +1301,7 @@ public final class TokenOuterClass {
       public Builder setAdmin(boolean value) {
         
         admin_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1249,7 +1310,7 @@ public final class TokenOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAdmin() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         admin_ = false;
         onChanged();
         return this;
@@ -1263,7 +1324,7 @@ public final class TokenOuterClass {
        * @return Whether the geofence field is set.
        */
       public boolean hasGeofence() {
-        return geofenceBuilder_ != null || geofence_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <code>.compass.type.geo.Region geofence = 6;</code>
@@ -1285,11 +1346,11 @@ public final class TokenOuterClass {
             throw new NullPointerException();
           }
           geofence_ = value;
-          onChanged();
         } else {
           geofenceBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -1299,11 +1360,11 @@ public final class TokenOuterClass {
           compass.type.geo.Geo.Region.Builder builderForValue) {
         if (geofenceBuilder_ == null) {
           geofence_ = builderForValue.build();
-          onChanged();
         } else {
           geofenceBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -1311,38 +1372,38 @@ public final class TokenOuterClass {
        */
       public Builder mergeGeofence(compass.type.geo.Geo.Region value) {
         if (geofenceBuilder_ == null) {
-          if (geofence_ != null) {
-            geofence_ =
-              compass.type.geo.Geo.Region.newBuilder(geofence_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            geofence_ != null &&
+            geofence_ != compass.type.geo.Geo.Region.getDefaultInstance()) {
+            getGeofenceBuilder().mergeFrom(value);
           } else {
             geofence_ = value;
           }
-          onChanged();
         } else {
           geofenceBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
        * <code>.compass.type.geo.Region geofence = 6;</code>
        */
       public Builder clearGeofence() {
-        if (geofenceBuilder_ == null) {
-          geofence_ = null;
-          onChanged();
-        } else {
-          geofence_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        geofence_ = null;
+        if (geofenceBuilder_ != null) {
+          geofenceBuilder_.dispose();
           geofenceBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.compass.type.geo.Region geofence = 6;</code>
        */
       public compass.type.geo.Geo.Region.Builder getGeofenceBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getGeofenceFieldBuilder().getBuilder();
       }
@@ -1382,7 +1443,7 @@ public final class TokenOuterClass {
        * @return Whether the home field is set.
        */
       public boolean hasHome() {
-        return homeBuilder_ != null || home_ != null;
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <code>.compass.type.geo.LatLng32 home = 7;</code>
@@ -1404,11 +1465,11 @@ public final class TokenOuterClass {
             throw new NullPointerException();
           }
           home_ = value;
-          onChanged();
         } else {
           homeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -1418,11 +1479,11 @@ public final class TokenOuterClass {
           compass.type.geo.Geo.LatLng32.Builder builderForValue) {
         if (homeBuilder_ == null) {
           home_ = builderForValue.build();
-          onChanged();
         } else {
           homeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -1430,38 +1491,38 @@ public final class TokenOuterClass {
        */
       public Builder mergeHome(compass.type.geo.Geo.LatLng32 value) {
         if (homeBuilder_ == null) {
-          if (home_ != null) {
-            home_ =
-              compass.type.geo.Geo.LatLng32.newBuilder(home_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000040) != 0) &&
+            home_ != null &&
+            home_ != compass.type.geo.Geo.LatLng32.getDefaultInstance()) {
+            getHomeBuilder().mergeFrom(value);
           } else {
             home_ = value;
           }
-          onChanged();
         } else {
           homeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
        * <code>.compass.type.geo.LatLng32 home = 7;</code>
        */
       public Builder clearHome() {
-        if (homeBuilder_ == null) {
-          home_ = null;
-          onChanged();
-        } else {
-          home_ = null;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        home_ = null;
+        if (homeBuilder_ != null) {
+          homeBuilder_.dispose();
           homeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.compass.type.geo.LatLng32 home = 7;</code>
        */
       public compass.type.geo.Geo.LatLng32.Builder getHomeBuilder() {
-        
+        bitField0_ |= 0x00000040;
         onChanged();
         return getHomeFieldBuilder().getBuilder();
       }
@@ -1491,6 +1552,110 @@ public final class TokenOuterClass {
           home_ = null;
         }
         return homeBuilder_;
+      }
+
+      private com.google.protobuf.LazyStringList vins_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureVinsIsMutable() {
+        if (!((bitField0_ & 0x00000080) != 0)) {
+          vins_ = new com.google.protobuf.LazyStringArrayList(vins_);
+          bitField0_ |= 0x00000080;
+         }
+      }
+      /**
+       * <code>repeated string vins = 8;</code>
+       * @return A list containing the vins.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getVinsList() {
+        return vins_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string vins = 8;</code>
+       * @return The count of vins.
+       */
+      public int getVinsCount() {
+        return vins_.size();
+      }
+      /**
+       * <code>repeated string vins = 8;</code>
+       * @param index The index of the element to return.
+       * @return The vins at the given index.
+       */
+      public java.lang.String getVins(int index) {
+        return vins_.get(index);
+      }
+      /**
+       * <code>repeated string vins = 8;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the vins at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getVinsBytes(int index) {
+        return vins_.getByteString(index);
+      }
+      /**
+       * <code>repeated string vins = 8;</code>
+       * @param index The index to set the value at.
+       * @param value The vins to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVins(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureVinsIsMutable();
+        vins_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string vins = 8;</code>
+       * @param value The vins to add.
+       * @return This builder for chaining.
+       */
+      public Builder addVins(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureVinsIsMutable();
+        vins_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string vins = 8;</code>
+       * @param values The vins to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllVins(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureVinsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, vins_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string vins = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVins() {
+        vins_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string vins = 8;</code>
+       * @param value The bytes of the vins to add.
+       * @return This builder for chaining.
+       */
+      public Builder addVinsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensureVinsIsMutable();
+        vins_.add(value);
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -1525,7 +1690,18 @@ public final class TokenOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Token(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1561,14 +1737,14 @@ public final class TokenOuterClass {
     java.lang.String[] descriptorData = {
       "\n\027compass/iam/token.proto\022\013compass.iam\032\036" +
       "google/protobuf/wrappers.proto\032\032compass/" +
-      "type/geo/geo.proto\"\322\001\n\005Token\022,\n\007user_id\030" +
+      "type/geo/geo.proto\"\340\001\n\005Token\022,\n\007user_id\030" +
       "\001 \001(\0132\033.google.protobuf.Int64Value\022\024\n\014wo" +
       "rkspace_id\030\002 \001(\003\022\r\n\005email\030\003 \001(\t\022\021\n\tworks" +
       "pace\030\004 \001(\t\022\r\n\005admin\030\005 \001(\010\022*\n\010geofence\030\006 " +
       "\001(\0132\030.compass.type.geo.Region\022(\n\004home\030\007 " +
-      "\001(\0132\032.compass.type.geo.LatLng32B7Z5v2.co" +
-      "mpass.iot/genproto/compassapis/compass/i" +
-      "am;iampbb\006proto3"
+      "\001(\0132\032.compass.type.geo.LatLng32\022\014\n\004vins\030" +
+      "\010 \003(\tB7Z5v2.compass.iot/genproto/compass" +
+      "apis/compass/iam;iampbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1581,7 +1757,7 @@ public final class TokenOuterClass {
     internal_static_compass_iam_Token_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_compass_iam_Token_descriptor,
-        new java.lang.String[] { "UserId", "WorkspaceId", "Email", "Workspace", "Admin", "Geofence", "Home", });
+        new java.lang.String[] { "UserId", "WorkspaceId", "Email", "Workspace", "Admin", "Geofence", "Home", "Vins", });
     com.google.protobuf.WrappersProto.getDescriptor();
     compass.type.geo.Geo.getDescriptor();
   }

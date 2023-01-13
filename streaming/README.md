@@ -22,6 +22,17 @@ Below shows information about specific fields within the compass api
 - [compass/harvest/v1alpha1/position_event.proto](#compass/harvest/v1alpha1/position_event.proto)
     - [Acceleration](#compass.harvest.v1alpha1.Acceleration)
     - [Gyro](#compass.harvest.v1alpha1.Gyro)
+    - [PartialEventAcceleration](#compass.harvest.v1alpha1.PartialEventAcceleration)
+    - [PartialEventFuelOrCharge](#compass.harvest.v1alpha1.PartialEventFuelOrCharge)
+    - [PartialEventGyro](#compass.harvest.v1alpha1.PartialEventGyro)
+    - [PartialEventLatLng](#compass.harvest.v1alpha1.PartialEventLatLng)
+    - [PartialEventMetadataJSON](#compass.harvest.v1alpha1.PartialEventMetadataJSON)
+    - [PartialEventMetadataKV](#compass.harvest.v1alpha1.PartialEventMetadataKV)
+    - [PartialEventMetadataKV.LabelsEntry](#compass.harvest.v1alpha1.PartialEventMetadataKV.LabelsEntry)
+    - [PartialEventOdo](#compass.harvest.v1alpha1.PartialEventOdo)
+    - [PartialVehicleMetadataJSON](#compass.harvest.v1alpha1.PartialVehicleMetadataJSON)
+    - [PartialVehicleMetadataKV](#compass.harvest.v1alpha1.PartialVehicleMetadataKV)
+    - [PartialVehicleMetadataKV.LabelsEntry](#compass.harvest.v1alpha1.PartialVehicleMetadataKV.LabelsEntry)
     - [Position](#compass.harvest.v1alpha1.Position)
     - [PositionEvent](#compass.harvest.v1alpha1.PositionEvent)
     - [PositionEvent.LabelsEntry](#compass.harvest.v1alpha1.PositionEvent.LabelsEntry)
@@ -102,6 +113,15 @@ BatchInsertResponse.errors.index = 2 should contain the relevant message
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | Insert | [PositionEvent](#compass.harvest.v1alpha1.PositionEvent) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| InsertPartialLatLng | [PartialEventLatLng](#compass.harvest.v1alpha1.PartialEventLatLng) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| InsertPartialEventAcceleration | [PartialEventAcceleration](#compass.harvest.v1alpha1.PartialEventAcceleration) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| InsertPartialEventGyro | [PartialEventGyro](#compass.harvest.v1alpha1.PartialEventGyro) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| InsertPartialEventOdo | [PartialEventOdo](#compass.harvest.v1alpha1.PartialEventOdo) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| InsertPartialEventFuelOrCharge | [PartialEventFuelOrCharge](#compass.harvest.v1alpha1.PartialEventFuelOrCharge) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| InsertPartialEventMetadataKV | [PartialEventMetadataKV](#compass.harvest.v1alpha1.PartialEventMetadataKV) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| InsertPartialEventMetadataJSON | [PartialEventMetadataJSON](#compass.harvest.v1alpha1.PartialEventMetadataJSON) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| InsertPartialVehicleMetadataKV | [PartialVehicleMetadataKV](#compass.harvest.v1alpha1.PartialVehicleMetadataKV) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| InsertPartialVehicleMetadataJSON | [PartialVehicleMetadataJSON](#compass.harvest.v1alpha1.PartialVehicleMetadataJSON) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
 | BatchInsert | [BatchInsertRequest](#compass.harvest.v1alpha1.BatchInsertRequest) | [BatchInsertResponse](#compass.harvest.v1alpha1.BatchInsertResponse) |  |
 
  
@@ -131,9 +151,9 @@ Also note the &#43; and - signs in the diagram which direction should be positiv
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| x | [double](#double) |  | acceleration / braking |
-| y | [double](#double) |  | side to side / turning force |
-| z | [double](#double) |  | vertical up / down force |
+| x | [double](#double) | optional | acceleration / braking |
+| y | [double](#double) | optional | side to side / turning force |
+| z | [double](#double) | optional | vertical up / down force |
 
 
 
@@ -151,9 +171,210 @@ See acceleration diagram for more details
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| roll | [double](#double) |  |  |
-| pitch | [double](#double) |  |  |
-| yaw | [double](#double) |  |  |
+| roll | [double](#double) | optional |  |
+| pitch | [double](#double) | optional |  |
+| yaw | [double](#double) | optional |  |
+
+
+
+
+
+
+<a name="compass.harvest.v1alpha1.PartialEventAcceleration"></a>
+
+### PartialEventAcceleration
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| vehicle_id | [string](#string) | required |  |
+| region | [string](#string) | required |  |
+| timestamp | [int64](#int64) | required |  |
+| x | [double](#double) | optional |  |
+| y | [double](#double) | optional |  |
+| z | [double](#double) | optional |  |
+
+
+
+
+
+
+<a name="compass.harvest.v1alpha1.PartialEventFuelOrCharge"></a>
+
+### PartialEventFuelOrCharge
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| vehicle_id | [string](#string) | required |  |
+| region | [string](#string) | required |  |
+| timestamp | [int64](#int64) | required |  |
+| fuel_or_charge | [double](#double) | required |  |
+
+
+
+
+
+
+<a name="compass.harvest.v1alpha1.PartialEventGyro"></a>
+
+### PartialEventGyro
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| vehicle_id | [string](#string) | required |  |
+| region | [string](#string) | required |  |
+| timestamp | [int64](#int64) | required |  |
+| roll | [double](#double) | required |  |
+| pitch | [double](#double) | required |  |
+| yaw | [double](#double) | required |  |
+
+
+
+
+
+
+<a name="compass.harvest.v1alpha1.PartialEventLatLng"></a>
+
+### PartialEventLatLng
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| vehicle_id | [string](#string) | required |  |
+| region | [string](#string) | required |  |
+| timestamp | [int64](#int64) | required |  |
+| longitude | [double](#double) | required |  |
+| latitude | [double](#double) | required |  |
+
+
+
+
+
+
+<a name="compass.harvest.v1alpha1.PartialEventMetadataJSON"></a>
+
+### PartialEventMetadataJSON
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| vehicle_id | [string](#string) | required |  |
+| region | [string](#string) | required |  |
+| timestamp | [int64](#int64) | required |  |
+| json_metadata | [string](#string) | required |  |
+
+
+
+
+
+
+<a name="compass.harvest.v1alpha1.PartialEventMetadataKV"></a>
+
+### PartialEventMetadataKV
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| vehicle_id | [string](#string) | required |  |
+| region | [string](#string) | required |  |
+| timestamp | [int64](#int64) | required |  |
+| labels | [PartialEventMetadataKV.LabelsEntry](#compass.harvest.v1alpha1.PartialEventMetadataKV.LabelsEntry) | repeated |  |
+
+
+
+
+
+
+<a name="compass.harvest.v1alpha1.PartialEventMetadataKV.LabelsEntry"></a>
+
+### PartialEventMetadataKV.LabelsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) | optional |  |
+| value | [string](#string) | optional |  |
+
+
+
+
+
+
+<a name="compass.harvest.v1alpha1.PartialEventOdo"></a>
+
+### PartialEventOdo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| vehicle_id | [string](#string) | required |  |
+| region | [string](#string) | required |  |
+| timestamp | [int64](#int64) | required |  |
+| odo | [double](#double) | required |  |
+
+
+
+
+
+
+<a name="compass.harvest.v1alpha1.PartialVehicleMetadataJSON"></a>
+
+### PartialVehicleMetadataJSON
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| vehicle_id | [string](#string) | required |  |
+| region | [string](#string) | required |  |
+| transport_type | [TransportType](#compass.harvest.v1alpha1.TransportType) | optional |  |
+| vehicle_type | [VehicleType](#compass.harvest.v1alpha1.VehicleType) | optional |  |
+| json_metadata | [string](#string) | required |  |
+
+
+
+
+
+
+<a name="compass.harvest.v1alpha1.PartialVehicleMetadataKV"></a>
+
+### PartialVehicleMetadataKV
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| vehicle_id | [string](#string) | required |  |
+| region | [string](#string) | required |  |
+| transport_type | [TransportType](#compass.harvest.v1alpha1.TransportType) | optional |  |
+| vehicle_type | [VehicleType](#compass.harvest.v1alpha1.VehicleType) | optional |  |
+| labels | [PartialVehicleMetadataKV.LabelsEntry](#compass.harvest.v1alpha1.PartialVehicleMetadataKV.LabelsEntry) | repeated |  |
+
+
+
+
+
+
+<a name="compass.harvest.v1alpha1.PartialVehicleMetadataKV.LabelsEntry"></a>
+
+### PartialVehicleMetadataKV.LabelsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) | optional |  |
+| value | [string](#string) | optional |  |
 
 
 
@@ -168,9 +389,9 @@ See acceleration diagram for more details
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| latlng | [compass.type.geo.LatLng](#compass.type.geo.LatLng) |  | lat and lng of the vehicle position |
-| speed | [double](#double) |  | speed of vehicle in km/h |
-| bearing | [double](#double) |  | [optional] bearing of vehicle in degrees [0, 360) |
+| latlng | [compass.type.geo.LatLng](#compass.type.geo.LatLng) | required | lat and lng of the vehicle position |
+| speed | [double](#double) | optional | speed of vehicle in km/h |
+| bearing | [double](#double) | optional | [optional] bearing of vehicle in degrees [0, 360) |
 
 
 
@@ -188,14 +409,15 @@ See acceleration diagram for more details
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| vehicle_id | [string](#string) |  | Unique identifier for the vehicle. device_id is a sufficiently good proxy for this field |
-| timestamp | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | Timestamp that event occured |
-| transport_type | [TransportType](#compass.harvest.v1alpha1.TransportType) |  |  |
-| vehicle_type | [VehicleType](#compass.harvest.v1alpha1.VehicleType) |  |  |
-| position | [Position](#compass.harvest.v1alpha1.Position) |  |  |
-| acceleration | [Acceleration](#compass.harvest.v1alpha1.Acceleration) |  |  |
-| gyro | [Gyro](#compass.harvest.v1alpha1.Gyro) |  |  |
-| trip_id | [string](#string) |  | Id linking points of the same trip |
+| vehicle_id | [string](#string) | required |  |
+| timestamp | [google.protobuf.Timestamp](#google.protobuf.Timestamp) | required |  |
+| transport_type | [TransportType](#compass.harvest.v1alpha1.TransportType) | optional |  |
+| vehicle_type | [VehicleType](#compass.harvest.v1alpha1.VehicleType) | optional |  |
+| position | [Position](#compass.harvest.v1alpha1.Position) | required |  |
+| acceleration | [Acceleration](#compass.harvest.v1alpha1.Acceleration) | optional |  |
+| gyro | [Gyro](#compass.harvest.v1alpha1.Gyro) | optional |  |
+| trip_id | [string](#string) | optional | Id linking points of the same trip |
+| provider | [string](#string) | optional |  |
 | labels | [PositionEvent.LabelsEntry](#compass.harvest.v1alpha1.PositionEvent.LabelsEntry) | repeated | extra metadata not suppported by our api that may be useful :) |
 
 
@@ -211,8 +433,8 @@ See acceleration diagram for more details
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| key | [string](#string) |  |  |
-| value | [string](#string) |  |  |
+| key | [string](#string) | optional |  |
+| value | [string](#string) | optional |  |
 
 
 
@@ -229,8 +451,8 @@ See acceleration diagram for more details
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | TRANSPORT_TYPE_UNSPECIFIED | 0 |  |
-| PRIVATE | 1 | Anything not public |
-| PUBLIC | 2 | Vehicle operated by public services |
+| PRIVATE | 1 |  |
+| PUBLIC | 2 |  |
 
 
 
@@ -246,6 +468,8 @@ See acceleration diagram for more details
 | CAR | 2 |  |
 | VAN | 3 |  |
 | TRUCK | 4 |  |
+| LCV | 5 |  |
+| HCV | 6 |  |
 
 
  
@@ -354,6 +578,7 @@ See acceleration diagram for more details
 | admin | [bool](#bool) |  |  |
 | geofence | [compass.type.geo.Region](#compass.type.geo.Region) |  |  |
 | home | [compass.type.geo.LatLng32](#compass.type.geo.LatLng32) |  |  |
+| vins | [string](#string) | repeated |  |
 
 
 
