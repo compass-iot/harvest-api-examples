@@ -73,55 +73,6 @@ public final class Geo {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LatLng(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              latitude_ = input.readDouble();
-              break;
-            }
-            case 17: {
-
-              longitude_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return compass.type.geo.Geo.internal_static_compass_type_geo_LatLng_descriptor;
@@ -136,7 +87,7 @@ public final class Geo {
     }
 
     public static final int LATITUDE_FIELD_NUMBER = 1;
-    private double latitude_;
+    private double latitude_ = 0D;
     /**
      * <pre>
      * The latitude in degrees. It must be in the range [-90.0, +90.0].
@@ -151,7 +102,7 @@ public final class Geo {
     }
 
     public static final int LONGITUDE_FIELD_NUMBER = 2;
-    private double longitude_;
+    private double longitude_ = 0D;
     /**
      * <pre>
      * The longitude in degrees. It must be in the range [-180.0, +180.0].
@@ -185,7 +136,7 @@ public final class Geo {
       if (java.lang.Double.doubleToRawLongBits(longitude_) != 0) {
         output.writeDouble(2, longitude_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -202,7 +153,7 @@ public final class Geo {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, longitude_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -223,7 +174,7 @@ public final class Geo {
       if (java.lang.Double.doubleToLongBits(getLongitude())
           != java.lang.Double.doubleToLongBits(
               other.getLongitude())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -240,7 +191,7 @@ public final class Geo {
       hash = (37 * hash) + LONGITUDE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getLongitude()));
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -365,26 +316,20 @@ public final class Geo {
 
       // Construct using compass.type.geo.Geo.LatLng.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         latitude_ = 0D;
-
         longitude_ = 0D;
-
         return this;
       }
 
@@ -411,10 +356,19 @@ public final class Geo {
       @java.lang.Override
       public compass.type.geo.Geo.LatLng buildPartial() {
         compass.type.geo.Geo.LatLng result = new compass.type.geo.Geo.LatLng(this);
-        result.latitude_ = latitude_;
-        result.longitude_ = longitude_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(compass.type.geo.Geo.LatLng result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.latitude_ = latitude_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.longitude_ = longitude_;
+        }
       }
 
       @java.lang.Override
@@ -467,7 +421,7 @@ public final class Geo {
         if (other.getLongitude() != 0D) {
           setLongitude(other.getLongitude());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -482,19 +436,43 @@ public final class Geo {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.type.geo.Geo.LatLng parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                latitude_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 17: {
+                longitude_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.type.geo.Geo.LatLng) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double latitude_ ;
       /**
@@ -521,6 +499,7 @@ public final class Geo {
       public Builder setLatitude(double value) {
         
         latitude_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -533,7 +512,7 @@ public final class Geo {
        * @return This builder for chaining.
        */
       public Builder clearLatitude() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         latitude_ = 0D;
         onChanged();
         return this;
@@ -564,6 +543,7 @@ public final class Geo {
       public Builder setLongitude(double value) {
         
         longitude_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -576,7 +556,7 @@ public final class Geo {
        * @return This builder for chaining.
        */
       public Builder clearLongitude() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         longitude_ = 0D;
         onChanged();
         return this;
@@ -614,7 +594,18 @@ public final class Geo {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LatLng(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -685,55 +676,6 @@ public final class Geo {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LatLng32(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-
-              latitude_ = input.readFloat();
-              break;
-            }
-            case 21: {
-
-              longitude_ = input.readFloat();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return compass.type.geo.Geo.internal_static_compass_type_geo_LatLng32_descriptor;
@@ -748,7 +690,7 @@ public final class Geo {
     }
 
     public static final int LATITUDE_FIELD_NUMBER = 1;
-    private float latitude_;
+    private float latitude_ = 0F;
     /**
      * <pre>
      * The latitude in degrees. It must be in the range [-90.0, +90.0].
@@ -763,7 +705,7 @@ public final class Geo {
     }
 
     public static final int LONGITUDE_FIELD_NUMBER = 2;
-    private float longitude_;
+    private float longitude_ = 0F;
     /**
      * <pre>
      * The longitude in degrees. It must be in the range [-180.0, +180.0].
@@ -797,7 +739,7 @@ public final class Geo {
       if (java.lang.Float.floatToRawIntBits(longitude_) != 0) {
         output.writeFloat(2, longitude_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -814,7 +756,7 @@ public final class Geo {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(2, longitude_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -835,7 +777,7 @@ public final class Geo {
       if (java.lang.Float.floatToIntBits(getLongitude())
           != java.lang.Float.floatToIntBits(
               other.getLongitude())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -852,7 +794,7 @@ public final class Geo {
       hash = (37 * hash) + LONGITUDE_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getLongitude());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -969,26 +911,20 @@ public final class Geo {
 
       // Construct using compass.type.geo.Geo.LatLng32.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         latitude_ = 0F;
-
         longitude_ = 0F;
-
         return this;
       }
 
@@ -1015,10 +951,19 @@ public final class Geo {
       @java.lang.Override
       public compass.type.geo.Geo.LatLng32 buildPartial() {
         compass.type.geo.Geo.LatLng32 result = new compass.type.geo.Geo.LatLng32(this);
-        result.latitude_ = latitude_;
-        result.longitude_ = longitude_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(compass.type.geo.Geo.LatLng32 result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.latitude_ = latitude_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.longitude_ = longitude_;
+        }
       }
 
       @java.lang.Override
@@ -1071,7 +1016,7 @@ public final class Geo {
         if (other.getLongitude() != 0F) {
           setLongitude(other.getLongitude());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1086,19 +1031,43 @@ public final class Geo {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.type.geo.Geo.LatLng32 parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                latitude_ = input.readFloat();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 13
+              case 21: {
+                longitude_ = input.readFloat();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 21
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.type.geo.Geo.LatLng32) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private float latitude_ ;
       /**
@@ -1125,6 +1094,7 @@ public final class Geo {
       public Builder setLatitude(float value) {
         
         latitude_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1137,7 +1107,7 @@ public final class Geo {
        * @return This builder for chaining.
        */
       public Builder clearLatitude() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         latitude_ = 0F;
         onChanged();
         return this;
@@ -1168,6 +1138,7 @@ public final class Geo {
       public Builder setLongitude(float value) {
         
         longitude_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1180,7 +1151,7 @@ public final class Geo {
        * @return This builder for chaining.
        */
       public Builder clearLongitude() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         longitude_ = 0F;
         onChanged();
         return this;
@@ -1218,7 +1189,18 @@ public final class Geo {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LatLng32(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1299,71 +1281,6 @@ public final class Geo {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BoundingBox(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              compass.type.geo.Geo.LatLng.Builder subBuilder = null;
-              if (northEastern_ != null) {
-                subBuilder = northEastern_.toBuilder();
-              }
-              northEastern_ = input.readMessage(compass.type.geo.Geo.LatLng.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(northEastern_);
-                northEastern_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              compass.type.geo.Geo.LatLng.Builder subBuilder = null;
-              if (southWestern_ != null) {
-                subBuilder = southWestern_.toBuilder();
-              }
-              southWestern_ = input.readMessage(compass.type.geo.Geo.LatLng.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(southWestern_);
-                southWestern_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return compass.type.geo.Geo.internal_static_compass_type_geo_BoundingBox_descriptor;
@@ -1400,7 +1317,7 @@ public final class Geo {
      */
     @java.lang.Override
     public compass.type.geo.Geo.LatLngOrBuilder getNorthEasternOrBuilder() {
-      return getNorthEastern();
+      return northEastern_ == null ? compass.type.geo.Geo.LatLng.getDefaultInstance() : northEastern_;
     }
 
     public static final int SOUTH_WESTERN_FIELD_NUMBER = 2;
@@ -1426,7 +1343,7 @@ public final class Geo {
      */
     @java.lang.Override
     public compass.type.geo.Geo.LatLngOrBuilder getSouthWesternOrBuilder() {
-      return getSouthWestern();
+      return southWestern_ == null ? compass.type.geo.Geo.LatLng.getDefaultInstance() : southWestern_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1449,7 +1366,7 @@ public final class Geo {
       if (southWestern_ != null) {
         output.writeMessage(2, getSouthWestern());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1466,7 +1383,7 @@ public final class Geo {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getSouthWestern());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1491,7 +1408,7 @@ public final class Geo {
         if (!getSouthWestern()
             .equals(other.getSouthWestern())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1510,7 +1427,7 @@ public final class Geo {
         hash = (37 * hash) + SOUTH_WESTERN_FIELD_NUMBER;
         hash = (53 * hash) + getSouthWestern().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1627,32 +1544,26 @@ public final class Geo {
 
       // Construct using compass.type.geo.Geo.BoundingBox.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (northEasternBuilder_ == null) {
-          northEastern_ = null;
-        } else {
-          northEastern_ = null;
+        bitField0_ = 0;
+        northEastern_ = null;
+        if (northEasternBuilder_ != null) {
+          northEasternBuilder_.dispose();
           northEasternBuilder_ = null;
         }
-        if (southWesternBuilder_ == null) {
-          southWestern_ = null;
-        } else {
-          southWestern_ = null;
+        southWestern_ = null;
+        if (southWesternBuilder_ != null) {
+          southWesternBuilder_.dispose();
           southWesternBuilder_ = null;
         }
         return this;
@@ -1681,18 +1592,23 @@ public final class Geo {
       @java.lang.Override
       public compass.type.geo.Geo.BoundingBox buildPartial() {
         compass.type.geo.Geo.BoundingBox result = new compass.type.geo.Geo.BoundingBox(this);
-        if (northEasternBuilder_ == null) {
-          result.northEastern_ = northEastern_;
-        } else {
-          result.northEastern_ = northEasternBuilder_.build();
-        }
-        if (southWesternBuilder_ == null) {
-          result.southWestern_ = southWestern_;
-        } else {
-          result.southWestern_ = southWesternBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(compass.type.geo.Geo.BoundingBox result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.northEastern_ = northEasternBuilder_ == null
+              ? northEastern_
+              : northEasternBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.southWestern_ = southWesternBuilder_ == null
+              ? southWestern_
+              : southWesternBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1745,7 +1661,7 @@ public final class Geo {
         if (other.hasSouthWestern()) {
           mergeSouthWestern(other.getSouthWestern());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1760,19 +1676,47 @@ public final class Geo {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.type.geo.Geo.BoundingBox parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getNorthEasternFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getSouthWesternFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.type.geo.Geo.BoundingBox) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private compass.type.geo.Geo.LatLng northEastern_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1782,7 +1726,7 @@ public final class Geo {
        * @return Whether the northEastern field is set.
        */
       public boolean hasNorthEastern() {
-        return northEasternBuilder_ != null || northEastern_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.compass.type.geo.LatLng north_eastern = 1;</code>
@@ -1804,11 +1748,11 @@ public final class Geo {
             throw new NullPointerException();
           }
           northEastern_ = value;
-          onChanged();
         } else {
           northEasternBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1818,11 +1762,11 @@ public final class Geo {
           compass.type.geo.Geo.LatLng.Builder builderForValue) {
         if (northEasternBuilder_ == null) {
           northEastern_ = builderForValue.build();
-          onChanged();
         } else {
           northEasternBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1830,38 +1774,38 @@ public final class Geo {
        */
       public Builder mergeNorthEastern(compass.type.geo.Geo.LatLng value) {
         if (northEasternBuilder_ == null) {
-          if (northEastern_ != null) {
-            northEastern_ =
-              compass.type.geo.Geo.LatLng.newBuilder(northEastern_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            northEastern_ != null &&
+            northEastern_ != compass.type.geo.Geo.LatLng.getDefaultInstance()) {
+            getNorthEasternBuilder().mergeFrom(value);
           } else {
             northEastern_ = value;
           }
-          onChanged();
         } else {
           northEasternBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.compass.type.geo.LatLng north_eastern = 1;</code>
        */
       public Builder clearNorthEastern() {
-        if (northEasternBuilder_ == null) {
-          northEastern_ = null;
-          onChanged();
-        } else {
-          northEastern_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        northEastern_ = null;
+        if (northEasternBuilder_ != null) {
+          northEasternBuilder_.dispose();
           northEasternBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.compass.type.geo.LatLng north_eastern = 1;</code>
        */
       public compass.type.geo.Geo.LatLng.Builder getNorthEasternBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getNorthEasternFieldBuilder().getBuilder();
       }
@@ -1901,7 +1845,7 @@ public final class Geo {
        * @return Whether the southWestern field is set.
        */
       public boolean hasSouthWestern() {
-        return southWesternBuilder_ != null || southWestern_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>.compass.type.geo.LatLng south_western = 2;</code>
@@ -1923,11 +1867,11 @@ public final class Geo {
             throw new NullPointerException();
           }
           southWestern_ = value;
-          onChanged();
         } else {
           southWesternBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1937,11 +1881,11 @@ public final class Geo {
           compass.type.geo.Geo.LatLng.Builder builderForValue) {
         if (southWesternBuilder_ == null) {
           southWestern_ = builderForValue.build();
-          onChanged();
         } else {
           southWesternBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1949,38 +1893,38 @@ public final class Geo {
        */
       public Builder mergeSouthWestern(compass.type.geo.Geo.LatLng value) {
         if (southWesternBuilder_ == null) {
-          if (southWestern_ != null) {
-            southWestern_ =
-              compass.type.geo.Geo.LatLng.newBuilder(southWestern_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            southWestern_ != null &&
+            southWestern_ != compass.type.geo.Geo.LatLng.getDefaultInstance()) {
+            getSouthWesternBuilder().mergeFrom(value);
           } else {
             southWestern_ = value;
           }
-          onChanged();
         } else {
           southWesternBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>.compass.type.geo.LatLng south_western = 2;</code>
        */
       public Builder clearSouthWestern() {
-        if (southWesternBuilder_ == null) {
-          southWestern_ = null;
-          onChanged();
-        } else {
-          southWestern_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        southWestern_ = null;
+        if (southWesternBuilder_ != null) {
+          southWesternBuilder_.dispose();
           southWesternBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.compass.type.geo.LatLng south_western = 2;</code>
        */
       public compass.type.geo.Geo.LatLng.Builder getSouthWesternBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getSouthWesternFieldBuilder().getBuilder();
       }
@@ -2044,7 +1988,18 @@ public final class Geo {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BoundingBox(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2120,58 +2075,6 @@ public final class Geo {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Path(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                points_ = new java.util.ArrayList<compass.type.geo.Geo.LatLng>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              points_.add(
-                  input.readMessage(compass.type.geo.Geo.LatLng.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          points_ = java.util.Collections.unmodifiableList(points_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return compass.type.geo.Geo.internal_static_compass_type_geo_Path_descriptor;
@@ -2186,6 +2089,7 @@ public final class Geo {
     }
 
     public static final int POINTS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<compass.type.geo.Geo.LatLng> points_;
     /**
      * <code>repeated .compass.type.geo.LatLng points = 1;</code>
@@ -2242,7 +2146,7 @@ public final class Geo {
       for (int i = 0; i < points_.size(); i++) {
         output.writeMessage(1, points_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2255,7 +2159,7 @@ public final class Geo {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, points_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2272,7 +2176,7 @@ public final class Geo {
 
       if (!getPointsList()
           .equals(other.getPointsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2287,7 +2191,7 @@ public final class Geo {
         hash = (37 * hash) + POINTS_FIELD_NUMBER;
         hash = (53 * hash) + getPointsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2404,29 +2308,25 @@ public final class Geo {
 
       // Construct using compass.type.geo.Geo.Path.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getPointsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (pointsBuilder_ == null) {
           points_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          points_ = null;
           pointsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2453,7 +2353,13 @@ public final class Geo {
       @java.lang.Override
       public compass.type.geo.Geo.Path buildPartial() {
         compass.type.geo.Geo.Path result = new compass.type.geo.Geo.Path(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(compass.type.geo.Geo.Path result) {
         if (pointsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             points_ = java.util.Collections.unmodifiableList(points_);
@@ -2463,8 +2369,10 @@ public final class Geo {
         } else {
           result.points_ = pointsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(compass.type.geo.Geo.Path result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -2537,7 +2445,7 @@ public final class Geo {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2552,17 +2460,43 @@ public final class Geo {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.type.geo.Geo.Path parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                compass.type.geo.Geo.LatLng m =
+                    input.readMessage(
+                        compass.type.geo.Geo.LatLng.parser(),
+                        extensionRegistry);
+                if (pointsBuilder_ == null) {
+                  ensurePointsIsMutable();
+                  points_.add(m);
+                } else {
+                  pointsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.type.geo.Geo.Path) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2839,7 +2773,18 @@ public final class Geo {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Path(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2915,58 +2860,6 @@ public final class Geo {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Region(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                points_ = new java.util.ArrayList<compass.type.geo.Geo.LatLng32>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              points_.add(
-                  input.readMessage(compass.type.geo.Geo.LatLng32.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          points_ = java.util.Collections.unmodifiableList(points_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return compass.type.geo.Geo.internal_static_compass_type_geo_Region_descriptor;
@@ -2981,6 +2874,7 @@ public final class Geo {
     }
 
     public static final int POINTS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<compass.type.geo.Geo.LatLng32> points_;
     /**
      * <code>repeated .compass.type.geo.LatLng32 points = 1;</code>
@@ -3037,7 +2931,7 @@ public final class Geo {
       for (int i = 0; i < points_.size(); i++) {
         output.writeMessage(1, points_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3050,7 +2944,7 @@ public final class Geo {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, points_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3067,7 +2961,7 @@ public final class Geo {
 
       if (!getPointsList()
           .equals(other.getPointsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3082,7 +2976,7 @@ public final class Geo {
         hash = (37 * hash) + POINTS_FIELD_NUMBER;
         hash = (53 * hash) + getPointsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3199,29 +3093,25 @@ public final class Geo {
 
       // Construct using compass.type.geo.Geo.Region.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getPointsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (pointsBuilder_ == null) {
           points_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          points_ = null;
           pointsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -3248,7 +3138,13 @@ public final class Geo {
       @java.lang.Override
       public compass.type.geo.Geo.Region buildPartial() {
         compass.type.geo.Geo.Region result = new compass.type.geo.Geo.Region(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(compass.type.geo.Geo.Region result) {
         if (pointsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             points_ = java.util.Collections.unmodifiableList(points_);
@@ -3258,8 +3154,10 @@ public final class Geo {
         } else {
           result.points_ = pointsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(compass.type.geo.Geo.Region result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -3332,7 +3230,7 @@ public final class Geo {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3347,17 +3245,43 @@ public final class Geo {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        compass.type.geo.Geo.Region parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                compass.type.geo.Geo.LatLng32 m =
+                    input.readMessage(
+                        compass.type.geo.Geo.LatLng32.parser(),
+                        extensionRegistry);
+                if (pointsBuilder_ == null) {
+                  ensurePointsIsMutable();
+                  points_.add(m);
+                } else {
+                  pointsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (compass.type.geo.Geo.Region) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3634,7 +3558,18 @@ public final class Geo {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Region(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
