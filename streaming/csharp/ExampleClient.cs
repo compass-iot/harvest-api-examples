@@ -12,7 +12,7 @@ namespace Client
         static int Main(string[] args)
         {
 
-        String url = "https://harvest-grpc.compassiot.cloud:443";
+        String url = "https://harvest.compassiot.cloud:443";
         String apiKey = "apikey bc8760b6f6f12b8ada9fdfd4503e847f";
         GrpcChannel channel = GrpcChannel.ForAddress(url);
         IngestService.IngestServiceClient client = new Compass.Harvest.V1Alpha1.IngestService.IngestServiceClient(channel);
@@ -20,12 +20,17 @@ namespace Client
         headers.Add("Authorization", $"{apiKey}");
         Grpc.Core.Metadata header = new Grpc.Core.Metadata();
 
+        byte[] byteArray = { 1, 2, 3, 4, 5 };
+        Google.Protobuf.ByteString id = Google.Protobuf.ByteString.CopyFrom(byteArray);
+
+
         PartialEventLatLng partialEvt = new PartialEventLatLng {
             VehicleId = "testvehicle123",
-            Region = "AUS",
             Timestamp = DateTimeOffset.Now.ToUnixTimeSeconds(),
             Longitude = 151.0,
-            Latitude = -33.0
+            Latitude = -33.0,
+            Provider = "",
+            Id = id
         };
 
         PositionEvent evt = new PositionEvent {
