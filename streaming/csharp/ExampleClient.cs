@@ -35,12 +35,13 @@ namespace Client
 
         PositionEvent evt = new PositionEvent {
             VehicleId = "testvehicle123",
+            Timestamp = Timestamp.FromDateTime(DateTime.UtcNow),
             VehicleType = VehicleType.Car,
             TransportType = TransportType.Private,
             Acceleration =  new Acceleration {X = 1, Y = 2, Z = 3},
-            Position = new Position{Latlng = new LatLng{Latitude = 45, Longitude = 90}},
-            Gyro = new Gyro{Roll = -1, Pitch = -2, Yaw = -3},
-            Timestamp = Timestamp.FromDateTime(DateTime.UtcNow)};
+            Position = new Position{Latlng = new LatLng{Latitude = -33, Longitude = 151}, Speed = 60},
+            Gyro = new Gyro{Roll = -1, Pitch = -2, Yaw = -3}
+        };
 
         BatchInsertRequest evts = new BatchInsertRequest {
             Events = {evt}
@@ -48,9 +49,9 @@ namespace Client
 
         try
         {
-            client.InsertPartialLatLng(partialEvt, headers);
+//            client.InsertPartialLatLng(partialEvt, headers);
             client.Insert(evt, headers);
-            client.BatchInsert(evts, headers);
+//            client.BatchInsert(evts, headers);
         }
         catch (Exception e)
         {
