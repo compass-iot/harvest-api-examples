@@ -2,7 +2,7 @@
 ```bash
 
 ### Simple
-curl --location --request POST 'https://harvest.apis.compassiot.cloud/v1alpha1/ingest' \
+curl --location --request POST 'https://harvest.compassiot.cloud/compass.harvest.v1alpha1.IngestService/InsertCompat' \
 --header 'Authorization: apikey bc8760b6f6f12b8ada9fdfd4503e847f' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -37,7 +37,7 @@ curl --location --request POST 'https://harvest.apis.compassiot.cloud/v1alpha1/i
 
 ### Batch
 ```bash
-curl --location --request POST 'https://harvest.apis.compassiot.cloud/v1alpha1/ingest:batch' \
+curl --location --request POST 'https://harvest.compassiot.cloud/compass.harvest.v1alpha1.IngestService/BatchInsertCompat' \
 --header 'Authorization: apikey bc8760b6f6f12b8ada9fdfd4503e847f' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -104,7 +104,7 @@ curl --location --request POST 'https://harvest.apis.compassiot.cloud/v1alpha1/i
 
 ## Partial examples
 ```bash
-curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/partialingest/latlng' \
+curl --location --request POST 'https://harvest.compassiot.cloud/compass.harvest.v1alpha1.IngestService/InsertPartialLatLng' \
 --header 'Authorization: apikey bc8760b6f6f12b8ada9fdfd4503e847f' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -117,7 +117,7 @@ curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/p
 ```
 
 ```bash
-curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/partialingest/acceleration' \
+curl --location --request POST 'https://harvest.compassiot.cloud/compass.harvest.v1alpha1.IngestService/InsertPartialEventAcceleration' \
 --header 'Authorization: apikey bc8760b6f6f12b8ada9fdfd4503e847f' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -131,7 +131,7 @@ curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/p
 ```
 
 ```bash
-curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/partialingest/gyro' \
+curl --location --request POST 'https://harvest.compassiot.cloud/compass.harvest.v1alpha1.IngestService/InsertPartialEventGyro' \
 --header 'Authorization: apikey bc8760b6f6f12b8ada9fdfd4503e847f' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -146,7 +146,7 @@ curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/p
 
 ```bash
 // Odo in km
-curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/partialingest/odo' \
+curl --location --request POST 'https://harvest.compassiot.cloud/compass.harvest.v1alpha1.IngestService/InsertPartialEventOdo' \
 --header 'Authorization: apikey bc8760b6f6f12b8ada9fdfd4503e847f' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -159,7 +159,7 @@ curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/p
 
 ```bash
 // Fuel between 0 and 1.0
-curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/partialingest/fuel_or_charge' \
+curl --location --request POST 'https://harvest.compassiot.cloud/compass.harvest.v1alpha1.IngestService/InsertPartialEventFuelOrCharge' \
 --header 'Authorization: apikey bc8760b6f6f12b8ada9fdfd4503e847f' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -172,7 +172,7 @@ curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/p
 
 ```bash
 // Nested props NOT allowed
-curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/partialingest/metadatakv' \
+curl --location --request POST 'https://harvest.compassiot.cloud/compass.harvest.v1alpha1.IngestService/InsertPartialEventMetadataKV' \
 --header 'Authorization: apikey bc8760b6f6f12b8ada9fdfd4503e847f' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -188,7 +188,7 @@ curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/p
 
 ```bash
 // escaped json string, nested props allowed
-curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/partialingest/metadatajson' \
+curl --location --request POST 'https://harvest.compassiot.cloud/compass.harvest.v1alpha1.IngestService/InsertPartialEventMetadataJSON' \
 --header 'Authorization: apikey bc8760b6f6f12b8ada9fdfd4503e847f' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -199,23 +199,11 @@ curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/p
 }'
 ```
 
-```bash
-curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/partialingest/metadatajson' \
---header 'Authorization: apikey bc8760b6f6f12b8ada9fdfd4503e847f' \
---header 'Content-Type: application/json' \
---data-raw '{
-   "region": "AUS",
-   "vehicle_id":"abc123",
-   "timestamp":1665029815,
-   "json_metadata": "{\"string_prop\": \"value\",\"number_prop\": 123,\"nested_prop\": {\"prop\": \"eller\"}}"
-}'
-```
-
 ### Vehicle endpoints
 These endpoints are for static properties of a given vehicle e.g. make / model
 as opposed to the above endpoints which are properties of the point in time event
 ```bash
-curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/vehicle/metadatajson' \
+curl --location --request POST 'https://harvest.compassiot.cloud/compass.harvest.v1alpha1.IngestService/InsertPartialVehicleMetadataJSON' \
 --header 'Authorization: apikey bc8760b6f6f12b8ada9fdfd4503e847f' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -228,7 +216,7 @@ curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/v
 ```
 
 ```bash
-curl --location --request POST 'https://harvest-json.compassiot.cloud/v1alpha1/vehicle/metadatakv' \
+curl --location --request POST 'https://harvest.compassiot.cloud/compass.harvest.v1alpha1.IngestService/InsertPartialVehicleMetadataKV' \
 --header 'Authorization: apikey bc8760b6f6f12b8ada9fdfd4503e847f' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -256,5 +244,23 @@ enum VehicleType {
   CAR = 2;
   VAN = 3;
   TRUCK = 4;
+
+  LCV = 5;
+  HCV = 6;
+
+  LV = 8;
+  HV = 9;
+
+  CRANE = 10;
+  TRACTOR = 11;
+  TRAILER = 12;
+  LOADER = 13;
+  MOTORCYCLE = 14;
+  GARBAGE_TRUCK = 15;
+  MICROBUS = 16;
+  SNOWPLOW = 17;
+
+  PICKUP_TRUCK = 18;
+  SUV = 19;
 }
 ```
