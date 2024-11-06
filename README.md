@@ -1,6 +1,6 @@
 # Harvest API Examples
 
-This repo contains examples on how to use our Harvest API.
+This repo contains examples on how to use our Harvest API. The API key provided in each example is a real key which undergoes all the validation logic but does not write anything to our databases. While this is useful for testing, please use the API key we've given to you.
 
 ## Schema definition
 
