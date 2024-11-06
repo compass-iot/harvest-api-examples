@@ -1,9 +1,19 @@
-# harvest-api-examples
+# Harvest API Examples
 
-This repo contains examples on how to use our harvest api to send data to us
+This repo contains examples on how to use our Harvest API. The API key provided in each example is a real key which undergoes all the validation logic but does not write anything to our databases. While this is useful for testing, please use the API key we've given to you.
 
-There are two major types of apis, the batching api and the streaming api
-- The batching api is more awkward to use but will more likely be more efficient, though this should depend on your existing setup
-- The streaming api should be simpler to use, it has language specific examples that use unary grpc and a basic json-http api if your language specific example is not present
+## Schema definition
 
-Further documentation on the format and units are found within the folder of each of these
+We use [protobuf](https://protobuf.dev) to define our schema and hosted at the [Buf Schema Registry (BSR)](https://buf.build/compassiot/harvest).
+
+## Examples
+
+Harvest runs on [ConnectRPC](https://connectrpc.com) but the protocol itself is compatible with [gRPC](https://grpc.io). We encourage to use Connect as it has better conformance to HTTP/1.1 and therefore fewer quirks than gRPC. The examples in this repo will be written using Connect when possible, otherwise it will be in gRPC.
+
+### ConnectRPC
+- [Go](https://github.com/compass-iot/harvest-api-examples/harvest-go)
+- [Kotlin](https://github.com/compass-iot/harvest-api-examples/harvest-kotlin)
+
+### gRPC
+- [C#](https://github.com/compass-iot/harvest-api-examples/harvest-csharp)
+- [Java](https://github.com/compass-iot/harvest-api-examples/harvest-java)
