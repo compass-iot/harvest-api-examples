@@ -4,9 +4,9 @@ using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Grpc.Net.Client;
 
-namespace Client
+namespace HarvestClient
 {
-    class ExampleClient
+    class Runner
     {
         static int Main()
         {

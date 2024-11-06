@@ -1,4 +1,4 @@
-module github.com/compass-iot/harvest-api-examples/connect-go
+module github.com/compass-iot/harvest-api-examples/harvest-go
 
 go 1.22.5
 

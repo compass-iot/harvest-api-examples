@@ -105,6 +105,7 @@ func main() {
 	if len(res.Msg.Errors) > 0 {
 		spew.Dump(res.Msg.Errors)
 	}
+	spew.Dump("Success writing to Harvest")
 }
 
 // Utility function to get the pointer of a value
