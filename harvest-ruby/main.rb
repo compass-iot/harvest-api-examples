@@ -56,7 +56,7 @@ def main
   ingester.insert(pe)
   printf("Success inserting single event \n")
 
-  # Prefer batch insert to better throughput
+  # Prefer batch insert for better throughput
   batch_req = Compass::Harvest::V1alpha1::BatchInsertRequest.new(events: [pe])
   batch_res = ingester.batch_insert(batch_req)
   if batch_res.errors.length.positive?
