@@ -3,17 +3,26 @@ version: v2
 managed:
   enabled: true
 
+clean: true
+
 plugins:
   - remote: buf.build/grpc/csharp
-    out: grpc-csharp/lib
+    out: harvest-csharp/lib
   - remote: buf.build/protocolbuffers/csharp
-    out: grpc-csharp/lib
+    out: harvest-csharp/lib
+
+  # Ruby
+  - remote: buf.build/protocolbuffers/ruby
+    out: harvest-ruby/lib
+    include_imports: true
+  - remote: buf.build/grpc/ruby
+    out: harvest-ruby/lib
 
 inputs:
-  - module: buf.build/compassiot/model:stable
+  - module: buf.build/compassiot/model:main
     paths:
       - compassiot/compass/v1/geo.proto
       - compassiot/compass/v1/partial_vehicle.proto
       - compassiot/compass/v1/vehicle.proto
 
-  - module: buf.build/compassiot/harvest:stable
+  - module: buf.build/compassiot/harvest:main

@@ -25,56 +25,73 @@ namespace Compassiot.Compass.V1 {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiNjb21wYXNzaW90L2NvbXBhc3MvdjEvdmVoaWNsZS5wcm90bxIVY29tcGFz",
-            "c2lvdC5jb21wYXNzLnYxGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnBy",
-            "b3RvGh9jb21wYXNzaW90L2NvbXBhc3MvdjEvZ2VvLnByb3RvIvIHCg1Qb3Np",
-            "dGlvbkV2ZW50Eg4KAmlkGA8gASgMUgJpZBIdCgp2ZWhpY2xlX2lkGAEgASgJ",
-            "Ugl2ZWhpY2xlSWQSOAoJdGltZXN0YW1wGAIgASgLMhouZ29vZ2xlLnByb3Rv",
-            "YnVmLlRpbWVzdGFtcFIJdGltZXN0YW1wElAKDnRyYW5zcG9ydF90eXBlGAMg",
-            "ASgOMiQuY29tcGFzc2lvdC5jb21wYXNzLnYxLlRyYW5zcG9ydFR5cGVIAFIN",
-            "dHJhbnNwb3J0VHlwZYgBARJKCgx2ZWhpY2xlX3R5cGUYBCABKA4yIi5jb21w",
-            "YXNzaW90LmNvbXBhc3MudjEuVmVoaWNsZVR5cGVIAVILdmVoaWNsZVR5cGWI",
-            "AQESOwoIcG9zaXRpb24YBSABKAsyHy5jb21wYXNzaW90LmNvbXBhc3MudjEu",
-            "UG9zaXRpb25SCHBvc2l0aW9uEkwKDGFjY2VsZXJhdGlvbhgHIAEoCzIjLmNv",
-            "bXBhc3Npb3QuY29tcGFzcy52MS5BY2NlbGVyYXRpb25IAlIMYWNjZWxlcmF0",
-            "aW9uiAEBEjQKBGd5cm8YCCABKAsyGy5jb21wYXNzaW90LmNvbXBhc3MudjEu",
-            "R3lyb0gDUgRneXJviAEBEhwKB3RyaXBfaWQYCSABKAlIBFIGdHJpcElkiAEB",
-            "Eh8KCHByb3ZpZGVyGAogASgJSAVSCHByb3ZpZGVyiAEBEhcKBG1ha2UYCyAB",
-            "KAlIBlIEbWFrZYgBARIZCgVtb2RlbBgMIAEoCUgHUgVtb2RlbIgBARIVCgNv",
-            "ZG8YDSABKAFICFIDb2RviAEBEikKDmZ1ZWxfb3JfY2hhcmdlGA4gASgBSAlS",
-            "DGZ1ZWxPckNoYXJnZYgBARIVCgN0YWcYHiABKAlIClIDdGFniAEBEkgKBmxh",
-            "YmVscxgGIAMoCzIwLmNvbXBhc3Npb3QuY29tcGFzcy52MS5Qb3NpdGlvbkV2",
-            "ZW50LkxhYmVsc0VudHJ5UgZsYWJlbHMSOwoLaW5nZXN0ZWRfYXQYECABKAsy",
-            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgppbmdlc3RlZEF0GjkKC0xh",
-            "YmVsc0VudHJ5EhAKA2tleRgBIAEoCVIDa2V5EhQKBXZhbHVlGAIgASgJUgV2",
-            "YWx1ZToCOAFCEQoPX3RyYW5zcG9ydF90eXBlQg8KDV92ZWhpY2xlX3R5cGVC",
-            "DwoNX2FjY2VsZXJhdGlvbkIHCgVfZ3lyb0IKCghfdHJpcF9pZEILCglfcHJv",
-            "dmlkZXJCBwoFX21ha2VCCAoGX21vZGVsQgYKBF9vZG9CEQoPX2Z1ZWxfb3Jf",
-            "Y2hhcmdlQgYKBF90YWcikQEKCFBvc2l0aW9uEjUKBmxhdGxuZxgBIAEoCzId",
-            "LmNvbXBhc3Npb3QuY29tcGFzcy52MS5MYXRMbmdSBmxhdGxuZxIZCgVzcGVl",
-            "ZBgCIAEoAUgAUgVzcGVlZIgBARIdCgdiZWFyaW5nGAMgASgBSAFSB2JlYXJp",
-            "bmeIAQFCCAoGX3NwZWVkQgoKCF9iZWFyaW5nIlkKDEFjY2VsZXJhdGlvbhIR",
-            "CgF4GAEgASgBSABSAXiIAQESEQoBeRgCIAEoAUgBUgF5iAEBEhEKAXoYAyAB",
-            "KAFIAlIBeogBAUIECgJfeEIECgJfeUIECgJfeiJsCgRHeXJvEhcKBHJvbGwY",
-            "ASABKAFIAFIEcm9sbIgBARIZCgVwaXRjaBgCIAEoAUgBUgVwaXRjaIgBARIV",
-            "CgN5YXcYAyABKAFIAlIDeWF3iAEBQgcKBV9yb2xsQggKBl9waXRjaEIGCgRf",
-            "eWF3KkgKDVRyYW5zcG9ydFR5cGUSHgoaVFJBTlNQT1JUX1RZUEVfVU5TUEVD",
-            "SUZJRUQQABILCgdQUklWQVRFEAESCgoGUFVCTElDEAIqiAIKC1ZlaGljbGVU",
-            "eXBlEhwKGFZFSElDTEVfVFlQRV9VTlNQRUNJRklFRBAAEgcKA0JVUxABEgcK",
-            "A0NBUhACEgcKA1ZBThADEgkKBVRSVUNLEAQSBwoDTENWEAUSBwoDSENWEAYS",
-            "BgoCTFYQCBIGCgJIVhAJEgkKBUNSQU5FEAoSCwoHVFJBQ1RPUhALEgsKB1RS",
-            "QUlMRVIQDBIKCgZMT0FERVIQDRIOCgpNT1RPUkNZQ0xFEA4SEQoNR0FSQkFH",
-            "RV9UUlVDSxAPEgwKCE1JQ1JPQlVTEBASDAoIU05PV1BMT1cQERIQCgxQSUNL",
-            "VVBfVFJVQ0sQEhIHCgNTVVYQExIICgNBTEwQ6AcqfQoMTmVhck1pc3NUeXBl",
-            "EhcKE05FQVJfTUlTU19UWVBFX05PTkUQABIaChZORUFSX01JU1NfVFlQRV9C",
-            "UkFLSU5HEAESGwoXTkVBUl9NSVNTX1RZUEVfU1RFRVJJTkcQAhIbChdORUFS",
-            "X01JU1NfVFlQRV9DT01CSU5FRBADQr8BChljb20uY29tcGFzc2lvdC5jb21w",
-            "YXNzLnYxQgxWZWhpY2xlUHJvdG9QAVoeY29tcGFzcy9nZW4vY29tcGFzcy92",
-            "MTtjb21wYXNzogIDQ0NYqgIVQ29tcGFzc2lvdC5Db21wYXNzLlYxygIVQ29t",
-            "cGFzc2lvdFxDb21wYXNzXFYx4gIhQ29tcGFzc2lvdFxDb21wYXNzXFYxXEdQ",
-            "Qk1ldGFkYXRh6gIXQ29tcGFzc2lvdDo6Q29tcGFzczo6VjFiBnByb3RvMw=="));
+            "c2lvdC5jb21wYXNzLnYxGiZjb21wYXNzaW90L2Fubm90YXRpb24vbW9uaXRv",
+            "cmluZy5wcm90bxofY29tcGFzc2lvdC9jb21wYXNzL3YxL2dlby5wcm90bxof",
+            "Z29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byLIBAoHVmVoaWNsZRId",
+            "Cgp2ZWhpY2xlX2lkGAEgASgJUgl2ZWhpY2xlSWQSGgoIcHJvdmlkZXIYAiAB",
+            "KAlSCHByb3ZpZGVyEiEKDGxhc3RfdXBkYXRlZBgDIAEoA1ILbGFzdFVwZGF0",
+            "ZWQSUAoOdHJhbnNwb3J0X3R5cGUYBCABKA4yJC5jb21wYXNzaW90LmNvbXBh",
+            "c3MudjEuVHJhbnNwb3J0VHlwZUgAUg10cmFuc3BvcnRUeXBliAEBEkoKDHZl",
+            "aGljbGVfdHlwZRgFIAEoDjIiLmNvbXBhc3Npb3QuY29tcGFzcy52MS5WZWhp",
+            "Y2xlVHlwZUgBUgt2ZWhpY2xlVHlwZYgBARJCCgZsYWJlbHMYBiADKAsyKi5j",
+            "b21wYXNzaW90LmNvbXBhc3MudjEuVmVoaWNsZS5MYWJlbHNFbnRyeVIGbGFi",
+            "ZWxzEhcKBG1ha2UYByABKAlIAlIEbWFrZYgBARIZCgVtb2RlbBgIIAEoCUgD",
+            "UgVtb2RlbIgBARIgCgxfQ0hBTkdFX1RZUEUYCSABKAlSCkNIQU5HRVRZUEUS",
+            "NQoXX0NIQU5HRV9TRVFVRU5DRV9OVU1CRVIYCiABKANSFENIQU5HRVNFUVVF",
+            "TkNFTlVNQkVSGjkKC0xhYmVsc0VudHJ5EhAKA2tleRgBIAEoCVIDa2V5EhQK",
+            "BXZhbHVlGAIgASgJUgV2YWx1ZToCOAFCEQoPX3RyYW5zcG9ydF90eXBlQg8K",
+            "DV92ZWhpY2xlX3R5cGVCBwoFX21ha2VCCAoGX21vZGVsIpIICg1Qb3NpdGlv",
+            "bkV2ZW50Eg4KAmlkGA8gASgMUgJpZBIlCgp2ZWhpY2xlX2lkGAEgASgJQgaK",
+            "iCcCCAFSCXZlaGljbGVJZBI4Cgl0aW1lc3RhbXAYAiABKAsyGi5nb29nbGUu",
+            "cHJvdG9idWYuVGltZXN0YW1wUgl0aW1lc3RhbXASUAoOdHJhbnNwb3J0X3R5",
+            "cGUYAyABKA4yJC5jb21wYXNzaW90LmNvbXBhc3MudjEuVHJhbnNwb3J0VHlw",
+            "ZUgAUg10cmFuc3BvcnRUeXBliAEBEkoKDHZlaGljbGVfdHlwZRgEIAEoDjIi",
+            "LmNvbXBhc3Npb3QuY29tcGFzcy52MS5WZWhpY2xlVHlwZUgBUgt2ZWhpY2xl",
+            "VHlwZYgBARI7Cghwb3NpdGlvbhgFIAEoCzIfLmNvbXBhc3Npb3QuY29tcGFz",
+            "cy52MS5Qb3NpdGlvblIIcG9zaXRpb24STAoMYWNjZWxlcmF0aW9uGAcgASgL",
+            "MiMuY29tcGFzc2lvdC5jb21wYXNzLnYxLkFjY2VsZXJhdGlvbkgCUgxhY2Nl",
+            "bGVyYXRpb26IAQESNAoEZ3lybxgIIAEoCzIbLmNvbXBhc3Npb3QuY29tcGFz",
+            "cy52MS5HeXJvSANSBGd5cm+IAQESHAoHdHJpcF9pZBgJIAEoCUgEUgZ0cmlw",
+            "SWSIAQESHwoIcHJvdmlkZXIYCiABKAlIBVIIcHJvdmlkZXKIAQESFwoEbWFr",
+            "ZRgLIAEoCUgGUgRtYWtliAEBEhkKBW1vZGVsGAwgASgJSAdSBW1vZGVsiAEB",
+            "EhUKA29kbxgNIAEoAUgIUgNvZG+IAQESKQoOZnVlbF9vcl9jaGFyZ2UYDiAB",
+            "KAFICVIMZnVlbE9yQ2hhcmdliAEBEhUKA3RhZxgeIAEoCUgKUgN0YWeIAQES",
+            "YAoGbGFiZWxzGAYgAygLMjAuY29tcGFzc2lvdC5jb21wYXNzLnYxLlBvc2l0",
+            "aW9uRXZlbnQuTGFiZWxzRW50cnlCFoqIJxJSEAoOCgolcHJvdmlkZXIlEAFS",
+            "BmxhYmVscxI7Cgtpbmdlc3RlZF9hdBgQIAEoCzIaLmdvb2dsZS5wcm90b2J1",
+            "Zi5UaW1lc3RhbXBSCmluZ2VzdGVkQXQaOQoLTGFiZWxzRW50cnkSEAoDa2V5",
+            "GAEgASgJUgNrZXkSFAoFdmFsdWUYAiABKAlSBXZhbHVlOgI4AUIRCg9fdHJh",
+            "bnNwb3J0X3R5cGVCDwoNX3ZlaGljbGVfdHlwZUIPCg1fYWNjZWxlcmF0aW9u",
+            "QgcKBV9neXJvQgoKCF90cmlwX2lkQgsKCV9wcm92aWRlckIHCgVfbWFrZUII",
+            "CgZfbW9kZWxCBgoEX29kb0IRCg9fZnVlbF9vcl9jaGFyZ2VCBgoEX3RhZyKR",
+            "AQoIUG9zaXRpb24SNQoGbGF0bG5nGAEgASgLMh0uY29tcGFzc2lvdC5jb21w",
+            "YXNzLnYxLkxhdExuZ1IGbGF0bG5nEhkKBXNwZWVkGAIgASgBSABSBXNwZWVk",
+            "iAEBEh0KB2JlYXJpbmcYAyABKAFIAVIHYmVhcmluZ4gBAUIICgZfc3BlZWRC",
+            "CgoIX2JlYXJpbmciWQoMQWNjZWxlcmF0aW9uEhEKAXgYASABKAFIAFIBeIgB",
+            "ARIRCgF5GAIgASgBSAFSAXmIAQESEQoBehgDIAEoAUgCUgF6iAEBQgQKAl94",
+            "QgQKAl95QgQKAl96ImwKBEd5cm8SFwoEcm9sbBgBIAEoAUgAUgRyb2xsiAEB",
+            "EhkKBXBpdGNoGAIgASgBSAFSBXBpdGNoiAEBEhUKA3lhdxgDIAEoAUgCUgN5",
+            "YXeIAQFCBwoFX3JvbGxCCAoGX3BpdGNoQgYKBF95YXcqSAoNVHJhbnNwb3J0",
+            "VHlwZRIeChpUUkFOU1BPUlRfVFlQRV9VTlNQRUNJRklFRBAAEgsKB1BSSVZB",
+            "VEUQARIKCgZQVUJMSUMQAiqiAgoLVmVoaWNsZVR5cGUSHAoYVkVISUNMRV9U",
+            "WVBFX1VOU1BFQ0lGSUVEEAASBwoDQlVTEAESBwoDQ0FSEAISBwoDVkFOEAMS",
+            "CQoFVFJVQ0sQBBIHCgNMQ1YQBRIHCgNIQ1YQBhIGCgJMVhAIEgYKAkhWEAkS",
+            "CQoFQ1JBTkUQChILCgdUUkFDVE9SEAsSCwoHVFJBSUxFUhAMEgoKBkxPQURF",
+            "UhANEg4KCk1PVE9SQ1lDTEUQDhIRCg1HQVJCQUdFX1RSVUNLEA8SDAoITUlD",
+            "Uk9CVVMQEBIMCghTTk9XUExPVxAREhAKDFBJQ0tVUF9UUlVDSxASEgcKA1NV",
+            "VhATEhgKFENPTlNUUlVDVElPTl9WRUhJQ0xFEBQSCAoDQUxMEOgHKn0KDE5l",
+            "YXJNaXNzVHlwZRIXChNORUFSX01JU1NfVFlQRV9OT05FEAASGgoWTkVBUl9N",
+            "SVNTX1RZUEVfQlJBS0lORxABEhsKF05FQVJfTUlTU19UWVBFX1NURUVSSU5H",
+            "EAISGwoXTkVBUl9NSVNTX1RZUEVfQ09NQklORUQQA0K/AQoZY29tLmNvbXBh",
+            "c3Npb3QuY29tcGFzcy52MUIMVmVoaWNsZVByb3RvUAFaHmNvbXBhc3MvZ2Vu",
+            "L2NvbXBhc3MvdjE7Y29tcGFzc6ICA0NDWKoCFUNvbXBhc3Npb3QuQ29tcGFz",
+            "cy5WMcoCFUNvbXBhc3Npb3RcQ29tcGFzc1xWMeICIUNvbXBhc3Npb3RcQ29t",
+            "cGFzc1xWMVxHUEJNZXRhZGF0YeoCF0NvbXBhc3Npb3Q6OkNvbXBhc3M6OlYx",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Compassiot.Compass.V1.GeoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Compassiot.Annotation.MonitoringReflection.Descriptor, global::Compassiot.Compass.V1.GeoReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Compassiot.Compass.V1.TransportType), typeof(global::Compassiot.Compass.V1.VehicleType), typeof(global::Compassiot.Compass.V1.NearMissType), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Compassiot.Compass.V1.Vehicle), global::Compassiot.Compass.V1.Vehicle.Parser, new[]{ "VehicleId", "Provider", "LastUpdated", "TransportType", "VehicleType", "Labels", "Make", "Model", "CHANGETYPE", "CHANGESEQUENCENUMBER" }, new[]{ "TransportType", "VehicleType", "Make", "Model" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Compassiot.Compass.V1.PositionEvent), global::Compassiot.Compass.V1.PositionEvent.Parser, new[]{ "Id", "VehicleId", "Timestamp", "TransportType", "VehicleType", "Position", "Acceleration", "Gyro", "TripId", "Provider", "Make", "Model", "Odo", "FuelOrCharge", "Tag", "Labels", "IngestedAt" }, new[]{ "TransportType", "VehicleType", "Acceleration", "Gyro", "TripId", "Provider", "Make", "Model", "Odo", "FuelOrCharge", "Tag" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Compassiot.Compass.V1.Position), global::Compassiot.Compass.V1.Position.Parser, new[]{ "Latlng", "Speed", "Bearing" }, new[]{ "Speed", "Bearing" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Compassiot.Compass.V1.Acceleration), global::Compassiot.Compass.V1.Acceleration.Parser, new[]{ "X", "Y", "Z" }, new[]{ "X", "Y", "Z" }, null, null, null),
@@ -89,50 +106,129 @@ namespace Compassiot.Compass.V1 {
   /// Specifies the transport type of the vehicle
   /// </summary>
   public enum TransportType {
+    /// <summary>
+    /// The transport type of the vehicle is unspecified
+    /// </summary>
     [pbr::OriginalName("TRANSPORT_TYPE_UNSPECIFIED")] Unspecified = 0,
+    /// <summary>
+    /// Specifies that the vehicle is a private vehicle
+    /// </summary>
     [pbr::OriginalName("PRIVATE")] Private = 1,
+    /// <summary>
+    /// Specifies that the vehicle is a public vehicle
+    /// </summary>
     [pbr::OriginalName("PUBLIC")] Public = 2,
   }
 
   /// <summary>
-  /// type of vehicle being used
+  /// Specifies the type of vehicle being used
   /// </summary>
   public enum VehicleType {
+    /// <summary>
+    /// The vehicle type of the vehicle is unspecified
+    /// </summary>
     [pbr::OriginalName("VEHICLE_TYPE_UNSPECIFIED")] Unspecified = 0,
+    /// <summary>
+    /// The vehicle is classified as a bus
+    /// </summary>
     [pbr::OriginalName("BUS")] Bus = 1,
+    /// <summary>
+    /// The vehicle is classified as a car
+    /// </summary>
     [pbr::OriginalName("CAR")] Car = 2,
+    /// <summary>
+    /// The vehicle is classified as a van
+    /// </summary>
     [pbr::OriginalName("VAN")] Van = 3,
+    /// <summary>
+    /// The vehicle is classified as a truck
+    /// </summary>
     [pbr::OriginalName("TRUCK")] Truck = 4,
+    /// <summary>
+    /// The vehicle is classified as a Light Commercial Vehicle
+    /// </summary>
     [pbr::OriginalName("LCV")] Lcv = 5,
+    /// <summary>
+    /// The vehicle is classified as a Heavy Commercial Vehicle
+    /// </summary>
     [pbr::OriginalName("HCV")] Hcv = 6,
+    /// <summary>
+    /// The vehicle is classified as a Light Vehicle
+    /// </summary>
     [pbr::OriginalName("LV")] Lv = 8,
+    /// <summary>
+    /// The vehicle is classified as a Heavy Vehicle
+    /// </summary>
     [pbr::OriginalName("HV")] Hv = 9,
+    /// <summary>
+    /// The vehicle is classified as a crane
+    /// </summary>
     [pbr::OriginalName("CRANE")] Crane = 10,
+    /// <summary>
+    /// The vehicle is classified as a tractor
+    /// </summary>
     [pbr::OriginalName("TRACTOR")] Tractor = 11,
+    /// <summary>
+    /// The vehicle is classified as a trailer
+    /// </summary>
     [pbr::OriginalName("TRAILER")] Trailer = 12,
+    /// <summary>
+    /// The vehicle is classified as a loader
+    /// </summary>
     [pbr::OriginalName("LOADER")] Loader = 13,
+    /// <summary>
+    /// The vehicle is classified as a motorbike
+    /// </summary>
     [pbr::OriginalName("MOTORCYCLE")] Motorcycle = 14,
+    /// <summary>
+    /// The vehicle is classified as a garbage truck
+    /// </summary>
     [pbr::OriginalName("GARBAGE_TRUCK")] GarbageTruck = 15,
+    /// <summary>
+    /// The vehicle is classified as a microbus
+    /// </summary>
     [pbr::OriginalName("MICROBUS")] Microbus = 16,
+    /// <summary>
+    /// The vehicle is classified as a snowplow
+    /// </summary>
     [pbr::OriginalName("SNOWPLOW")] Snowplow = 17,
+    /// <summary>
+    /// The vehicle is classified as a pickup truck
+    /// </summary>
     [pbr::OriginalName("PICKUP_TRUCK")] PickupTruck = 18,
+    /// <summary>
+    /// The vehicle is classified as a sport utility vehicle
+    /// </summary>
     [pbr::OriginalName("SUV")] Suv = 19,
+    /// <summary>
+    /// The vehicle is classified as a construction vehicle
+    /// </summary>
+    [pbr::OriginalName("CONSTRUCTION_VEHICLE")] ConstructionVehicle = 20,
+    /// <summary>
+    /// Used to provide information that is common to all vehicle types
+    /// </summary>
     [pbr::OriginalName("ALL")] All = 1000,
   }
 
   /// <summary>
   ///*
-  /// Type of near miss event
+  ///Specifies the Type of near miss event
   /// </summary>
   public enum NearMissType {
     /// <summary>
-    /// Any type of event
+    /// Specifies that the data point is not a near miss event
     /// </summary>
     [pbr::OriginalName("NEAR_MISS_TYPE_NONE")] None = 0,
+    /// <summary>
+    /// Specifies that the data point is a Braking near miss event
+    /// </summary>
     [pbr::OriginalName("NEAR_MISS_TYPE_BRAKING")] Braking = 1,
+    /// <summary>
+    /// Specifies that the data point is a Steering near miss event
+    /// </summary>
     [pbr::OriginalName("NEAR_MISS_TYPE_STEERING")] Steering = 2,
     /// <summary>
-    /// combination of STEERING AND BRAKING (different from STEERING OR BRAKING)
+    /// Specifies that it is a combination of Steering AND Braking near miss event (different from Steering OR Braking)
     /// </summary>
     [pbr::OriginalName("NEAR_MISS_TYPE_COMBINED")] Combined = 3,
   }
@@ -140,6 +236,601 @@ namespace Compassiot.Compass.V1 {
   #endregion
 
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class Vehicle : pb::IMessage<Vehicle>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Vehicle> _parser = new pb::MessageParser<Vehicle>(() => new Vehicle());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<Vehicle> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Compassiot.Compass.V1.VehicleReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public Vehicle() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public Vehicle(Vehicle other) : this() {
+      _hasBits0 = other._hasBits0;
+      vehicleId_ = other.vehicleId_;
+      provider_ = other.provider_;
+      lastUpdated_ = other.lastUpdated_;
+      transportType_ = other.transportType_;
+      vehicleType_ = other.vehicleType_;
+      labels_ = other.labels_.Clone();
+      make_ = other.make_;
+      model_ = other.model_;
+      CHANGETYPE_ = other.CHANGETYPE_;
+      CHANGESEQUENCENUMBER_ = other.CHANGESEQUENCENUMBER_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public Vehicle Clone() {
+      return new Vehicle(this);
+    }
+
+    /// <summary>Field number for the "vehicle_id" field.</summary>
+    public const int VehicleIdFieldNumber = 1;
+    private string vehicleId_ = "";
+    /// <summary>
+    /// option (gen_bq_schema.bigquery_opts).table_name = "vehicle";
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string VehicleId {
+      get { return vehicleId_; }
+      set {
+        vehicleId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "provider" field.</summary>
+    public const int ProviderFieldNumber = 2;
+    private string provider_ = "";
+    /// <summary>
+    /// [(gen_bq_schema.bigquery) = {require: true}];
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Provider {
+      get { return provider_; }
+      set {
+        provider_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "last_updated" field.</summary>
+    public const int LastUpdatedFieldNumber = 3;
+    private long lastUpdated_;
+    /// <summary>
+    /// [(gen_bq_schema.bigquery) = {require: true}];
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long LastUpdated {
+      get { return lastUpdated_; }
+      set {
+        lastUpdated_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "transport_type" field.</summary>
+    public const int TransportTypeFieldNumber = 4;
+    private readonly static global::Compassiot.Compass.V1.TransportType TransportTypeDefaultValue = global::Compassiot.Compass.V1.TransportType.Unspecified;
+
+    private global::Compassiot.Compass.V1.TransportType transportType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Compassiot.Compass.V1.TransportType TransportType {
+      get { if ((_hasBits0 & 1) != 0) { return transportType_; } else { return TransportTypeDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        transportType_ = value;
+      }
+    }
+    /// <summary>Gets whether the "transport_type" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasTransportType {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "transport_type" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearTransportType() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "vehicle_type" field.</summary>
+    public const int VehicleTypeFieldNumber = 5;
+    private readonly static global::Compassiot.Compass.V1.VehicleType VehicleTypeDefaultValue = global::Compassiot.Compass.V1.VehicleType.Unspecified;
+
+    private global::Compassiot.Compass.V1.VehicleType vehicleType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Compassiot.Compass.V1.VehicleType VehicleType {
+      get { if ((_hasBits0 & 2) != 0) { return vehicleType_; } else { return VehicleTypeDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        vehicleType_ = value;
+      }
+    }
+    /// <summary>Gets whether the "vehicle_type" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasVehicleType {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "vehicle_type" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearVehicleType() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "labels" field.</summary>
+    public const int LabelsFieldNumber = 6;
+    private static readonly pbc::MapField<string, string>.Codec _map_labels_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 50);
+    private readonly pbc::MapField<string, string> labels_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::MapField<string, string> Labels {
+      get { return labels_; }
+    }
+
+    /// <summary>Field number for the "make" field.</summary>
+    public const int MakeFieldNumber = 7;
+    private readonly static string MakeDefaultValue = "";
+
+    private string make_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Make {
+      get { return make_ ?? MakeDefaultValue; }
+      set {
+        make_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "make" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasMake {
+      get { return make_ != null; }
+    }
+    /// <summary>Clears the value of the "make" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMake() {
+      make_ = null;
+    }
+
+    /// <summary>Field number for the "model" field.</summary>
+    public const int ModelFieldNumber = 8;
+    private readonly static string ModelDefaultValue = "";
+
+    private string model_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Model {
+      get { return model_ ?? ModelDefaultValue; }
+      set {
+        model_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "model" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasModel {
+      get { return model_ != null; }
+    }
+    /// <summary>Clears the value of the "model" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearModel() {
+      model_ = null;
+    }
+
+    /// <summary>Field number for the "_CHANGE_TYPE" field.</summary>
+    public const int CHANGETYPEFieldNumber = 9;
+    private string CHANGETYPE_ = "";
+    /// <summary>
+    /// buf:lint:ignore FIELD_LOWER_SNAKE_CASE
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string CHANGETYPE {
+      get { return CHANGETYPE_; }
+      set {
+        CHANGETYPE_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "_CHANGE_SEQUENCE_NUMBER" field.</summary>
+    public const int CHANGESEQUENCENUMBERFieldNumber = 10;
+    private long CHANGESEQUENCENUMBER_;
+    /// <summary>
+    /// buf:lint:ignore FIELD_LOWER_SNAKE_CASE
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long CHANGESEQUENCENUMBER {
+      get { return CHANGESEQUENCENUMBER_; }
+      set {
+        CHANGESEQUENCENUMBER_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as Vehicle);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(Vehicle other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (VehicleId != other.VehicleId) return false;
+      if (Provider != other.Provider) return false;
+      if (LastUpdated != other.LastUpdated) return false;
+      if (TransportType != other.TransportType) return false;
+      if (VehicleType != other.VehicleType) return false;
+      if (!Labels.Equals(other.Labels)) return false;
+      if (Make != other.Make) return false;
+      if (Model != other.Model) return false;
+      if (CHANGETYPE != other.CHANGETYPE) return false;
+      if (CHANGESEQUENCENUMBER != other.CHANGESEQUENCENUMBER) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (VehicleId.Length != 0) hash ^= VehicleId.GetHashCode();
+      if (Provider.Length != 0) hash ^= Provider.GetHashCode();
+      if (LastUpdated != 0L) hash ^= LastUpdated.GetHashCode();
+      if (HasTransportType) hash ^= TransportType.GetHashCode();
+      if (HasVehicleType) hash ^= VehicleType.GetHashCode();
+      hash ^= Labels.GetHashCode();
+      if (HasMake) hash ^= Make.GetHashCode();
+      if (HasModel) hash ^= Model.GetHashCode();
+      if (CHANGETYPE.Length != 0) hash ^= CHANGETYPE.GetHashCode();
+      if (CHANGESEQUENCENUMBER != 0L) hash ^= CHANGESEQUENCENUMBER.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (VehicleId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(VehicleId);
+      }
+      if (Provider.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Provider);
+      }
+      if (LastUpdated != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(LastUpdated);
+      }
+      if (HasTransportType) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) TransportType);
+      }
+      if (HasVehicleType) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) VehicleType);
+      }
+      labels_.WriteTo(output, _map_labels_codec);
+      if (HasMake) {
+        output.WriteRawTag(58);
+        output.WriteString(Make);
+      }
+      if (HasModel) {
+        output.WriteRawTag(66);
+        output.WriteString(Model);
+      }
+      if (CHANGETYPE.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(CHANGETYPE);
+      }
+      if (CHANGESEQUENCENUMBER != 0L) {
+        output.WriteRawTag(80);
+        output.WriteInt64(CHANGESEQUENCENUMBER);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (VehicleId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(VehicleId);
+      }
+      if (Provider.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Provider);
+      }
+      if (LastUpdated != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(LastUpdated);
+      }
+      if (HasTransportType) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) TransportType);
+      }
+      if (HasVehicleType) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) VehicleType);
+      }
+      labels_.WriteTo(ref output, _map_labels_codec);
+      if (HasMake) {
+        output.WriteRawTag(58);
+        output.WriteString(Make);
+      }
+      if (HasModel) {
+        output.WriteRawTag(66);
+        output.WriteString(Model);
+      }
+      if (CHANGETYPE.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(CHANGETYPE);
+      }
+      if (CHANGESEQUENCENUMBER != 0L) {
+        output.WriteRawTag(80);
+        output.WriteInt64(CHANGESEQUENCENUMBER);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (VehicleId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(VehicleId);
+      }
+      if (Provider.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Provider);
+      }
+      if (LastUpdated != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(LastUpdated);
+      }
+      if (HasTransportType) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TransportType);
+      }
+      if (HasVehicleType) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) VehicleType);
+      }
+      size += labels_.CalculateSize(_map_labels_codec);
+      if (HasMake) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Make);
+      }
+      if (HasModel) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Model);
+      }
+      if (CHANGETYPE.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CHANGETYPE);
+      }
+      if (CHANGESEQUENCENUMBER != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(CHANGESEQUENCENUMBER);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(Vehicle other) {
+      if (other == null) {
+        return;
+      }
+      if (other.VehicleId.Length != 0) {
+        VehicleId = other.VehicleId;
+      }
+      if (other.Provider.Length != 0) {
+        Provider = other.Provider;
+      }
+      if (other.LastUpdated != 0L) {
+        LastUpdated = other.LastUpdated;
+      }
+      if (other.HasTransportType) {
+        TransportType = other.TransportType;
+      }
+      if (other.HasVehicleType) {
+        VehicleType = other.VehicleType;
+      }
+      labels_.MergeFrom(other.labels_);
+      if (other.HasMake) {
+        Make = other.Make;
+      }
+      if (other.HasModel) {
+        Model = other.Model;
+      }
+      if (other.CHANGETYPE.Length != 0) {
+        CHANGETYPE = other.CHANGETYPE;
+      }
+      if (other.CHANGESEQUENCENUMBER != 0L) {
+        CHANGESEQUENCENUMBER = other.CHANGESEQUENCENUMBER;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            VehicleId = input.ReadString();
+            break;
+          }
+          case 18: {
+            Provider = input.ReadString();
+            break;
+          }
+          case 24: {
+            LastUpdated = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            TransportType = (global::Compassiot.Compass.V1.TransportType) input.ReadEnum();
+            break;
+          }
+          case 40: {
+            VehicleType = (global::Compassiot.Compass.V1.VehicleType) input.ReadEnum();
+            break;
+          }
+          case 50: {
+            labels_.AddEntriesFrom(input, _map_labels_codec);
+            break;
+          }
+          case 58: {
+            Make = input.ReadString();
+            break;
+          }
+          case 66: {
+            Model = input.ReadString();
+            break;
+          }
+          case 74: {
+            CHANGETYPE = input.ReadString();
+            break;
+          }
+          case 80: {
+            CHANGESEQUENCENUMBER = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            VehicleId = input.ReadString();
+            break;
+          }
+          case 18: {
+            Provider = input.ReadString();
+            break;
+          }
+          case 24: {
+            LastUpdated = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            TransportType = (global::Compassiot.Compass.V1.TransportType) input.ReadEnum();
+            break;
+          }
+          case 40: {
+            VehicleType = (global::Compassiot.Compass.V1.VehicleType) input.ReadEnum();
+            break;
+          }
+          case 50: {
+            labels_.AddEntriesFrom(ref input, _map_labels_codec);
+            break;
+          }
+          case 58: {
+            Make = input.ReadString();
+            break;
+          }
+          case 66: {
+            Model = input.ReadString();
+            break;
+          }
+          case 74: {
+            CHANGETYPE = input.ReadString();
+            break;
+          }
+          case 80: {
+            CHANGESEQUENCENUMBER = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   /// <summary>
   /// </summary>
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
@@ -158,7 +849,7 @@ namespace Compassiot.Compass.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Compassiot.Compass.V1.VehicleReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Compassiot.Compass.V1.VehicleReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1123,7 +1814,7 @@ namespace Compassiot.Compass.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Compassiot.Compass.V1.VehicleReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Compassiot.Compass.V1.VehicleReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1160,7 +1851,7 @@ namespace Compassiot.Compass.V1 {
     public const int LatlngFieldNumber = 1;
     private global::Compassiot.Compass.V1.LatLng latlng_;
     /// <summary>
-    /// lat and lng of the vehicle position
+    /// Specifies the latitude and longitude of the vehicle position
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1177,7 +1868,7 @@ namespace Compassiot.Compass.V1 {
 
     private double speed_;
     /// <summary>
-    /// speed of vehicle in km/h
+    /// Specifies the speed of the vehicle in km/h
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1457,7 +2148,7 @@ namespace Compassiot.Compass.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Compassiot.Compass.V1.VehicleReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Compassiot.Compass.V1.VehicleReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1771,7 +2462,7 @@ namespace Compassiot.Compass.V1 {
 
   /// <summary>
   ///*
-  /// Rotational data is measured in degrees per second
+  /// Specifies gyroscopic information. Rotational data is measured in degrees per second.
   /// A positive value for roll, pitch or yaw is defined in the anti-clockwise direction when facing the positive direction of it's axis
   ///
   /// See acceleration diagram for more details
@@ -1792,7 +2483,7 @@ namespace Compassiot.Compass.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Compassiot.Compass.V1.VehicleReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Compassiot.Compass.V1.VehicleReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
