@@ -25,11 +25,10 @@ namespace Compass.Harvest.V1alpha1 {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiZjb21wYXNzL2hhcnZlc3QvdjFhbHBoYTEvaGFydmVzdC5wcm90bxIYY29t",
-            "cGFzcy5oYXJ2ZXN0LnYxYWxwaGExGhxnb29nbGUvYXBpL2Fubm90YXRpb25z",
-            "LnByb3RvGhtnb29nbGUvcHJvdG9idWYvZW1wdHkucHJvdG8aH2dvb2dsZS9w",
-            "cm90b2J1Zi90aW1lc3RhbXAucHJvdG8aI2NvbXBhc3Npb3QvY29tcGFzcy92",
-            "MS92ZWhpY2xlLnByb3RvGitjb21wYXNzaW90L2NvbXBhc3MvdjEvcGFydGlh",
-            "bF92ZWhpY2xlLnByb3RvIssHChRIYXJ2ZXN0UG9zaXRpb25FdmVudBIOCgJp",
+            "cGFzcy5oYXJ2ZXN0LnYxYWxwaGExGiNjb21wYXNzaW90L2NvbXBhc3MvdjEv",
+            "dmVoaWNsZS5wcm90bxocZ29vZ2xlL2FwaS9hbm5vdGF0aW9ucy5wcm90bxob",
+            "Z29vZ2xlL3Byb3RvYnVmL2VtcHR5LnByb3RvGh9nb29nbGUvcHJvdG9idWYv",
+            "dGltZXN0YW1wLnByb3RvIssHChRIYXJ2ZXN0UG9zaXRpb25FdmVudBIOCgJp",
             "ZBgPIAEoDFICaWQSHQoKdmVoaWNsZV9pZBgBIAEoCVIJdmVoaWNsZUlkEhwK",
             "CXRpbWVzdGFtcBgCIAEoA1IJdGltZXN0YW1wElAKDnRyYW5zcG9ydF90eXBl",
             "GAMgASgOMiQuY29tcGFzc2lvdC5jb21wYXNzLnYxLlRyYW5zcG9ydFR5cGVI",
@@ -51,105 +50,99 @@ namespace Compass.Harvest.V1alpha1 {
             "YW5zcG9ydF90eXBlQg8KDV92ZWhpY2xlX3R5cGVCDwoNX2FjY2VsZXJhdGlv",
             "bkIHCgVfZ3lyb0IKCghfdHJpcF9pZEILCglfcHJvdmlkZXJCBwoFX21ha2VC",
             "CAoGX21vZGVsQgYKBF9vZG9CEQoPX2Z1ZWxfb3JfY2hhcmdlQgYKBF90YWci",
-            "SAoMTGF0TG5nQ29tcGF0EhoKCGxhdGl0dWRlGAEgASgBUghsYXRpdHVkZRIc",
-            "Cglsb25naXR1ZGUYAiABKAFSCWxvbmdpdHVkZSKgAQoOUG9zaXRpb25Db21w",
-            "YXQSPgoGbGF0bG5nGAEgASgLMiYuY29tcGFzcy5oYXJ2ZXN0LnYxYWxwaGEx",
-            "LkxhdExuZ0NvbXBhdFIGbGF0bG5nEhkKBXNwZWVkGAIgASgBSABSBXNwZWVk",
-            "iAEBEh0KB2JlYXJpbmcYAyABKAFIAVIHYmVhcmluZ4gBAUIICgZfc3BlZWRC",
-            "CgoIX2JlYXJpbmcizQcKE1Bvc2l0aW9uRXZlbnRDb21wYXQSDgoCaWQYDyAB",
-            "KAxSAmlkEh0KCnZlaGljbGVfaWQYASABKAlSCXZlaGljbGVJZBI4Cgl0aW1l",
-            "c3RhbXAYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgl0aW1l",
-            "c3RhbXASUAoOdHJhbnNwb3J0X3R5cGUYAyABKA4yJC5jb21wYXNzaW90LmNv",
-            "bXBhc3MudjEuVHJhbnNwb3J0VHlwZUgAUg10cmFuc3BvcnRUeXBliAEBEkoK",
-            "DHZlaGljbGVfdHlwZRgEIAEoDjIiLmNvbXBhc3Npb3QuY29tcGFzcy52MS5W",
-            "ZWhpY2xlVHlwZUgBUgt2ZWhpY2xlVHlwZYgBARJECghwb3NpdGlvbhgFIAEo",
-            "CzIoLmNvbXBhc3MuaGFydmVzdC52MWFscGhhMS5Qb3NpdGlvbkNvbXBhdFII",
-            "cG9zaXRpb24STAoMYWNjZWxlcmF0aW9uGAcgASgLMiMuY29tcGFzc2lvdC5j",
-            "b21wYXNzLnYxLkFjY2VsZXJhdGlvbkgCUgxhY2NlbGVyYXRpb26IAQESNAoE",
-            "Z3lybxgIIAEoCzIbLmNvbXBhc3Npb3QuY29tcGFzcy52MS5HeXJvSANSBGd5",
-            "cm+IAQESHAoHdHJpcF9pZBgJIAEoCUgEUgZ0cmlwSWSIAQESHwoIcHJvdmlk",
-            "ZXIYCiABKAlIBVIIcHJvdmlkZXKIAQESFwoEbWFrZRgLIAEoCUgGUgRtYWtl",
-            "iAEBEhkKBW1vZGVsGAwgASgJSAdSBW1vZGVsiAEBEhUKA29kbxgNIAEoAUgI",
-            "UgNvZG+IAQESKQoOZnVlbF9vcl9jaGFyZ2UYDiABKAFICVIMZnVlbE9yQ2hh",
-            "cmdliAEBEhUKA3RhZxgeIAEoCUgKUgN0YWeIAQESUQoGbGFiZWxzGAYgAygL",
-            "MjkuY29tcGFzcy5oYXJ2ZXN0LnYxYWxwaGExLlBvc2l0aW9uRXZlbnRDb21w",
-            "YXQuTGFiZWxzRW50cnlSBmxhYmVscxo5CgtMYWJlbHNFbnRyeRIQCgNrZXkY",
-            "ASABKAlSA2tleRIUCgV2YWx1ZRgCIAEoCVIFdmFsdWU6AjgBQhEKD190cmFu",
-            "c3BvcnRfdHlwZUIPCg1fdmVoaWNsZV90eXBlQg8KDV9hY2NlbGVyYXRpb25C",
-            "BwoFX2d5cm9CCgoIX3RyaXBfaWRCCwoJX3Byb3ZpZGVyQgcKBV9tYWtlQggK",
-            "Bl9tb2RlbEIGCgRfb2RvQhEKD19mdWVsX29yX2NoYXJnZUIGCgRfdGFnIlIK",
-            "EkJhdGNoSW5zZXJ0UmVxdWVzdBI8CgZldmVudHMYASADKAsyJC5jb21wYXNz",
-            "aW90LmNvbXBhc3MudjEuUG9zaXRpb25FdmVudFIGZXZlbnRzImEKGEJhdGNo",
-            "SW5zZXJ0Q29tcGF0UmVxdWVzdBJFCgZldmVudHMYASADKAsyLS5jb21wYXNz",
-            "LmhhcnZlc3QudjFhbHBoYTEuUG9zaXRpb25FdmVudENvbXBhdFIGZXZlbnRz",
-            "IlQKE0JhdGNoSW5zZXJ0UmVzcG9uc2USPQoGZXJyb3JzGAEgAygLMiUuY29t",
-            "cGFzcy5oYXJ2ZXN0LnYxYWxwaGExLkluc2VydEVycm9yUgZlcnJvcnMiXwoL",
-            "SW5zZXJ0RXJyb3ISFAoFaW5kZXgYASABKAVSBWluZGV4Eh0KCmVycm9yX2Nv",
-            "ZGUYAiABKAVSCWVycm9yQ29kZRIbCgllcnJvcl9tc2cYAyABKAlSCGVycm9y",
-            "TXNnMqATCg1Jbmdlc3RTZXJ2aWNlEoEBCgZJbnNlcnQSJC5jb21wYXNzaW90",
-            "LmNvbXBhc3MudjEuUG9zaXRpb25FdmVudBoWLmdvb2dsZS5wcm90b2J1Zi5F",
-            "bXB0eSI5gtPkkwIzIi4vY29tcGFzcy5oYXJ2ZXN0LnYxYWxwaGExLkluZ2Vz",
-            "dFNlcnZpY2UvSW5zZXJ0OgEqEpYBCgxJbnNlcnRDb21wYXQSLS5jb21wYXNz",
-            "LmhhcnZlc3QudjFhbHBoYTEuUG9zaXRpb25FdmVudENvbXBhdBoWLmdvb2ds",
-            "ZS5wcm90b2J1Zi5FbXB0eSI/gtPkkwI5IjQvY29tcGFzcy5oYXJ2ZXN0LnYx",
-            "YWxwaGExLkluZ2VzdFNlcnZpY2UvSW5zZXJ0Q29tcGF0OgEqEqABChNJbnNl",
-            "cnRQYXJ0aWFsTGF0TG5nEikuY29tcGFzc2lvdC5jb21wYXNzLnYxLlBhcnRp",
-            "YWxFdmVudExhdExuZxoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSJGgtPkkwJA",
-            "IjsvY29tcGFzcy5oYXJ2ZXN0LnYxYWxwaGExLkluZ2VzdFNlcnZpY2UvSW5z",
-            "ZXJ0UGFydGlhbExhdExuZzoBKhKdAQoSSW5zZXJ0UGFydGlhbFNwZWVkEigu",
-            "Y29tcGFzc2lvdC5jb21wYXNzLnYxLlBhcnRpYWxFdmVudFNwZWVkGhYuZ29v",
-            "Z2xlLnByb3RvYnVmLkVtcHR5IkWC0+STAj8iOi9jb21wYXNzLmhhcnZlc3Qu",
-            "djFhbHBoYTEuSW5nZXN0U2VydmljZS9JbnNlcnRQYXJ0aWFsU3BlZWQ6ASoS",
-            "vAEKHkluc2VydFBhcnRpYWxFdmVudEFjY2VsZXJhdGlvbhIvLmNvbXBhc3Np",
-            "b3QuY29tcGFzcy52MS5QYXJ0aWFsRXZlbnRBY2NlbGVyYXRpb24aFi5nb29n",
-            "bGUucHJvdG9idWYuRW1wdHkiUYLT5JMCSyJGL2NvbXBhc3MuaGFydmVzdC52",
-            "MWFscGhhMS5Jbmdlc3RTZXJ2aWNlL0luc2VydFBhcnRpYWxFdmVudEFjY2Vs",
-            "ZXJhdGlvbjoBKhKkAQoWSW5zZXJ0UGFydGlhbEV2ZW50R3lybxInLmNvbXBh",
-            "c3Npb3QuY29tcGFzcy52MS5QYXJ0aWFsRXZlbnRHeXJvGhYuZ29vZ2xlLnBy",
-            "b3RvYnVmLkVtcHR5IkmC0+STAkMiPi9jb21wYXNzLmhhcnZlc3QudjFhbHBo",
-            "YTEuSW5nZXN0U2VydmljZS9JbnNlcnRQYXJ0aWFsRXZlbnRHeXJvOgEqEqEB",
-            "ChVJbnNlcnRQYXJ0aWFsRXZlbnRPZG8SJi5jb21wYXNzaW90LmNvbXBhc3Mu",
-            "djEuUGFydGlhbEV2ZW50T2RvGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IkiC",
-            "0+STAkIiPS9jb21wYXNzLmhhcnZlc3QudjFhbHBoYTEuSW5nZXN0U2Vydmlj",
-            "ZS9JbnNlcnRQYXJ0aWFsRXZlbnRPZG86ASoSvAEKHkluc2VydFBhcnRpYWxF",
-            "dmVudEZ1ZWxPckNoYXJnZRIvLmNvbXBhc3Npb3QuY29tcGFzcy52MS5QYXJ0",
-            "aWFsRXZlbnRGdWVsT3JDaGFyZ2UaFi5nb29nbGUucHJvdG9idWYuRW1wdHki",
-            "UYLT5JMCSyJGL2NvbXBhc3MuaGFydmVzdC52MWFscGhhMS5Jbmdlc3RTZXJ2",
-            "aWNlL0luc2VydFBhcnRpYWxFdmVudEZ1ZWxPckNoYXJnZToBKhK2AQocSW5z",
-            "ZXJ0UGFydGlhbEV2ZW50TWV0YWRhdGFLVhItLmNvbXBhc3Npb3QuY29tcGFz",
-            "cy52MS5QYXJ0aWFsRXZlbnRNZXRhZGF0YUtWGhYuZ29vZ2xlLnByb3RvYnVm",
-            "LkVtcHR5Ik+C0+STAkkiRC9jb21wYXNzLmhhcnZlc3QudjFhbHBoYTEuSW5n",
-            "ZXN0U2VydmljZS9JbnNlcnRQYXJ0aWFsRXZlbnRNZXRhZGF0YUtWOgEqErwB",
-            "Ch5JbnNlcnRQYXJ0aWFsRXZlbnRNZXRhZGF0YUpTT04SLy5jb21wYXNzaW90",
-            "LmNvbXBhc3MudjEuUGFydGlhbEV2ZW50TWV0YWRhdGFKU09OGhYuZ29vZ2xl",
-            "LnByb3RvYnVmLkVtcHR5IlGC0+STAksiRi9jb21wYXNzLmhhcnZlc3QudjFh",
-            "bHBoYTEuSW5nZXN0U2VydmljZS9JbnNlcnRQYXJ0aWFsRXZlbnRNZXRhZGF0",
-            "YUpTT046ASoSvAEKHkluc2VydFBhcnRpYWxWZWhpY2xlTWV0YWRhdGFLVhIv",
-            "LmNvbXBhc3Npb3QuY29tcGFzcy52MS5QYXJ0aWFsVmVoaWNsZU1ldGFkYXRh",
-            "S1YaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiUYLT5JMCSyJGL2NvbXBhc3Mu",
-            "aGFydmVzdC52MWFscGhhMS5Jbmdlc3RTZXJ2aWNlL0luc2VydFBhcnRpYWxW",
-            "ZWhpY2xlTWV0YWRhdGFLVjoBKhLCAQogSW5zZXJ0UGFydGlhbFZlaGljbGVN",
-            "ZXRhZGF0YUpTT04SMS5jb21wYXNzaW90LmNvbXBhc3MudjEuUGFydGlhbFZl",
-            "aGljbGVNZXRhZGF0YUpTT04aFi5nb29nbGUucHJvdG9idWYuRW1wdHkiU4LT",
-            "5JMCTSJIL2NvbXBhc3MuaGFydmVzdC52MWFscGhhMS5Jbmdlc3RTZXJ2aWNl",
-            "L0luc2VydFBhcnRpYWxWZWhpY2xlTWV0YWRhdGFKU09OOgEqEqoBCgtCYXRj",
-            "aEluc2VydBIsLmNvbXBhc3MuaGFydmVzdC52MWFscGhhMS5CYXRjaEluc2Vy",
-            "dFJlcXVlc3QaLS5jb21wYXNzLmhhcnZlc3QudjFhbHBoYTEuQmF0Y2hJbnNl",
-            "cnRSZXNwb25zZSI+gtPkkwI4IjMvY29tcGFzcy5oYXJ2ZXN0LnYxYWxwaGEx",
-            "LkluZ2VzdFNlcnZpY2UvQmF0Y2hJbnNlcnQ6ASoSvAEKEUJhdGNoSW5zZXJ0",
-            "Q29tcGF0EjIuY29tcGFzcy5oYXJ2ZXN0LnYxYWxwaGExLkJhdGNoSW5zZXJ0",
-            "Q29tcGF0UmVxdWVzdBotLmNvbXBhc3MuaGFydmVzdC52MWFscGhhMS5CYXRj",
-            "aEluc2VydFJlc3BvbnNlIkSC0+STAj4iOS9jb21wYXNzLmhhcnZlc3QudjFh",
-            "bHBoYTEuSW5nZXN0U2VydmljZS9CYXRjaEluc2VydENvbXBhdDoBKkLOAQoc",
-            "Y29tLmNvbXBhc3MuaGFydmVzdC52MWFscGhhMUIMSGFydmVzdFByb3RvUAFa",
-            "HmNvbXBhc3MvZ2VuL2hhcnZlc3QvdjE7aGFydmVzdKICA0NIWKoCGENvbXBh",
-            "c3MuSGFydmVzdC5WMWFscGhhMcoCGENvbXBhc3NcSGFydmVzdFxWMWFscGhh",
-            "MeICJENvbXBhc3NcSGFydmVzdFxWMWFscGhhMVxHUEJNZXRhZGF0YeoCGkNv",
-            "bXBhc3M6OkhhcnZlc3Q6OlYxYWxwaGExYgZwcm90bzM="));
+            "5QcKG1BhcnRpYWxIYXJ2ZXN0UG9zaXRpb25FdmVudBITCgJpZBgPIAEoDEgA",
+            "UgJpZIgBARIdCgp2ZWhpY2xlX2lkGAEgASgJUgl2ZWhpY2xlSWQSHAoJdGlt",
+            "ZXN0YW1wGAIgASgDUgl0aW1lc3RhbXASUAoOdHJhbnNwb3J0X3R5cGUYAyAB",
+            "KA4yJC5jb21wYXNzaW90LmNvbXBhc3MudjEuVHJhbnNwb3J0VHlwZUgBUg10",
+            "cmFuc3BvcnRUeXBliAEBEkoKDHZlaGljbGVfdHlwZRgEIAEoDjIiLmNvbXBh",
+            "c3Npb3QuY29tcGFzcy52MS5WZWhpY2xlVHlwZUgCUgt2ZWhpY2xlVHlwZYgB",
+            "ARJACghwb3NpdGlvbhgFIAEoCzIfLmNvbXBhc3Npb3QuY29tcGFzcy52MS5Q",
+            "b3NpdGlvbkgDUghwb3NpdGlvbogBARJMCgxhY2NlbGVyYXRpb24YByABKAsy",
+            "Iy5jb21wYXNzaW90LmNvbXBhc3MudjEuQWNjZWxlcmF0aW9uSARSDGFjY2Vs",
+            "ZXJhdGlvbogBARI0CgRneXJvGAggASgLMhsuY29tcGFzc2lvdC5jb21wYXNz",
+            "LnYxLkd5cm9IBVIEZ3lyb4gBARIcCgd0cmlwX2lkGAkgASgJSAZSBnRyaXBJ",
+            "ZIgBARIaCghwcm92aWRlchgKIAEoCVIIcHJvdmlkZXISFwoEbWFrZRgLIAEo",
+            "CUgHUgRtYWtliAEBEhkKBW1vZGVsGAwgASgJSAhSBW1vZGVsiAEBEhUKA29k",
+            "bxgNIAEoAUgJUgNvZG+IAQESKQoOZnVlbF9vcl9jaGFyZ2UYDiABKAFIClIM",
+            "ZnVlbE9yQ2hhcmdliAEBEhUKA3RhZxgeIAEoCUgLUgN0YWeIAQESWQoGbGFi",
+            "ZWxzGAYgAygLMkEuY29tcGFzcy5oYXJ2ZXN0LnYxYWxwaGExLlBhcnRpYWxI",
+            "YXJ2ZXN0UG9zaXRpb25FdmVudC5MYWJlbHNFbnRyeVIGbGFiZWxzEh8KC2lu",
+            "Z2VzdGVkX2F0GBAgASgDUgppbmdlc3RlZEF0GjkKC0xhYmVsc0VudHJ5EhAK",
+            "A2tleRgBIAEoCVIDa2V5EhQKBXZhbHVlGAIgASgJUgV2YWx1ZToCOAFCBQoD",
+            "X2lkQhEKD190cmFuc3BvcnRfdHlwZUIPCg1fdmVoaWNsZV90eXBlQgsKCV9w",
+            "b3NpdGlvbkIPCg1fYWNjZWxlcmF0aW9uQgcKBV9neXJvQgoKCF90cmlwX2lk",
+            "QgcKBV9tYWtlQggKBl9tb2RlbEIGCgRfb2RvQhEKD19mdWVsX29yX2NoYXJn",
+            "ZUIGCgRfdGFnIkgKDExhdExuZ0NvbXBhdBIaCghsYXRpdHVkZRgBIAEoAVII",
+            "bGF0aXR1ZGUSHAoJbG9uZ2l0dWRlGAIgASgBUglsb25naXR1ZGUioAEKDlBv",
+            "c2l0aW9uQ29tcGF0Ej4KBmxhdGxuZxgBIAEoCzImLmNvbXBhc3MuaGFydmVz",
+            "dC52MWFscGhhMS5MYXRMbmdDb21wYXRSBmxhdGxuZxIZCgVzcGVlZBgCIAEo",
+            "AUgAUgVzcGVlZIgBARIdCgdiZWFyaW5nGAMgASgBSAFSB2JlYXJpbmeIAQFC",
+            "CAoGX3NwZWVkQgoKCF9iZWFyaW5nIs0HChNQb3NpdGlvbkV2ZW50Q29tcGF0",
+            "Eg4KAmlkGA8gASgMUgJpZBIdCgp2ZWhpY2xlX2lkGAEgASgJUgl2ZWhpY2xl",
+            "SWQSOAoJdGltZXN0YW1wGAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
+            "dGFtcFIJdGltZXN0YW1wElAKDnRyYW5zcG9ydF90eXBlGAMgASgOMiQuY29t",
+            "cGFzc2lvdC5jb21wYXNzLnYxLlRyYW5zcG9ydFR5cGVIAFINdHJhbnNwb3J0",
+            "VHlwZYgBARJKCgx2ZWhpY2xlX3R5cGUYBCABKA4yIi5jb21wYXNzaW90LmNv",
+            "bXBhc3MudjEuVmVoaWNsZVR5cGVIAVILdmVoaWNsZVR5cGWIAQESRAoIcG9z",
+            "aXRpb24YBSABKAsyKC5jb21wYXNzLmhhcnZlc3QudjFhbHBoYTEuUG9zaXRp",
+            "b25Db21wYXRSCHBvc2l0aW9uEkwKDGFjY2VsZXJhdGlvbhgHIAEoCzIjLmNv",
+            "bXBhc3Npb3QuY29tcGFzcy52MS5BY2NlbGVyYXRpb25IAlIMYWNjZWxlcmF0",
+            "aW9uiAEBEjQKBGd5cm8YCCABKAsyGy5jb21wYXNzaW90LmNvbXBhc3MudjEu",
+            "R3lyb0gDUgRneXJviAEBEhwKB3RyaXBfaWQYCSABKAlIBFIGdHJpcElkiAEB",
+            "Eh8KCHByb3ZpZGVyGAogASgJSAVSCHByb3ZpZGVyiAEBEhcKBG1ha2UYCyAB",
+            "KAlIBlIEbWFrZYgBARIZCgVtb2RlbBgMIAEoCUgHUgVtb2RlbIgBARIVCgNv",
+            "ZG8YDSABKAFICFIDb2RviAEBEikKDmZ1ZWxfb3JfY2hhcmdlGA4gASgBSAlS",
+            "DGZ1ZWxPckNoYXJnZYgBARIVCgN0YWcYHiABKAlIClIDdGFniAEBElEKBmxh",
+            "YmVscxgGIAMoCzI5LmNvbXBhc3MuaGFydmVzdC52MWFscGhhMS5Qb3NpdGlv",
+            "bkV2ZW50Q29tcGF0LkxhYmVsc0VudHJ5UgZsYWJlbHMaOQoLTGFiZWxzRW50",
+            "cnkSEAoDa2V5GAEgASgJUgNrZXkSFAoFdmFsdWUYAiABKAlSBXZhbHVlOgI4",
+            "AUIRCg9fdHJhbnNwb3J0X3R5cGVCDwoNX3ZlaGljbGVfdHlwZUIPCg1fYWNj",
+            "ZWxlcmF0aW9uQgcKBV9neXJvQgoKCF90cmlwX2lkQgsKCV9wcm92aWRlckIH",
+            "CgVfbWFrZUIICgZfbW9kZWxCBgoEX29kb0IRCg9fZnVlbF9vcl9jaGFyZ2VC",
+            "BgoEX3RhZyJSChJCYXRjaEluc2VydFJlcXVlc3QSPAoGZXZlbnRzGAEgAygL",
+            "MiQuY29tcGFzc2lvdC5jb21wYXNzLnYxLlBvc2l0aW9uRXZlbnRSBmV2ZW50",
+            "cyJhChhCYXRjaEluc2VydENvbXBhdFJlcXVlc3QSRQoGZXZlbnRzGAEgAygL",
+            "Mi0uY29tcGFzcy5oYXJ2ZXN0LnYxYWxwaGExLlBvc2l0aW9uRXZlbnRDb21w",
+            "YXRSBmV2ZW50cyJUChNCYXRjaEluc2VydFJlc3BvbnNlEj0KBmVycm9ycxgB",
+            "IAMoCzIlLmNvbXBhc3MuaGFydmVzdC52MWFscGhhMS5JbnNlcnRFcnJvclIG",
+            "ZXJyb3JzIl8KC0luc2VydEVycm9yEhQKBWluZGV4GAEgASgFUgVpbmRleBId",
+            "CgplcnJvcl9jb2RlGAIgASgFUgllcnJvckNvZGUSGwoJZXJyb3JfbXNnGAMg",
+            "ASgJUghlcnJvck1zZzLrCAoNSW5nZXN0U2VydmljZRKBAQoGSW5zZXJ0EiQu",
+            "Y29tcGFzc2lvdC5jb21wYXNzLnYxLlBvc2l0aW9uRXZlbnQaFi5nb29nbGUu",
+            "cHJvdG9idWYuRW1wdHkiOYLT5JMCMyIuL2NvbXBhc3MuaGFydmVzdC52MWFs",
+            "cGhhMS5Jbmdlc3RTZXJ2aWNlL0luc2VydDoBKhKPAQoNSW5zZXJ0UGFydGlh",
+            "bBIkLmNvbXBhc3Npb3QuY29tcGFzcy52MS5Qb3NpdGlvbkV2ZW50GhYuZ29v",
+            "Z2xlLnByb3RvYnVmLkVtcHR5IkCC0+STAjoiNS9jb21wYXNzLmhhcnZlc3Qu",
+            "djFhbHBoYTEuSW5nZXN0U2VydmljZS9JbnNlcnRQYXJ0aWFsOgEqEoMBCgpQ",
+            "dXRWZWhpY2xlEh4uY29tcGFzc2lvdC5jb21wYXNzLnYxLlZlaGljbGUaFi5n",
+            "b29nbGUucHJvdG9idWYuRW1wdHkiPYLT5JMCNyIyL2NvbXBhc3MuaGFydmVz",
+            "dC52MWFscGhhMS5Jbmdlc3RTZXJ2aWNlL1B1dFZlaGljbGU6ASoSlgEKDElu",
+            "c2VydENvbXBhdBItLmNvbXBhc3MuaGFydmVzdC52MWFscGhhMS5Qb3NpdGlv",
+            "bkV2ZW50Q29tcGF0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5Ij+C0+STAjki",
+            "NC9jb21wYXNzLmhhcnZlc3QudjFhbHBoYTEuSW5nZXN0U2VydmljZS9JbnNl",
+            "cnRDb21wYXQ6ASoSqgEKC0JhdGNoSW5zZXJ0EiwuY29tcGFzcy5oYXJ2ZXN0",
+            "LnYxYWxwaGExLkJhdGNoSW5zZXJ0UmVxdWVzdBotLmNvbXBhc3MuaGFydmVz",
+            "dC52MWFscGhhMS5CYXRjaEluc2VydFJlc3BvbnNlIj6C0+STAjgiMy9jb21w",
+            "YXNzLmhhcnZlc3QudjFhbHBoYTEuSW5nZXN0U2VydmljZS9CYXRjaEluc2Vy",
+            "dDoBKhK4AQoSQmF0Y2hJbnNlcnRQYXJ0aWFsEiwuY29tcGFzcy5oYXJ2ZXN0",
+            "LnYxYWxwaGExLkJhdGNoSW5zZXJ0UmVxdWVzdBotLmNvbXBhc3MuaGFydmVz",
+            "dC52MWFscGhhMS5CYXRjaEluc2VydFJlc3BvbnNlIkWC0+STAj8iOi9jb21w",
+            "YXNzLmhhcnZlc3QudjFhbHBoYTEuSW5nZXN0U2VydmljZS9CYXRjaEluc2Vy",
+            "dFBhcnRpYWw6ASoSvAEKEUJhdGNoSW5zZXJ0Q29tcGF0EjIuY29tcGFzcy5o",
+            "YXJ2ZXN0LnYxYWxwaGExLkJhdGNoSW5zZXJ0Q29tcGF0UmVxdWVzdBotLmNv",
+            "bXBhc3MuaGFydmVzdC52MWFscGhhMS5CYXRjaEluc2VydFJlc3BvbnNlIkSC",
+            "0+STAj4iOS9jb21wYXNzLmhhcnZlc3QudjFhbHBoYTEuSW5nZXN0U2Vydmlj",
+            "ZS9CYXRjaEluc2VydENvbXBhdDoBKkLOAQocY29tLmNvbXBhc3MuaGFydmVz",
+            "dC52MWFscGhhMUIMSGFydmVzdFByb3RvUAFaHmNvbXBhc3MvZ2VuL2hhcnZl",
+            "c3QvdjE7aGFydmVzdKICA0NIWKoCGENvbXBhc3MuSGFydmVzdC5WMWFscGhh",
+            "McoCGENvbXBhc3NcSGFydmVzdFxWMWFscGhhMeICJENvbXBhc3NcSGFydmVz",
+            "dFxWMWFscGhhMVxHUEJNZXRhZGF0YeoCGkNvbXBhc3M6OkhhcnZlc3Q6OlYx",
+            "YWxwaGExYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Api.AnnotationsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Compassiot.Compass.V1.VehicleReflection.Descriptor, global::Compassiot.Compass.V1.PartialVehicleReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Compassiot.Compass.V1.VehicleReflection.Descriptor, global::Google.Api.AnnotationsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Compass.Harvest.V1alpha1.HarvestPositionEvent), global::Compass.Harvest.V1alpha1.HarvestPositionEvent.Parser, new[]{ "Id", "VehicleId", "Timestamp", "TransportType", "VehicleType", "Position", "Acceleration", "Gyro", "TripId", "Provider", "Make", "Model", "Odo", "FuelOrCharge", "Tag", "Labels", "IngestedAt" }, new[]{ "TransportType", "VehicleType", "Acceleration", "Gyro", "TripId", "Provider", "Make", "Model", "Odo", "FuelOrCharge", "Tag" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Compass.Harvest.V1alpha1.PartialHarvestPositionEvent), global::Compass.Harvest.V1alpha1.PartialHarvestPositionEvent.Parser, new[]{ "Id", "VehicleId", "Timestamp", "TransportType", "VehicleType", "Position", "Acceleration", "Gyro", "TripId", "Provider", "Make", "Model", "Odo", "FuelOrCharge", "Tag", "Labels", "IngestedAt" }, new[]{ "Id", "TransportType", "VehicleType", "Position", "Acceleration", "Gyro", "TripId", "Make", "Model", "Odo", "FuelOrCharge", "Tag" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Compass.Harvest.V1alpha1.LatLngCompat), global::Compass.Harvest.V1alpha1.LatLngCompat.Parser, new[]{ "Latitude", "Longitude" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Compass.Harvest.V1alpha1.PositionCompat), global::Compass.Harvest.V1alpha1.PositionCompat.Parser, new[]{ "Latlng", "Speed", "Bearing" }, new[]{ "Speed", "Bearing" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Compass.Harvest.V1alpha1.PositionEventCompat), global::Compass.Harvest.V1alpha1.PositionEventCompat.Parser, new[]{ "Id", "VehicleId", "Timestamp", "TransportType", "VehicleType", "Position", "Acceleration", "Gyro", "TripId", "Provider", "Make", "Model", "Odo", "FuelOrCharge", "Tag", "Labels" }, new[]{ "TransportType", "VehicleType", "Acceleration", "Gyro", "TripId", "Provider", "Make", "Model", "Odo", "FuelOrCharge", "Tag" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
@@ -1115,6 +1108,982 @@ namespace Compass.Harvest.V1alpha1 {
 
   }
 
+  /// <summary>
+  /// option (gen_bq_schema.bigquery_opts).table_name = "position_event_partial";
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class PartialHarvestPositionEvent : pb::IMessage<PartialHarvestPositionEvent>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<PartialHarvestPositionEvent> _parser = new pb::MessageParser<PartialHarvestPositionEvent>(() => new PartialHarvestPositionEvent());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<PartialHarvestPositionEvent> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PartialHarvestPositionEvent() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PartialHarvestPositionEvent(PartialHarvestPositionEvent other) : this() {
+      _hasBits0 = other._hasBits0;
+      id_ = other.id_;
+      vehicleId_ = other.vehicleId_;
+      timestamp_ = other.timestamp_;
+      transportType_ = other.transportType_;
+      vehicleType_ = other.vehicleType_;
+      position_ = other.position_ != null ? other.position_.Clone() : null;
+      acceleration_ = other.acceleration_ != null ? other.acceleration_.Clone() : null;
+      gyro_ = other.gyro_ != null ? other.gyro_.Clone() : null;
+      tripId_ = other.tripId_;
+      provider_ = other.provider_;
+      make_ = other.make_;
+      model_ = other.model_;
+      odo_ = other.odo_;
+      fuelOrCharge_ = other.fuelOrCharge_;
+      tag_ = other.tag_;
+      labels_ = other.labels_.Clone();
+      ingestedAt_ = other.ingestedAt_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PartialHarvestPositionEvent Clone() {
+      return new PartialHarvestPositionEvent(this);
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 15;
+    private readonly static pb::ByteString IdDefaultValue = pb::ByteString.Empty;
+
+    private pb::ByteString id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Id {
+      get { return id_ ?? IdDefaultValue; }
+      set {
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasId {
+      get { return id_ != null; }
+    }
+    /// <summary>Clears the value of the "id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearId() {
+      id_ = null;
+    }
+
+    /// <summary>Field number for the "vehicle_id" field.</summary>
+    public const int VehicleIdFieldNumber = 1;
+    private string vehicleId_ = "";
+    /// <summary>
+    /// [(gen_bq_schema.bigquery) = {require: true}];
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string VehicleId {
+      get { return vehicleId_; }
+      set {
+        vehicleId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "timestamp" field.</summary>
+    public const int TimestampFieldNumber = 2;
+    private long timestamp_;
+    /// <summary>
+    /// [(gen_bq_schema.bigquery) = {
+    ///require: true
+    ///name: "timestamp"
+    ///type_override: 'TIMESTAMP'
+    ///}]; 
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long Timestamp {
+      get { return timestamp_; }
+      set {
+        timestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "transport_type" field.</summary>
+    public const int TransportTypeFieldNumber = 3;
+    private readonly static global::Compassiot.Compass.V1.TransportType TransportTypeDefaultValue = global::Compassiot.Compass.V1.TransportType.Unspecified;
+
+    private global::Compassiot.Compass.V1.TransportType transportType_;
+    /// <summary>
+    /// [(gen_bq_schema.bigquery) = {type_override: 'INT64'}];
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Compassiot.Compass.V1.TransportType TransportType {
+      get { if ((_hasBits0 & 1) != 0) { return transportType_; } else { return TransportTypeDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        transportType_ = value;
+      }
+    }
+    /// <summary>Gets whether the "transport_type" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasTransportType {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "transport_type" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearTransportType() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "vehicle_type" field.</summary>
+    public const int VehicleTypeFieldNumber = 4;
+    private readonly static global::Compassiot.Compass.V1.VehicleType VehicleTypeDefaultValue = global::Compassiot.Compass.V1.VehicleType.Unspecified;
+
+    private global::Compassiot.Compass.V1.VehicleType vehicleType_;
+    /// <summary>
+    /// [(gen_bq_schema.bigquery) = {type_override: 'INT64'}];
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Compassiot.Compass.V1.VehicleType VehicleType {
+      get { if ((_hasBits0 & 2) != 0) { return vehicleType_; } else { return VehicleTypeDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        vehicleType_ = value;
+      }
+    }
+    /// <summary>Gets whether the "vehicle_type" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasVehicleType {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "vehicle_type" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearVehicleType() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "position" field.</summary>
+    public const int PositionFieldNumber = 5;
+    private global::Compassiot.Compass.V1.Position position_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Compassiot.Compass.V1.Position Position {
+      get { return position_; }
+      set {
+        position_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "acceleration" field.</summary>
+    public const int AccelerationFieldNumber = 7;
+    private global::Compassiot.Compass.V1.Acceleration acceleration_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Compassiot.Compass.V1.Acceleration Acceleration {
+      get { return acceleration_; }
+      set {
+        acceleration_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "gyro" field.</summary>
+    public const int GyroFieldNumber = 8;
+    private global::Compassiot.Compass.V1.Gyro gyro_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Compassiot.Compass.V1.Gyro Gyro {
+      get { return gyro_; }
+      set {
+        gyro_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "trip_id" field.</summary>
+    public const int TripIdFieldNumber = 9;
+    private readonly static string TripIdDefaultValue = "";
+
+    private string tripId_;
+    /// <summary>
+    /// Id linking points of the same trip
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string TripId {
+      get { return tripId_ ?? TripIdDefaultValue; }
+      set {
+        tripId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "trip_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasTripId {
+      get { return tripId_ != null; }
+    }
+    /// <summary>Clears the value of the "trip_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearTripId() {
+      tripId_ = null;
+    }
+
+    /// <summary>Field number for the "provider" field.</summary>
+    public const int ProviderFieldNumber = 10;
+    private string provider_ = "";
+    /// <summary>
+    /// [(gen_bq_schema.bigquery) = {require: true}];
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Provider {
+      get { return provider_; }
+      set {
+        provider_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "make" field.</summary>
+    public const int MakeFieldNumber = 11;
+    private readonly static string MakeDefaultValue = "";
+
+    private string make_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Make {
+      get { return make_ ?? MakeDefaultValue; }
+      set {
+        make_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "make" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasMake {
+      get { return make_ != null; }
+    }
+    /// <summary>Clears the value of the "make" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMake() {
+      make_ = null;
+    }
+
+    /// <summary>Field number for the "model" field.</summary>
+    public const int ModelFieldNumber = 12;
+    private readonly static string ModelDefaultValue = "";
+
+    private string model_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Model {
+      get { return model_ ?? ModelDefaultValue; }
+      set {
+        model_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "model" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasModel {
+      get { return model_ != null; }
+    }
+    /// <summary>Clears the value of the "model" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearModel() {
+      model_ = null;
+    }
+
+    /// <summary>Field number for the "odo" field.</summary>
+    public const int OdoFieldNumber = 13;
+    private readonly static double OdoDefaultValue = 0D;
+
+    private double odo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Odo {
+      get { if ((_hasBits0 & 4) != 0) { return odo_; } else { return OdoDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        odo_ = value;
+      }
+    }
+    /// <summary>Gets whether the "odo" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasOdo {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "odo" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOdo() {
+      _hasBits0 &= ~4;
+    }
+
+    /// <summary>Field number for the "fuel_or_charge" field.</summary>
+    public const int FuelOrChargeFieldNumber = 14;
+    private readonly static double FuelOrChargeDefaultValue = 0D;
+
+    private double fuelOrCharge_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double FuelOrCharge {
+      get { if ((_hasBits0 & 8) != 0) { return fuelOrCharge_; } else { return FuelOrChargeDefaultValue; } }
+      set {
+        _hasBits0 |= 8;
+        fuelOrCharge_ = value;
+      }
+    }
+    /// <summary>Gets whether the "fuel_or_charge" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasFuelOrCharge {
+      get { return (_hasBits0 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "fuel_or_charge" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearFuelOrCharge() {
+      _hasBits0 &= ~8;
+    }
+
+    /// <summary>Field number for the "tag" field.</summary>
+    public const int TagFieldNumber = 30;
+    private readonly static string TagDefaultValue = "";
+
+    private string tag_;
+    /// <summary>
+    /// extra metadata but simpler to use than labels
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Tag {
+      get { return tag_ ?? TagDefaultValue; }
+      set {
+        tag_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "tag" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasTag {
+      get { return tag_ != null; }
+    }
+    /// <summary>Clears the value of the "tag" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearTag() {
+      tag_ = null;
+    }
+
+    /// <summary>Field number for the "labels" field.</summary>
+    public const int LabelsFieldNumber = 6;
+    private static readonly pbc::MapField<string, string>.Codec _map_labels_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 50);
+    private readonly pbc::MapField<string, string> labels_ = new pbc::MapField<string, string>();
+    /// <summary>
+    /// extra metadata not suppported by our api that may be useful :)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::MapField<string, string> Labels {
+      get { return labels_; }
+    }
+
+    /// <summary>Field number for the "ingested_at" field.</summary>
+    public const int IngestedAtFieldNumber = 16;
+    private long ingestedAt_;
+    /// <summary>
+    /// [(gen_bq_schema.bigquery) = {
+    ///require: true
+    ///name: "ingested_at"
+    ///type_override: 'TIMESTAMP'
+    ///}]; 
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long IngestedAt {
+      get { return ingestedAt_; }
+      set {
+        ingestedAt_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as PartialHarvestPositionEvent);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(PartialHarvestPositionEvent other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Id != other.Id) return false;
+      if (VehicleId != other.VehicleId) return false;
+      if (Timestamp != other.Timestamp) return false;
+      if (TransportType != other.TransportType) return false;
+      if (VehicleType != other.VehicleType) return false;
+      if (!object.Equals(Position, other.Position)) return false;
+      if (!object.Equals(Acceleration, other.Acceleration)) return false;
+      if (!object.Equals(Gyro, other.Gyro)) return false;
+      if (TripId != other.TripId) return false;
+      if (Provider != other.Provider) return false;
+      if (Make != other.Make) return false;
+      if (Model != other.Model) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Odo, other.Odo)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(FuelOrCharge, other.FuelOrCharge)) return false;
+      if (Tag != other.Tag) return false;
+      if (!Labels.Equals(other.Labels)) return false;
+      if (IngestedAt != other.IngestedAt) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasId) hash ^= Id.GetHashCode();
+      if (VehicleId.Length != 0) hash ^= VehicleId.GetHashCode();
+      if (Timestamp != 0L) hash ^= Timestamp.GetHashCode();
+      if (HasTransportType) hash ^= TransportType.GetHashCode();
+      if (HasVehicleType) hash ^= VehicleType.GetHashCode();
+      if (position_ != null) hash ^= Position.GetHashCode();
+      if (acceleration_ != null) hash ^= Acceleration.GetHashCode();
+      if (gyro_ != null) hash ^= Gyro.GetHashCode();
+      if (HasTripId) hash ^= TripId.GetHashCode();
+      if (Provider.Length != 0) hash ^= Provider.GetHashCode();
+      if (HasMake) hash ^= Make.GetHashCode();
+      if (HasModel) hash ^= Model.GetHashCode();
+      if (HasOdo) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Odo);
+      if (HasFuelOrCharge) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(FuelOrCharge);
+      if (HasTag) hash ^= Tag.GetHashCode();
+      hash ^= Labels.GetHashCode();
+      if (IngestedAt != 0L) hash ^= IngestedAt.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (VehicleId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(VehicleId);
+      }
+      if (Timestamp != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Timestamp);
+      }
+      if (HasTransportType) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) TransportType);
+      }
+      if (HasVehicleType) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) VehicleType);
+      }
+      if (position_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Position);
+      }
+      labels_.WriteTo(output, _map_labels_codec);
+      if (acceleration_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Acceleration);
+      }
+      if (gyro_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(Gyro);
+      }
+      if (HasTripId) {
+        output.WriteRawTag(74);
+        output.WriteString(TripId);
+      }
+      if (Provider.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(Provider);
+      }
+      if (HasMake) {
+        output.WriteRawTag(90);
+        output.WriteString(Make);
+      }
+      if (HasModel) {
+        output.WriteRawTag(98);
+        output.WriteString(Model);
+      }
+      if (HasOdo) {
+        output.WriteRawTag(105);
+        output.WriteDouble(Odo);
+      }
+      if (HasFuelOrCharge) {
+        output.WriteRawTag(113);
+        output.WriteDouble(FuelOrCharge);
+      }
+      if (HasId) {
+        output.WriteRawTag(122);
+        output.WriteBytes(Id);
+      }
+      if (IngestedAt != 0L) {
+        output.WriteRawTag(128, 1);
+        output.WriteInt64(IngestedAt);
+      }
+      if (HasTag) {
+        output.WriteRawTag(242, 1);
+        output.WriteString(Tag);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (VehicleId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(VehicleId);
+      }
+      if (Timestamp != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Timestamp);
+      }
+      if (HasTransportType) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) TransportType);
+      }
+      if (HasVehicleType) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) VehicleType);
+      }
+      if (position_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Position);
+      }
+      labels_.WriteTo(ref output, _map_labels_codec);
+      if (acceleration_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Acceleration);
+      }
+      if (gyro_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(Gyro);
+      }
+      if (HasTripId) {
+        output.WriteRawTag(74);
+        output.WriteString(TripId);
+      }
+      if (Provider.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(Provider);
+      }
+      if (HasMake) {
+        output.WriteRawTag(90);
+        output.WriteString(Make);
+      }
+      if (HasModel) {
+        output.WriteRawTag(98);
+        output.WriteString(Model);
+      }
+      if (HasOdo) {
+        output.WriteRawTag(105);
+        output.WriteDouble(Odo);
+      }
+      if (HasFuelOrCharge) {
+        output.WriteRawTag(113);
+        output.WriteDouble(FuelOrCharge);
+      }
+      if (HasId) {
+        output.WriteRawTag(122);
+        output.WriteBytes(Id);
+      }
+      if (IngestedAt != 0L) {
+        output.WriteRawTag(128, 1);
+        output.WriteInt64(IngestedAt);
+      }
+      if (HasTag) {
+        output.WriteRawTag(242, 1);
+        output.WriteString(Tag);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasId) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Id);
+      }
+      if (VehicleId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(VehicleId);
+      }
+      if (Timestamp != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Timestamp);
+      }
+      if (HasTransportType) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TransportType);
+      }
+      if (HasVehicleType) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) VehicleType);
+      }
+      if (position_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
+      }
+      if (acceleration_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Acceleration);
+      }
+      if (gyro_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Gyro);
+      }
+      if (HasTripId) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(TripId);
+      }
+      if (Provider.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Provider);
+      }
+      if (HasMake) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Make);
+      }
+      if (HasModel) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Model);
+      }
+      if (HasOdo) {
+        size += 1 + 8;
+      }
+      if (HasFuelOrCharge) {
+        size += 1 + 8;
+      }
+      if (HasTag) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Tag);
+      }
+      size += labels_.CalculateSize(_map_labels_codec);
+      if (IngestedAt != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(IngestedAt);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(PartialHarvestPositionEvent other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasId) {
+        Id = other.Id;
+      }
+      if (other.VehicleId.Length != 0) {
+        VehicleId = other.VehicleId;
+      }
+      if (other.Timestamp != 0L) {
+        Timestamp = other.Timestamp;
+      }
+      if (other.HasTransportType) {
+        TransportType = other.TransportType;
+      }
+      if (other.HasVehicleType) {
+        VehicleType = other.VehicleType;
+      }
+      if (other.position_ != null) {
+        if (position_ == null) {
+          Position = new global::Compassiot.Compass.V1.Position();
+        }
+        Position.MergeFrom(other.Position);
+      }
+      if (other.acceleration_ != null) {
+        if (acceleration_ == null) {
+          Acceleration = new global::Compassiot.Compass.V1.Acceleration();
+        }
+        Acceleration.MergeFrom(other.Acceleration);
+      }
+      if (other.gyro_ != null) {
+        if (gyro_ == null) {
+          Gyro = new global::Compassiot.Compass.V1.Gyro();
+        }
+        Gyro.MergeFrom(other.Gyro);
+      }
+      if (other.HasTripId) {
+        TripId = other.TripId;
+      }
+      if (other.Provider.Length != 0) {
+        Provider = other.Provider;
+      }
+      if (other.HasMake) {
+        Make = other.Make;
+      }
+      if (other.HasModel) {
+        Model = other.Model;
+      }
+      if (other.HasOdo) {
+        Odo = other.Odo;
+      }
+      if (other.HasFuelOrCharge) {
+        FuelOrCharge = other.FuelOrCharge;
+      }
+      if (other.HasTag) {
+        Tag = other.Tag;
+      }
+      labels_.MergeFrom(other.labels_);
+      if (other.IngestedAt != 0L) {
+        IngestedAt = other.IngestedAt;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            VehicleId = input.ReadString();
+            break;
+          }
+          case 16: {
+            Timestamp = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            TransportType = (global::Compassiot.Compass.V1.TransportType) input.ReadEnum();
+            break;
+          }
+          case 32: {
+            VehicleType = (global::Compassiot.Compass.V1.VehicleType) input.ReadEnum();
+            break;
+          }
+          case 42: {
+            if (position_ == null) {
+              Position = new global::Compassiot.Compass.V1.Position();
+            }
+            input.ReadMessage(Position);
+            break;
+          }
+          case 50: {
+            labels_.AddEntriesFrom(input, _map_labels_codec);
+            break;
+          }
+          case 58: {
+            if (acceleration_ == null) {
+              Acceleration = new global::Compassiot.Compass.V1.Acceleration();
+            }
+            input.ReadMessage(Acceleration);
+            break;
+          }
+          case 66: {
+            if (gyro_ == null) {
+              Gyro = new global::Compassiot.Compass.V1.Gyro();
+            }
+            input.ReadMessage(Gyro);
+            break;
+          }
+          case 74: {
+            TripId = input.ReadString();
+            break;
+          }
+          case 82: {
+            Provider = input.ReadString();
+            break;
+          }
+          case 90: {
+            Make = input.ReadString();
+            break;
+          }
+          case 98: {
+            Model = input.ReadString();
+            break;
+          }
+          case 105: {
+            Odo = input.ReadDouble();
+            break;
+          }
+          case 113: {
+            FuelOrCharge = input.ReadDouble();
+            break;
+          }
+          case 122: {
+            Id = input.ReadBytes();
+            break;
+          }
+          case 128: {
+            IngestedAt = input.ReadInt64();
+            break;
+          }
+          case 242: {
+            Tag = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            VehicleId = input.ReadString();
+            break;
+          }
+          case 16: {
+            Timestamp = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            TransportType = (global::Compassiot.Compass.V1.TransportType) input.ReadEnum();
+            break;
+          }
+          case 32: {
+            VehicleType = (global::Compassiot.Compass.V1.VehicleType) input.ReadEnum();
+            break;
+          }
+          case 42: {
+            if (position_ == null) {
+              Position = new global::Compassiot.Compass.V1.Position();
+            }
+            input.ReadMessage(Position);
+            break;
+          }
+          case 50: {
+            labels_.AddEntriesFrom(ref input, _map_labels_codec);
+            break;
+          }
+          case 58: {
+            if (acceleration_ == null) {
+              Acceleration = new global::Compassiot.Compass.V1.Acceleration();
+            }
+            input.ReadMessage(Acceleration);
+            break;
+          }
+          case 66: {
+            if (gyro_ == null) {
+              Gyro = new global::Compassiot.Compass.V1.Gyro();
+            }
+            input.ReadMessage(Gyro);
+            break;
+          }
+          case 74: {
+            TripId = input.ReadString();
+            break;
+          }
+          case 82: {
+            Provider = input.ReadString();
+            break;
+          }
+          case 90: {
+            Make = input.ReadString();
+            break;
+          }
+          case 98: {
+            Model = input.ReadString();
+            break;
+          }
+          case 105: {
+            Odo = input.ReadDouble();
+            break;
+          }
+          case 113: {
+            FuelOrCharge = input.ReadDouble();
+            break;
+          }
+          case 122: {
+            Id = input.ReadBytes();
+            break;
+          }
+          case 128: {
+            IngestedAt = input.ReadInt64();
+            break;
+          }
+          case 242: {
+            Tag = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class LatLngCompat : pb::IMessage<LatLngCompat>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -1130,7 +2099,7 @@ namespace Compass.Harvest.V1alpha1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1372,7 +2341,7 @@ namespace Compass.Harvest.V1alpha1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1697,7 +2666,7 @@ namespace Compass.Harvest.V1alpha1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2620,7 +3589,7 @@ namespace Compass.Harvest.V1alpha1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2807,7 +3776,7 @@ namespace Compass.Harvest.V1alpha1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2998,7 +3967,7 @@ namespace Compass.Harvest.V1alpha1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3190,7 +4159,7 @@ namespace Compass.Harvest.V1alpha1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Compass.Harvest.V1alpha1.HarvestReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

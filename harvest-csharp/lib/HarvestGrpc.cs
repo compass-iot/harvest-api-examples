@@ -50,27 +50,9 @@ namespace Compass.Harvest.V1alpha1 {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Empty.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Compassiot.Compass.V1.Vehicle> __Marshaller_compassiot_compass_v1_Vehicle = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compassiot.Compass.V1.Vehicle.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Compass.Harvest.V1alpha1.PositionEventCompat> __Marshaller_compass_harvest_v1alpha1_PositionEventCompat = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compass.Harvest.V1alpha1.PositionEventCompat.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Compassiot.Compass.V1.PartialEventLatLng> __Marshaller_compassiot_compass_v1_PartialEventLatLng = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compassiot.Compass.V1.PartialEventLatLng.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Compassiot.Compass.V1.PartialEventSpeed> __Marshaller_compassiot_compass_v1_PartialEventSpeed = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compassiot.Compass.V1.PartialEventSpeed.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Compassiot.Compass.V1.PartialEventAcceleration> __Marshaller_compassiot_compass_v1_PartialEventAcceleration = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compassiot.Compass.V1.PartialEventAcceleration.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Compassiot.Compass.V1.PartialEventGyro> __Marshaller_compassiot_compass_v1_PartialEventGyro = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compassiot.Compass.V1.PartialEventGyro.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Compassiot.Compass.V1.PartialEventOdo> __Marshaller_compassiot_compass_v1_PartialEventOdo = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compassiot.Compass.V1.PartialEventOdo.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Compassiot.Compass.V1.PartialEventFuelOrCharge> __Marshaller_compassiot_compass_v1_PartialEventFuelOrCharge = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compassiot.Compass.V1.PartialEventFuelOrCharge.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Compassiot.Compass.V1.PartialEventMetadataKV> __Marshaller_compassiot_compass_v1_PartialEventMetadataKV = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compassiot.Compass.V1.PartialEventMetadataKV.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Compassiot.Compass.V1.PartialEventMetadataJSON> __Marshaller_compassiot_compass_v1_PartialEventMetadataJSON = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compassiot.Compass.V1.PartialEventMetadataJSON.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Compassiot.Compass.V1.PartialVehicleMetadataKV> __Marshaller_compassiot_compass_v1_PartialVehicleMetadataKV = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compassiot.Compass.V1.PartialVehicleMetadataKV.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Compassiot.Compass.V1.PartialVehicleMetadataJSON> __Marshaller_compassiot_compass_v1_PartialVehicleMetadataJSON = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compassiot.Compass.V1.PartialVehicleMetadataJSON.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Compass.Harvest.V1alpha1.BatchInsertRequest> __Marshaller_compass_harvest_v1alpha1_BatchInsertRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Compass.Harvest.V1alpha1.BatchInsertRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
@@ -87,6 +69,22 @@ namespace Compass.Harvest.V1alpha1 {
         __Marshaller_google_protobuf_Empty);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Compassiot.Compass.V1.PositionEvent, global::Google.Protobuf.WellKnownTypes.Empty> __Method_InsertPartial = new grpc::Method<global::Compassiot.Compass.V1.PositionEvent, global::Google.Protobuf.WellKnownTypes.Empty>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "InsertPartial",
+        __Marshaller_compassiot_compass_v1_PositionEvent,
+        __Marshaller_google_protobuf_Empty);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Compassiot.Compass.V1.Vehicle, global::Google.Protobuf.WellKnownTypes.Empty> __Method_PutVehicle = new grpc::Method<global::Compassiot.Compass.V1.Vehicle, global::Google.Protobuf.WellKnownTypes.Empty>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "PutVehicle",
+        __Marshaller_compassiot_compass_v1_Vehicle,
+        __Marshaller_google_protobuf_Empty);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Compass.Harvest.V1alpha1.PositionEventCompat, global::Google.Protobuf.WellKnownTypes.Empty> __Method_InsertCompat = new grpc::Method<global::Compass.Harvest.V1alpha1.PositionEventCompat, global::Google.Protobuf.WellKnownTypes.Empty>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -95,90 +93,18 @@ namespace Compass.Harvest.V1alpha1 {
         __Marshaller_google_protobuf_Empty);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Compassiot.Compass.V1.PartialEventLatLng, global::Google.Protobuf.WellKnownTypes.Empty> __Method_InsertPartialLatLng = new grpc::Method<global::Compassiot.Compass.V1.PartialEventLatLng, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "InsertPartialLatLng",
-        __Marshaller_compassiot_compass_v1_PartialEventLatLng,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Compassiot.Compass.V1.PartialEventSpeed, global::Google.Protobuf.WellKnownTypes.Empty> __Method_InsertPartialSpeed = new grpc::Method<global::Compassiot.Compass.V1.PartialEventSpeed, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "InsertPartialSpeed",
-        __Marshaller_compassiot_compass_v1_PartialEventSpeed,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Compassiot.Compass.V1.PartialEventAcceleration, global::Google.Protobuf.WellKnownTypes.Empty> __Method_InsertPartialEventAcceleration = new grpc::Method<global::Compassiot.Compass.V1.PartialEventAcceleration, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "InsertPartialEventAcceleration",
-        __Marshaller_compassiot_compass_v1_PartialEventAcceleration,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Compassiot.Compass.V1.PartialEventGyro, global::Google.Protobuf.WellKnownTypes.Empty> __Method_InsertPartialEventGyro = new grpc::Method<global::Compassiot.Compass.V1.PartialEventGyro, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "InsertPartialEventGyro",
-        __Marshaller_compassiot_compass_v1_PartialEventGyro,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Compassiot.Compass.V1.PartialEventOdo, global::Google.Protobuf.WellKnownTypes.Empty> __Method_InsertPartialEventOdo = new grpc::Method<global::Compassiot.Compass.V1.PartialEventOdo, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "InsertPartialEventOdo",
-        __Marshaller_compassiot_compass_v1_PartialEventOdo,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Compassiot.Compass.V1.PartialEventFuelOrCharge, global::Google.Protobuf.WellKnownTypes.Empty> __Method_InsertPartialEventFuelOrCharge = new grpc::Method<global::Compassiot.Compass.V1.PartialEventFuelOrCharge, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "InsertPartialEventFuelOrCharge",
-        __Marshaller_compassiot_compass_v1_PartialEventFuelOrCharge,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Compassiot.Compass.V1.PartialEventMetadataKV, global::Google.Protobuf.WellKnownTypes.Empty> __Method_InsertPartialEventMetadataKV = new grpc::Method<global::Compassiot.Compass.V1.PartialEventMetadataKV, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "InsertPartialEventMetadataKV",
-        __Marshaller_compassiot_compass_v1_PartialEventMetadataKV,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Compassiot.Compass.V1.PartialEventMetadataJSON, global::Google.Protobuf.WellKnownTypes.Empty> __Method_InsertPartialEventMetadataJSON = new grpc::Method<global::Compassiot.Compass.V1.PartialEventMetadataJSON, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "InsertPartialEventMetadataJSON",
-        __Marshaller_compassiot_compass_v1_PartialEventMetadataJSON,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Compassiot.Compass.V1.PartialVehicleMetadataKV, global::Google.Protobuf.WellKnownTypes.Empty> __Method_InsertPartialVehicleMetadataKV = new grpc::Method<global::Compassiot.Compass.V1.PartialVehicleMetadataKV, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "InsertPartialVehicleMetadataKV",
-        __Marshaller_compassiot_compass_v1_PartialVehicleMetadataKV,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Compassiot.Compass.V1.PartialVehicleMetadataJSON, global::Google.Protobuf.WellKnownTypes.Empty> __Method_InsertPartialVehicleMetadataJSON = new grpc::Method<global::Compassiot.Compass.V1.PartialVehicleMetadataJSON, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "InsertPartialVehicleMetadataJSON",
-        __Marshaller_compassiot_compass_v1_PartialVehicleMetadataJSON,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Compass.Harvest.V1alpha1.BatchInsertRequest, global::Compass.Harvest.V1alpha1.BatchInsertResponse> __Method_BatchInsert = new grpc::Method<global::Compass.Harvest.V1alpha1.BatchInsertRequest, global::Compass.Harvest.V1alpha1.BatchInsertResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "BatchInsert",
+        __Marshaller_compass_harvest_v1alpha1_BatchInsertRequest,
+        __Marshaller_compass_harvest_v1alpha1_BatchInsertResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Compass.Harvest.V1alpha1.BatchInsertRequest, global::Compass.Harvest.V1alpha1.BatchInsertResponse> __Method_BatchInsertPartial = new grpc::Method<global::Compass.Harvest.V1alpha1.BatchInsertRequest, global::Compass.Harvest.V1alpha1.BatchInsertResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "BatchInsertPartial",
         __Marshaller_compass_harvest_v1alpha1_BatchInsertRequest,
         __Marshaller_compass_harvest_v1alpha1_BatchInsertResponse);
 
@@ -207,73 +133,31 @@ namespace Compass.Harvest.V1alpha1 {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartial(global::Compassiot.Compass.V1.PositionEvent request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> PutVehicle(global::Compassiot.Compass.V1.Vehicle request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> InsertCompat(global::Compass.Harvest.V1alpha1.PositionEventCompat request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialLatLng(global::Compassiot.Compass.V1.PartialEventLatLng request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialSpeed(global::Compassiot.Compass.V1.PartialEventSpeed request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventAcceleration(global::Compassiot.Compass.V1.PartialEventAcceleration request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventGyro(global::Compassiot.Compass.V1.PartialEventGyro request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventOdo(global::Compassiot.Compass.V1.PartialEventOdo request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventFuelOrCharge(global::Compassiot.Compass.V1.PartialEventFuelOrCharge request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventMetadataKV(global::Compassiot.Compass.V1.PartialEventMetadataKV request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventMetadataJSON(global::Compassiot.Compass.V1.PartialEventMetadataJSON request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialVehicleMetadataKV(global::Compassiot.Compass.V1.PartialVehicleMetadataKV request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialVehicleMetadataJSON(global::Compassiot.Compass.V1.PartialVehicleMetadataJSON request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::Compass.Harvest.V1alpha1.BatchInsertResponse> BatchInsert(global::Compass.Harvest.V1alpha1.BatchInsertRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Compass.Harvest.V1alpha1.BatchInsertResponse> BatchInsertPartial(global::Compass.Harvest.V1alpha1.BatchInsertRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -334,6 +218,46 @@ namespace Compass.Harvest.V1alpha1 {
         return CallInvoker.AsyncUnaryCall(__Method_Insert, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartial(global::Compassiot.Compass.V1.PositionEvent request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return InsertPartial(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartial(global::Compassiot.Compass.V1.PositionEvent request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_InsertPartial, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialAsync(global::Compassiot.Compass.V1.PositionEvent request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return InsertPartialAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialAsync(global::Compassiot.Compass.V1.PositionEvent request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_InsertPartial, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty PutVehicle(global::Compassiot.Compass.V1.Vehicle request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return PutVehicle(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty PutVehicle(global::Compassiot.Compass.V1.Vehicle request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_PutVehicle, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> PutVehicleAsync(global::Compassiot.Compass.V1.Vehicle request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return PutVehicleAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> PutVehicleAsync(global::Compassiot.Compass.V1.Vehicle request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_PutVehicle, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertCompat(global::Compass.Harvest.V1alpha1.PositionEventCompat request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return InsertCompat(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -354,206 +278,6 @@ namespace Compass.Harvest.V1alpha1 {
         return CallInvoker.AsyncUnaryCall(__Method_InsertCompat, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialLatLng(global::Compassiot.Compass.V1.PartialEventLatLng request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialLatLng(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialLatLng(global::Compassiot.Compass.V1.PartialEventLatLng request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPartialLatLng, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialLatLngAsync(global::Compassiot.Compass.V1.PartialEventLatLng request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialLatLngAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialLatLngAsync(global::Compassiot.Compass.V1.PartialEventLatLng request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPartialLatLng, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialSpeed(global::Compassiot.Compass.V1.PartialEventSpeed request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialSpeed(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialSpeed(global::Compassiot.Compass.V1.PartialEventSpeed request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPartialSpeed, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialSpeedAsync(global::Compassiot.Compass.V1.PartialEventSpeed request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialSpeedAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialSpeedAsync(global::Compassiot.Compass.V1.PartialEventSpeed request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPartialSpeed, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialEventAcceleration(global::Compassiot.Compass.V1.PartialEventAcceleration request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialEventAcceleration(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialEventAcceleration(global::Compassiot.Compass.V1.PartialEventAcceleration request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPartialEventAcceleration, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventAccelerationAsync(global::Compassiot.Compass.V1.PartialEventAcceleration request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialEventAccelerationAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventAccelerationAsync(global::Compassiot.Compass.V1.PartialEventAcceleration request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPartialEventAcceleration, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialEventGyro(global::Compassiot.Compass.V1.PartialEventGyro request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialEventGyro(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialEventGyro(global::Compassiot.Compass.V1.PartialEventGyro request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPartialEventGyro, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventGyroAsync(global::Compassiot.Compass.V1.PartialEventGyro request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialEventGyroAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventGyroAsync(global::Compassiot.Compass.V1.PartialEventGyro request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPartialEventGyro, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialEventOdo(global::Compassiot.Compass.V1.PartialEventOdo request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialEventOdo(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialEventOdo(global::Compassiot.Compass.V1.PartialEventOdo request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPartialEventOdo, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventOdoAsync(global::Compassiot.Compass.V1.PartialEventOdo request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialEventOdoAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventOdoAsync(global::Compassiot.Compass.V1.PartialEventOdo request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPartialEventOdo, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialEventFuelOrCharge(global::Compassiot.Compass.V1.PartialEventFuelOrCharge request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialEventFuelOrCharge(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialEventFuelOrCharge(global::Compassiot.Compass.V1.PartialEventFuelOrCharge request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPartialEventFuelOrCharge, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventFuelOrChargeAsync(global::Compassiot.Compass.V1.PartialEventFuelOrCharge request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialEventFuelOrChargeAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventFuelOrChargeAsync(global::Compassiot.Compass.V1.PartialEventFuelOrCharge request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPartialEventFuelOrCharge, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialEventMetadataKV(global::Compassiot.Compass.V1.PartialEventMetadataKV request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialEventMetadataKV(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialEventMetadataKV(global::Compassiot.Compass.V1.PartialEventMetadataKV request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPartialEventMetadataKV, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventMetadataKVAsync(global::Compassiot.Compass.V1.PartialEventMetadataKV request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialEventMetadataKVAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventMetadataKVAsync(global::Compassiot.Compass.V1.PartialEventMetadataKV request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPartialEventMetadataKV, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialEventMetadataJSON(global::Compassiot.Compass.V1.PartialEventMetadataJSON request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialEventMetadataJSON(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialEventMetadataJSON(global::Compassiot.Compass.V1.PartialEventMetadataJSON request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPartialEventMetadataJSON, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventMetadataJSONAsync(global::Compassiot.Compass.V1.PartialEventMetadataJSON request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialEventMetadataJSONAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialEventMetadataJSONAsync(global::Compassiot.Compass.V1.PartialEventMetadataJSON request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPartialEventMetadataJSON, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialVehicleMetadataKV(global::Compassiot.Compass.V1.PartialVehicleMetadataKV request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialVehicleMetadataKV(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialVehicleMetadataKV(global::Compassiot.Compass.V1.PartialVehicleMetadataKV request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPartialVehicleMetadataKV, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialVehicleMetadataKVAsync(global::Compassiot.Compass.V1.PartialVehicleMetadataKV request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialVehicleMetadataKVAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialVehicleMetadataKVAsync(global::Compassiot.Compass.V1.PartialVehicleMetadataKV request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPartialVehicleMetadataKV, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialVehicleMetadataJSON(global::Compassiot.Compass.V1.PartialVehicleMetadataJSON request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialVehicleMetadataJSON(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty InsertPartialVehicleMetadataJSON(global::Compassiot.Compass.V1.PartialVehicleMetadataJSON request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPartialVehicleMetadataJSON, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialVehicleMetadataJSONAsync(global::Compassiot.Compass.V1.PartialVehicleMetadataJSON request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPartialVehicleMetadataJSONAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> InsertPartialVehicleMetadataJSONAsync(global::Compassiot.Compass.V1.PartialVehicleMetadataJSON request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPartialVehicleMetadataJSON, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::Compass.Harvest.V1alpha1.BatchInsertResponse BatchInsert(global::Compass.Harvest.V1alpha1.BatchInsertRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return BatchInsert(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -572,6 +296,26 @@ namespace Compass.Harvest.V1alpha1 {
       public virtual grpc::AsyncUnaryCall<global::Compass.Harvest.V1alpha1.BatchInsertResponse> BatchInsertAsync(global::Compass.Harvest.V1alpha1.BatchInsertRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_BatchInsert, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Compass.Harvest.V1alpha1.BatchInsertResponse BatchInsertPartial(global::Compass.Harvest.V1alpha1.BatchInsertRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return BatchInsertPartial(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Compass.Harvest.V1alpha1.BatchInsertResponse BatchInsertPartial(global::Compass.Harvest.V1alpha1.BatchInsertRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_BatchInsertPartial, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Compass.Harvest.V1alpha1.BatchInsertResponse> BatchInsertPartialAsync(global::Compass.Harvest.V1alpha1.BatchInsertRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return BatchInsertPartialAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Compass.Harvest.V1alpha1.BatchInsertResponse> BatchInsertPartialAsync(global::Compass.Harvest.V1alpha1.BatchInsertRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_BatchInsertPartial, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::Compass.Harvest.V1alpha1.BatchInsertResponse BatchInsertCompat(global::Compass.Harvest.V1alpha1.BatchInsertCompatRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -608,18 +352,11 @@ namespace Compass.Harvest.V1alpha1 {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_Insert, serviceImpl.Insert)
+          .AddMethod(__Method_InsertPartial, serviceImpl.InsertPartial)
+          .AddMethod(__Method_PutVehicle, serviceImpl.PutVehicle)
           .AddMethod(__Method_InsertCompat, serviceImpl.InsertCompat)
-          .AddMethod(__Method_InsertPartialLatLng, serviceImpl.InsertPartialLatLng)
-          .AddMethod(__Method_InsertPartialSpeed, serviceImpl.InsertPartialSpeed)
-          .AddMethod(__Method_InsertPartialEventAcceleration, serviceImpl.InsertPartialEventAcceleration)
-          .AddMethod(__Method_InsertPartialEventGyro, serviceImpl.InsertPartialEventGyro)
-          .AddMethod(__Method_InsertPartialEventOdo, serviceImpl.InsertPartialEventOdo)
-          .AddMethod(__Method_InsertPartialEventFuelOrCharge, serviceImpl.InsertPartialEventFuelOrCharge)
-          .AddMethod(__Method_InsertPartialEventMetadataKV, serviceImpl.InsertPartialEventMetadataKV)
-          .AddMethod(__Method_InsertPartialEventMetadataJSON, serviceImpl.InsertPartialEventMetadataJSON)
-          .AddMethod(__Method_InsertPartialVehicleMetadataKV, serviceImpl.InsertPartialVehicleMetadataKV)
-          .AddMethod(__Method_InsertPartialVehicleMetadataJSON, serviceImpl.InsertPartialVehicleMetadataJSON)
           .AddMethod(__Method_BatchInsert, serviceImpl.BatchInsert)
+          .AddMethod(__Method_BatchInsertPartial, serviceImpl.BatchInsertPartial)
           .AddMethod(__Method_BatchInsertCompat, serviceImpl.BatchInsertCompat).Build();
     }
 
@@ -631,18 +368,11 @@ namespace Compass.Harvest.V1alpha1 {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, IngestServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_Insert, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.PositionEvent, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.Insert));
+      serviceBinder.AddMethod(__Method_InsertPartial, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.PositionEvent, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.InsertPartial));
+      serviceBinder.AddMethod(__Method_PutVehicle, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.Vehicle, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.PutVehicle));
       serviceBinder.AddMethod(__Method_InsertCompat, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compass.Harvest.V1alpha1.PositionEventCompat, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.InsertCompat));
-      serviceBinder.AddMethod(__Method_InsertPartialLatLng, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.PartialEventLatLng, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.InsertPartialLatLng));
-      serviceBinder.AddMethod(__Method_InsertPartialSpeed, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.PartialEventSpeed, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.InsertPartialSpeed));
-      serviceBinder.AddMethod(__Method_InsertPartialEventAcceleration, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.PartialEventAcceleration, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.InsertPartialEventAcceleration));
-      serviceBinder.AddMethod(__Method_InsertPartialEventGyro, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.PartialEventGyro, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.InsertPartialEventGyro));
-      serviceBinder.AddMethod(__Method_InsertPartialEventOdo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.PartialEventOdo, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.InsertPartialEventOdo));
-      serviceBinder.AddMethod(__Method_InsertPartialEventFuelOrCharge, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.PartialEventFuelOrCharge, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.InsertPartialEventFuelOrCharge));
-      serviceBinder.AddMethod(__Method_InsertPartialEventMetadataKV, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.PartialEventMetadataKV, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.InsertPartialEventMetadataKV));
-      serviceBinder.AddMethod(__Method_InsertPartialEventMetadataJSON, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.PartialEventMetadataJSON, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.InsertPartialEventMetadataJSON));
-      serviceBinder.AddMethod(__Method_InsertPartialVehicleMetadataKV, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.PartialVehicleMetadataKV, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.InsertPartialVehicleMetadataKV));
-      serviceBinder.AddMethod(__Method_InsertPartialVehicleMetadataJSON, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compassiot.Compass.V1.PartialVehicleMetadataJSON, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.InsertPartialVehicleMetadataJSON));
       serviceBinder.AddMethod(__Method_BatchInsert, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compass.Harvest.V1alpha1.BatchInsertRequest, global::Compass.Harvest.V1alpha1.BatchInsertResponse>(serviceImpl.BatchInsert));
+      serviceBinder.AddMethod(__Method_BatchInsertPartial, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compass.Harvest.V1alpha1.BatchInsertRequest, global::Compass.Harvest.V1alpha1.BatchInsertResponse>(serviceImpl.BatchInsertPartial));
       serviceBinder.AddMethod(__Method_BatchInsertCompat, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Compass.Harvest.V1alpha1.BatchInsertCompatRequest, global::Compass.Harvest.V1alpha1.BatchInsertResponse>(serviceImpl.BatchInsertCompat));
     }
 
